@@ -426,7 +426,7 @@ Apply the same .sk-box / .sk-mono / .sk-rule-thin classes. No new styles.
 ---
 
 ## FINAL CHECKLIST — verify before finishing (grep the output directory for each)
-  [ ] grep -r "{{" issues/{NNN}/ — must return zero results
+  [ ] `grep -r "{{" issues/{NNN}/` — must return zero results
   [ ] All 6–7 story pages exist with correct FILE_REF values
   [ ] 02.1–02.4 on homepage match FILE_REF on their story pages
   [ ] PREV/NEXT navigation is correct and circular (last story → back to homepage)
