@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Daily Digest — Story · Brief Template</title>
+<link rel="stylesheet" href="daily-digest.css" />
+</head>
+<body>
+<div class="dd-page">
+  <div class="sk-annot" style="position:absolute;top:4px;right:14px">↘ STORY · BRIEF · compact summary</div>
+
+  <!-- breadcrumb -->
+  <nav class="row" style="justify-content:space-between;align-items:baseline;margin-bottom:8px">
+    <a href="../index.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px">← DIGEST · № {{ISSUE_NUMBER}}</a>
+    <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">BRIEF · {{FILE_REF}} · {{TOPIC}}</span>
+    <a href="../../../archive.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--teal)">ARCHIVE ↗</a>
+  </nav>
+
+  <!-- ── OPENER (dark) ─── -->
+  <section class="sk-box" style="background:var(--ink);color:var(--card);padding:20px 22px">
+    <div class="row" style="justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px">
+      <span class="sk-mono" style="font-size:10px;letter-spacing:3px;color:var(--hi)">BRIEF / {{FILE_REF}}</span>
+      <span class="sk-mono" style="font-size:10px">{{DATE_LONG}}</span>
+      <a href="{{SOURCE_HREF}}" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--sage)">SOURCE · {{SOURCE_LABEL}} ↗</a>
+    </div>
+    <!-- stamp tags -->
+    <div class="row gap-2" style="margin-top:12px;flex-wrap:wrap">
+      <span class="sk-stamp sk-stamp--hi">{{TAG_1}}</span>
+      <span class="sk-stamp" style="color:var(--card);border-color:var(--card)">{{TAG_2}}</span>
+    </div>
+    <h1 class="sk-dossier-hl" style="font-size:46px;font-weight:700;line-height:1.08;letter-spacing:-0.5px;text-wrap:balance;margin:14px 0 0">
+      {{HEADLINE}}
+    </h1>
+    <p class="sk-script" style="font-size:22px;color:var(--hi);margin:12px 0 0">{{DECK}}</p>
+    <div class="row gap-3" style="margin-top:14px">
+      <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">BY · {{AUTHOR}}</span>
+      <span class="sk-mono" style="font-size:10px;color:var(--hi)">· {{READ_TIME}}</span>
+    </div>
+  </section>
+
+  <!-- ── THE ESSENTIALS (two columns) ─── -->
+  <section class="sk-grid-brief" style="display:grid;grid-template-columns:1fr 300px;gap:14px;margin-top:12px">
+
+    <div class="col gap-3">
+      <!-- TL;DR -->
+      <div class="sk-box" style="background:var(--hi);padding:16px">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0">★ WHAT HAPPENED</p>
+        <hr class="sk-rule-thin" style="margin:8px 0 10px" />
+        <p style="font-size:19px;line-height:1.65;margin:0">{{SUMMARY_PARAGRAPH}}</p>
+      </div>
+
+      <!-- WHY IT MATTERS -->
+      <div class="sk-box" style="background:var(--card);padding:16px">
+        <div class="row gap-3" style="align-items:baseline;margin-bottom:10px">
+          <span style="font-size:28px;font-weight:700;color:var(--accent);line-height:1">¶ 01</span>
+          <span class="sk-mono" style="font-size:11px;letter-spacing:2px">WHY · IT · MATTERS</span>
+        </div>
+        <p style="font-size:18px;line-height:1.65;margin:0">{{WHY_IT_MATTERS}}</p>
+      </div>
+
+      <!-- WHAT TO WATCH (optional — omit if not needed) -->
+      <div class="sk-box" style="background:var(--card);padding:16px">
+        <div class="row gap-3" style="align-items:baseline;margin-bottom:10px">
+          <span style="font-size:28px;font-weight:700;color:var(--accent);line-height:1">¶ 02</span>
+          <span class="sk-mono" style="font-size:11px;letter-spacing:2px">WHAT · TO · WATCH</span>
+        </div>
+        <p style="font-size:18px;line-height:1.65;margin:0">{{WHAT_TO_WATCH}}</p>
+      </div>
+    </div>
+
+    <!-- sidebar -->
+    <aside class="col gap-3">
+      <!-- key numbers (if available — omit box if no data) -->
+      <div class="sk-box" style="background:var(--card);padding:14px">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0">BY · THE · NUMBERS</p>
+        <hr class="sk-rule-thin" style="margin:8px 0 12px" />
+        <div class="col gap-3">
+          <div>
+            <div style="font-size:48px;font-weight:700;line-height:0.95;color:var(--accent)">{{BRIEF_STAT_1_VALUE}}</div>
+            <p class="sk-mono" style="font-size:10px;margin:4px 0 0;letter-spacing:1px">{{BRIEF_STAT_1_LABEL}}</p>
+          </div>
+          <hr class="sk-rule-thin" />
+          <div>
+            <div style="font-size:48px;font-weight:700;line-height:0.95">{{BRIEF_STAT_2_VALUE}}</div>
+            <p class="sk-mono" style="font-size:10px;margin:4px 0 0;letter-spacing:1px">{{BRIEF_STAT_2_LABEL}}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- tags -->
+      <div class="sk-box-soft" style="padding:12px">
+        <p class="sk-mono" style="font-size:10px;letter-spacing:2px;margin:0 0 10px">FILED · UNDER</p>
+        <div class="row gap-2" style="flex-wrap:wrap">
+          <span class="sk-stamp sk-stamp--red">{{TAG_1}}</span>
+          <span class="sk-stamp sk-stamp--navy">{{TAG_2}}</span>
+          <span class="sk-stamp sk-stamp--teal">{{TAG_3}}</span>
+        </div>
+      </div>
+
+      <!-- source -->
+      <div class="sk-box-soft" style="padding:12px;background:var(--card)">
+        <p class="sk-mono" style="font-size:10px;letter-spacing:2px;margin:0 0 8px">SOURCE</p>
+        <a href="{{SOURCE_HREF}}" class="sk-mono" style="font-size:11px;letter-spacing:1px;color:var(--teal);text-decoration:underline;text-underline-offset:2px">{{SOURCE_LABEL}} ↗</a>
+        <!-- If Hacker News, add HN discussion link: -->
+        <!-- <div style="margin-top:8px"> -->
+        <!-- <a href="{{HN_HREF}}" class="sk-mono" style="font-size:11px;color:var(--teal);text-decoration:underline;text-underline-offset:2px">HN DISCUSSION · {{HN_POINTS}} PTS ↗</a> -->
+        <!-- </div> -->
+        <p class="sk-mono" style="font-size:9px;color:var(--ink-2);margin:6px 0 0">{{SOURCE_META}}</p>
+      </div>
+    </aside>
+  </section>
+
+  <!-- prev / next -->
+  <footer class="sk-box-soft" style="padding:14px 18px;margin-top:12px">
+    <div class="row" style="justify-content:space-between;align-items:center">
+      <a href="{{PREV_HREF}}" class="col">
+        <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--ink-2)">← PREV</span>
+        <span style="font-size:14px;font-weight:700">{{PREV_REF}}</span>
+      </a>
+      <span class="sk-mono" style="font-size:10px;letter-spacing:2px">· BRIEF · {{FILE_REF}} ·</span>
+      <a href="{{NEXT_HREF}}" class="col" style="align-items:flex-end">
+        <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--accent)">NEXT →</span>
+        <span style="font-size:14px;font-weight:700">{{NEXT_REF}}</span>
+      </a>
+    </div>
+  </footer>
+</div>
+</body>
+</html>

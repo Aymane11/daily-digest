@@ -14,7 +14,7 @@
   <nav class="row" style="justify-content:space-between;align-items:baseline;margin-bottom:8px">
     <a href="../index.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px">← DIGEST · № {{ISSUE_NUMBER}}</a>
     <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">STORY · {{FILE_REF}} · {{TOPIC}}</span>
-    <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">5 MODULES · {{READ_TIME}}</span>
+    <a href="../../../archive.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--teal)">ARCHIVE ↗</a>
   </nav>
 
   <!-- progress strip -->
@@ -41,24 +41,26 @@
     </div>
   </div>
 
-  <!-- ── 01 OPENER (dark) ─── -->
+  <!-- ── 01 OPENER (dark) — NO image placeholder ─── -->
   <section class="sk-box" style="background:var(--ink);color:var(--card);padding:20px 22px">
-    <div class="row" style="justify-content:space-between;align-items:baseline">
+    <div class="row" style="justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px">
       <span class="sk-mono" style="font-size:10px;letter-spacing:3px;color:var(--hi)">01 / OPENER</span>
       <span class="sk-mono" style="font-size:10px">{{DATE_LONG}}</span>
+      <!-- source link — always visible in header -->
+      <a href="{{SOURCE_HREF}}" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--sage)">SOURCE · {{SOURCE_LABEL}} ↗</a>
     </div>
-    <div class="row gap-4" style="margin-top:14px">
-      <div class="col grow" style="flex:1.4">
-        <h1 style="font-size:44px;font-weight:700;line-height:1.04;letter-spacing:-0.5px;text-wrap:balance;margin:0">
-          {{HEADLINE}}
-        </h1>
-        <p class="sk-script" style="font-size:22px;color:var(--hi);margin:12px 0 0">{{DECK}}</p>
-        <div class="row gap-3" style="margin-top:14px">
-          <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">BY · {{AUTHOR}}</span>
-          <span class="sk-mono" style="font-size:10px;color:var(--hi)">·  {{READ_TIME}}  ·  {{TOPIC}}</span>
-        </div>
-      </div>
-      <div class="sk-img" data-label="HERO" style="width:280px;flex-shrink:0;height:200px;border-color:var(--card)"></div>
+    <!-- stamp tags -->
+    <div class="row gap-2" style="margin-top:12px;flex-wrap:wrap">
+      <span class="sk-stamp sk-stamp--hi">{{TAG_1}}</span>
+      <span class="sk-stamp" style="color:var(--card);border-color:var(--card)">{{TAG_2}}</span>
+    </div>
+    <h1 class="sk-dossier-hl" style="font-size:48px;font-weight:700;line-height:1.04;letter-spacing:-0.5px;text-wrap:balance;margin:14px 0 0">
+      {{HEADLINE}}
+    </h1>
+    <p class="sk-script" style="font-size:22px;color:var(--hi);margin:12px 0 0">{{DECK}}</p>
+    <div class="row gap-3" style="margin-top:14px;flex-wrap:wrap">
+      <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">BY · {{AUTHOR}}</span>
+      <span class="sk-mono" style="font-size:10px;color:var(--hi)">·  {{READ_TIME}}  ·  {{TOPIC}}</span>
     </div>
   </section>
 
@@ -71,26 +73,26 @@
       </div>
       <span class="right">4 STATS</span>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0">
+    <div class="sk-grid-modules" style="display:grid;grid-template-columns:repeat(4,1fr);gap:0">
       <div class="col" style="padding:4px 16px">
         <div style="font-size:76px;font-weight:700;line-height:0.95;letter-spacing:-1px">{{STAT_1_VALUE}}</div>
         <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;margin:6px 0 0">{{STAT_1_LABEL}}</p>
-        <p style="font-size:12px;line-height:1.4;margin:6px 0 0">{{STAT_1_NOTE}}</p>
+        <p style="font-size:13px;line-height:1.45;margin:6px 0 0">{{STAT_1_NOTE}}</p>
       </div>
       <div class="col" style="padding:4px 16px;border-left:1.5px solid var(--ink)">
         <div style="font-size:76px;font-weight:700;line-height:0.95;letter-spacing:-1px">{{STAT_2_VALUE}}</div>
         <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;margin:6px 0 0">{{STAT_2_LABEL}}</p>
-        <p style="font-size:12px;line-height:1.4;margin:6px 0 0">{{STAT_2_NOTE}}</p>
+        <p style="font-size:13px;line-height:1.45;margin:6px 0 0">{{STAT_2_NOTE}}</p>
       </div>
       <div class="col" style="padding:4px 16px;border-left:1.5px solid var(--ink)">
         <div style="font-size:76px;font-weight:700;line-height:0.95;letter-spacing:-1px">{{STAT_3_VALUE}}</div>
         <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;margin:6px 0 0">{{STAT_3_LABEL}}</p>
-        <p style="font-size:12px;line-height:1.4;margin:6px 0 0">{{STAT_3_NOTE}}</p>
+        <p style="font-size:13px;line-height:1.45;margin:6px 0 0">{{STAT_3_NOTE}}</p>
       </div>
       <div class="col" style="padding:4px 16px;border-left:1.5px solid var(--ink)">
         <div style="font-size:76px;font-weight:700;line-height:0.95;letter-spacing:-1px">{{STAT_4_VALUE}}</div>
         <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;margin:6px 0 0">{{STAT_4_LABEL}}</p>
-        <p style="font-size:12px;line-height:1.4;margin:6px 0 0">{{STAT_4_NOTE}}</p>
+        <p style="font-size:13px;line-height:1.45;margin:6px 0 0">{{STAT_4_NOTE}}</p>
       </div>
     </div>
   </section>
@@ -144,41 +146,32 @@
       </div>
       <span class="right">3 PERSPECTIVES</span>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
+    <div class="sk-grid-modules" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
       <blockquote class="sk-box" style="padding:14px;background:var(--hi);margin:0">
-        <span style="font-size:36px;line-height:0.6;font-family:'Caveat',cursive;color:var(--accent);height:18px;display:block">"</span>
-        <p style="font-size:16px;font-weight:700;line-height:1.25;margin:8px 0 0">{{VOICE_1_QUOTE}}</p>
+        <span style="font-size:36px;line-height:0.6;font-family:'Playfair Display',serif;color:var(--accent);height:18px;display:block">"</span>
+        <p style="font-size:16px;font-weight:700;line-height:1.3;margin:8px 0 0">{{VOICE_1_QUOTE}}</p>
         <hr class="sk-rule-thin" style="margin:14px 0 8px" />
-        <div class="row gap-2" style="align-items:center">
-          <span class="sk-box-soft" style="width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-family:'Special Elite',monospace;font-size:8px">av</span>
-          <div class="col">
-            <span class="sk-mono" style="font-size:10px;font-weight:700;letter-spacing:1px">{{VOICE_1_TAG}}</span>
-            <span class="sk-mono" style="font-size:9px;color:var(--ink-2)">{{VOICE_1_NAME}}</span>
-          </div>
+        <div class="col">
+          <span class="sk-mono" style="font-size:10px;font-weight:700;letter-spacing:1px">{{VOICE_1_TAG}}</span>
+          <span class="sk-mono" style="font-size:9px;color:var(--ink-2)">{{VOICE_1_NAME}}</span>
         </div>
       </blockquote>
-      <blockquote class="sk-box" style="padding:14px;background:#fff;margin:0">
-        <span style="font-size:36px;line-height:0.6;font-family:'Caveat',cursive;color:var(--accent);height:18px;display:block">"</span>
-        <p style="font-size:16px;font-weight:700;line-height:1.25;margin:8px 0 0">{{VOICE_2_QUOTE}}</p>
+      <blockquote class="sk-box" style="padding:14px;background:var(--card);margin:0;border-left:3px solid var(--teal)">
+        <span style="font-size:36px;line-height:0.6;font-family:'Playfair Display',serif;color:var(--teal);height:18px;display:block">"</span>
+        <p style="font-size:16px;font-weight:700;line-height:1.3;margin:8px 0 0">{{VOICE_2_QUOTE}}</p>
         <hr class="sk-rule-thin" style="margin:14px 0 8px" />
-        <div class="row gap-2" style="align-items:center">
-          <span class="sk-box-soft" style="width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-family:'Special Elite',monospace;font-size:8px">av</span>
-          <div class="col">
-            <span class="sk-mono" style="font-size:10px;font-weight:700;letter-spacing:1px">{{VOICE_2_TAG}}</span>
-            <span class="sk-mono" style="font-size:9px;color:var(--ink-2)">{{VOICE_2_NAME}}</span>
-          </div>
+        <div class="col">
+          <span class="sk-mono" style="font-size:10px;font-weight:700;letter-spacing:1px">{{VOICE_2_TAG}}</span>
+          <span class="sk-mono" style="font-size:9px;color:var(--ink-2)">{{VOICE_2_NAME}}</span>
         </div>
       </blockquote>
-      <blockquote class="sk-box" style="padding:14px;background:#fff;margin:0">
-        <span style="font-size:36px;line-height:0.6;font-family:'Caveat',cursive;color:var(--accent);height:18px;display:block">"</span>
-        <p style="font-size:16px;font-weight:700;line-height:1.25;margin:8px 0 0">{{VOICE_3_QUOTE}}</p>
+      <blockquote class="sk-box" style="padding:14px;background:var(--card);margin:0;border-left:3px solid var(--ochre)">
+        <span style="font-size:36px;line-height:0.6;font-family:'Playfair Display',serif;color:var(--ochre);height:18px;display:block">"</span>
+        <p style="font-size:16px;font-weight:700;line-height:1.3;margin:8px 0 0">{{VOICE_3_QUOTE}}</p>
         <hr class="sk-rule-thin" style="margin:14px 0 8px" />
-        <div class="row gap-2" style="align-items:center">
-          <span class="sk-box-soft" style="width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-family:'Special Elite',monospace;font-size:8px">av</span>
-          <div class="col">
-            <span class="sk-mono" style="font-size:10px;font-weight:700;letter-spacing:1px">{{VOICE_3_TAG}}</span>
-            <span class="sk-mono" style="font-size:9px;color:var(--ink-2)">{{VOICE_3_NAME}}</span>
-          </div>
+        <div class="col">
+          <span class="sk-mono" style="font-size:10px;font-weight:700;letter-spacing:1px">{{VOICE_3_TAG}}</span>
+          <span class="sk-mono" style="font-size:9px;color:var(--ink-2)">{{VOICE_3_NAME}}</span>
         </div>
       </blockquote>
     </div>
@@ -199,21 +192,21 @@
           <span class="sk-mono" style="font-size:22px;font-weight:700;color:var(--accent);line-height:1;width:30px">01</span>
           <div class="col grow gap-1">
             <p style="font-size:18px;font-weight:700;line-height:1.25;margin:0">{{TAKEAWAY_1_HEAD}}</p>
-            <p style="font-size:14px;line-height:1.5;margin:0">{{TAKEAWAY_1_BODY}}</p>
+            <p style="font-size:15px;line-height:1.55;margin:0">{{TAKEAWAY_1_BODY}}</p>
           </div>
         </div>
-        <div class="row gap-3" style="align-items:flex-start;border-left:4px solid var(--accent);padding-left:12px">
-          <span class="sk-mono" style="font-size:22px;font-weight:700;color:var(--accent);line-height:1;width:30px">02</span>
+        <div class="row gap-3" style="align-items:flex-start;border-left:4px solid var(--teal);padding-left:12px">
+          <span class="sk-mono" style="font-size:22px;font-weight:700;color:var(--teal);line-height:1;width:30px">02</span>
           <div class="col grow gap-1">
             <p style="font-size:18px;font-weight:700;line-height:1.25;margin:0">{{TAKEAWAY_2_HEAD}}</p>
-            <p style="font-size:14px;line-height:1.5;margin:0">{{TAKEAWAY_2_BODY}}</p>
+            <p style="font-size:15px;line-height:1.55;margin:0">{{TAKEAWAY_2_BODY}}</p>
           </div>
         </div>
-        <div class="row gap-3" style="align-items:flex-start;border-left:4px solid var(--accent);padding-left:12px">
-          <span class="sk-mono" style="font-size:22px;font-weight:700;color:var(--accent);line-height:1;width:30px">03</span>
+        <div class="row gap-3" style="align-items:flex-start;border-left:4px solid var(--ochre);padding-left:12px">
+          <span class="sk-mono" style="font-size:22px;font-weight:700;color:var(--ochre);line-height:1;width:30px">03</span>
           <div class="col grow gap-1">
             <p style="font-size:18px;font-weight:700;line-height:1.25;margin:0">{{TAKEAWAY_3_HEAD}}</p>
-            <p style="font-size:14px;line-height:1.5;margin:0">{{TAKEAWAY_3_BODY}}</p>
+            <p style="font-size:15px;line-height:1.55;margin:0">{{TAKEAWAY_3_BODY}}</p>
           </div>
         </div>
       </div>

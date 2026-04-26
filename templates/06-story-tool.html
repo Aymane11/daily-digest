@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Daily Digest — Story · Tool Template</title>
+<link rel="stylesheet" href="daily-digest.css" />
+</head>
+<body>
+<div class="dd-page">
+  <div class="sk-annot" style="position:absolute;top:4px;right:14px">↘ STORY · TOOL · hands-on summary</div>
+
+  <!-- breadcrumb -->
+  <nav class="row" style="justify-content:space-between;align-items:baseline;margin-bottom:8px">
+    <a href="../index.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px">← DIGEST · № {{ISSUE_NUMBER}}</a>
+    <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">TOOL · {{FILE_REF}} · {{TOPIC}}</span>
+    <a href="../../../archive.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--teal)">ARCHIVE ↗</a>
+  </nav>
+
+  <!-- ── OPENER (inverted black) ─── -->
+  <section class="sk-box" style="background:var(--ink);color:var(--card);padding:20px 22px">
+    <div class="row" style="justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px">
+      <span class="sk-mono" style="font-size:10px;letter-spacing:3px;color:var(--hi)">TOOL / {{FILE_REF}}</span>
+      <div class="row gap-2">
+        <span class="sk-stamp sk-stamp--hi">{{TOOL_CATEGORY}}</span>
+      </div>
+      <a href="{{TOOL_URL}}" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--sage)">VISIT TOOL ↗</a>
+    </div>
+    <h1 class="sk-dossier-hl" style="font-size:48px;font-weight:700;line-height:1.04;letter-spacing:-0.5px;text-wrap:balance;margin:14px 0 0">
+      {{TOOL_NAME}}
+    </h1>
+    <p style="font-size:20px;font-weight:700;line-height:1.3;color:var(--card);margin:10px 0 0">{{TOOL_TAGLINE}}</p>
+    <p class="sk-script" style="font-size:20px;color:var(--hi);margin:8px 0 0">{{DECK}}</p>
+    <div class="row gap-3" style="margin-top:14px">
+      <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">{{DATE_LONG}}</span>
+    </div>
+  </section>
+
+  <!-- ── MAIN 2-col layout ─── -->
+  <main class="sk-grid-tool" style="display:grid;grid-template-columns:1fr 320px;gap:14px;margin-top:12px">
+
+    <div class="col gap-3">
+
+      <!-- WHAT IT IS -->
+      <div class="sk-box" style="background:var(--hi);padding:18px">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0">★ WHAT IT IS</p>
+        <hr class="sk-rule-thin" style="margin:8px 0 10px" />
+        <p style="font-size:19px;line-height:1.65;margin:0">{{WHAT_IT_IS}}</p>
+      </div>
+
+      <!-- WHY IT MATTERS -->
+      <div class="sk-box" style="background:var(--card);padding:16px">
+        <div class="row gap-3" style="align-items:baseline;margin-bottom:10px">
+          <span style="font-size:28px;font-weight:700;color:var(--accent);line-height:1">¶ 01</span>
+          <span class="sk-mono" style="font-size:11px;letter-spacing:2px">WHY · IT · MATTERS</span>
+        </div>
+        <p style="font-size:18px;line-height:1.65;margin:0">{{WHY_IT_MATTERS}}</p>
+      </div>
+
+      <!-- HOW TO TRY IT — steps -->
+      <div class="sk-box" style="background:var(--card);padding:16px">
+        <div class="row gap-3" style="align-items:baseline;margin-bottom:12px">
+          <span style="font-size:28px;font-weight:700;color:var(--teal);line-height:1">¶ 02</span>
+          <span class="sk-mono" style="font-size:11px;letter-spacing:2px;color:var(--teal)">HOW · TO · TRY · IT</span>
+          <span class="sk-mono" style="font-size:9px;color:var(--ink-2);margin-left:auto">~{{TRY_TIME}} MIN</span>
+        </div>
+        <div class="col gap-3">
+          <!-- repeat step rows as needed -->
+          <div class="row gap-3" style="align-items:flex-start">
+            <span class="sk-mono" style="font-size:14px;font-weight:700;color:var(--teal);line-height:1;width:28px;flex-shrink:0">01</span>
+            <p style="font-size:17px;line-height:1.6;margin:0">{{STEP_1}}</p>
+          </div>
+          <div class="row gap-3" style="align-items:flex-start">
+            <span class="sk-mono" style="font-size:14px;font-weight:700;color:var(--teal);line-height:1;width:28px;flex-shrink:0">02</span>
+            <p style="font-size:17px;line-height:1.6;margin:0">{{STEP_2}}</p>
+          </div>
+          <div class="row gap-3" style="align-items:flex-start">
+            <span class="sk-mono" style="font-size:14px;font-weight:700;color:var(--teal);line-height:1;width:28px;flex-shrink:0">03</span>
+            <p style="font-size:17px;line-height:1.6;margin:0">{{STEP_3}}</p>
+          </div>
+          <!-- add more steps with 04, 05 etc as needed -->
+        </div>
+      </div>
+
+      <!-- WHAT TO OBSERVE -->
+      <div class="sk-box" style="background:var(--card);padding:16px">
+        <div class="row gap-3" style="align-items:baseline;margin-bottom:10px">
+          <span style="font-size:28px;font-weight:700;color:var(--accent);line-height:1">¶ 03</span>
+          <span class="sk-mono" style="font-size:11px;letter-spacing:2px">WHAT · TO · OBSERVE</span>
+        </div>
+        <p style="font-size:18px;line-height:1.65;margin:0">{{WHAT_TO_OBSERVE}}</p>
+      </div>
+    </div>
+
+    <!-- sidebar -->
+    <aside class="col gap-3">
+
+      <!-- quick facts -->
+      <div class="sk-box" style="background:var(--card);padding:14px">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0">QUICK · FACTS</p>
+        <hr class="sk-rule-thin" style="margin:8px 0 12px" />
+        <div class="col gap-2">
+          <div class="row gap-2" style="align-items:baseline">
+            <span class="sk-mono" style="font-size:9px;color:var(--ink-2);min-width:60px">MADE BY</span>
+            <span style="font-size:14px;font-weight:700">{{TOOL_AUTHOR}}</span>
+          </div>
+          <div class="row gap-2" style="align-items:baseline">
+            <span class="sk-mono" style="font-size:9px;color:var(--ink-2);min-width:60px">LICENSE</span>
+            <span style="font-size:14px;font-weight:700">{{TOOL_LICENSE}}</span>
+          </div>
+          <div class="row gap-2" style="align-items:baseline">
+            <span class="sk-mono" style="font-size:9px;color:var(--ink-2);min-width:60px">NEEDS</span>
+            <span style="font-size:13px;line-height:1.4">{{TOOL_PREREQS}}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- tags -->
+      <div class="sk-box-soft" style="padding:12px">
+        <p class="sk-mono" style="font-size:10px;letter-spacing:2px;margin:0 0 10px">FILED · UNDER</p>
+        <div class="row gap-2" style="flex-wrap:wrap">
+          <span class="sk-stamp sk-stamp--teal">{{TAG_1}}</span>
+          <span class="sk-stamp sk-stamp--navy">{{TAG_2}}</span>
+          <span class="sk-stamp sk-stamp--ochre">{{TAG_3}}</span>
+        </div>
+      </div>
+
+      <!-- source / link -->
+      <div class="sk-box" style="background:var(--ink);color:var(--card);padding:14px">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;color:var(--hi);margin:0">GET · THE · TOOL</p>
+        <div style="border-top:1px solid var(--card);margin:8px 0 10px"></div>
+        <a href="{{TOOL_URL}}" class="sk-mono" style="font-size:12px;color:var(--sage);text-decoration:underline;text-underline-offset:2px;display:block">{{TOOL_URL_LABEL}} ↗</a>
+        <p class="sk-mono" style="font-size:9px;color:var(--card);opacity:0.7;margin:6px 0 0">{{TOOL_RELEASE_DATE}}</p>
+        <!-- docs link if available -->
+        <a href="{{TOOL_DOCS_URL}}" class="sk-mono" style="font-size:11px;color:var(--hi);display:block;margin-top:10px">DOCS ↗</a>
+      </div>
+
+      <!-- the one question to answer -->
+      <div class="sk-box" style="background:var(--hi);padding:14px">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0">THE · QUESTION</p>
+        <hr class="sk-rule-thin" style="margin:8px 0 10px" />
+        <p style="font-size:15px;font-weight:700;line-height:1.45;margin:0">{{THE_QUESTION}}</p>
+      </div>
+    </aside>
+  </main>
+
+  <!-- prev / next -->
+  <footer class="sk-box-soft" style="padding:14px 18px;margin-top:12px">
+    <div class="row" style="justify-content:space-between;align-items:center">
+      <a href="{{PREV_HREF}}" class="col">
+        <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--ink-2)">← PREV</span>
+        <span style="font-size:14px;font-weight:700">{{PREV_REF}}</span>
+      </a>
+      <span class="sk-mono" style="font-size:10px;letter-spacing:2px">· TOOL · {{FILE_REF}} ·</span>
+      <a href="{{NEXT_HREF}}" class="col" style="align-items:flex-end">
+        <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--accent)">NEXT →</span>
+        <span style="font-size:14px;font-weight:700">{{NEXT_REF}}</span>
+      </a>
+    </div>
+  </footer>
+</div>
+</body>
+</html>

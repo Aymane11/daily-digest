@@ -14,6 +14,7 @@
   <nav class="row" style="justify-content:space-between;align-items:baseline;margin-bottom:10px">
     <a href="../index.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px">← BACK / DAILY · DIGEST · № {{ISSUE_NUMBER}}</a>
     <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">FILE · {{FILE_REF}} · {{TOPIC}}</span>
+    <a href="../../../archive.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--teal)">ARCHIVE ↗</a>
   </nav>
 
   <!-- HEADER bar -->
@@ -22,19 +23,21 @@
       <span class="sk-mono" style="font-size:11px;letter-spacing:3px;color:var(--hi)">FEATURE / {{FILE_REF}}</span>
       <span class="sk-mono" style="font-size:10px;letter-spacing:2px">READ · {{READ_TIME}}</span>
     </div>
-    <h1 style="font-size:46px;line-height:1.02;font-weight:700;margin:12px 0;text-wrap:balance;letter-spacing:-0.5px">
+    <h1 class="sk-dossier-hl" style="font-size:50px;line-height:1.02;font-weight:700;margin:12px 0;text-wrap:balance;letter-spacing:-0.5px">
       {{HEADLINE}}
     </h1>
     <p class="sk-script" style="font-size:22px;color:var(--hi);margin:0">{{DECK}}</p>
-    <div class="row" style="gap:18px;align-items:baseline;margin-top:14px">
+    <div class="row" style="gap:18px;align-items:baseline;margin-top:14px;flex-wrap:wrap">
       <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">BY · {{AUTHOR}}</span>
       <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--hi)">· {{DATE_LONG}}</span>
       <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">· FILED FROM {{LOCATION}}</span>
+      <!-- source attribution: always visible -->
+      <a href="{{SOURCE_HREF}}" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--sage);margin-left:auto">SOURCE · {{SOURCE_LABEL}} ↗</a>
     </div>
   </header>
 
   <!-- TWO-COL : LEFT RAIL = facts, RIGHT = body -->
-  <main style="display:grid;grid-template-columns:380px 1fr;gap:14px;margin-top:14px">
+  <main class="sk-grid-dossier" style="display:grid;grid-template-columns:380px 1fr;gap:14px;margin-top:14px">
 
     <!-- LEFT RAIL : THE FACTS -->
     <aside class="col gap-3">
@@ -43,7 +46,7 @@
       <div class="sk-box" style="background:var(--hi);padding:16px">
         <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0">★ TL;DR</p>
         <hr class="sk-rule-thin" style="margin:8px 0 10px" />
-        <ul style="font-size:14px;line-height:1.5;margin:0;padding-left:18px">
+        <ul style="font-size:15px;line-height:1.55;margin:0;padding-left:18px">
           <li>{{TLDR_1}}</li>
           <li>{{TLDR_2}}</li>
           <li>{{TLDR_3}}</li>
@@ -78,37 +81,33 @@
         <hr class="sk-rule-thin" style="margin:8px 0 10px" />
         <div class="col gap-3">
           <div class="row gap-3" style="align-items:flex-start">
-            <span class="sk-box-soft" style="width:36px;height:36px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:'Special Elite',monospace;font-size:9px">logo</span>
             <div class="col grow">
               <p class="sk-mono" style="font-size:11px;font-weight:700;letter-spacing:1px;margin:0">{{PLAYER_1_NAME}}</p>
-              <p style="font-size:12px;line-height:1.4;margin:4px 0 0">{{PLAYER_1_ROLE}}</p>
+              <p style="font-size:13px;line-height:1.4;margin:4px 0 0">{{PLAYER_1_ROLE}}</p>
             </div>
           </div>
           <div class="row gap-3" style="align-items:flex-start">
-            <span class="sk-box-soft" style="width:36px;height:36px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:'Special Elite',monospace;font-size:9px">logo</span>
             <div class="col grow">
               <p class="sk-mono" style="font-size:11px;font-weight:700;letter-spacing:1px;margin:0">{{PLAYER_2_NAME}}</p>
-              <p style="font-size:12px;line-height:1.4;margin:4px 0 0">{{PLAYER_2_ROLE}}</p>
+              <p style="font-size:13px;line-height:1.4;margin:4px 0 0">{{PLAYER_2_ROLE}}</p>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- TAGS -->
+      <!-- TAGS — stamp style -->
       <div class="sk-box-soft" style="padding:14px">
-        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0 0 8px">FILED · UNDER</p>
-        <div class="row" style="flex-wrap:wrap;gap:6px">
-          <span class="sk-mono" style="font-size:10px;padding:3px 8px;border:1px solid var(--ink);letter-spacing:1px">{{TAG_1}}</span>
-          <span class="sk-mono" style="font-size:10px;padding:3px 8px;border:1px solid var(--ink);letter-spacing:1px">{{TAG_2}}</span>
-          <span class="sk-mono" style="font-size:10px;padding:3px 8px;border:1px solid var(--ink);letter-spacing:1px">{{TAG_3}}</span>
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0 0 10px">FILED · UNDER</p>
+        <div class="row" style="flex-wrap:wrap;gap:8px">
+          <span class="sk-stamp sk-stamp--red">{{TAG_1}}</span>
+          <span class="sk-stamp sk-stamp--navy">{{TAG_2}}</span>
+          <span class="sk-stamp sk-stamp--teal">{{TAG_3}}</span>
         </div>
       </div>
     </aside>
 
-    <!-- RIGHT : BODY -->
+    <!-- RIGHT : BODY — no image placeholder -->
     <article class="col gap-3">
-      <div class="sk-img" data-label="HERO · 16:9" style="height:320px"></div>
-      <p class="sk-mono" style="font-size:9px;margin:-4px 0 0">FIG · 01 · {{HERO_CAPTION}}</p>
 
       <!-- standfirst -->
       <p class="sk-box-soft" style="padding:18px;background:var(--card);border-left:4px solid var(--accent);font-size:22px;font-weight:700;line-height:1.25;margin:0">
@@ -121,7 +120,7 @@
         <span class="sk-mono" style="font-size:11px;letter-spacing:2px">WHAT · HAPPENED</span>
         <span class="grow" style="border-top:1px dashed var(--ink);height:1px"></span>
       </div>
-      <p style="font-size:15px;line-height:1.6;margin:0">{{BODY_PARAGRAPH_1}}</p>
+      <p style="font-size:18px;line-height:1.65;margin:0">{{BODY_PARAGRAPH_1}}</p>
 
       <!-- inline mega stat -->
       <div class="sk-box" style="background:var(--ink);color:var(--card);padding:20px 22px;display:flex;align-items:baseline;gap:22px">
@@ -135,7 +134,7 @@
         <span class="sk-mono" style="font-size:11px;letter-spacing:2px">WHY · IT · MATTERS</span>
         <span class="grow" style="border-top:1px dashed var(--ink);height:1px"></span>
       </div>
-      <p style="font-size:15px;line-height:1.6;margin:0">{{BODY_PARAGRAPH_2}}</p>
+      <p style="font-size:18px;line-height:1.65;margin:0">{{BODY_PARAGRAPH_2}}</p>
 
       <!-- pull quote -->
       <blockquote class="sk-box-soft" style="padding:20px 24px;background:var(--hi);margin:6px 0 0">
@@ -149,7 +148,18 @@
         <span class="sk-mono" style="font-size:11px;letter-spacing:2px">WHAT · TO · WATCH</span>
         <span class="grow" style="border-top:1px dashed var(--ink);height:1px"></span>
       </div>
-      <p style="font-size:15px;line-height:1.6;margin:0">{{BODY_PARAGRAPH_3}}</p>
+      <p style="font-size:18px;line-height:1.65;margin:0">{{BODY_PARAGRAPH_3}}</p>
+
+      <!-- source link — always visible at bottom of body -->
+      <div class="sk-box-soft" style="padding:12px 16px;background:var(--card);margin-top:4px">
+        <div class="row gap-3" style="align-items:baseline;flex-wrap:wrap">
+          <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">SOURCE</span>
+          <a href="{{SOURCE_HREF}}" class="sk-mono" style="font-size:11px;letter-spacing:1px;color:var(--teal);text-decoration:underline;text-underline-offset:2px">{{SOURCE_LABEL}} ↗</a>
+          <!-- If from Hacker News, also link to HN discussion: -->
+          <!-- <span class="sk-mono" style="font-size:10px;color:var(--ink-2)">·</span> -->
+          <!-- <a href="{{HN_HREF}}" class="sk-mono" style="font-size:11px;color:var(--teal);text-decoration:underline;text-underline-offset:2px">HN DISCUSSION · {{HN_POINTS}} PTS ↗</a> -->
+        </div>
+      </div>
     </article>
   </main>
 

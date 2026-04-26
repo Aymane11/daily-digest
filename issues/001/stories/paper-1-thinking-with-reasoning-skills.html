@@ -5,20 +5,20 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Daily Digest 001 — Paper: Thinking with Reasoning Skills</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;700&family=Kalam:wght@300;400;700&family=Special+Elite&display=swap');
-*{box-sizing:border-box}html,body{margin:0;padding:0}body{background:#ece7dc;color:#0d0d0d;font-family:'Kalam',cursive;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}
-:root{--paper:#ece7dc;--card:#faf7f0;--ink:#0d0d0d;--ink-2:#6a6a6a;--accent:#c0392b;--hi:#ffe89a}
-.sk-mono{font-family:'Special Elite','Courier New',monospace}.sk-script{font-family:'Caveat',cursive}
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&display=swap');
+*{box-sizing:border-box}html,body{margin:0;padding:0}body{background:#f5f0e8;color:#111;font-family:'Lora',serif;font-size:18px;line-height:1.6;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}
+:root{--paper:#f5f0e8;--card:#fffdf7;--ink:#111111;--ink-2:#5a5a5a;--accent:#d62828;--hi:#f5c842}
+.sk-mono{font-family:'IBM Plex Serif','Georgia',serif;font-weight:500}.sk-script{font-family:'Playfair Display',serif;font-style:italic}
 .sk-box{border:1.5px solid var(--ink);background:transparent;position:relative}.sk-box-soft{border:1.25px solid #2a2a2a;background:transparent}
 .sk-rule-thin{height:0;border:0;border-top:1px solid var(--ink);margin:0}
 .sk-img{background-image:repeating-linear-gradient(135deg,transparent 0,transparent 7px,rgba(20,20,20,0.55) 7px,rgba(20,20,20,0.55) 8px);border:1.5px solid var(--ink);position:relative}
-.sk-img::after{content:attr(data-label);position:absolute;inset:0;margin:auto;display:flex;align-items:center;justify-content:center;font-family:'Special Elite',monospace;font-size:11px;color:var(--ink);background:rgba(240,238,233,0.85);padding:4px 10px;width:max-content;height:max-content;border:1px solid var(--ink);letter-spacing:0.5px;text-transform:uppercase}
+.sk-img::after{content:attr(data-label);position:absolute;inset:0;margin:auto;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Serif',serif;font-size:11px;color:var(--ink);background:rgba(240,238,233,0.85);padding:4px 10px;width:max-content;height:max-content;border:1px solid var(--ink);letter-spacing:0.5px;text-transform:uppercase}
 .row{display:flex}.col{display:flex;flex-direction:column}.grow{flex:1}.gap-2{gap:8px}.gap-3{gap:12px}.gap-4{gap:16px}.gap-5{gap:20px}
 .dd-page{max-width:1200px;margin:0 auto;padding:28px}
 .dd-module-h{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px}
 .dd-module-h .num{font-size:56px;font-weight:700;line-height:0.9;color:var(--accent)}
-.dd-module-h .title{font-family:'Special Elite',monospace;font-size:12px;letter-spacing:2px}
-.dd-module-h .right{font-family:'Special Elite',monospace;font-size:10px;letter-spacing:1.5px}
+.dd-module-h .title{font-family:'IBM Plex Serif',serif;font-size:12px;letter-spacing:2px}
+.dd-module-h .right{font-family:'IBM Plex Serif',serif;font-size:10px;letter-spacing:1.5px}
 </style>
 </head>
 <body>
@@ -83,25 +83,25 @@
     <div class="row gap-4" style="flex-wrap:wrap">
 
       <div class="sk-box" style="flex:1;min-width:155px;padding:16px 18px;background:var(--hi)">
-        <div style="font-size:52px;font-weight:700;line-height:0.9;color:var(--ink);font-family:'Special Elite',monospace">38%</div>
+        <div style="font-size:52px;font-weight:700;line-height:0.9;color:var(--ink);font-family:'IBM Plex Serif',serif">38%</div>
         <div class="sk-mono" style="font-size:9px;letter-spacing:1.5px;margin-top:6px;color:var(--ink-2)">TOKEN REDUCTION</div>
         <div style="font-size:13px;line-height:1.4;margin-top:8px">Average reduction in tokens used across a mixed benchmark of easy, medium, and hard problems when the model applies selective reasoning.</div>
       </div>
 
       <div class="sk-box" style="flex:1;min-width:155px;padding:16px 18px">
-        <div style="font-size:52px;font-weight:700;line-height:0.9;color:var(--accent);font-family:'Special Elite',monospace">0.3%</div>
+        <div style="font-size:52px;font-weight:700;line-height:0.9;color:var(--accent);font-family:'IBM Plex Serif',serif">0.3%</div>
         <div class="sk-mono" style="font-size:9px;letter-spacing:1.5px;margin-top:6px;color:var(--ink-2)">ACCURACY DELTA</div>
         <div style="font-size:13px;line-height:1.4;margin-top:8px">Accuracy change on hard reasoning benchmarks (MATH, AIME, LiveCodeBench) vs. full chain-of-thought baseline. Within noise floor.</div>
       </div>
 
       <div class="sk-box" style="flex:1;min-width:155px;padding:16px 18px">
-        <div style="font-size:52px;font-weight:700;line-height:0.9;color:var(--accent);font-family:'Special Elite',monospace">2</div>
+        <div style="font-size:52px;font-weight:700;line-height:0.9;color:var(--accent);font-family:'IBM Plex Serif',serif">2</div>
         <div class="sk-mono" style="font-size:9px;letter-spacing:1.5px;margin-top:6px;color:var(--ink-2)">TRAINING PHASES</div>
         <div style="font-size:13px;line-height:1.4;margin-top:8px">Phase 1 teaches reasoning skill selection; Phase 2 fine-tunes on a difficulty-stratified dataset. Both phases use existing supervised fine-tuning infrastructure.</div>
       </div>
 
       <div class="sk-box" style="flex:1;min-width:155px;padding:16px 18px">
-        <div style="font-size:52px;font-weight:700;line-height:0.9;color:var(--accent);font-family:'Special Elite',monospace">5</div>
+        <div style="font-size:52px;font-weight:700;line-height:0.9;color:var(--accent);font-family:'IBM Plex Serif',serif">5</div>
         <div class="sk-mono" style="font-size:9px;letter-spacing:1.5px;margin-top:6px;color:var(--ink-2)">BASE MODELS TESTED</div>
         <div style="font-size:13px;line-height:1.4;margin-top:8px">Results replicated across five instruction-tuned base models ranging from 7B to 70B parameters. Token savings scale with model size.</div>
       </div>

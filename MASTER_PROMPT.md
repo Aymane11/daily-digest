@@ -90,10 +90,21 @@ Next four most important AI/tech stories. No overlap with the lead.
 Short factual items. One tight sentence each. Good for funding rounds, minor releases, 
 notable quotes, short HN discussions with a clear takeaway.
 
+**Every brief gets its own dedicated story page** using Template D (05-story-brief.html).
+The brief row on the homepage links to this internal page (not directly to the external source).
+The story page carries the full summary, why it matters, what to watch, and the clickable source link.
+This means the reader gets the essentials without leaving the digest.
+
 ### Slot 4 — TOOLS / RESOURCES (4 picks)
 New or notable developer tools, models, evals, libraries, or frameworks released or 
 significantly updated in the last 24–72 hours. Prioritize things the reader can actually 
 try, not just things that were announced.
+
+**Every tool gets its own dedicated story page** using Template E (06-story-tool.html).
+The tool row on the homepage links to this internal page (not directly to the tool URL).
+The story page carries: what it is, why it matters, step-by-step try-it instructions,
+what to observe, and a direct tool link. Tools slot replaces Slot 7 (SOMETHING TO TRY)
+for tools entries — the try-it content lives inside the tool's story page instead.
 
 ### Slot 5 — ENGINEERING & CAREER READ (1 main + up to 3 honorable mentions)
 One story per day from the following domains:
@@ -195,31 +206,48 @@ without reading body paragraphs. Apply these rules without exception:
 
 ## DESIGN RULES — enforce every one of these on every generated file
 
-### Colors (from daily-digest.css — use CSS variables only, never hardcoded hex)
-  --paper   #ece7dc  page background only
-  --card    #faf7f0  card/surface background
-  --ink     #0d0d0d  all text, rules, dark surfaces
-  --ink-2   #6a6a6a  muted metadata only (never headlines or body text)
-  --accent  #c0392b  section numbers, kickers, accent links ONLY — never body copy, never on black surface
-  --hi      #ffe89a  highlight blocks: quote of the day, stat slabs, voice card #1
+### Colors (from daily-digest.css — use CSS variables only, never hardcoded hex; include ALL tokens when inlining)
+  --paper   #f5f0e8  page background — warm white
+  --card    #fffdf7  card/surface background
+  --ink     #111111  all text, rules, dark surfaces
+  --ink-2   #5a5a5a  muted metadata only (never headlines or body text)
+  --accent  #d62828  vivid red — section numbers, kickers, accent links ONLY
+  --hi      #f5c842  bright gold — highlight blocks: quote of the day, stat slabs, voice card #1
+  --teal    #0d7377  vivid teal — source links, archive links, HL2 border/stamp
+  --navy    #14213d  deep navy — HL1 stamp tags, secondary dark accent stamps
+  --ochre   #e07b39  vivid ochre — HL3 border/stamp, warm story accents
+  --slate   #3d5a80  vivid slate — HL4 border/stamp, cool secondary stamps
+  --sage    #2d6a4f  vivid sage — tool visit links on dark backgrounds
+  --purple  #7b2d8b  purple — extra stamp color option
+
+  Color mapping rules (apply consistently):
+  - Headline cards: HL1 → navy stamp + accent border | HL2 → teal | HL3 → ochre | HL4 → slate
+  - Voice cards: Voice 1 → yellow bg | Voice 2 → teal accent | Voice 3 → ochre accent
+  - Takeaways: Takeaway 01 → accent | 02 → teal | 03 → ochre left borders
+  - Source links: always teal (or sage on dark bg) with underline
+  - Archive links: teal (on light bg) or sage (on dark bg)
 
 ### Typography (Google Fonts — already in daily-digest.css)
-  Kalam       display + body — weights 400 / 700 only
-  Special Elite  mono/metadata — ALWAYS UPPERCASE, letter-spacing: 1.5px–3px
-  Caveat      script accent — ONLY for deck-line on dark hero and large quote glyphs
+  Lora             display + body — weights 400 / 600 / 700, italic available; base body size 18px
+  IBM Plex Serif   mono/metadata — ALWAYS UPPERCASE, letter-spacing: 1.5px–3px; font-weight 500–600
+  Playfair Display script accent — italic, ONLY for deck-line on dark hero and large quote glyphs
 
 ### Absolute prohibitions
   NO emoji anywhere — use mono symbols only: ★ → ↗ ← ¶ ·
   NO drop shadows anywhere
   NO rounded corners (border-radius must be 0 on all elements)
-  NO new colors outside the six tokens above
-  NO new fonts outside Kalam / Special Elite / Caveat
+  NO colors outside the eleven tokens above
+  NO new fonts outside Lora / IBM Plex Serif / Playfair Display
   NO body text in --accent color
-  NO red text on black (--ink) surfaces
+  NO red text on black (--ink) surfaces — use --hi or --sage instead
   NO inline style="color:#..." with literal hex — always var(--token)
+  NO .sk-img placeholder in lead section of homepage or hero slots of story templates (removed)
+  NO plain border-box tags — use .sk-stamp with a color modifier class instead
 
 ### Layout rules
-  12-column grid, 24px gutter, 28px page padding
+  12-column grid, 24px gutter, 32px page padding (14px on mobile)
+  All grids must carry the responsive class: sk-homepage-grid, sk-grid-dossier, sk-grid-data, sk-grid-brief, sk-grid-tool, sk-grid-modules, sk-grid-headlines
+  Body text minimum 18px desktop, 16px mobile; headline minimum 46px desktop, 32px mobile
   Every module wrapped in .sk-box (1.5px ink border)
   Module headers: red accent number + mono title left, optional mono right-meta, followed by hr.sk-rule-thin
   All image slots: keep the .sk-img placeholder div untouched (no src attribute)
@@ -238,6 +266,10 @@ without reading body paragraphs. Apply these rules without exception:
 ## TEMPLATE SELECTION
 
 ### Decision tree — apply after reading the full story
+0. Is this a Quick Brief (03.N item)?
+   → Template D · 05-story-brief.html
+0. Is this a Tool / Resource (04.N item)?
+   → Template E · 06-story-tool.html
 1. Is the headline meaningless without numbers (benchmark, market report, funding with figures)?
    → Template B · 03-story-data-first.html
 2. Is this about one dominant entity (company / model / product) with ≥3 hard numbers and ≥2 named players?
@@ -265,13 +297,14 @@ STORY_COUNT     total story count (lead + 4 headlines + optional engineering + o
 NEXT_DATE       tomorrow in MM · DD
 
 ### Homepage Lead (Module 01)
+LEAD_TAG_1          primary topic stamp — e.g. AI · MODELS (renders as .sk-stamp--red)
+LEAD_TAG_2          secondary topic stamp — e.g. SECURITY (renders as .sk-stamp--navy)
 LEAD_HEADLINE       6–12 words, sentence case, max 3 lines, declarative (state what happened)
 LEAD_DECK           ≤18 words, the angle — what makes this story matter today
 LEAD_BODY_PARAGRAPH 2–3 sentences: hook (the event) + proof (the evidence) + implication
 LEAD_AUTHOR         EDITORIAL TEAM (default) or real byline if available
 LEAD_READ_TIME      N MIN — estimate from story page word count (~200 words per minute)
 LEAD_HREF           issues/{NNN}/stories/01-lead-{slug}.html
-LEAD_CAPTION        one mono sentence: "Placeholder — {brief description of what an image here would show}"
 
 ### Homepage Rail (Quote + Stats)
 QUOTE_TEXT      12–22 words, declarative, present tense — best quote from today's lead
@@ -287,20 +320,29 @@ HLn_HREF        issues/{NNN}/stories/02-{n}-{slug}.html
 
 ### Module 03 — Quick Briefs (×6, refs 03.1–03.6)
 Duplicate the brief <a> row block 5 more times for 03.2–03.6
-BRIEFn_TEXT     one complete declarative sentence, 8–14 words (state the full fact)
-BRIEFn_META     SOURCE · TAG · N MIN
-BRIEFn_HREF     external source URL
+BRIEFn_TEXT         one complete declarative sentence, 8–14 words (state the full fact)
+BRIEFn_META         SOURCE · TAG · N MIN
+BRIEFn_HREF         internal story page path: stories/03-{n}-{slug}.html  ← links to brief's own page
+BRIEFn_SRC_HREF     external source URL (shown as "SOURCE ↗" inline in the brief row)
 
 ### Module 04 — Tools / Resources (×4, refs 04.1–04.4)
 Duplicate the tool row block 3 more times for 04.2–04.4
 TOOLn_NAME, TOOLn_CATEGORY (1 word: IDE / MODEL / EVAL / CLI / LIBRARY / FRAMEWORK)
 TOOLn_DESCRIPTION   ≤14 words, what it does — not what it claims to be
-TOOLn_HREF          tool homepage or release URL
+TOOLn_HREF          internal story page path: stories/04-{n}-{slug}.html  ← links to tool's own page
+TOOLn_SRC_HREF      direct tool URL (shown as "VISIT SITE ↗" inline in the tool row)
 
-### Story pages — shared tokens (all three templates)
+### Story pages — shared tokens (all templates)
 ISSUE_NUMBER, FILE_REF, TOPIC, HEADLINE, DECK, AUTHOR, DATE_LONG, LOCATION (omit if unknown)
-READ_TIME, HERO_CAPTION
+READ_TIME
+SOURCE_HREF     URL of the original source article — required on every story page
+SOURCE_LABEL    Domain in CAPS, e.g. SIMONWILLISON.NET or HN · 342 PTS
+TAG_1..3        Filing tags, rendered as .sk-stamp elements with distinct colors
 PREV_HREF / PREV_REF / NEXT_HREF / NEXT_REF (wire all story pages in order)
+
+For Hacker News stories only (additional tokens):
+HN_HREF         https://news.ycombinator.com/item?id={ID}
+HN_POINTS       Score at time of selection (integer)
 
 ### Template A — Dossier-specific
 TLDR_1..3           three bullets that together tell the entire story — complete, not teasing
@@ -308,7 +350,7 @@ BIG_STAT_1_VALUE/_LABEL  (stat 1 renders in --accent red — make it the most pu
 BIG_STAT_2_VALUE/_LABEL
 BIG_STAT_3_VALUE/_LABEL
 PLAYER_1..2_NAME/_ROLE
-TAG_1..3
+TAG_1..3            stamp tags: TAG_1 → sk-stamp--red, TAG_2 → sk-stamp--navy, TAG_3 → sk-stamp--teal
 STANDFIRST          2 sentences, the story's thesis — reads as a pull-quote-sized opener
 BODY_PARAGRAPH_1    ¶ 01 WHAT HAPPENED — 3–5 sentences, chronological facts
 INLINE_STAT_VALUE/_LABEL   most quotable single number, shown large in black band between ¶01 and ¶02
@@ -331,11 +373,38 @@ PULL_QUOTE/_SOURCE  shown in large yellow band
 STAT_1..4_VALUE/_LABEL/_NOTE   four stats on yellow slab; notes are one short sentence each
 T1..T4_YEAR/_LABEL/_DETAIL     horizontal timeline, T4 red = today
 VOICE_1_QUOTE/_TAG/_NAME       on yellow background — the most compelling voice
-VOICE_2_QUOTE/_TAG/_NAME       on white — a different angle
-VOICE_3_QUOTE/_TAG/_NAME       on white — a third distinct perspective (not agreement)
+VOICE_2_QUOTE/_TAG/_NAME       teal-accented — a different angle
+VOICE_3_QUOTE/_TAG/_NAME       ochre-accented — a third distinct perspective (not agreement)
   _TAG values: BUILDER · INVESTOR · CRITIC · RESEARCHER · OPERATOR · PRACTITIONER
-TAKEAWAY_1..3_HEAD/_BODY       3 implications: head = bold one-liner, body = one explanatory sentence
+TAKEAWAY_1..3_HEAD/_BODY       3 implications: 01 red, 02 teal, 03 ochre left borders
 LINK_1..3_LABEL/_HREF          further reading: the paper, the filing, prior coverage
+
+### Template D — Brief-specific (05-story-brief.html)
+Use for every Quick Brief story page (FILE_REF = 03.N)
+SUMMARY_PARAGRAPH   3–5 sentences. Complete story — no teasing.
+WHY_IT_MATTERS      2–3 sentences. Implication + context.
+WHAT_TO_WATCH       2–3 sentences. Forward-looking.
+BRIEF_STAT_1..2_VALUE/_LABEL   1–2 stats for sidebar (optional — omit box if no numbers)
+SOURCE_META         e.g. HN · 342 PTS · APR 26 2026
+
+### Template E — Tool-specific (06-story-tool.html)
+Use for every Tool / Resource story page (FILE_REF = 04.N)
+TOOL_NAME           product name
+TOOL_TAGLINE        one punchy sentence ≤12 words
+TOOL_CATEGORY       stamp category: MODEL / CLI / LIBRARY / FRAMEWORK / EVAL
+TOOL_AUTHOR         creator / company
+TOOL_LICENSE        MIT / APACHE 2.0 / PROPRIETARY
+TOOL_PREREQS        requirements to run (e.g. Python 3.10+, API key)
+TOOL_URL            direct URL to the tool
+TOOL_URL_LABEL      short readable label for URL, e.g. GITHUB.COM/TOOL
+TOOL_DOCS_URL       documentation URL
+TOOL_RELEASE_DATE   e.g. RELEASED APR 26 2026
+WHAT_IT_IS          2–4 sentences. Clear, concrete description.
+WHY_IT_MATTERS      2–3 sentences. Context + implication.
+STEP_1..N           numbered try-it steps; copy-paste ready commands where applicable
+WHAT_TO_OBSERVE     what success looks like; what to pay attention to
+THE_QUESTION        one open question to answer through the experiment
+TRY_TIME            estimated minutes (e.g. 20)
 
 ---
 
@@ -378,8 +447,11 @@ For technical papers: add MODULE 06 — IMPLEMENTATION OVERVIEW
 
 ## SOMETHING TO TRY — module template
 
-When any story or tool in today's issue is worth hands-on exploration, append this module
-to the relevant story page (next module number after the standard set):
+Note: Tool pages (Template E) already contain built-in try-it content (HOW TO TRY IT steps,
+WHAT TO OBSERVE, THE QUESTION). Do not duplicate this as a separate module on tool pages.
+
+When any NON-TOOL story or paper in today's issue is worth hands-on exploration, append this
+module to the relevant story page (next module number after the standard set):
 
   MODULE N — HANDS-ON · TRY IT
   Section header: "N / HANDS-ON · TRY IT" with right-meta: "~20–30 MIN"
@@ -403,15 +475,27 @@ to the relevant story page (next module number after the standard set):
     {NNN}/
       index.html            ← homepage for this issue
       stories/
-        01-lead-{slug}.html
-        02-1-{slug}.html
-        02-2-{slug}.html
-        02-3-{slug}.html
-        02-4-{slug}.html
-        eng-1-{slug}.html   ← engineering & career story (always present)
-        paper-1-{slug}.html ← paper of the day (omit file if no strong paper)
+        01-lead-{slug}.html           ← lead story (Template A / B / C)
+        02-1-{slug}.html              ← headline 02.1 (Template A / B / C)
+        02-2-{slug}.html              ← headline 02.2
+        02-3-{slug}.html              ← headline 02.3
+        02-4-{slug}.html              ← headline 02.4
+        03-1-{slug}.html              ← brief 03.1 (Template D — always present)
+        03-2-{slug}.html              ← brief 03.2
+        03-3-{slug}.html              ← brief 03.3
+        03-4-{slug}.html              ← brief 03.4
+        03-5-{slug}.html              ← brief 03.5
+        03-6-{slug}.html              ← brief 03.6
+        04-1-{slug}.html              ← tool 04.1 (Template E — always present)
+        04-2-{slug}.html              ← tool 04.2
+        04-3-{slug}.html              ← tool 04.3
+        04-4-{slug}.html              ← tool 04.4
+        eng-1-{slug}.html             ← engineering & career story (always present)
+        paper-1-{slug}.html           ← paper of the day (omit if no strong paper)
   templates/                ← source templates — NEVER modify
   daily-digest.css          ← shared styles — NEVER modify
+
+That's 15–17 files per issue (up from 6–7). Every item on the homepage now has its own page.
 
 Slug format: kebab-case, max 4 words from the headline. e.g. openai-acquires-astral
 
@@ -423,19 +507,31 @@ List issues in reverse chronological order. Each row:
   ISSUE NNN  ·  WEEKDAY DD MON YYYY  ·  {TOPICS}  →  link to issues/{NNN}/index.html
 Apply the same .sk-box / .sk-mono / .sk-rule-thin classes. No new styles.
 
+The archive page must be linked from:
+- Every issue homepage masthead (ARCHIVE ↗ link in nav, color: --sage or --teal)
+- Every story page breadcrumb (ARCHIVE ↗ on the right, color: --teal)
+- Every issue homepage colophon footer (← ALL ISSUES · ARCHIVE, color: --teal)
+
+Path from issue pages: ../../archive.html
+Path from story pages: ../../../archive.html
+
 ---
 
 {% raw %}
 ## FINAL CHECKLIST — verify before finishing (grep the output directory for each)
   [ ] grep -r "{{" issues/{NNN}/ — must return zero results
-  [ ] All 6–7 story pages exist with correct FILE_REF values
+  [ ] All 15–17 story pages exist with correct FILE_REF values
   [ ] 02.1–02.4 on homepage match FILE_REF on their story pages
+  [ ] 03.1–03.6 brief rows each link to internal 03-N-{slug}.html story pages
+  [ ] 04.1–04.4 tool rows each link to internal 04-N-{slug}.html story pages
   [ ] PREV/NEXT navigation is correct and circular (last story → back to homepage)
-  [ ] Brief rows 03.2–03.6 all present (6 total)
-  [ ] Tool rows 04.2–04.4 all present (4 total)
   [ ] Engineering slot page has MODULE 06 — WHY THIS MATTERS FOR YOUR CAREER
   [ ] Paper slot page (if present) has MODULE 05 takeaways + MODULE 06 implementation overview
-  [ ] Any "try it" story has MODULE N — HANDS-ON · TRY IT
+  [ ] Every story page has SOURCE_HREF + SOURCE_LABEL — visible clickable source link
+  [ ] HN stories show both original article link AND HN discussion link (with points)
+  [ ] Archive link present in every issue homepage masthead and every story breadcrumb
+  [ ] Stamp tags (.sk-stamp with color modifier) used on all headline cards and story pages
+  [ ] No .sk-img placeholder in lead section or story hero slots
   [ ] No emoji in any generated file
   [ ] No hardcoded hex colors — all CSS values use var(--token)
 {% endraw %}
@@ -447,7 +543,7 @@ Apply the same .sk-box / .sk-mono / .sk-rule-thin classes. No new styles.
   [ ] No {{TOKEN}} strings remain anywhere in any generated file
   [ ] issues/index.json updated with today's entry
   [ ] index.html at repo root updated to today's issue
-  [ ] archive.html regenerated
+  [ ] archive.html regenerated with archive link in header
 
 ---
 
@@ -499,13 +595,16 @@ Instead, inline everything the page needs directly in the file:
 1. Fonts — embed the Google Fonts @import as a <style> block inside <head>, NOT as a <link rel="stylesheet">:
    ```html
    <style>
-   @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;700&family=Kalam:wght@300;400;700&family=Special+Elite&display=swap');
+   @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&display=swap');
    </style>
    ```
 
 2. All CSS tokens and utility classes — copy the full contents of daily-digest.css verbatim into a <style>
    block in <head>. Do not reference daily-digest.css via <link href="...">. The file in the repo remains
    the canonical source but is not linked at runtime.
+   IMPORTANT: The :root block must include ALL color tokens (--paper, --card, --ink, --ink-2,
+   --accent, --hi, --teal, --navy, --ochre, --slate, --sage, --purple) and the .sk-stamp / .sk-stamp--* classes.
+   Copy the FULL daily-digest.css verbatim — do not summarize or trim it.
 
 3. No JavaScript whatsoever — the design requires none. Do not add any <script> tags.
 
@@ -520,9 +619,12 @@ Instead, inline everything the page needs directly in the file:
 ### Source attribution — mandatory on every story page and brief
 Every piece of content must carry a visible source attribution. Rules:
 
-- If the story originated on Hacker News: link to the HN item page (https://news.ycombinator.com/item?id={ID}),
-  not to the original article URL directly. Show the label "HN · {POINTS} PTS" in the mono metadata line.
-  Also include a secondary link to the original article if it adds context.
+- If the story originated on Hacker News: show **both** links on the story page:
+  1. A link to the **original article** (the URL from the HN item's `url` field) — label: `SOURCE · {DOMAIN} ↗`
+  2. A link to the **HN discussion page** (https://news.ycombinator.com/item?id={ID}) — label: `HN DISCUSSION · {POINTS} PTS ↗`
+  Both must appear in the source attribution bar at the bottom of the article body (see Template comment blocks).
+  In the masthead metadata line, show: `HN · {POINTS} PTS · {DOMAIN}`.
+  Never show only the HN discussion without the original article, and never show only the article without the HN discussion.
 
 - If the story came from an RSS feed, blog, or direct URL: link to the canonical article URL.
   Show the domain name in UPPERCASE in the mono metadata line (e.g. SIMONWILLISON.NET, NETFLIXTECHBLOG.COM).
@@ -532,7 +634,7 @@ Every piece of content must carry a visible source attribution. Rules:
 
 - For the FURTHER READING sidebar links (Template C, Module 05): each link must include its domain label.
 
-- Format for metadata lines (Special Elite, 10px, UPPERCASE, letter-spacing 1.5px):
+- Format for metadata lines (IBM Plex Serif, 11px, UPPERCASE, letter-spacing 1.5px):
   SOURCE · {DOMAIN OR "HN · NNN PTS"} · {TAG} · {N MIN}
 
 - Never attribute a story only to an aggregator (skimfeed, hype.replicate.dev) —
