@@ -734,3 +734,43 @@ Every piece of content must carry a visible source attribution. Rules:
   ❌ Never link to daily-digest.css from generated HTML files — inline it instead
   ❌ Never add JavaScript to any generated page
   ❌ Never attribute content to an aggregator without tracing it to its original source
+
+
+## EXECUTION MODEL — USE SUBAGENTS TO PARALLELIZE WORK
+
+Default to parallel execution whenever work can be done independently. Use subagents to reduce end-to-end latency and improve coverage, then synthesize the results into one coherent issue.
+
+### When to spawn subagents (do this by default)
+- When you need to scan multiple sources, feeds, or pages.
+- When you need to read multiple long articles in full.
+- When you need separate workstreams (lead candidates vs briefs vs tools vs engineering read).
+- When you need verification/QA while writing (token completeness, template selection, navigation wiring).
+
+### When NOT to spawn subagents
+- When the work is sequential (depends on outputs you don’t have yet), e.g. you can’t finalize story ordering before selection.
+- When the task is tiny (one file, one obvious change).
+- When you have already gathered enough candidates and are in the final writing pass.
+
+### Recommended parallel roles (launch 2–5 in parallel as needed)
+- **Source Scout**: Scan Tier 1–3 sources for the last 24h; return 8–15 high-signal candidates with links and timestamps.
+- **Deep Readers (2–3 agents)**: Each takes a batch of 3–6 candidate URLs and reads the full text; return structured “story briefs” (see output format below).
+- **Tools / Resources Scout**: Find 4 credible tools/models/evals/releases from the last 24–72h and produce copy-pasteable try-it steps.
+- **Engineering & Career Scout**: Find 1 deep engineering/career piece (24h → 7d → 30d fallback) and draft actionable recommendations + checklist + quick start requirements.
+- **QA / Consistency Checker**: Validate template choice, token completeness, internal linking, FILE_REF numbering, actionability requirements, and hard prohibitions.
+
+### Subagent output format (mandatory)
+Each subagent MUST return results in this structure so the main agent can merge quickly:
+1. **Candidates**: list of items with `title`, `url`, `published_at` (or “unknown”), `source` (domain), and `why_now` (1 sentence).
+2. **Hard numbers**: any concrete figures/benchmarks/IDs/metrics (bullet list; “none found” if none).
+3. **What happened**: 2–4 factual bullets (no hype).
+4. **Why it matters**: 2 bullets aimed at senior engineers.
+5. **What to watch / do**: at least 1 imperative action the reader can take.
+6. **Template suggestion**: A/B/C/D/E with one-line justification; include `FILE_REF` if already known (otherwise “TBD”).
+7. **Confidence + caveats**: what’s missing or uncertain (paywalls, unclear dates, thin sourcing, etc.).
+
+### Synthesis rule
+The main agent is responsible for:
+- de-duplicating candidates across subagents
+- selecting final slots (lead + 4 headlines + 6 briefs + 4 tools + eng + optional paper)
+- ensuring every selected story passes the ACTIONABILITY TEST
+- generating the HTML files and wiring PREV/NEXT correctly
