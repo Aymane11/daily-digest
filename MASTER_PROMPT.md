@@ -72,6 +72,9 @@ product strategy, team dynamics, technical leadership, seniority.
 Drop: sports, entertainment, politics unrelated to tech, hype with no substance, press releases 
 with no concrete information beyond announcements.
 
+
+> IMPORTANT: for each source provided, dont try to use any other source to get the content, for example dont try to use any other way to get content from hackernews except the provided firebase api and algolia api
+
 ---
 
 ## DAILY CONTENT SLOTS — what to select and generate
