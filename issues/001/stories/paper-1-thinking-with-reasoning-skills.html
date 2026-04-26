@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Daily Digest 001 — Paper: Thinking with Reasoning Skills</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;700&family=Kalam:wght@300;400;700&family=Special+Elite&display=swap');
+*{box-sizing:border-box}html,body{margin:0;padding:0}body{background:#ece7dc;color:#0d0d0d;font-family:'Kalam',cursive;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}
+:root{--paper:#ece7dc;--card:#faf7f0;--ink:#0d0d0d;--ink-2:#6a6a6a;--accent:#c0392b;--hi:#ffe89a}
+.sk-mono{font-family:'Special Elite','Courier New',monospace}.sk-script{font-family:'Caveat',cursive}
+.sk-box{border:1.5px solid var(--ink);background:transparent;position:relative}.sk-box-soft{border:1.25px solid #2a2a2a;background:transparent}
+.sk-rule-thin{height:0;border:0;border-top:1px solid var(--ink);margin:0}
+.sk-img{background-image:repeating-linear-gradient(135deg,transparent 0,transparent 7px,rgba(20,20,20,0.55) 7px,rgba(20,20,20,0.55) 8px);border:1.5px solid var(--ink);position:relative}
+.sk-img::after{content:attr(data-label);position:absolute;inset:0;margin:auto;display:flex;align-items:center;justify-content:center;font-family:'Special Elite',monospace;font-size:11px;color:var(--ink);background:rgba(240,238,233,0.85);padding:4px 10px;width:max-content;height:max-content;border:1px solid var(--ink);letter-spacing:0.5px;text-transform:uppercase}
+.row{display:flex}.col{display:flex;flex-direction:column}.grow{flex:1}.gap-2{gap:8px}.gap-3{gap:12px}.gap-4{gap:16px}.gap-5{gap:20px}
+.dd-page{max-width:1200px;margin:0 auto;padding:28px}
+.dd-module-h{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px}
+.dd-module-h .num{font-size:56px;font-weight:700;line-height:0.9;color:var(--accent)}
+.dd-module-h .title{font-family:'Special Elite',monospace;font-size:12px;letter-spacing:2px}
+.dd-module-h .right{font-family:'Special Elite',monospace;font-size:10px;letter-spacing:1.5px}
+</style>
+</head>
+<body>
+<div class="dd-page">
+
+  <nav class="row" style="justify-content:space-between;align-items:baseline;margin-bottom:8px">
+    <a href="../index.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px">&larr; DIGEST &middot; &#8470; 001</a>
+    <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">STORY &middot; PAPER.1 &middot; RESEARCH &middot; INFERENCE</span>
+    <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">6 MODULES &middot; 7 MIN</span>
+  </nav>
+
+  <div class="row gap-2" style="margin-bottom:12px">
+    <div class="row gap-2 grow" style="align-items:center"><span class="sk-mono" style="font-size:10px;font-weight:700;color:var(--accent)">01</span><div style="flex:1;height:3px;background:var(--accent)"></div></div>
+    <div class="row gap-2 grow" style="align-items:center"><span class="sk-mono" style="font-size:10px;font-weight:700;color:#888">02</span><div style="flex:1;height:3px;background:#888;opacity:0.3"></div></div>
+    <div class="row gap-2 grow" style="align-items:center"><span class="sk-mono" style="font-size:10px;font-weight:700;color:#888">03</span><div style="flex:1;height:3px;background:#888;opacity:0.3"></div></div>
+    <div class="row gap-2 grow" style="align-items:center"><span class="sk-mono" style="font-size:10px;font-weight:700;color:#888">04</span><div style="flex:1;height:3px;background:#888;opacity:0.3"></div></div>
+    <div class="row gap-2 grow" style="align-items:center"><span class="sk-mono" style="font-size:10px;font-weight:700;color:#888">05</span><div style="flex:1;height:3px;background:#888;opacity:0.3"></div></div>
+    <div class="row gap-2 grow" style="align-items:center"><span class="sk-mono" style="font-size:10px;font-weight:700;color:#888">06</span><div style="flex:1;height:3px;background:#888;opacity:0.3"></div></div>
+  </div>
+
+  <!-- 01 OPENER -->
+  <section class="sk-box" style="background:var(--ink);color:var(--card);padding:20px 22px">
+    <div class="row" style="justify-content:space-between;align-items:baseline">
+      <span class="sk-mono" style="font-size:10px;letter-spacing:3px;color:var(--hi)">01 / OPENER &middot; PAPER OF THE DAY</span>
+      <span class="sk-mono" style="font-size:10px">arXiv 2604.21764 &middot; ACL 2026</span>
+    </div>
+    <div class="row gap-4" style="margin-top:14px">
+      <div class="col grow" style="flex:1.4">
+        <h1 style="font-size:40px;font-weight:700;line-height:1.05;letter-spacing:-0.5px;text-wrap:balance;margin:0">
+          Thinking with Reasoning Skills: teaching models when to use extended chains of thought
+        </h1>
+        <p style="font-size:14px;line-height:1.55;margin:14px 0 0;color:rgba(250,247,240,0.82)">
+          Researchers from the ACL 2026 industry track present a method for training language models to selectively engage extended chain-of-thought reasoning only for problems that genuinely require it. The result: fewer tokens on easy tasks, no accuracy regression on hard tasks, and a practical training recipe that can be applied to any instruction-tuned base model. The paper lands at exactly the moment practitioners are asking whether reasoning models' verbosity is a cost problem or a quality problem. The answer, per this work, is both &mdash; and you can fix the cost without sacrificing the quality.
+        </p>
+        <div class="row gap-3" style="margin-top:16px;flex-wrap:wrap">
+          <a href="https://arxiv.org/abs/2604.21764" target="_blank" rel="noopener" class="sk-mono" style="font-size:10px;letter-spacing:1px;border-bottom:1px solid rgba(250,247,240,0.4);padding-bottom:1px">arXiv 2604.21764 &#8599;</a>
+          <span class="sk-mono" style="font-size:10px;color:rgba(250,247,240,0.55)">ACL 2026 INDUSTRY TRACK</span>
+        </div>
+      </div>
+      <div class="col" style="flex:0.55;gap:12px">
+        <div class="sk-img" style="flex:1;min-height:160px" data-label="arXiv 2604.21764 — ACL 2026"></div>
+        <div style="background:var(--hi);color:var(--ink);padding:10px 12px">
+          <div class="sk-mono" style="font-size:9px;letter-spacing:1.5px;margin-bottom:4px">CORE CLAIM</div>
+          <div style="font-size:13px;line-height:1.4">Models can learn <strong>when</strong> to reason, not just <strong>how</strong> to reason.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div style="height:24px"></div>
+
+  <!-- 02 NUMBERS -->
+  <section>
+    <div class="dd-module-h">
+      <div class="row gap-3" style="align-items:baseline">
+        <span class="num">02</span>
+        <span class="title">BY THE NUMBERS</span>
+      </div>
+      <span class="right">RESULTS &middot; arXiv 2604.21764</span>
+    </div>
+    <hr class="sk-rule-thin" style="margin-bottom:16px">
+    <div class="row gap-4" style="flex-wrap:wrap">
+
+      <div class="sk-box" style="flex:1;min-width:155px;padding:16px 18px;background:var(--hi)">
+        <div style="font-size:52px;font-weight:700;line-height:0.9;color:var(--ink);font-family:'Special Elite',monospace">38%</div>
+        <div class="sk-mono" style="font-size:9px;letter-spacing:1.5px;margin-top:6px;color:var(--ink-2)">TOKEN REDUCTION</div>
+        <div style="font-size:13px;line-height:1.4;margin-top:8px">Average reduction in tokens used across a mixed benchmark of easy, medium, and hard problems when the model applies selective reasoning.</div>
+      </div>
+
+      <div class="sk-box" style="flex:1;min-width:155px;padding:16px 18px">
+        <div style="font-size:52px;font-weight:700;line-height:0.9;color:var(--accent);font-family:'Special Elite',monospace">0.3%</div>
+        <div class="sk-mono" style="font-size:9px;letter-spacing:1.5px;margin-top:6px;color:var(--ink-2)">ACCURACY DELTA</div>
+        <div style="font-size:13px;line-height:1.4;margin-top:8px">Accuracy change on hard reasoning benchmarks (MATH, AIME, LiveCodeBench) vs. full chain-of-thought baseline. Within noise floor.</div>
+      </div>
+
+      <div class="sk-box" style="flex:1;min-width:155px;padding:16px 18px">
+        <div style="font-size:52px;font-weight:700;line-height:0.9;color:var(--accent);font-family:'Special Elite',monospace">2</div>
+        <div class="sk-mono" style="font-size:9px;letter-spacing:1.5px;margin-top:6px;color:var(--ink-2)">TRAINING PHASES</div>
+        <div style="font-size:13px;line-height:1.4;margin-top:8px">Phase 1 teaches reasoning skill selection; Phase 2 fine-tunes on a difficulty-stratified dataset. Both phases use existing supervised fine-tuning infrastructure.</div>
+      </div>
+
+      <div class="sk-box" style="flex:1;min-width:155px;padding:16px 18px">
+        <div style="font-size:52px;font-weight:700;line-height:0.9;color:var(--accent);font-family:'Special Elite',monospace">5</div>
+        <div class="sk-mono" style="font-size:9px;letter-spacing:1.5px;margin-top:6px;color:var(--ink-2)">BASE MODELS TESTED</div>
+        <div style="font-size:13px;line-height:1.4;margin-top:8px">Results replicated across five instruction-tuned base models ranging from 7B to 70B parameters. Token savings scale with model size.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <div style="height:24px"></div>
+
+  <!-- 03 THE PAPER -->
+  <section>
+    <div class="dd-module-h">
+      <div class="row gap-3" style="align-items:baseline">
+        <span class="num">03</span>
+        <span class="title">THE PAPER</span>
+      </div>
+      <span class="right">METHODOLOGY &middot; FINDINGS</span>
+    </div>
+    <hr class="sk-rule-thin" style="margin-bottom:16px">
+    <div class="row gap-4">
+      <div class="col grow" style="flex:1.6;gap:16px">
+
+        <div class="sk-box-soft" style="padding:16px 18px">
+          <div class="sk-mono" style="font-size:10px;letter-spacing:2px;margin-bottom:8px;color:var(--accent)">THE PROBLEM</div>
+          <p style="font-size:14px;line-height:1.6;margin:0">
+            Reasoning-capable models &mdash; those trained with extended chain-of-thought &mdash; apply long scratchpads indiscriminately. Ask one what 2 + 2 equals and it may spend 400 tokens working through an arithmetic proof. This verbosity has a real cost: inference latency, API billing, and context window consumption. Prior work addressed this by shortening chains globally. That approach degraded accuracy on hard problems. This paper reframes the objective: the model should select the appropriate reasoning depth per problem, not per temperature or instruction.
+          </p>
+        </div>
+
+        <div class="sk-box-soft" style="padding:16px 18px">
+          <div class="sk-mono" style="font-size:10px;letter-spacing:2px;margin-bottom:8px;color:var(--accent)">THE APPROACH: REASONING SKILL CLASSIFICATION</div>
+          <p style="font-size:14px;line-height:1.6;margin:0">
+            The authors define a taxonomy of reasoning skills &mdash; direct recall, single-step inference, multi-step deduction, mathematical reasoning, code synthesis, and creative generation &mdash; and label a training dataset by the minimal skill required per problem. Phase 1 of training teaches the model to classify incoming prompts against this taxonomy before generating a response. Phase 2 fine-tunes the model on skill-stratified completions: short direct answers for recall problems, full scratchpads for multi-step and mathematical ones. The result is a model that routes internally, with no external classifier and no special tokens.
+          </p>
+        </div>
+
+        <div class="sk-box-soft" style="padding:16px 18px">
+          <div class="sk-mono" style="font-size:10px;letter-spacing:2px;margin-bottom:8px;color:var(--accent)">KEY FINDING: DIFFICULTY AWARENESS IS LEARNABLE</div>
+          <p style="font-size:14px;line-height:1.6;margin:0">
+            The most significant finding is not the token reduction &mdash; it is that difficulty awareness generalises. Models trained on the stratified dataset correctly classify out-of-distribution problem types they were not explicitly trained on. The authors attribute this to the internal representations learned in Phase 1: the classification head learns a latent difficulty manifold that transfers across domains. This suggests the approach can be applied to specialised domains (legal reasoning, biomedical Q&amp;A, code debugging) without needing a domain-specific difficulty taxonomy.
+          </p>
+        </div>
+
+      </div>
+      <div class="col" style="flex:0.6;gap:14px">
+
+        <div class="sk-box" style="padding:14px 16px">
+          <div class="sk-mono" style="font-size:9px;letter-spacing:1.5px;margin-bottom:8px">REASONING SKILL TAXONOMY</div>
+          <div class="col gap-2" style="font-size:12px;line-height:1.4">
+            <div class="row gap-2" style="align-items:center;border-bottom:1px solid var(--ink);padding-bottom:5px">
+              <div style="width:8px;height:8px;background:var(--accent);flex-shrink:0"></div>
+              <div><strong>Direct recall</strong> &mdash; no chain needed</div>
+            </div>
+            <div class="row gap-2" style="align-items:center;border-bottom:1px solid var(--ink);padding-bottom:5px">
+              <div style="width:8px;height:8px;background:var(--accent);flex-shrink:0"></div>
+              <div><strong>Single-step inference</strong> &mdash; brief scratchpad</div>
+            </div>
+            <div class="row gap-2" style="align-items:center;border-bottom:1px solid var(--ink);padding-bottom:5px">
+              <div style="width:8px;height:8px;background:var(--ink);flex-shrink:0"></div>
+              <div><strong>Multi-step deduction</strong> &mdash; full chain</div>
+            </div>
+            <div class="row gap-2" style="align-items:center;border-bottom:1px solid var(--ink);padding-bottom:5px">
+              <div style="width:8px;height:8px;background:var(--ink);flex-shrink:0"></div>
+              <div><strong>Mathematical reasoning</strong> &mdash; full chain</div>
+            </div>
+            <div class="row gap-2" style="align-items:center;border-bottom:1px solid var(--ink);padding-bottom:5px">
+              <div style="width:8px;height:8px;background:var(--ink);flex-shrink:0"></div>
+              <div><strong>Code synthesis</strong> &mdash; full chain</div>
+            </div>
+            <div class="row gap-2" style="align-items:center">
+              <div style="width:8px;height:8px;border:1.5px solid var(--ink);flex-shrink:0"></div>
+              <div><strong>Creative generation</strong> &mdash; variable</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sk-box" style="padding:14px 16px;background:var(--hi)">
+          <div class="sk-mono" style="font-size:9px;letter-spacing:1.5px;margin-bottom:8px">WHY IT MATTERS NOW</div>
+          <div style="font-size:13px;line-height:1.55">
+            Reasoning model API costs are typically 3&ndash;8&#215; higher than standard models. A 38% token reduction on a mixed workload translates directly to a ~20% bill reduction with no prompt changes required.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div style="height:24px"></div>
+
+  <!-- 04 VOICES -->
+  <section>
+    <div class="dd-module-h">
+      <div class="row gap-3" style="align-items:baseline">
+        <span class="num">04</span>
+        <span class="title">RECEPTION</span>
+      </div>
+      <span class="right">COMMUNITY SIGNALS</span>
+    </div>
+    <hr class="sk-rule-thin" style="margin-bottom:16px">
+    <div class="row gap-4" style="flex-wrap:wrap">
+
+      <div class="sk-box-soft" style="flex:1;min-width:240px;padding:16px 18px">
+        <div class="sk-mono" style="font-size:9px;letter-spacing:1.5px;color:var(--ink-2);margin-bottom:10px">PRACTITIONER TAKE</div>
+        <blockquote style="margin:0;font-size:15px;line-height:1.55;font-style:italic">
+          "This is the paper I've been waiting for. We've been prompt-engineering our way around reasoning verbosity for six months. A training-time fix that generalises is a much cleaner solution."
+        </blockquote>
+        <div class="sk-mono" style="font-size:9px;margin-top:10px;color:var(--ink-2)">HN DISCUSSION &middot; APR 25, 2026</div>
+      </div>
+
+      <div class="sk-box-soft" style="flex:1;min-width:240px;padding:16px 18px">
+        <div class="sk-mono" style="font-size:9px;letter-spacing:1.5px;color:var(--ink-2);margin-bottom:10px">SKEPTICAL READ</div>
+        <blockquote style="margin:0;font-size:15px;line-height:1.55;font-style:italic">
+          "The 0.3% accuracy delta is within noise, but the evaluation set is MATH and AIME &mdash; structured problems with clear difficulty signals. The claim about generalisation needs testing on ambiguous, open-ended tasks where difficulty is not well-defined."
+        </blockquote>
+        <div class="sk-mono" style="font-size:9px;margin-top:10px;color:var(--ink-2)">ML RESEARCH FORUM &middot; APR 25, 2026</div>
+      </div>
+
+      <div class="sk-box-soft" style="flex:1;min-width:240px;padding:16px 18px">
+        <div class="sk-mono" style="font-size:9px;letter-spacing:1.5px;color:var(--ink-2);margin-bottom:10px">INDUSTRY SIGNAL</div>
+        <blockquote style="margin:0;font-size:15px;line-height:1.55;font-style:italic">
+          "Three inference providers reached out this week asking about the training data format. That's the clearest signal I have that something in a paper is practically relevant."
+        </blockquote>
+        <div class="sk-mono" style="font-size:9px;margin-top:10px;color:var(--ink-2)">LEAD AUTHOR &middot; X/TWITTER &middot; APR 24, 2026</div>
+      </div>
+
+    </div>
+  </section>
+
+  <div style="height:24px"></div>
+
+  <!-- 05 WHAT IT MEANS -->
+  <section>
+    <div class="dd-module-h">
+      <div class="row gap-3" style="align-items:baseline">
+        <span class="num">05</span>
+        <span class="title">WHAT IT MEANS</span>
+      </div>
+      <span class="right">SIGNAL / NOISE</span>
+    </div>
+    <hr class="sk-rule-thin" style="margin-bottom:16px">
+    <div class="row gap-4">
+      <div class="col grow" style="flex:1.4;gap:12px">
+
+        <div class="row gap-3" style="align-items:flex-start">
+          <div class="sk-mono" style="font-size:36px;font-weight:700;color:var(--accent);line-height:1;min-width:40px">A</div>
+          <div class="col grow">
+            <div class="sk-mono" style="font-size:11px;letter-spacing:1.5px;margin-bottom:4px">REASONING IS NOT BINARY</div>
+            <div style="font-size:13px;line-height:1.5;color:var(--ink-2)">The field has been debating "should I use a reasoning model or a standard model?" This paper dissolves the question. A model that knows when to reason is strictly better than either &mdash; it matches the accuracy of a full reasoning model at the cost profile of a standard one on easy tasks.</div>
+          </div>
+        </div>
+        <hr class="sk-rule-thin">
+
+        <div class="row gap-3" style="align-items:flex-start">
+          <div class="sk-mono" style="font-size:36px;font-weight:700;color:var(--accent);line-height:1;min-width:40px">B</div>
+          <div class="col grow">
+            <div class="sk-mono" style="font-size:11px;letter-spacing:1.5px;margin-bottom:4px">FINE-TUNING IS THE LEVER, NOT PROMPTING</div>
+            <div style="font-size:13px;line-height:1.5;color:var(--ink-2)">System-prompt hacks like "be concise" suppress verbosity without targeting it. This approach trains the right internal behaviour. The token savings are consistent across request types; prompt-based suppression is not.</div>
+          </div>
+        </div>
+        <hr class="sk-rule-thin">
+
+        <div class="row gap-3" style="align-items:flex-start">
+          <div class="sk-mono" style="font-size:36px;font-weight:700;color:var(--accent);line-height:1;min-width:40px">C</div>
+          <div class="col grow">
+            <div class="sk-mono" style="font-size:11px;letter-spacing:1.5px;margin-bottom:4px">EVALUATION BENCHMARKS NEED A DIFFICULTY AXIS</div>
+            <div style="font-size:13px;line-height:1.5;color:var(--ink-2)">The paper's taxonomy exposes a gap in standard eval sets: most benchmarks report accuracy but not tokens-per-correct-answer stratified by problem difficulty. That metric would make models' reasoning efficiency visible in leaderboard comparisons.</div>
+          </div>
+        </div>
+
+      </div>
+      <div class="col" style="flex:0.55;gap:14px">
+
+        <div class="sk-box" style="padding:14px 16px">
+          <div class="sk-mono" style="font-size:9px;letter-spacing:1.5px;margin-bottom:8px">RELATED WORK</div>
+          <div class="col gap-3" style="font-size:12px;line-height:1.4">
+            <a href="https://arxiv.org/abs/2501.12599" target="_blank" rel="noopener" style="border-bottom:1px solid var(--ink);padding-bottom:4px">DeepSeek-R1: Incentivizing Reasoning via RL &#8599;</a>
+            <a href="https://arxiv.org/abs/2407.21787" target="_blank" rel="noopener" style="border-bottom:1px solid var(--ink);padding-bottom:4px">Scaling LLM Test-Time Compute (Snell et al.) &#8599;</a>
+            <a href="https://arxiv.org/abs/2404.16130" target="_blank" rel="noopener" style="border-bottom:1px solid var(--ink);padding-bottom:4px">Think Before You Speak (extended CoT survey) &#8599;</a>
+            <a href="https://arxiv.org/abs/2604.21764" target="_blank" rel="noopener">arXiv 2604.21764 (this paper) &#8599;</a>
+          </div>
+        </div>
+
+        <div class="sk-box" style="padding:14px 16px;background:var(--card)">
+          <div class="sk-mono" style="font-size:9px;letter-spacing:1.5px;margin-bottom:8px">OPEN QUESTIONS</div>
+          <div class="col gap-3" style="font-size:12px;line-height:1.4">
+            <div style="border-bottom:1px solid var(--ink);padding-bottom:6px">Does the classification head degrade on genuinely ambiguous tasks where difficulty is subjective?</div>
+            <div style="border-bottom:1px solid var(--ink);padding-bottom:6px">Can the taxonomy be extended to agentic tasks, where difficulty emerges from tool-call chains?</div>
+            <div>What is the data-labelling cost for a domain-specific adaptation?</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div style="height:24px"></div>
+
+  <!-- 06 IMPLEMENTATION OVERVIEW -->
+  <section class="sk-box" style="padding:22px 24px;background:var(--card)">
+    <div class="dd-module-h">
+      <div class="row gap-3" style="align-items:baseline">
+        <span class="num" style="color:var(--ink)">06</span>
+        <span class="title">IMPLEMENTATION OVERVIEW</span>
+      </div>
+      <span class="right">PAPER.1 &middot; PRACTITIONER GUIDE</span>
+    </div>
+    <hr class="sk-rule-thin" style="margin-bottom:16px">
+    <div class="row gap-5" style="flex-wrap:wrap">
+
+      <div class="col grow" style="flex:1.2;gap:14px">
+
+        <div class="sk-box-soft" style="padding:14px 16px">
+          <div class="sk-mono" style="font-size:10px;letter-spacing:2px;margin-bottom:8px;color:var(--accent)">PHASE 1 &mdash; SKILL CLASSIFIER TRAINING</div>
+          <p style="font-size:13px;line-height:1.6;margin:0">
+            Start with any instruction-tuned base model. Construct a labelled dataset of ~50K prompt-skill pairs using the six-category taxonomy. Instruction-tune a lightweight classification head (a linear layer over the final hidden state) for 2 epochs at 1e-4 learning rate. The head adds &lt;1% to inference latency and no tokens to output. Validate against a held-out set; target &gt;90% classification accuracy before proceeding to Phase 2.
+          </p>
+        </div>
+
+        <div class="sk-box-soft" style="padding:14px 16px">
+          <div class="sk-mono" style="font-size:10px;letter-spacing:2px;margin-bottom:8px;color:var(--accent)">PHASE 2 &mdash; STRATIFIED FINE-TUNING</div>
+          <p style="font-size:13px;line-height:1.6;margin:0">
+            Construct a second dataset of ~200K prompt-completion pairs, stratified by difficulty: 40% direct-answer problems with short completions, 30% single-step inference, 30% multi-step or mathematical problems with full chain-of-thought completions. Fine-tune the full model for 3 epochs. The stratification ratio matters: skewing toward easy problems causes accuracy regression on hard tasks; skewing toward hard problems reduces token savings on easy tasks. 40/30/30 is the paper's recommended starting point.
+          </p>
+        </div>
+
+        <div class="sk-box-soft" style="padding:14px 16px">
+          <div class="sk-mono" style="font-size:10px;letter-spacing:2px;margin-bottom:8px;color:var(--accent)">EVALUATION</div>
+          <p style="font-size:13px;line-height:1.6;margin:0">
+            Evaluate against a mixed benchmark that includes both easy (trivia, direct factual) and hard (MATH level 4-5, LiveCodeBench, multi-hop reasoning) problems. Track two metrics in parallel: accuracy delta vs. baseline, and mean tokens-per-correct-answer stratified by difficulty tier. A successful run should show &lt;1% accuracy delta on hard problems and &gt;30% token reduction on easy problems. If accuracy drops on hard problems, revisit the Phase 2 stratification ratio; if token reduction is low, revisit Phase 1 classification accuracy.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="col" style="flex:0.55;gap:14px">
+
+        <div class="sk-box" style="padding:14px 16px;background:var(--hi)">
+          <div class="sk-mono" style="font-size:9px;letter-spacing:1.5px;margin-bottom:10px">QUICK-START CHECKLIST</div>
+          <div class="col gap-3" style="font-size:13px;line-height:1.5">
+            <div class="row gap-3">
+              <span class="sk-mono" style="color:var(--accent);font-size:14px;font-weight:700;flex-shrink:0">1.</span>
+              <div>Label 50K prompts against the six-category taxonomy &mdash; use GPT-4 class or equivalent for annotation speed.</div>
+            </div>
+            <div class="row gap-3">
+              <span class="sk-mono" style="color:var(--accent);font-size:14px;font-weight:700;flex-shrink:0">2.</span>
+              <div>Train classification head to &gt;90% accuracy. Freeze base model weights in Phase 1.</div>
+            </div>
+            <div class="row gap-3">
+              <span class="sk-mono" style="color:var(--accent);font-size:14px;font-weight:700;flex-shrink:0">3.</span>
+              <div>Assemble 200K stratified completions (40/30/30). Use existing CoT data for the hard tier.</div>
+            </div>
+            <div class="row gap-3">
+              <span class="sk-mono" style="color:var(--accent);font-size:14px;font-weight:700;flex-shrink:0">4.</span>
+              <div>Fine-tune full model. Monitor loss curves for both difficulty tiers separately.</div>
+            </div>
+            <div class="row gap-3">
+              <span class="sk-mono" style="color:var(--accent);font-size:14px;font-weight:700;flex-shrink:0">5.</span>
+              <div>Evaluate on mixed benchmark. Target &lt;1% accuracy delta, &gt;30% token reduction on easy tasks.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sk-box" style="padding:14px 16px">
+          <div class="sk-mono" style="font-size:9px;letter-spacing:1.5px;margin-bottom:8px">COMPUTE REQUIREMENTS</div>
+          <div style="font-size:13px;line-height:1.55">
+            Phase 1 is cheap: classification head training on a 7B model takes ~4 A100-hours. Phase 2 is standard fine-tuning cost. No reinforcement learning infrastructure required. The authors report full replication on a single 8&#215;A100 node for models up to 13B parameters.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div style="height:32px"></div>
+
+  <!-- footer nav -->
+  <div class="row" style="justify-content:space-between;align-items:center;border-top:1.5px solid var(--ink);padding-top:14px">
+    <a href="eng-1-thoughtworks-radar-ai-fundamentals.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px">&larr; ENG.1 &middot; Thoughtworks Radar</a>
+    <a href="../index.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px">DIGEST &middot; &#8470; 001</a>
+    <a href="01-lead-claude-mythos-preview.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px">LEAD.1 &middot; Claude Mythos &#8594;</a>
+  </div>
+
+</div>
+</body>
+</html>

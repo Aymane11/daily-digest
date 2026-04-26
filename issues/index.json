@@ -1,1 +1,8 @@
-[]
+[
+  {
+    "issue": "001",
+    "date": "2026-04-26",
+    "path": "issues/001/index.html",
+    "topics": ["AI", "SECURITY", "MODELS"]
+  }
+]

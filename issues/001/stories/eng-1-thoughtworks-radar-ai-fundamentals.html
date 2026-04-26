@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Daily Digest 001 — Thoughtworks Tech Radar: AI Forces Return to Fundamentals</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;700&family=Kalam:wght@300;400;700&family=Special+Elite&display=swap');
+*{box-sizing:border-box}html,body{margin:0;padding:0}body{background:#ece7dc;color:#0d0d0d;font-family:'Kalam',cursive;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}
+:root{--paper:#ece7dc;--card:#faf7f0;--ink:#0d0d0d;--ink-2:#6a6a6a;--accent:#c0392b;--hi:#ffe89a}
+.sk-mono{font-family:'Special Elite','Courier New',monospace}.sk-script{font-family:'Caveat',cursive}
+.sk-box{border:1.5px solid var(--ink);background:transparent;position:relative}.sk-box-soft{border:1.25px solid #2a2a2a;background:transparent}
+.sk-rule-thin{height:0;border:0;border-top:1px solid var(--ink);margin:0}
+.sk-img{background-image:repeating-linear-gradient(135deg,transparent 0,transparent 7px,rgba(20,20,20,0.55) 7px,rgba(20,20,20,0.55) 8px);border:1.5px solid var(--ink);position:relative}
+.sk-img::after{content:attr(data-label);position:absolute;inset:0;margin:auto;display:flex;align-items:center;justify-content:center;font-family:'Special Elite',monospace;font-size:11px;color:var(--ink);background:rgba(240,238,233,0.85);padding:4px 10px;width:max-content;height:max-content;border:1px solid var(--ink);letter-spacing:0.5px;text-transform:uppercase}
+.row{display:flex}.col{display:flex;flex-direction:column}.grow{flex:1}.gap-2{gap:8px}.gap-3{gap:12px}.gap-4{gap:16px}.gap-5{gap:20px}
+.dd-page{max-width:1200px;margin:0 auto;padding:28px}
+.dd-module-h{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px}
+.dd-module-h .num{font-size:56px;font-weight:700;line-height:0.9;color:var(--accent)}
+.dd-module-h .title{font-family:'Special Elite',monospace;font-size:12px;letter-spacing:2px}
+.dd-module-h .right{font-family:'Special Elite',monospace;font-size:10px;letter-spacing:1.5px}
+</style>
+</head>
+<body>
+<div class="dd-page">
+
+  <nav class="row" style="justify-content:space-between;align-items:baseline;margin-bottom:8px">
+    <a href="../index.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px">&larr; DIGEST &middot; &#8470; 001</a>
+    <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">STORY &middot; ENG.1 &middot; ENGINEERING &middot; DEPTH</span>
+    <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">6 MODULES &middot; 6 MIN</span>
+  </nav>
+
+  <div class="row gap-2" style="margin-bottom:12px">
+    <div class="row gap-2 grow" style="align-items:center"><span class="sk-mono" style="font-size:10px;font-weight:700;color:var(--accent)">01</span><div style="flex:1;height:3px;background:var(--accent)"></div></div>
+    <div class="row gap-2 grow" style="align-items:center"><span class="sk-mono" style="font-size:10px;font-weight:700;color:#888">02</span><div style="flex:1;height:3px;background:#888;opacity:0.3"></div></div>
+    <div class="row gap-2 grow" style="align-items:center"><span class="sk-mono" style="font-size:10px;font-weight:700;color:#888">03</span><div style="flex:1;height:3px;background:#888;opacity:0.3"></div></div>
+    <div class="row gap-2 grow" style="align-items:center"><span class="sk-mono" style="font-size:10px;font-weight:700;color:#888">04</span><div style="flex:1;height:3px;background:#888;opacity:0.3"></div></div>
+    <div class="row gap-2 grow" style="align-items:center"><span class="sk-mono" style="font-size:10px;font-weight:700;color:#888">05</span><div style="flex:1;height:3px;background:#888;opacity:0.3"></div></div>
+    <div class="row gap-2 grow" style="align-items:center"><span class="sk-mono" style="font-size:10px;font-weight:700;color:#888">06</span><div style="flex:1;height:3px;background:#888;opacity:0.3"></div></div>
+  </div>
+
+  <!-- 01 OPENER -->
+  <section class="sk-box" style="background:var(--ink);color:var(--card);padding:20px 22px">
+    <div class="row" style="justify-content:space-between;align-items:baseline">
+      <span class="sk-mono" style="font-size:10px;letter-spacing:3px;color:var(--hi)">01 / OPENER</span>
+      <span class="sk-mono" style="font-size:10px">APRIL 21, 2026</span>
+    </div>
+    <div class="row gap-4" style="margin-top:14px">
+      <div class="col grow" style="flex:1.4">
+        <h1 style="font-size:44px;font-weight:700;line-height:1.04;letter-spacing:-0.5px;text-wrap:balance;margin:0">
+          Thoughtworks 34th Tech Radar: the age of AI is a return to engineering fundamentals
+        </h1>
+        <p style="font-size:14px;line-height:1.55;margin:14px 0 0;color:rgba(250,247,240,0.82)">
+          Martin Fowler's Fragments post from April 21 distills the headline finding from the 34th Technology Radar: amid the AI goldrush, Thoughtworks' engineering advisory council is moving <em>toward</em> the practices teams abandoned in the sprint to ship — pair programming, rigorous mutation testing, DORA metrics, zero-trust architecture. The implication is uncomfortable: AI-assisted development accelerates output, but it also accelerates the accumulation of every bad habit your team already had.
+        </p>
+        <div class="row gap-3" style="margin-top:16px;flex-wrap:wrap">
+          <a href="https://martinfowler.com/fragments.html" target="_blank" rel="noopener" class="sk-mono" style="font-size:10px;letter-spacing:1px;border-bottom:1px solid rgba(250,247,240,0.4);padding-bottom:1px">MARTIN FOWLER &middot; FRAGMENTS APR 21 &#8599;</a>
+          <a href="https://www.thoughtworks.com/radar" target="_blank" rel="noopener" class="sk-mono" style="font-size:10px;letter-spacing:1px;border-bottom:1px solid rgba(250,247,240,0.4);padding-bottom:1px">THOUGHTWORKS RADAR &#8599;</a>
+        </div>
+      </div>
+      <div class="col" style="flex:0.55;gap:12px;justify-content:flex-start">
+        <div class="sk-img" style="flex:1;min-height:160px" data-label="TECH RADAR VOL.34 — APR 2026"></div>
+        <div style="background:var(--hi);color:var(--ink);padding:10px 12px">
+          <div class="sk-mono" style="font-size:9px;letter-spacing:1.5px;margin-bottom:4px">SIGNAL</div>
+          <div style="font-size:13px;line-height:1.4">Quality discipline is the <strong>moat</strong> AI cannot copy-paste.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div style="height:24px"></div>
+
+  <!-- 02 NUMBERS -->
+  <section>
+    <div class="dd-module-h">
+      <div class="row gap-3" style="align-items:baseline">
+        <span class="num">02</span>
+        <span class="title">BY THE NUMBERS</span>
+      </div>
+      <span class="right">RADAR &middot; 34TH EDITION</span>
+    </div>
+    <hr class="sk-rule-thin" style="margin-bottom:16px">
+    <div class="row gap-4" style="flex-wrap:wrap">
+
+      <div class="sk-box" style="flex:1;min-width:160px;padding:16px 18px">
+        <div style="font-size:52px;font-weight:700;line-height:0.9;color:var(--accent);font-family:'Special Elite',monospace">34</div>
+        <div class="sk-mono" style="font-size:9px;letter-spacing:1.5px;margin-top:6px;color:var(--ink-2)">EDITIONS PUBLISHED</div>
+        <div style="font-size:13px;line-height:1.4;margin-top:8px">Thoughtworks has published the Radar since 2010; 34 editions is the longest-running practitioner advisory in the industry.</div>
+      </div>
+
+      <div class="sk-box" style="flex:1;min-width:160px;padding:16px 18px;background:var(--hi)">
+        <div style="font-size:52px;font-weight:700;line-height:0.9;color:var(--ink);font-family:'Special Elite',monospace">100K</div>
+        <div class="sk-mono" style="font-size:9px;letter-spacing:1.5px;margin-top:6px;color:var(--ink-2)">LOC DEGRADATION THRESHOLD</div>
+        <div style="font-size:13px;line-height:1.4;margin-top:8px">Mike Mason's finding: AI-generated codebases show measurable quality degradation after approximately 100,000 lines of code without human review gates.</div>
+      </div>
+
+      <div class="sk-box" style="flex:1;min-width:160px;padding:16px 18px">
+        <div style="font-size:52px;font-weight:700;line-height:0.9;color:var(--accent);font-family:'Special Elite',monospace">4</div>
+        <div class="sk-mono" style="font-size:9px;letter-spacing:1.5px;margin-top:6px;color:var(--ink-2)">FOUNDATIONAL PRACTICES RETURNING</div>
+        <div style="font-size:13px;line-height:1.4;margin-top:8px">Pair programming, mutation testing, zero-trust architecture, and DORA metrics — all Adopt-or-Trial in this volume.</div>
+      </div>
+
+      <div class="sk-box" style="flex:1;min-width:160px;padding:16px 18px">
+        <div style="font-size:52px;font-weight:700;line-height:0.9;color:var(--accent);font-family:'Special Elite',monospace">CLI</div>
+        <div class="sk-mono" style="font-size:9px;letter-spacing:1.5px;margin-top:6px;color:var(--ink-2)">INTERFACE TYPE OF THE CYCLE</div>
+        <div style="font-size:13px;line-height:1.4;margin-top:8px">Agentic tools are pulling developers back to the terminal. The CLI resurgence is the Radar's most surprising "we told you so" in three cycles.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <div style="height:24px"></div>
+
+  <!-- 03 THE STORY -->
+  <section>
+    <div class="dd-module-h">
+      <div class="row gap-3" style="align-items:baseline">
+        <span class="num">03</span>
+        <span class="title">THE STORY</span>
+      </div>
+      <span class="right">CONTEXT &middot; ANALYSIS</span>
+    </div>
+    <hr class="sk-rule-thin" style="margin-bottom:16px">
+    <div class="row gap-4">
+      <div class="col grow" style="flex:1.6;gap:16px">
+
+        <div class="sk-box-soft" style="padding:16px 18px">
+          <div class="sk-mono" style="font-size:10px;letter-spacing:2px;margin-bottom:8px;color:var(--accent)">THE PARADOX</div>
+          <p style="font-size:14px;line-height:1.6;margin:0">
+            Teams that adopted AI coding tools in 2024 reported higher velocity numbers. They also reported higher rates of escaped defects, security findings from audits, and unexpected coupling in their architectures. Thoughtworks' advisory council spent the last cycle triangulating these signals. The conclusion Fowler summarises: AI doesn't change what good engineering looks like — it changes how fast you get to bad engineering if you stop practising it.
+          </p>
+        </div>
+
+        <div class="sk-box-soft" style="padding:16px 18px">
+          <div class="sk-mono" style="font-size:10px;letter-spacing:2px;margin-bottom:8px;color:var(--accent)">THE 100K LOC FINDING</div>
+          <p style="font-size:14px;line-height:1.6;margin:0">
+            Thoughtworks CTO Mike Mason presented internal data from client engagements. Projects that let AI generate code without mandatory review gates — pair review, mutation testing, or even basic linting thresholds — showed a non-linear degradation in cohesion and test coverage around the 100,000-line mark. Below that threshold, AI-generated code is largely indistinguishable from human code by static analysis. Above it, entropy compounds: functions grow, names blur, tests thin out. The Radar's recommendation is a hard gate: no PR merged without a second set of eyes when the codebase exceeds 50KB of net new AI-generated lines per sprint.
+          </p>
+        </div>
+
+        <div class="sk-box-soft" style="padding:16px 18px">
+          <div class="sk-mono" style="font-size:10px;letter-spacing:2px;margin-bottom:8px;color:var(--accent)">"PERMISSION-HUNGRY" AGENTS</div>
+          <p style="font-size:14px;line-height:1.6;margin:0">
+            The security section introduces a new Assess-ring entry: "permission-hungry agents." Agentic coding tools routinely request filesystem, environment, shell, and network access on first launch. The Radar authors note that most engineers accept these prompts reflexively — the same way they once clicked "Allow All Cookies." Zero-trust network architecture, long in the Trial ring, is promoted to Adopt specifically because agentic workloads create lateral-movement risks that perimeter security cannot address.
+          </p>
+        </div>
+
+      </div>
+      <div class="col" style="flex:0.6;gap:14px">
+
+        <div class="sk-box" style="padding:14px 16px">
+          <div class="sk-mono" style="font-size:9px;letter-spacing:1.5px;margin-bottom:8px">RADAR RINGS EXPLAINED</div>
+          <div class="col gap-3">
+            <div class="row gap-3" style="align-items:flex-start">
+              <div style="width:10px;height:10px;background:var(--accent);margin-top:3px;flex-shrink:0"></div>
+              <div><strong class="sk-mono" style="font-size:10px">ADOPT</strong><div style="font-size:12px;color:var(--ink-2)">Strong recommendation. Use now.</div></div>
+            </div>
+            <div class="row gap-3" style="align-items:flex-start">
+              <div style="width:10px;height:10px;background:#555;margin-top:3px;flex-shrink:0"></div>
+              <div><strong class="sk-mono" style="font-size:10px">TRIAL</strong><div style="font-size:12px;color:var(--ink-2)">Worth pursuing on low-risk work.</div></div>
+            </div>
+            <div class="row gap-3" style="align-items:flex-start">
+              <div style="width:10px;height:10px;border:1.5px solid var(--ink);margin-top:3px;flex-shrink:0"></div>
+              <div><strong class="sk-mono" style="font-size:10px">ASSESS</strong><div style="font-size:12px;color:var(--ink-2)">Explore with low commitment.</div></div>
+            </div>
+            <div class="row gap-3" style="align-items:flex-start">
+              <div style="width:10px;height:10px;background:var(--ink-2);margin-top:3px;flex-shrink:0"></div>
+              <div><strong class="sk-mono" style="font-size:10px">HOLD</strong><div style="font-size:12px;color:var(--ink-2)">Proceed with caution.</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sk-box" style="padding:14px 16px;background:var(--card)">
+          <div class="sk-mono" style="font-size:9px;letter-spacing:1.5px;margin-bottom:8px">PROMOTED TO ADOPT</div>
+          <div class="col gap-2" style="font-size:12px;line-height:1.4">
+            <div style="border-bottom:1px solid var(--ink);padding-bottom:6px">Pair programming</div>
+            <div style="border-bottom:1px solid var(--ink);padding-bottom:6px">Mutation testing</div>
+            <div style="border-bottom:1px solid var(--ink);padding-bottom:6px">Zero-trust network architecture</div>
+            <div>DORA metrics as team health proxy</div>
+          </div>
+        </div>
+
+        <div class="sk-box" style="padding:14px 16px;background:var(--hi)">
+          <div class="sk-mono" style="font-size:9px;letter-spacing:1.5px;margin-bottom:6px">CLI RESURGENCE</div>
+          <div style="font-size:13px;line-height:1.5">Agentic tools compose shell commands. Engineers who know the terminal deeply compose agents well. The GUI-first generation is re-learning grep.</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div style="height:24px"></div>
+
+  <!-- 04 VOICES -->
+  <section>
+    <div class="dd-module-h">
+      <div class="row gap-3" style="align-items:baseline">
+        <span class="num">04</span>
+        <span class="title">VOICES</span>
+      </div>
+      <span class="right">THREE PERSPECTIVES</span>
+    </div>
+    <hr class="sk-rule-thin" style="margin-bottom:16px">
+    <div class="row gap-4" style="flex-wrap:wrap">
+
+      <div class="sk-box-soft" style="flex:1;min-width:240px;padding:16px 18px">
+        <div class="sk-mono" style="font-size:9px;letter-spacing:1.5px;color:var(--ink-2);margin-bottom:10px">MARTIN FOWLER &middot; THOUGHTWORKS</div>
+        <blockquote style="margin:0;font-size:15px;line-height:1.55;font-style:italic">
+          "The tools accelerate, but they do not substitute for understanding. What they expose is the gap between teams that have invested in craft and those that have not."
+        </blockquote>
+        <div class="sk-mono" style="font-size:9px;margin-top:10px;color:var(--ink-2)">FRAGMENTS &middot; APRIL 21, 2026</div>
+      </div>
+
+      <div class="sk-box-soft" style="flex:1;min-width:240px;padding:16px 18px">
+        <div class="sk-mono" style="font-size:9px;letter-spacing:1.5px;color:var(--ink-2);margin-bottom:10px">MIKE MASON &middot; THOUGHTWORKS CTO</div>
+        <blockquote style="margin:0;font-size:15px;line-height:1.55;font-style:italic">
+          "After a hundred thousand lines, the code stops looking like code and starts looking like the training set. That's when your architecture eats itself."
+        </blockquote>
+        <div class="sk-mono" style="font-size:9px;margin-top:10px;color:var(--ink-2)">RADAR KEYNOTE &middot; APRIL 2026</div>
+      </div>
+
+      <div class="sk-box-soft" style="flex:1;min-width:240px;padding:16px 18px">
+        <div class="sk-mono" style="font-size:9px;letter-spacing:1.5px;color:var(--ink-2);margin-bottom:10px">COUNTERPOINT &middot; PRAGMATIC ENGINEER</div>
+        <blockquote style="margin:0;font-size:15px;line-height:1.55;font-style:italic">
+          "Thoughtworks has been promoting pair programming since the XP era. The Radar is a useful forcing function, but calling fundamentals 'new' every cycle undersells how many teams never stopped doing them."
+        </blockquote>
+        <div class="sk-mono" style="font-size:9px;margin-top:10px;color:var(--ink-2)">THE PRAGMATIC ENGINEER &middot; APR 2026</div>
+      </div>
+
+    </div>
+  </section>
+
+  <div style="height:24px"></div>
+
+  <!-- 05 WHAT IT MEANS -->
+  <section>
+    <div class="dd-module-h">
+      <div class="row gap-3" style="align-items:baseline">
+        <span class="num">05</span>
+        <span class="title">WHAT IT MEANS</span>
+      </div>
+      <span class="right">SIGNAL / NOISE</span>
+    </div>
+    <hr class="sk-rule-thin" style="margin-bottom:16px">
+    <div class="row gap-4">
+      <div class="col grow" style="flex:1.4;gap:12px">
+
+        <div class="row gap-3" style="align-items:flex-start">
+          <div class="sk-mono" style="font-size:36px;font-weight:700;color:var(--accent);line-height:1;min-width:40px">A</div>
+          <div class="col grow">
+            <div class="sk-mono" style="font-size:11px;letter-spacing:1.5px;margin-bottom:4px">AI-GENERATED CODE IS NOT SELF-TESTING</div>
+            <div style="font-size:13px;line-height:1.5;color:var(--ink-2)">Models trained on code are also trained on low-coverage code. Left to their own devices they reproduce the coverage patterns of the training set — which means sparse tests on the long tail of edge cases.</div>
+          </div>
+        </div>
+        <hr class="sk-rule-thin">
+
+        <div class="row gap-3" style="align-items:flex-start">
+          <div class="sk-mono" style="font-size:36px;font-weight:700;color:var(--accent);line-height:1;min-width:40px">B</div>
+          <div class="col grow">
+            <div class="sk-mono" style="font-size:11px;letter-spacing:1.5px;margin-bottom:4px">AGENTS EXPAND YOUR ATTACK SURFACE</div>
+            <div style="font-size:13px;line-height:1.5;color:var(--ink-2)">An agent with filesystem and shell access is a privileged process. If it is compromised — through prompt injection in a source file, a malicious dependency, or a supply-chain event — the blast radius is your entire developer workstation.</div>
+          </div>
+        </div>
+        <hr class="sk-rule-thin">
+
+        <div class="row gap-3" style="align-items:flex-start">
+          <div class="sk-mono" style="font-size:36px;font-weight:700;color:var(--accent);line-height:1;min-width:40px">C</div>
+          <div class="col grow">
+            <div class="sk-mono" style="font-size:11px;letter-spacing:1.5px;margin-bottom:4px">DORA METRICS ARE MORE IMPORTANT, NOT LESS</div>
+            <div style="font-size:13px;line-height:1.5;color:var(--ink-2)">Deployment frequency and change failure rate become more volatile when AI handles the implementation. DORA gives you the early-warning signal before escaped defects hit customers. Teams dropping DORA because "we ship faster now" are removing the only instrument that tells them whether faster is better.</div>
+          </div>
+        </div>
+
+      </div>
+      <div class="col" style="flex:0.55;gap:14px">
+
+        <div class="sk-box" style="padding:14px 16px">
+          <div class="sk-mono" style="font-size:9px;letter-spacing:1.5px;margin-bottom:8px">FURTHER READING</div>
+          <div class="col gap-3" style="font-size:12px;line-height:1.4">
+            <a href="https://martinfowler.com/fragments.html" target="_blank" rel="noopener" style="border-bottom:1px solid var(--ink);padding-bottom:4px">Martin Fowler Fragments &mdash; Apr 21 &#8599;</a>
+            <a href="https://www.thoughtworks.com/radar" target="_blank" rel="noopener" style="border-bottom:1px solid var(--ink);padding-bottom:4px">Thoughtworks Tech Radar Vol.34 &#8599;</a>
+            <a href="https://dora.dev" target="_blank" rel="noopener" style="border-bottom:1px solid var(--ink);padding-bottom:4px">DORA Research &#8599;</a>
+            <a href="https://newsletter.pragmaticengineer.com" target="_blank" rel="noopener">The Pragmatic Engineer &#8599;</a>
+          </div>
+        </div>
+
+        <div class="sk-box" style="padding:14px 16px;background:var(--ink);color:var(--card)">
+          <div class="sk-mono" style="font-size:9px;letter-spacing:1.5px;margin-bottom:8px;color:var(--hi)">HOLD IN THIS EDITION</div>
+          <div class="col gap-2" style="font-size:12px;line-height:1.4">
+            <div style="border-bottom:1px solid rgba(250,247,240,0.25);padding-bottom:6px">AI pair programming without review gates</div>
+            <div style="border-bottom:1px solid rgba(250,247,240,0.25);padding-bottom:6px">Agents with unrestricted file system access</div>
+            <div>Dropping DORA metrics post-AI adoption</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div style="height:24px"></div>
+
+  <!-- 06 WHY THIS MATTERS FOR YOUR CAREER -->
+  <section class="sk-box" style="padding:22px 24px;background:var(--card)">
+    <div class="dd-module-h">
+      <div class="row gap-3" style="align-items:baseline">
+        <span class="num" style="color:var(--ink)">06</span>
+        <span class="title">WHY THIS MATTERS FOR YOUR CAREER</span>
+      </div>
+      <span class="right">ENG.1 &middot; DEPTH</span>
+    </div>
+    <hr class="sk-rule-thin" style="margin-bottom:16px">
+    <div class="row gap-5" style="flex-wrap:wrap">
+
+      <div class="col grow" style="flex:1.2;gap:14px">
+        <p style="font-size:14px;line-height:1.65;margin:0">
+          The Radar's trajectory is a mirror for your own career arc. Every practice in the Adopt ring this cycle is something that separates engineers who understand <em>why</em> software behaves the way it does from engineers who can only describe <em>what</em> they asked an AI to write. That gap is widening.
+        </p>
+        <p style="font-size:14px;line-height:1.65;margin:0">
+          Pair programming is a forcing function for explicit reasoning. When you have to explain your intent out loud, you catch the incoherence before the compiler does. AI copilots simulate a pair but they simulate the agreeable part &mdash; they rarely push back the way a good human reviewer would. If you have never practised real pair review, you have never built the muscle that catches the model's most confident mistakes.
+        </p>
+        <p style="font-size:14px;line-height:1.65;margin:0">
+          Mutation testing is the same story. A model that writes tests alongside code tends to write tests that confirm what the code does, not tests that challenge it. Running a mutation framework tells you whether your test suite can detect defects the model didn't consider. Teams that add mutation testing to their CI are, in effect, auditing the model's blind spots automatically.
+        </p>
+        <p style="font-size:14px;line-height:1.65;margin:0">
+          CLI fluency matters because agentic tools are shell tools. Understanding how they compose, how they fail, and what privileges they hold is infrastructure literacy. The engineers who will be trusted to own agentic systems in production are the ones who can reason about what happens when the agent's shell command returns exit code 1 at 3am.
+        </p>
+      </div>
+
+      <div class="col" style="flex:0.55;gap:14px">
+
+        <div class="sk-box" style="padding:14px 16px;background:var(--hi)">
+          <div class="sk-mono" style="font-size:9px;letter-spacing:1.5px;margin-bottom:10px">THREE ACTIONS THIS WEEK</div>
+          <div class="col gap-3" style="font-size:13px;line-height:1.5">
+            <div class="row gap-3">
+              <span class="sk-mono" style="color:var(--accent);font-size:14px;font-weight:700;flex-shrink:0">1.</span>
+              <div>Run <strong>Stryker</strong> or <strong>PITest</strong> on any AI-generated module in your codebase. Count how many mutants survive.</div>
+            </div>
+            <div class="row gap-3">
+              <span class="sk-mono" style="color:var(--accent);font-size:14px;font-weight:700;flex-shrink:0">2.</span>
+              <div>Audit what permissions your AI coding agent has requested. Revoke any you did not explicitly decide to grant.</div>
+            </div>
+            <div class="row gap-3">
+              <span class="sk-mono" style="color:var(--accent);font-size:14px;font-weight:700;flex-shrink:0">3.</span>
+              <div>Pull your team's deployment frequency and change failure rate for the last 90 days. Have they moved since you adopted AI tooling?</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sk-box" style="padding:14px 16px">
+          <div class="sk-mono" style="font-size:9px;letter-spacing:1.5px;margin-bottom:8px">THE UNDERLYING SHIFT</div>
+          <div style="font-size:13px;line-height:1.55">
+            Software engineering used to be bottlenecked by <strong>writing</strong>. It is now bottlenecked by <strong>reading</strong>, <strong>verifying</strong>, and <strong>owning</strong>. The engineers whose value survives the transition are the ones who can do those three things faster and better than anyone else on their team &mdash; AI-generated or otherwise.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div style="height:32px"></div>
+
+  <!-- footer nav -->
+  <div class="row" style="justify-content:space-between;align-items:center;border-top:1.5px solid var(--ink);padding-top:14px">
+    <a href="02-4-deepmind-decoupled-diloco.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px">&larr; 02.4 &middot; DeepMind DiLoCo</a>
+    <a href="../index.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px">DIGEST &middot; &#8470; 001</a>
+    <a href="paper-1-thinking-with-reasoning-skills.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px">PAPER.1 &middot; Reasoning Skills &#8594;</a>
+  </div>
+
+</div>
+</body>
+</html>

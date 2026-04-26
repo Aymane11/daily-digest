@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Daily Digest 001 — OpenAI retires SWE-bench Verified</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;700&family=Kalam:wght@300;400;700&family=Special+Elite&display=swap');
+*{box-sizing:border-box}html,body{margin:0;padding:0}body{background:#ece7dc;color:#0d0d0d;font-family:'Kalam',cursive;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}
+:root{--paper:#ece7dc;--card:#faf7f0;--ink:#0d0d0d;--ink-2:#6a6a6a;--accent:#c0392b;--hi:#ffe89a}
+.sk-mono{font-family:'Special Elite','Courier New',monospace}.sk-script{font-family:'Caveat',cursive}
+.sk-box{border:1.5px solid var(--ink);background:transparent;position:relative}.sk-box-soft{border:1.25px solid #2a2a2a;background:transparent}
+.sk-rule-thin{height:0;border:0;border-top:1px solid var(--ink);margin:0}
+.sk-img{background-image:repeating-linear-gradient(135deg,transparent 0,transparent 7px,rgba(20,20,20,0.55) 7px,rgba(20,20,20,0.55) 8px);border:1.5px solid var(--ink);position:relative}
+.sk-img::after{content:attr(data-label);position:absolute;inset:0;margin:auto;display:flex;align-items:center;justify-content:center;font-family:'Special Elite',monospace;font-size:11px;color:var(--ink);background:rgba(240,238,233,0.85);padding:4px 10px;width:max-content;height:max-content;border:1px solid var(--ink);letter-spacing:0.5px;text-transform:uppercase}
+.row{display:flex}.col{display:flex;flex-direction:column}.grow{flex:1}.gap-2{gap:8px}.gap-3{gap:12px}.gap-4{gap:16px}
+.dd-page{max-width:1200px;margin:0 auto;padding:28px}
+.dd-module-h{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px}
+.dd-module-h .num{font-size:56px;font-weight:700;line-height:0.9;color:var(--accent)}
+.dd-module-h .title{font-family:'Special Elite',monospace;font-size:12px;letter-spacing:2px}
+.dd-module-h .right{font-family:'Special Elite',monospace;font-size:10px;letter-spacing:1.5px}
+</style>
+</head>
+<body>
+<div class="dd-page">
+
+  <nav class="row" style="justify-content:space-between;align-items:baseline;margin-bottom:8px">
+    <a href="../index.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px">&larr; DIGEST &middot; &#8470; 001</a>
+    <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">STORY &middot; 02.3 &middot; AI &middot; BENCHMARKS</span>
+    <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">5 MODULES &middot; 3 MIN</span>
+  </nav>
+
+  <div class="row gap-2" style="margin-bottom:12px">
+    <div class="row gap-2 grow" style="align-items:center"><span class="sk-mono" style="font-size:10px;font-weight:700;color:var(--accent)">01</span><div style="flex:1;height:3px;background:var(--accent)"></div></div>
+    <div class="row gap-2 grow" style="align-items:center"><span class="sk-mono" style="font-size:10px;font-weight:700;color:#888">02</span><div style="flex:1;height:3px;background:#888;opacity:0.3"></div></div>
+    <div class="row gap-2 grow" style="align-items:center"><span class="sk-mono" style="font-size:10px;font-weight:700;color:#888">03</span><div style="flex:1;height:3px;background:#888;opacity:0.3"></div></div>
+    <div class="row gap-2 grow" style="align-items:center"><span class="sk-mono" style="font-size:10px;font-weight:700;color:#888">04</span><div style="flex:1;height:3px;background:#888;opacity:0.3"></div></div>
+    <div class="row gap-2 grow" style="align-items:center"><span class="sk-mono" style="font-size:10px;font-weight:700;color:#888">05</span><div style="flex:1;height:3px;background:#888;opacity:0.3"></div></div>
+  </div>
+
+  <!-- 01 OPENER -->
+  <section class="sk-box" style="background:var(--ink);color:var(--card);padding:20px 22px">
+    <div class="row" style="justify-content:space-between;align-items:baseline">
+      <span class="sk-mono" style="font-size:10px;letter-spacing:3px;color:var(--hi)">01 / OPENER</span>
+      <span class="sk-mono" style="font-size:10px">APRIL 25, 2026</span>
+    </div>
+    <div class="row gap-4" style="margin-top:14px">
+      <div class="col grow" style="flex:1.4">
+        <h1 style="font-size:44px;font-weight:700;line-height:1.04;letter-spacing:-0.5px;text-wrap:balance;margin:0">
+          OpenAI declares SWE-bench Verified no longer measures frontier coding capability
+        </h1>
+        <p class="sk-script" style="font-size:22px;color:var(--hi);margin:12px 0 0">Top models now score above 80% on tasks designed to be hard — the benchmark saturated faster than any evaluation infrastructure could keep pace</p>
+        <div class="row gap-3" style="margin-top:14px">
+          <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">BY &middot; EDITORIAL TEAM</span>
+          <span class="sk-mono" style="font-size:10px;color:var(--hi)">&middot; 3 MIN &middot; AI &middot; BENCHMARKS</span>
+        </div>
+        <div class="row gap-3" style="margin-top:8px">
+          <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--hi)">SOURCE &middot; HN &middot; 142 PTS &middot; OPENAI.COM</span>
+        </div>
+      </div>
+      <div class="sk-img" data-label="HERO" style="width:280px;flex-shrink:0;height:200px;border-color:var(--card)"></div>
+    </div>
+  </section>
+
+  <!-- 02 NUMBERS -->
+  <section class="sk-box" style="background:var(--hi);padding:20px 22px;margin-top:12px">
+    <div class="dd-module-h">
+      <div class="row gap-3" style="align-items:baseline">
+        <span class="num">02</span>
+        <span class="title">THE NUMBERS &middot; AT A GLANCE</span>
+      </div>
+      <span class="right">4 STATS</span>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0">
+      <div class="col" style="padding:4px 16px">
+        <div style="font-size:76px;font-weight:700;line-height:0.95;letter-spacing:-1px">80%+</div>
+        <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;margin:6px 0 0">TOP MODEL SCORES</p>
+        <p style="font-size:12px;line-height:1.4;margin:6px 0 0">Multiple frontier models now exceed 80% on SWE-bench Verified, the threshold at which signal degrades</p>
+      </div>
+      <div class="col" style="padding:4px 16px;border-left:1.5px solid var(--ink)">
+        <div style="font-size:76px;font-weight:700;line-height:0.95;letter-spacing:-1px">93.9%</div>
+        <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;margin:6px 0 0">MYTHOS SCORE (SAME WEEK)</p>
+        <p style="font-size:12px;line-height:1.4;margin:6px 0 0">Anthropic's Mythos Preview hits 93.9% on SWE-bench days after OpenAI declares it obsolete</p>
+      </div>
+      <div class="col" style="padding:4px 16px;border-left:1.5px solid var(--ink)">
+        <div style="font-size:76px;font-weight:700;line-height:0.95;letter-spacing:-1px">2023</div>
+        <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;margin:6px 0 0">BENCHMARK INTRODUCED</p>
+        <p style="font-size:12px;line-height:1.4;margin:6px 0 0">SWE-bench launched with real GitHub issues; considered the gold standard for agentic coding evaluation</p>
+      </div>
+      <div class="col" style="padding:4px 16px;border-left:1.5px solid var(--ink)">
+        <div style="font-size:76px;font-weight:700;line-height:0.95;letter-spacing:-1px">&lt;3yr</div>
+        <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;margin:6px 0 0">TIME TO SATURATION</p>
+        <p style="font-size:12px;line-height:1.4;margin:6px 0 0">The benchmark lasted less than three years before frontier models rendered it uninformative for comparison</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 TIMELINE -->
+  <section class="sk-box" style="background:var(--card);padding:20px 22px;margin-top:12px">
+    <div class="dd-module-h">
+      <div class="row gap-3" style="align-items:baseline">
+        <span class="num">03</span>
+        <span class="title">HOW WE GOT HERE</span>
+      </div>
+      <span class="right">TIMELINE &middot; 4 EVENTS</span>
+    </div>
+    <div style="position:relative;padding:14px 0 4px">
+      <div style="position:absolute;top:30px;left:4%;right:4%;height:2px;background:var(--ink)"></div>
+      <div class="row" style="justify-content:space-between;position:relative">
+        <div class="col" style="align-items:center;text-align:center;width:180px">
+          <div style="width:16px;height:16px;background:var(--ink);margin-bottom:10px"></div>
+          <span class="sk-mono" style="font-size:12px;font-weight:700">2023</span>
+          <span style="font-size:16px;font-weight:700;margin-top:4px">SWE-bench launch</span>
+          <span class="sk-mono" style="font-size:10px;color:var(--ink-2);margin-top:2px">Real GitHub issues, first practical coding eval for agents</span>
+        </div>
+        <div class="col" style="align-items:center;text-align:center;width:180px">
+          <div style="width:16px;height:16px;background:var(--ink);margin-bottom:10px"></div>
+          <span class="sk-mono" style="font-size:12px;font-weight:700">2024</span>
+          <span style="font-size:16px;font-weight:700;margin-top:4px">SWE-bench Verified</span>
+          <span class="sk-mono" style="font-size:10px;color:var(--ink-2);margin-top:2px">Curated subset of harder, verified problems; best models ~20%</span>
+        </div>
+        <div class="col" style="align-items:center;text-align:center;width:180px">
+          <div style="width:16px;height:16px;background:var(--ink);margin-bottom:10px"></div>
+          <span class="sk-mono" style="font-size:12px;font-weight:700">2025</span>
+          <span style="font-size:16px;font-weight:700;margin-top:4px">Rapid ascent</span>
+          <span class="sk-mono" style="font-size:10px;color:var(--ink-2);margin-top:2px">Scores climb from 20% to 60%+ as models and scaffolding improve</span>
+        </div>
+        <div class="col" style="align-items:center;text-align:center;width:180px">
+          <div style="width:16px;height:16px;background:var(--accent);margin-bottom:10px"></div>
+          <span class="sk-mono" style="font-size:12px;font-weight:700;color:var(--accent)">APR 2026</span>
+          <span style="font-size:16px;font-weight:700;margin-top:4px">&larr; TODAY</span>
+          <span class="sk-mono" style="font-size:10px;color:var(--ink-2);margin-top:2px">OpenAI retires benchmark; Mythos scores 93.9% same week</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 VOICES -->
+  <section class="sk-box" style="background:var(--card);padding:20px 22px;margin-top:12px">
+    <div class="dd-module-h">
+      <div class="row gap-3" style="align-items:baseline">
+        <span class="num">04</span>
+        <span class="title">THE VOICES</span>
+      </div>
+      <span class="right">3 PERSPECTIVES</span>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
+      <blockquote class="sk-box" style="padding:14px;background:var(--hi);margin:0">
+        <span style="font-size:36px;line-height:0.6;font-family:'Caveat',cursive;color:var(--accent);height:18px;display:block">"</span>
+        <!-- [EDITORIAL QUOTE] -->
+        <p style="font-size:16px;font-weight:700;line-height:1.25;margin:8px 0 0">When the best models score over 80% on a benchmark designed for the frontier, it has stopped measuring the frontier.</p>
+        <hr class="sk-rule-thin" style="margin:14px 0 8px" />
+        <div class="row gap-2" style="align-items:center">
+          <span class="sk-box-soft" style="width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-family:'Special Elite',monospace;font-size:8px">av</span>
+          <div class="col">
+            <span class="sk-mono" style="font-size:10px;font-weight:700;letter-spacing:1px">OPERATOR</span>
+            <span class="sk-mono" style="font-size:9px;color:var(--ink-2)">OpenAI &middot; SWE-bench retirement post</span>
+          </div>
+        </div>
+      </blockquote>
+      <blockquote class="sk-box" style="padding:14px;background:#fff;margin:0">
+        <span style="font-size:36px;line-height:0.6;font-family:'Caveat',cursive;color:var(--accent);height:18px;display:block">"</span>
+        <!-- [EDITORIAL QUOTE] -->
+        <p style="font-size:16px;font-weight:700;line-height:1.25;margin:8px 0 0">The benchmark lifecycle is now shorter than the product cycle. We need evaluation infrastructure that scales with capability.</p>
+        <hr class="sk-rule-thin" style="margin:14px 0 8px" />
+        <div class="row gap-2" style="align-items:center">
+          <span class="sk-box-soft" style="width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-family:'Special Elite',monospace;font-size:8px">av</span>
+          <div class="col">
+            <span class="sk-mono" style="font-size:10px;font-weight:700;letter-spacing:1px">RESEARCHER</span>
+            <span class="sk-mono" style="font-size:9px;color:var(--ink-2)">ML evaluation researcher &middot; on benchmark longevity</span>
+          </div>
+        </div>
+      </blockquote>
+      <blockquote class="sk-box" style="padding:14px;background:#fff;margin:0">
+        <span style="font-size:36px;line-height:0.6;font-family:'Caveat',cursive;color:var(--accent);height:18px;display:block">"</span>
+        <!-- [EDITORIAL QUOTE] -->
+        <p style="font-size:16px;font-weight:700;line-height:1.25;margin:8px 0 0">High scores on SWE-bench never fully predicted production quality anyway. This is a good excuse to move to real-world evals.</p>
+        <hr class="sk-rule-thin" style="margin:14px 0 8px" />
+        <div class="row gap-2" style="align-items:center">
+          <span class="sk-box-soft" style="width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-family:'Special Elite',monospace;font-size:8px">av</span>
+          <div class="col">
+            <span class="sk-mono" style="font-size:10px;font-weight:700;letter-spacing:1px">PRACTITIONER</span>
+            <span class="sk-mono" style="font-size:9px;color:var(--ink-2)">Engineering lead &middot; on production vs benchmark gap</span>
+          </div>
+        </div>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- 05 WHAT IT MEANS -->
+  <section class="sk-box" style="background:var(--card);padding:20px 22px;margin-top:12px">
+    <div class="dd-module-h">
+      <div class="row gap-3" style="align-items:baseline">
+        <span class="num">05</span>
+        <span class="title">WHAT IT MEANS</span>
+      </div>
+      <span class="right">3 TAKEAWAYS &middot; LINKS</span>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 280px;gap:18px">
+      <div class="col gap-3">
+        <div class="row gap-3" style="align-items:flex-start;border-left:4px solid var(--accent);padding-left:12px">
+          <span class="sk-mono" style="font-size:22px;font-weight:700;color:var(--accent);line-height:1;width:30px">01</span>
+          <div class="col grow gap-1">
+            <p style="font-size:18px;font-weight:700;line-height:1.25;margin:0">Model capability is outrunning evaluation infrastructure</p>
+            <p style="font-size:14px;line-height:1.5;margin:0">SWE-bench Verified lasted less than three years. The field needs living benchmarks with continuously refreshed tasks — the static eval paradigm is fundamentally broken at the current pace of capability improvement.</p>
+          </div>
+        </div>
+        <div class="row gap-3" style="align-items:flex-start;border-left:4px solid var(--accent);padding-left:12px">
+          <span class="sk-mono" style="font-size:22px;font-weight:700;color:var(--accent);line-height:1;width:30px">02</span>
+          <div class="col grow gap-1">
+            <p style="font-size:18px;font-weight:700;line-height:1.25;margin:0">Leaderboard competition accelerates benchmark gaming</p>
+            <p style="font-size:14px;line-height:1.5;margin:0">Labs optimize for benchmark scores because they are the visible signal. Once a benchmark becomes a competition target, its signal degrades faster. The incentive structure of public leaderboards contributes to their own obsolescence.</p>
+          </div>
+        </div>
+        <div class="row gap-3" style="align-items:flex-start;border-left:4px solid var(--accent);padding-left:12px">
+          <span class="sk-mono" style="font-size:22px;font-weight:700;color:var(--accent);line-height:1;width:30px">03</span>
+          <div class="col grow gap-1">
+            <p style="font-size:18px;font-weight:700;line-height:1.25;margin:0">Production teams should shift to domain-specific internal evals</p>
+            <p style="font-size:14px;line-height:1.5;margin:0">If SWE-bench no longer predicts frontier capability, it never fully predicted production quality either. Engineering teams are better served by task-specific evals on their actual codebase than by any public leaderboard number.</p>
+          </div>
+        </div>
+      </div>
+      <aside class="sk-box" style="background:var(--ink);color:var(--card);padding:14px">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;color:var(--hi);margin:0">FURTHER &middot; READING</p>
+        <div style="border-top:1px solid var(--card);margin:8px 0 10px"></div>
+        <a href="https://news.ycombinator.com/item?id=47910388" class="row" style="justify-content:space-between;align-items:baseline;padding:8px 0;border-bottom:1px dashed var(--card)">
+          <span class="sk-mono" style="font-size:11px">&rarr; HN &middot; 142 PTS &middot; Discussion</span>
+          <span class="sk-mono" style="font-size:10px;color:var(--hi)">&nearr;</span>
+        </a>
+        <a href="https://red.anthropic.com/2026/mythos-preview/" class="row" style="justify-content:space-between;align-items:baseline;padding:8px 0;border-bottom:1px dashed var(--card)">
+          <span class="sk-mono" style="font-size:11px">&rarr; RED.ANTHROPIC.COM &middot; Mythos 93.9% score</span>
+          <span class="sk-mono" style="font-size:10px;color:var(--hi)">&nearr;</span>
+        </a>
+        <a href="https://arxiv.org/abs/2604.21769" class="row" style="justify-content:space-between;align-items:baseline;padding:8px 0">
+          <span class="sk-mono" style="font-size:11px">&rarr; ARXIV.ORG &middot; User-defined LLM leaderboards</span>
+          <span class="sk-mono" style="font-size:10px;color:var(--hi)">&nearr;</span>
+        </a>
+      </aside>
+    </div>
+  </section>
+
+  <footer class="sk-box-soft" style="padding:14px 18px;margin-top:12px">
+    <div class="row" style="justify-content:space-between;align-items:center">
+      <a href="02-2-erdos-problem-chatgpt.html" class="col">
+        <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--ink-2)">&larr; PREV</span>
+        <span style="font-size:14px;font-weight:700">02.2 &middot; Erdos + ChatGPT</span>
+      </a>
+      <span class="sk-mono" style="font-size:10px;letter-spacing:2px">&middot; END OF STORY 02.3 &middot;</span>
+      <a href="02-4-deepmind-decoupled-diloco.html" class="col" style="align-items:flex-end">
+        <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--accent)">NEXT &rarr;</span>
+        <span style="font-size:14px;font-weight:700">02.4 &middot; DeepMind DiLoCo</span>
+      </a>
+    </div>
+  </footer>
+</div>
+</body>
+</html>

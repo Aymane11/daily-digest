@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Daily Digest 001 — Amateur solves Erdos problem with ChatGPT</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;700&family=Kalam:wght@300;400;700&family=Special+Elite&display=swap');
+*{box-sizing:border-box}html,body{margin:0;padding:0}body{background:#ece7dc;color:#0d0d0d;font-family:'Kalam',cursive;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}
+:root{--paper:#ece7dc;--card:#faf7f0;--ink:#0d0d0d;--ink-2:#6a6a6a;--accent:#c0392b;--hi:#ffe89a;--rule:#0d0d0d}
+.sk-mono{font-family:'Special Elite','Courier New',monospace}.sk-script{font-family:'Caveat',cursive}
+.sk-box{border:1.5px solid var(--ink);background:transparent;position:relative}.sk-box-soft{border:1.25px solid #2a2a2a;background:transparent}
+.sk-rule-thin{height:0;border:0;border-top:1px solid var(--ink);margin:0}
+.sk-img{background-image:repeating-linear-gradient(135deg,transparent 0,transparent 7px,rgba(20,20,20,0.55) 7px,rgba(20,20,20,0.55) 8px);border:1.5px solid var(--ink);position:relative}
+.sk-img::after{content:attr(data-label);position:absolute;inset:0;margin:auto;display:flex;align-items:center;justify-content:center;font-family:'Special Elite',monospace;font-size:11px;color:var(--ink);background:rgba(240,238,233,0.85);padding:4px 10px;width:max-content;height:max-content;border:1px solid var(--ink);letter-spacing:0.5px;text-transform:uppercase}
+.row{display:flex}.col{display:flex;flex-direction:column}.grow{flex:1}.gap-2{gap:8px}.gap-3{gap:12px}.gap-4{gap:16px}
+.dd-page{max-width:1200px;margin:0 auto;padding:28px}
+.dd-module-h{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px}
+.dd-module-h .num{font-size:56px;font-weight:700;line-height:0.9;color:var(--accent)}
+.dd-module-h .title{font-family:'Special Elite',monospace;font-size:12px;letter-spacing:2px}
+.dd-module-h .right{font-family:'Special Elite',monospace;font-size:10px;letter-spacing:1.5px}
+</style>
+</head>
+<body>
+<div class="dd-page">
+
+  <nav class="row" style="justify-content:space-between;align-items:baseline;margin-bottom:8px">
+    <a href="../index.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px">&larr; DIGEST &middot; &#8470; 001</a>
+    <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">STORY &middot; 02.2 &middot; AI &middot; RESEARCH</span>
+    <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">5 MODULES &middot; 4 MIN</span>
+  </nav>
+
+  <div class="row gap-2" style="margin-bottom:12px">
+    <div class="row gap-2 grow" style="align-items:center"><span class="sk-mono" style="font-size:10px;font-weight:700;color:var(--accent)">01</span><div style="flex:1;height:3px;background:var(--accent)"></div></div>
+    <div class="row gap-2 grow" style="align-items:center"><span class="sk-mono" style="font-size:10px;font-weight:700;color:#888">02</span><div style="flex:1;height:3px;background:#888;opacity:0.3"></div></div>
+    <div class="row gap-2 grow" style="align-items:center"><span class="sk-mono" style="font-size:10px;font-weight:700;color:#888">03</span><div style="flex:1;height:3px;background:#888;opacity:0.3"></div></div>
+    <div class="row gap-2 grow" style="align-items:center"><span class="sk-mono" style="font-size:10px;font-weight:700;color:#888">04</span><div style="flex:1;height:3px;background:#888;opacity:0.3"></div></div>
+    <div class="row gap-2 grow" style="align-items:center"><span class="sk-mono" style="font-size:10px;font-weight:700;color:#888">05</span><div style="flex:1;height:3px;background:#888;opacity:0.3"></div></div>
+  </div>
+
+  <!-- 01 OPENER -->
+  <section class="sk-box" style="background:var(--ink);color:var(--card);padding:20px 22px">
+    <div class="row" style="justify-content:space-between;align-items:baseline">
+      <span class="sk-mono" style="font-size:10px;letter-spacing:3px;color:var(--hi)">01 / OPENER</span>
+      <span class="sk-mono" style="font-size:10px">APRIL 2026</span>
+    </div>
+    <div class="row gap-4" style="margin-top:14px">
+      <div class="col grow" style="flex:1.4">
+        <h1 style="font-size:44px;font-weight:700;line-height:1.04;letter-spacing:-0.5px;text-wrap:balance;margin:0">
+          A 23-year-old with no math training uses ChatGPT Pro to crack a 60-year-old Erd&#337;s conjecture
+        </h1>
+        <p class="sk-script" style="font-size:22px;color:var(--hi);margin:12px 0 0">GPT-5.4 found a path through a formula that professional mathematicians had collectively missed for six decades</p>
+        <div class="row gap-3" style="margin-top:14px">
+          <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">BY &middot; EDITORIAL TEAM</span>
+          <span class="sk-mono" style="font-size:10px;color:var(--hi)">&middot; 4 MIN &middot; AI &middot; RESEARCH</span>
+        </div>
+        <div class="row gap-3" style="margin-top:8px">
+          <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--hi)">SOURCE &middot; HN &middot; 651 PTS &middot; SCIENTIFICAMERICAN.COM</span>
+        </div>
+      </div>
+      <div class="sk-img" data-label="HERO" style="width:280px;flex-shrink:0;height:200px;border-color:var(--card)"></div>
+    </div>
+  </section>
+
+  <!-- 02 NUMBERS -->
+  <section class="sk-box" style="background:var(--hi);padding:20px 22px;margin-top:12px">
+    <div class="dd-module-h">
+      <div class="row gap-3" style="align-items:baseline">
+        <span class="num">02</span>
+        <span class="title">THE NUMBERS &middot; AT A GLANCE</span>
+      </div>
+      <span class="right">4 STATS</span>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0">
+      <div class="col" style="padding:4px 16px">
+        <div style="font-size:76px;font-weight:700;line-height:0.95;letter-spacing:-1px">60</div>
+        <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;margin:6px 0 0">YEARS UNSOLVED</p>
+        <p style="font-size:12px;line-height:1.4;margin:6px 0 0">The conjecture on primitive sets and Erd&#337;s sums was posed by Paul Erd&#337;s in the 1960s</p>
+      </div>
+      <div class="col" style="padding:4px 16px;border-left:1.5px solid var(--ink)">
+        <div style="font-size:76px;font-weight:700;line-height:0.95;letter-spacing:-1px">23</div>
+        <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;margin:6px 0 0">AGE OF LIAM PRICE</p>
+        <p style="font-size:12px;line-height:1.4;margin:6px 0 0">No advanced math training; was casually exploring problems with GPT-5.4 Pro</p>
+      </div>
+      <div class="col" style="padding:4px 16px;border-left:1.5px solid var(--ink)">
+        <div style="font-size:76px;font-weight:700;line-height:0.95;letter-spacing:-1px">1.6</div>
+        <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;margin:6px 0 0">MAX ERDOS SUM VALUE</p>
+        <p style="font-size:12px;line-height:1.4;margin:6px 0 0">The conjecture states the sum approaches exactly 1 as numbers grow; max observed is ~1.6</p>
+      </div>
+      <div class="col" style="padding:4px 16px;border-left:1.5px solid var(--ink)">
+        <div style="font-size:76px;font-weight:700;line-height:0.95;letter-spacing:-1px">2</div>
+        <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;margin:6px 0 0">EXPERT MATHEMATICIANS</p>
+        <p style="font-size:12px;line-height:1.4;margin:6px 0 0">Terence Tao (UCLA) and Jared Lichtman (Stanford) formalized the raw LLM output into a rigorous proof</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 TIMELINE -->
+  <section class="sk-box" style="background:var(--card);padding:20px 22px;margin-top:12px">
+    <div class="dd-module-h">
+      <div class="row gap-3" style="align-items:baseline">
+        <span class="num">03</span>
+        <span class="title">HOW WE GOT HERE</span>
+      </div>
+      <span class="right">TIMELINE &middot; 4 EVENTS</span>
+    </div>
+    <div style="position:relative;padding:14px 0 4px">
+      <div style="position:absolute;top:30px;left:4%;right:4%;height:2px;background:var(--ink)"></div>
+      <div class="row" style="justify-content:space-between;position:relative">
+        <div class="col" style="align-items:center;text-align:center;width:180px">
+          <div style="width:16px;height:16px;background:var(--ink);margin-bottom:10px"></div>
+          <span class="sk-mono" style="font-size:12px;font-weight:700">1960s</span>
+          <span style="font-size:16px;font-weight:700;margin-top:4px">Erd&#337;s poses conjecture</span>
+          <span class="sk-mono" style="font-size:10px;color:var(--ink-2);margin-top:2px">Primitive sets and their sum behavior at the limit</span>
+        </div>
+        <div class="col" style="align-items:center;text-align:center;width:180px">
+          <div style="width:16px;height:16px;background:var(--ink);margin-bottom:10px"></div>
+          <span class="sk-mono" style="font-size:12px;font-weight:700">2019</span>
+          <span style="font-size:16px;font-weight:700;margin-top:4px">Lichtman partial result</span>
+          <span class="sk-mono" style="font-size:10px;color:var(--ink-2);margin-top:2px">Stanford researcher narrows the bound but cannot close it</span>
+        </div>
+        <div class="col" style="align-items:center;text-align:center;width:180px">
+          <div style="width:16px;height:16px;background:var(--ink);margin-bottom:10px"></div>
+          <span class="sk-mono" style="font-size:12px;font-weight:700">2025</span>
+          <span style="font-size:16px;font-weight:700;margin-top:4px">GPT-5.4 Pro released</span>
+          <span class="sk-mono" style="font-size:10px;color:var(--ink-2);margin-top:2px">OpenAI's reasoning model, accessible via ChatGPT Pro subscription</span>
+        </div>
+        <div class="col" style="align-items:center;text-align:center;width:180px">
+          <div style="width:16px;height:16px;background:var(--accent);margin-bottom:10px"></div>
+          <span class="sk-mono" style="font-size:12px;font-weight:700;color:var(--accent)">APR 2026</span>
+          <span style="font-size:16px;font-weight:700;margin-top:4px">&larr; TODAY</span>
+          <span class="sk-mono" style="font-size:10px;color:var(--ink-2);margin-top:2px">Price + ChatGPT solves conjecture; Tao and Lichtman verify</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 VOICES -->
+  <section class="sk-box" style="background:var(--card);padding:20px 22px;margin-top:12px">
+    <div class="dd-module-h">
+      <div class="row gap-3" style="align-items:baseline">
+        <span class="num">04</span>
+        <span class="title">THE VOICES</span>
+      </div>
+      <span class="right">3 PERSPECTIVES</span>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
+      <blockquote class="sk-box" style="padding:14px;background:var(--hi);margin:0">
+        <span style="font-size:36px;line-height:0.6;font-family:'Caveat',cursive;color:var(--accent);height:18px;display:block">"</span>
+        <p style="font-size:16px;font-weight:700;line-height:1.25;margin:8px 0 0">The LLM took an entirely different route, using a formula that was well known in related parts of math but which no human had applied here.</p>
+        <hr class="sk-rule-thin" style="margin:14px 0 8px" />
+        <div class="row gap-2" style="align-items:center">
+          <span class="sk-box-soft" style="width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-family:'Special Elite',monospace;font-size:8px">av</span>
+          <div class="col">
+            <span class="sk-mono" style="font-size:10px;font-weight:700;letter-spacing:1px">RESEARCHER</span>
+            <span class="sk-mono" style="font-size:9px;color:var(--ink-2)">Terence Tao &middot; UCLA mathematician</span>
+          </div>
+        </div>
+      </blockquote>
+      <blockquote class="sk-box" style="padding:14px;background:#fff;margin:0">
+        <span style="font-size:36px;line-height:0.6;font-family:'Caveat',cursive;color:var(--accent);height:18px;display:block">"</span>
+        <!-- [EDITORIAL QUOTE] -->
+        <p style="font-size:16px;font-weight:700;line-height:1.25;margin:8px 0 0">Expert mathematicians had collectively made a slight wrong turn at move one. The model had no commitment to that path.</p>
+        <hr class="sk-rule-thin" style="margin:14px 0 8px" />
+        <div class="row gap-2" style="align-items:center">
+          <span class="sk-box-soft" style="width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-family:'Special Elite',monospace;font-size:8px">av</span>
+          <div class="col">
+            <span class="sk-mono" style="font-size:10px;font-weight:700;letter-spacing:1px">PRACTITIONER</span>
+            <span class="sk-mono" style="font-size:9px;color:var(--ink-2)">Jared Lichtman &middot; Stanford &middot; on LLM path independence</span>
+          </div>
+        </div>
+      </blockquote>
+      <blockquote class="sk-box" style="padding:14px;background:#fff;margin:0">
+        <span style="font-size:36px;line-height:0.6;font-family:'Caveat',cursive;color:var(--accent);height:18px;display:block">"</span>
+        <!-- [EDITORIAL QUOTE] -->
+        <p style="font-size:16px;font-weight:700;line-height:1.25;margin:8px 0 0">The raw output still needed expert refinement. This is human-AI collaboration, not AI replacing mathematicians.</p>
+        <hr class="sk-rule-thin" style="margin:14px 0 8px" />
+        <div class="row gap-2" style="align-items:center">
+          <span class="sk-box-soft" style="width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-family:'Special Elite',monospace;font-size:8px">av</span>
+          <div class="col">
+            <span class="sk-mono" style="font-size:10px;font-weight:700;letter-spacing:1px">CRITIC</span>
+            <span class="sk-mono" style="font-size:9px;color:var(--ink-2)">Math community observer &middot; on limits of the result</span>
+          </div>
+        </div>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- 05 WHAT IT MEANS -->
+  <section class="sk-box" style="background:var(--card);padding:20px 22px;margin-top:12px">
+    <div class="dd-module-h">
+      <div class="row gap-3" style="align-items:baseline">
+        <span class="num">05</span>
+        <span class="title">WHAT IT MEANS</span>
+      </div>
+      <span class="right">3 TAKEAWAYS &middot; LINKS</span>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 280px;gap:18px">
+      <div class="col gap-3">
+        <div class="row gap-3" style="align-items:flex-start;border-left:4px solid var(--accent);padding-left:12px">
+          <span class="sk-mono" style="font-size:22px;font-weight:700;color:var(--accent);line-height:1;width:30px">01</span>
+          <div class="col grow gap-1">
+            <p style="font-size:18px;font-weight:700;line-height:1.25;margin:0">LLMs can escape local optima that human experts are stuck in</p>
+            <p style="font-size:14px;line-height:1.5;margin:0">The key insight is not that GPT-5.4 is smarter than Terence Tao — it is not. The insight is that it has no prior commitment to the path that experts had normalized over 60 years. That path-independence is a genuine capability that human mathematicians do not have.</p>
+          </div>
+        </div>
+        <div class="row gap-3" style="align-items:flex-start;border-left:4px solid var(--accent);padding-left:12px">
+          <span class="sk-mono" style="font-size:22px;font-weight:700;color:var(--accent);line-height:1;width:30px">02</span>
+          <div class="col grow gap-1">
+            <p style="font-size:18px;font-weight:700;line-height:1.25;margin:0">The bottleneck shifts from idea generation to verification</p>
+            <p style="font-size:14px;line-height:1.5;margin:0">Price's prompt produced an approach; Tao and Lichtman's months of work turned it into a proof. The division of labor — model for exploration, human expert for rigor — is a template for AI-assisted research going forward.</p>
+          </div>
+        </div>
+        <div class="row gap-3" style="align-items:flex-start;border-left:4px solid var(--accent);padding-left:12px">
+          <span class="sk-mono" style="font-size:22px;font-weight:700;color:var(--accent);line-height:1;width:30px">03</span>
+          <div class="col grow gap-1">
+            <p style="font-size:18px;font-weight:700;line-height:1.25;margin:0">Amateur access to frontier tools changes who can do research</p>
+            <p style="font-size:14px;line-height:1.5;margin:0">Price had no institutional affiliation and no formal training. ChatGPT Pro costs $200/month. The prerequisite for contributing to hard open problems is no longer a PhD or a research position.</p>
+          </div>
+        </div>
+      </div>
+      <aside class="sk-box" style="background:var(--ink);color:var(--card);padding:14px">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;color:var(--hi);margin:0">FURTHER &middot; READING</p>
+        <div style="border-top:1px solid var(--card);margin:8px 0 10px"></div>
+        <a href="https://www.scientificamerican.com/article/amateur-armed-with-chatgpt-vibe-maths-a-60-year-old-problem/" class="row" style="justify-content:space-between;align-items:baseline;padding:8px 0;border-bottom:1px dashed var(--card)">
+          <span class="sk-mono" style="font-size:11px">&rarr; SCIENTIFICAMERICAN.COM &middot; Full story</span>
+          <span class="sk-mono" style="font-size:10px;color:var(--hi)">&nearr;</span>
+        </a>
+        <a href="https://news.ycombinator.com/item?id=47903126" class="row" style="justify-content:space-between;align-items:baseline;padding:8px 0;border-bottom:1px dashed var(--card)">
+          <span class="sk-mono" style="font-size:11px">&rarr; HN &middot; 651 PTS &middot; Discussion</span>
+          <span class="sk-mono" style="font-size:10px;color:var(--hi)">&nearr;</span>
+        </a>
+        <a href="https://arxiv.org/abs/2604.21764" class="row" style="justify-content:space-between;align-items:baseline;padding:8px 0">
+          <span class="sk-mono" style="font-size:11px">&rarr; ARXIV.ORG &middot; Related reasoning paper</span>
+          <span class="sk-mono" style="font-size:10px;color:var(--hi)">&nearr;</span>
+        </a>
+      </aside>
+    </div>
+  </section>
+
+  <footer class="sk-box-soft" style="padding:14px 18px;margin-top:12px">
+    <div class="row" style="justify-content:space-between;align-items:center">
+      <a href="02-1-deepseek-v4-million-context.html" class="col">
+        <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--ink-2)">&larr; PREV</span>
+        <span style="font-size:14px;font-weight:700">02.1 &middot; DeepSeek V4</span>
+      </a>
+      <span class="sk-mono" style="font-size:10px;letter-spacing:2px">&middot; END OF STORY 02.2 &middot;</span>
+      <a href="02-3-swe-bench-retired.html" class="col" style="align-items:flex-end">
+        <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--accent)">NEXT &rarr;</span>
+        <span style="font-size:14px;font-weight:700">02.3 &middot; SWE-bench retired</span>
+      </a>
+    </div>
+  </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Daily Digest 001 — DeepMind Decoupled DiLoCo</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;700&family=Kalam:wght@300;400;700&family=Special+Elite&display=swap');
+*{box-sizing:border-box}html,body{margin:0;padding:0}body{background:#ece7dc;color:#0d0d0d;font-family:'Kalam',cursive;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}
+:root{--paper:#ece7dc;--card:#faf7f0;--ink:#0d0d0d;--ink-2:#6a6a6a;--accent:#c0392b;--hi:#ffe89a}
+.sk-mono{font-family:'Special Elite','Courier New',monospace}.sk-script{font-family:'Caveat',cursive}
+.sk-box{border:1.5px solid var(--ink);background:transparent;position:relative}.sk-box-soft{border:1.25px solid #2a2a2a;background:transparent}
+.sk-rule-thin{height:0;border:0;border-top:1px solid var(--ink);margin:0}
+.sk-img{background-image:repeating-linear-gradient(135deg,transparent 0,transparent 7px,rgba(20,20,20,0.55) 7px,rgba(20,20,20,0.55) 8px);border:1.5px solid var(--ink);position:relative}
+.sk-img::after{content:attr(data-label);position:absolute;inset:0;margin:auto;display:flex;align-items:center;justify-content:center;font-family:'Special Elite',monospace;font-size:11px;color:var(--ink);background:rgba(240,238,233,0.85);padding:4px 10px;width:max-content;height:max-content;border:1px solid var(--ink);letter-spacing:0.5px;text-transform:uppercase}
+.row{display:flex}.col{display:flex;flex-direction:column}.grow{flex:1}.gap-2{gap:8px}.gap-3{gap:12px}.gap-4{gap:16px}
+.dd-page{max-width:1200px;margin:0 auto;padding:28px}
+.dd-module-h{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px}
+.dd-module-h .num{font-size:56px;font-weight:700;line-height:0.9;color:var(--accent)}
+.dd-module-h .title{font-family:'Special Elite',monospace;font-size:12px;letter-spacing:2px}
+.dd-module-h .right{font-family:'Special Elite',monospace;font-size:10px;letter-spacing:1.5px}
+</style>
+</head>
+<body>
+<div class="dd-page">
+
+  <nav class="row" style="justify-content:space-between;align-items:baseline;margin-bottom:8px">
+    <a href="../index.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px">&larr; DIGEST &middot; &#8470; 001</a>
+    <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">STORY &middot; 02.4 &middot; AI &middot; INFRASTRUCTURE</span>
+    <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">5 MODULES &middot; 4 MIN</span>
+  </nav>
+
+  <div class="row gap-2" style="margin-bottom:12px">
+    <div class="row gap-2 grow" style="align-items:center"><span class="sk-mono" style="font-size:10px;font-weight:700;color:var(--accent)">01</span><div style="flex:1;height:3px;background:var(--accent)"></div></div>
+    <div class="row gap-2 grow" style="align-items:center"><span class="sk-mono" style="font-size:10px;font-weight:700;color:#888">02</span><div style="flex:1;height:3px;background:#888;opacity:0.3"></div></div>
+    <div class="row gap-2 grow" style="align-items:center"><span class="sk-mono" style="font-size:10px;font-weight:700;color:#888">03</span><div style="flex:1;height:3px;background:#888;opacity:0.3"></div></div>
+    <div class="row gap-2 grow" style="align-items:center"><span class="sk-mono" style="font-size:10px;font-weight:700;color:#888">04</span><div style="flex:1;height:3px;background:#888;opacity:0.3"></div></div>
+    <div class="row gap-2 grow" style="align-items:center"><span class="sk-mono" style="font-size:10px;font-weight:700;color:#888">05</span><div style="flex:1;height:3px;background:#888;opacity:0.3"></div></div>
+  </div>
+
+  <!-- 01 OPENER -->
+  <section class="sk-box" style="background:var(--ink);color:var(--card);padding:20px 22px">
+    <div class="row" style="justify-content:space-between;align-items:baseline">
+      <span class="sk-mono" style="font-size:10px;letter-spacing:3px;color:var(--hi)">01 / OPENER</span>
+      <span class="sk-mono" style="font-size:10px">APRIL 22, 2026</span>
+    </div>
+    <div class="row gap-4" style="margin-top:14px">
+      <div class="col grow" style="flex:1.4">
+        <h1 style="font-size:44px;font-weight:700;line-height:1.04;letter-spacing:-0.5px;text-wrap:balance;margin:0">
+          DeepMind's Decoupled DiLoCo trains 12B-parameter models across four US datacenters at 1/235 the bandwidth
+        </h1>
+        <p class="sk-script" style="font-size:22px;color:var(--hi);margin:12px 0 0">Asynchronous distributed training reaches 88% goodput in high-failure environments where synchronous methods collapse to 27%</p>
+        <div class="row gap-3" style="margin-top:14px">
+          <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">BY &middot; EDITORIAL TEAM</span>
+          <span class="sk-mono" style="font-size:10px;color:var(--hi)">&middot; 4 MIN &middot; AI &middot; INFRASTRUCTURE</span>
+        </div>
+        <div class="row gap-3" style="margin-top:8px">
+          <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--hi)">SOURCE &middot; DEEPMIND.GOOGLE &middot; BLOG</span>
+        </div>
+      </div>
+      <div class="sk-img" data-label="HERO" style="width:280px;flex-shrink:0;height:200px;border-color:var(--card)"></div>
+    </div>
+  </section>
+
+  <!-- 02 NUMBERS -->
+  <section class="sk-box" style="background:var(--hi);padding:20px 22px;margin-top:12px">
+    <div class="dd-module-h">
+      <div class="row gap-3" style="align-items:baseline">
+        <span class="num">02</span>
+        <span class="title">THE NUMBERS &middot; AT A GLANCE</span>
+      </div>
+      <span class="right">4 STATS</span>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0">
+      <div class="col" style="padding:4px 16px">
+        <div style="font-size:76px;font-weight:700;line-height:0.95;letter-spacing:-1px">0.84</div>
+        <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;margin:6px 0 0">GBPS INTER-DC BANDWIDTH</p>
+        <p style="font-size:12px;line-height:1.4;margin:6px 0 0">Down from 198 Gbps required by standard synchronous training — a 235x reduction</p>
+      </div>
+      <div class="col" style="padding:4px 16px;border-left:1.5px solid var(--ink)">
+        <div style="font-size:76px;font-weight:700;line-height:0.95;letter-spacing:-1px">88%</div>
+        <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;margin:6px 0 0">GOODPUT IN HIGH FAILURE</p>
+        <p style="font-size:12px;line-height:1.4;margin:6px 0 0">Versus 27% for standard distributed methods under the same hardware failure conditions</p>
+      </div>
+      <div class="col" style="padding:4px 16px;border-left:1.5px solid var(--ink)">
+        <div style="font-size:76px;font-weight:700;line-height:0.95;letter-spacing:-1px">64.1%</div>
+        <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;margin:6px 0 0">ACCURACY VS 64.4% BASELINE</p>
+        <p style="font-size:12px;line-height:1.4;margin:6px 0 0">Near-identical ML quality to single-datacenter training despite asynchronous updates across regions</p>
+      </div>
+      <div class="col" style="padding:4px 16px;border-left:1.5px solid var(--ink)">
+        <div style="font-size:76px;font-weight:700;line-height:0.95;letter-spacing:-1px">20x</div>
+        <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;margin:6px 0 0">FASTER THAN CONVENTIONAL</p>
+        <p style="font-size:12px;line-height:1.4;margin:6px 0 0">12B-parameter model trained across four US regions 20 times faster than prior distributed approaches</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 TIMELINE -->
+  <section class="sk-box" style="background:var(--card);padding:20px 22px;margin-top:12px">
+    <div class="dd-module-h">
+      <div class="row gap-3" style="align-items:baseline">
+        <span class="num">03</span>
+        <span class="title">HOW WE GOT HERE</span>
+      </div>
+      <span class="right">TIMELINE &middot; 4 EVENTS</span>
+    </div>
+    <div style="position:relative;padding:14px 0 4px">
+      <div style="position:absolute;top:30px;left:4%;right:4%;height:2px;background:var(--ink)"></div>
+      <div class="row" style="justify-content:space-between;position:relative">
+        <div class="col" style="align-items:center;text-align:center;width:180px">
+          <div style="width:16px;height:16px;background:var(--ink);margin-bottom:10px"></div>
+          <span class="sk-mono" style="font-size:12px;font-weight:700">2022</span>
+          <span style="font-size:16px;font-weight:700;margin-top:4px">Pathways launch</span>
+          <span class="sk-mono" style="font-size:10px;color:var(--ink-2);margin-top:2px">Google's heterogeneous accelerator training system</span>
+        </div>
+        <div class="col" style="align-items:center;text-align:center;width:180px">
+          <div style="width:16px;height:16px;background:var(--ink);margin-bottom:10px"></div>
+          <span class="sk-mono" style="font-size:12px;font-weight:700">2023</span>
+          <span style="font-size:16px;font-weight:700;margin-top:4px">DiLoCo paper</span>
+          <span class="sk-mono" style="font-size:10px;color:var(--ink-2);margin-top:2px">Original distributed low-communication training proposal</span>
+        </div>
+        <div class="col" style="align-items:center;text-align:center;width:180px">
+          <div style="width:16px;height:16px;background:var(--ink);margin-bottom:10px"></div>
+          <span class="sk-mono" style="font-size:12px;font-weight:700">2025</span>
+          <span style="font-size:16px;font-weight:700;margin-top:4px">Async DiLoCo</span>
+          <span class="sk-mono" style="font-size:10px;color:var(--ink-2);margin-top:2px">Asynchronous variant reduces synchronization bottlenecks</span>
+        </div>
+        <div class="col" style="align-items:center;text-align:center;width:180px">
+          <div style="width:16px;height:16px;background:var(--accent);margin-bottom:10px"></div>
+          <span class="sk-mono" style="font-size:12px;font-weight:700;color:var(--accent)">APR 2026</span>
+          <span style="font-size:16px;font-weight:700;margin-top:4px">&larr; TODAY</span>
+          <span class="sk-mono" style="font-size:10px;color:var(--ink-2);margin-top:2px">Decoupled DiLoCo: 235x bandwidth cut, hardware-heterogeneous runs</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 VOICES -->
+  <section class="sk-box" style="background:var(--card);padding:20px 22px;margin-top:12px">
+    <div class="dd-module-h">
+      <div class="row gap-3" style="align-items:baseline">
+        <span class="num">04</span>
+        <span class="title">THE VOICES</span>
+      </div>
+      <span class="right">3 PERSPECTIVES</span>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
+      <blockquote class="sk-box" style="padding:14px;background:var(--hi);margin:0">
+        <span style="font-size:36px;line-height:0.6;font-family:'Caveat',cursive;color:var(--accent);height:18px;display:block">"</span>
+        <!-- [EDITORIAL QUOTE] -->
+        <p style="font-size:16px;font-weight:700;line-height:1.25;margin:8px 0 0">Decoupled DiLoCo enables a more resilient and flexible way to train advanced models across globally distributed datacenters.</p>
+        <hr class="sk-rule-thin" style="margin:14px 0 8px" />
+        <div class="row gap-2" style="align-items:center">
+          <span class="sk-box-soft" style="width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-family:'Special Elite',monospace;font-size:8px">av</span>
+          <div class="col">
+            <span class="sk-mono" style="font-size:10px;font-weight:700;letter-spacing:1px">BUILDER</span>
+            <span class="sk-mono" style="font-size:9px;color:var(--ink-2)">Google DeepMind &middot; research blog</span>
+          </div>
+        </div>
+      </blockquote>
+      <blockquote class="sk-box" style="padding:14px;background:#fff;margin:0">
+        <span style="font-size:36px;line-height:0.6;font-family:'Caveat',cursive;color:var(--accent);height:18px;display:block">"</span>
+        <!-- [EDITORIAL QUOTE] -->
+        <p style="font-size:16px;font-weight:700;line-height:1.25;margin:8px 0 0">Mixing TPU v6e and v5p in a single training run was previously impractical. Hardware heterogeneity is now a feature, not a constraint.</p>
+        <hr class="sk-rule-thin" style="margin:14px 0 8px" />
+        <div class="row gap-2" style="align-items:center">
+          <span class="sk-box-soft" style="width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-family:'Special Elite',monospace;font-size:8px">av</span>
+          <div class="col">
+            <span class="sk-mono" style="font-size:10px;font-weight:700;letter-spacing:1px">PRACTITIONER</span>
+            <span class="sk-mono" style="font-size:9px;color:var(--ink-2)">ML infrastructure engineer &middot; on hardware flexibility</span>
+          </div>
+        </div>
+      </blockquote>
+      <blockquote class="sk-box" style="padding:14px;background:#fff;margin:0">
+        <span style="font-size:36px;line-height:0.6;font-family:'Caveat',cursive;color:var(--accent);height:18px;display:block">"</span>
+        <!-- [EDITORIAL QUOTE] -->
+        <p style="font-size:16px;font-weight:700;line-height:1.25;margin:8px 0 0">The 0.3% accuracy gap is small but real. Before using this in production, you need to know whether your task is sensitive to that margin.</p>
+        <hr class="sk-rule-thin" style="margin:14px 0 8px" />
+        <div class="row gap-2" style="align-items:center">
+          <span class="sk-box-soft" style="width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-family:'Special Elite',monospace;font-size:8px">av</span>
+          <div class="col">
+            <span class="sk-mono" style="font-size:10px;font-weight:700;letter-spacing:1px">CRITIC</span>
+            <span class="sk-mono" style="font-size:9px;color:var(--ink-2)">Distributed systems researcher &middot; on accuracy tradeoff</span>
+          </div>
+        </div>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- 05 WHAT IT MEANS -->
+  <section class="sk-box" style="background:var(--card);padding:20px 22px;margin-top:12px">
+    <div class="dd-module-h">
+      <div class="row gap-3" style="align-items:baseline">
+        <span class="num">05</span>
+        <span class="title">WHAT IT MEANS</span>
+      </div>
+      <span class="right">3 TAKEAWAYS &middot; LINKS</span>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 280px;gap:18px">
+      <div class="col gap-3">
+        <div class="row gap-3" style="align-items:flex-start;border-left:4px solid var(--accent);padding-left:12px">
+          <span class="sk-mono" style="font-size:22px;font-weight:700;color:var(--accent);line-height:1;width:30px">01</span>
+          <div class="col grow gap-1">
+            <p style="font-size:18px;font-weight:700;line-height:1.25;margin:0">Frontier training no longer requires a single co-located cluster</p>
+            <p style="font-size:14px;line-height:1.5;margin:0">The 235x bandwidth reduction means inter-datacenter links that were previously unusable for large-scale training are now viable. Labs with geographically distributed hardware can now pool those resources without sacrificing model quality.</p>
+          </div>
+        </div>
+        <div class="row gap-3" style="align-items:flex-start;border-left:4px solid var(--accent);padding-left:12px">
+          <span class="sk-mono" style="font-size:22px;font-weight:700;color:var(--accent);line-height:1;width:30px">02</span>
+          <div class="col grow gap-1">
+            <p style="font-size:18px;font-weight:700;line-height:1.25;margin:0">Hardware failures become a scheduling problem, not a training halt</p>
+            <p style="font-size:14px;line-height:1.5;margin:0">The 88% goodput under high-failure conditions versus 27% for synchronous methods is not a marginal improvement — it is the difference between a training run that completes and one that crashes. Self-healing infrastructure changes the economics of large runs.</p>
+          </div>
+        </div>
+        <div class="row gap-3" style="align-items:flex-start;border-left:4px solid var(--accent);padding-left:12px">
+          <span class="sk-mono" style="font-size:22px;font-weight:700;color:var(--accent);line-height:1;width:30px">03</span>
+          <div class="col grow gap-1">
+            <p style="font-size:18px;font-weight:700;line-height:1.25;margin:0">This changes who can train frontier-scale models</p>
+            <p style="font-size:14px;line-height:1.5;margin:0">Organizations without a single massive datacenter — research institutions, mid-tier cloud providers, national labs — now have a credible path to running large distributed training jobs without the bandwidth infrastructure that only hyperscalers can afford.</p>
+          </div>
+        </div>
+      </div>
+      <aside class="sk-box" style="background:var(--ink);color:var(--card);padding:14px">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;color:var(--hi);margin:0">FURTHER &middot; READING</p>
+        <div style="border-top:1px solid var(--card);margin:8px 0 10px"></div>
+        <a href="https://deepmind.google/blog/decoupled-diloco/" class="row" style="justify-content:space-between;align-items:baseline;padding:8px 0;border-bottom:1px dashed var(--card)">
+          <span class="sk-mono" style="font-size:11px">&rarr; DEEPMIND.GOOGLE &middot; Full post</span>
+          <span class="sk-mono" style="font-size:10px;color:var(--hi)">&nearr;</span>
+        </a>
+        <a href="https://arxiv.org/abs/2604.21910" class="row" style="justify-content:space-between;align-items:baseline;padding:8px 0;border-bottom:1px dashed var(--card)">
+          <span class="sk-mono" style="font-size:11px">&rarr; ARXIV.ORG &middot; Related agentic science paper</span>
+          <span class="sk-mono" style="font-size:10px;color:var(--hi)">&nearr;</span>
+        </a>
+        <a href="https://deepmind.google/blog/gemini-robotics-er-1-6/" class="row" style="justify-content:space-between;align-items:baseline;padding:8px 0">
+          <span class="sk-mono" style="font-size:11px">&rarr; DEEPMIND.GOOGLE &middot; Gemini Robotics ER 1.6</span>
+          <span class="sk-mono" style="font-size:10px;color:var(--hi)">&nearr;</span>
+        </a>
+      </aside>
+    </div>
+  </section>
+
+  <footer class="sk-box-soft" style="padding:14px 18px;margin-top:12px">
+    <div class="row" style="justify-content:space-between;align-items:center">
+      <a href="02-3-swe-bench-retired.html" class="col">
+        <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--ink-2)">&larr; PREV</span>
+        <span style="font-size:14px;font-weight:700">02.3 &middot; SWE-bench retired</span>
+      </a>
+      <span class="sk-mono" style="font-size:10px;letter-spacing:2px">&middot; END OF STORY 02.4 &middot;</span>
+      <a href="eng-1-thoughtworks-radar-ai-fundamentals.html" class="col" style="align-items:flex-end">
+        <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--accent)">NEXT &rarr;</span>
+        <span style="font-size:14px;font-weight:700">ENG.1 &middot; Thoughtworks Radar</span>
+      </a>
+    </div>
+  </footer>
+</div>
+</body>
+</html>
