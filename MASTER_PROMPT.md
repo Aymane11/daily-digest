@@ -83,8 +83,18 @@ with no concrete information beyond announcements.
 The single most important AI or tech story from the last 24 hours.
 Must have happened or been published in the last 24 hours.
 
+Every lead story page must end with a "WHAT TO DO WITH THIS" block inside ¶ 03 WHAT TO WATCH:
+- If it's a new model: what should the reader test it on, and what prompt/task reveals its real capability?
+- If it's a security story: what should the reader check, patch, or audit in their own systems?
+- If it's a policy/funding story: what signal should the reader track, and over what timeframe?
+Never end with "it remains to be seen" or "time will tell." End with a concrete watch item or action.
+
 ### Slot 2 — TOP HEADLINES (4 stories)
 Next four most important AI/tech stories. No overlap with the lead.
+
+Every headline story page must include in ¶ 03 WHAT TO WATCH at least one concrete action:
+a thing to try, a decision to revisit, a tool to evaluate, a metric to check, or a question
+to bring to a team discussion. One sentence of implication is not enough — name the action explicitly.
 
 ### Slot 3 — QUICK BRIEFS (6 items)
 Short factual items. One tight sentence each. Good for funding rounds, minor releases, 
@@ -94,6 +104,11 @@ notable quotes, short HN discussions with a clear takeaway.
 The brief row on the homepage links to this internal page (not directly to the external source).
 The story page carries the full summary, why it matters, what to watch, and the clickable source link.
 This means the reader gets the essentials without leaving the digest.
+
+The WHAT TO WATCH section on each brief page must include one concrete sentence starting with
+an imperative verb: "Check whether...", "Try...", "Ask your team...", "Watch for...", "Evaluate..."
+Even a funding brief can be actionable: "If you use [company]'s API, check their pricing page — 
+new funding often precedes rate/limit changes."
 
 ### Slot 4 — TOOLS / RESOURCES (4 picks)
 New or notable developer tools, models, evals, libraries, or frameworks released or 
@@ -105,6 +120,12 @@ The tool row on the homepage links to this internal page (not directly to the to
 The story page carries: what it is, why it matters, step-by-step try-it instructions,
 what to observe, and a direct tool link. Tools slot replaces Slot 7 (SOMETHING TO TRY)
 for tools entries — the try-it content lives inside the tool's story page instead.
+
+Try-it steps must be copy-paste ready. Do not write "install the package" — write the exact command.
+Do not write "configure your API key" — write exactly where it goes and what format it takes.
+The WHAT TO OBSERVE section must name a specific, observable outcome: not "it should work"
+but "you should see [specific output / behavior / number]." If the tool requires a paid API key
+or unavailable access, say so upfront and offer the closest free alternative.
 
 ### Slot 5 — ENGINEERING & CAREER READ (1 main + up to 3 honorable mentions)
 One story per day from the following domains:
@@ -119,6 +140,35 @@ If 2–3 other stories in this domain are worth reading, list them as honorable 
 This slot gets its own visual tag: use kicker text "ENGINEERING · DEPTH" in the template.
 Use Template C (Modules) for this story page — it suits multi-angle, analytical stories.
 
+#### ACTIONABILITY REQUIREMENT — mandatory for every Engineering & Career story page
+
+A reader finishing this page must be able to answer: "What do I do differently at work tomorrow?"
+If the answer is "read the original source," the story page has failed.
+
+Every Engineering & Career story page MUST contain all three of the following:
+
+**1. CONCRETE RECOMMENDATIONS block** (inside MODULE 05 or as its own module)
+   Not observations. Not implications. Literal things to do.
+   Format: numbered list, each item starts with an imperative verb.
+   Bad: "Teams should consider mutation testing in AI-heavy codebases"
+   Good: "Add mutation testing to your CI pipeline for any file where AI generated >30% of the diff. Tools: Stryker (JS/TS), mutmut (Python), PIT (Java)."
+   Minimum 3 recommendations, each with enough specificity that the reader can act without leaving the page.
+
+**2. RADAR / CHECKLIST sidebar** (in the right column of MODULE 05 or 03)
+   A short checklist of 4–6 items the reader can run through right now.
+   Example for a Thoughtworks Radar story: "Do you have pair review on AI-generated PRs? → YES / NO"
+   Each item is a binary question or a concrete check. Label it "AUDIT THIS WEEK" or "TEAM CHECKLIST."
+
+**3. QUICK START box** (yellow --hi background, right column)
+   One thing the reader can do in under 30 minutes, today, with zero setup.
+   Format: "Try this now: [verb] [specific action] → [what you'll see/learn]"
+   Example: "Try this now: run `npx stryker run` on one module in your repo → see which 'passing' tests survive mutation (most don't)."
+
+These three elements replace the decorative "SIGNAL" sidebar box and any vague "implication" prose.
+If the source story contains no actionable content (pure conference talk summary, raw announcement), 
+escalate the editorial synthesis — derive the recommendations from the data in the story.
+A Thoughtworks Radar entry about mutation testing IS actionable: tell the reader exactly what to install and run.
+
 ### Slot 6 — PAPER OF THE DAY (conditional — include if a must-read paper exists)
 A paper that was released, posted, or went viral in the last 24 hours. Not limited to 
 technical ML papers — include papers about organizations, work, economics, or society if 
@@ -132,8 +182,16 @@ The paper page must contain:
 2. THE PROBLEM — what question the paper is trying to answer
 3. THE APPROACH — how the authors went about answering it
 4. KEY INSIGHTS — 3 bullet points, each one concrete finding or claim from the paper
-5. WHAT YOU CAN LEARN — one paragraph on practical takeaway for the reader
-6. If technical: IMPLEMENTATION OVERVIEW — how the core technique works, in plain language
+5. WHAT YOU CAN APPLY — not "what you can learn" but what you can do with it:
+   - If the paper introduces a technique: write the core algorithm in plain numbered steps 
+     a practitioner can implement or replicate without reading the full paper.
+   - If the paper contains empirical findings: state what threshold/number the reader 
+     should use as a decision rule (e.g. "if your mutation score is below 60%, the paper 
+     suggests your test suite will not catch AI-generated regressions reliably").
+   - If the paper is organizational/sociological: give one concrete team practice or 
+     policy change the findings support.
+6. If technical: IMPLEMENTATION OVERVIEW — how the core technique works, in plain language,
+   with enough detail that a senior engineer could prototype it in a weekend.
 7. Full citation + arXiv link
 
 Use Template C (Modules) for the paper page.
@@ -160,6 +218,13 @@ clearly labeled with kicker "HANDS-ON · TRY IT". Use the same numbered module f
 Every page must be designed so the reader can extract the full story in 60–90 seconds 
 without reading body paragraphs. Apply these rules without exception:
 
+**THE ACTIONABILITY TEST — apply to every story page before finalising**
+Read only the TL;DR bullets (or standfirst), the takeaway/WHAT TO WATCH section, and any 
+sidebar boxes. Ask: "Can I do something specific with this information right now?"
+If the answer is no — if everything is observation, context, or implication — rewrite until 
+at least one element passes the test. Every story, regardless of type, must leave the reader 
+with one thing they can do, check, try, or bring to a conversation.
+
 1. TL;DR first, always. The TL;DR bullets on dossier pages and the standfirst on all pages 
    must tell the COMPLETE story. A reader who reads only the TL;DR should know everything 
    that matters. Do not tease or withhold information there.
@@ -176,6 +241,9 @@ without reading body paragraphs. Apply these rules without exception:
 
 5. Takeaways end every story. The WHAT IT MEANS module (Template C) or ¶ 03 WHAT TO WATCH 
    (Templates A/B) must answer: "What should I do, think, or watch because of this story?"
+   For the Engineering & Career slot specifically: takeaways must be concrete actions, not 
+   observations. "Teams should consider X" is not a takeaway. "Run X command / try Y in your 
+   next retro / set Z metric as a gate" is a takeaway.
 
 6. Voices are perspectives, not decoration. The three voice cards (Template C) must represent 
    genuinely different angles: one builder, one skeptic, one broader observer. Not three 
@@ -415,10 +483,18 @@ The story page footer PREV/NEXT should link to adjacent stories in reading order
 After the standard 5 modules (Template C), append an additional module:
 
   MODULE 06 — WHY THIS MATTERS FOR YOUR CAREER
-  One paragraph written directly to a senior engineer:
-  - What skill or mental model does this story reinforce or challenge?
-  - What would a principal engineer or staff engineer take away from this?
-  - Is there something to read, practice, or bring to your next team discussion?
+  Written directly to a senior engineer. Three parts, each a short paragraph:
+  1. THE MENTAL MODEL: what shift in thinking does this story require? Name it precisely.
+  2. BRING IT TO YOUR TEAM: one concrete question or exercise to raise in your next retro, 
+     architecture review, or 1:1. Not "discuss this topic" — a specific prompt with context.
+     Example: "Show your team the 100K LOC degradation graph and ask: do we have a review gate 
+     that would catch this before it compounds?"
+  3. THE 30-DAY EXPERIMENT: one measurable thing to try over the next month.
+     Must be specific enough to evaluate: "Run mutation tests on your most AI-heavy module, 
+     record baseline mutation score, re-run after adding pair review requirement for 4 weeks."
+
+  A MODULE 06 that is one vague paragraph about "thinking differently" fails.
+  A MODULE 06 that names a specific tool, a specific team ritual, and a specific metric succeeds.
 
 Honorable mentions: list them as plain text rows below the story page footer, each with:
   → TITLE · SOURCE · one sentence · URL
@@ -527,6 +603,12 @@ Path from story pages: ../../../archive.html
   [ ] PREV/NEXT navigation is correct and circular (last story → back to homepage)
   [ ] Engineering slot page has MODULE 06 — WHY THIS MATTERS FOR YOUR CAREER
   [ ] Paper slot page (if present) has MODULE 05 takeaways + MODULE 06 implementation overview
+  [ ] Every story page passes the ACTIONABILITY TEST — at least one concrete action per page
+  [ ] Lead + headline pages: ¶ 03 WHAT TO WATCH ends with an imperative action, not a prediction
+  [ ] Brief pages: WHAT TO WATCH contains one sentence starting with an imperative verb
+  [ ] Tool pages: try-it steps are copy-paste ready with exact commands, not paraphrased instructions
+  [ ] Paper page: WHAT YOU CAN APPLY gives a decision rule, algorithm steps, or team practice
+  [ ] Engineering page: CONCRETE RECOMMENDATIONS + AUDIT CHECKLIST + QUICK START box all present
   [ ] Every story page has SOURCE_HREF + SOURCE_LABEL — visible clickable source link
   [ ] HN stories show both original article link AND HN discussion link (with points)
   [ ] Archive link present in every issue homepage masthead and every story breadcrumb

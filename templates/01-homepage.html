@@ -181,17 +181,11 @@
       </div>
       <hr class="sk-rule-thin" style="margin-bottom:8px" />
 
-      <!-- brief row: links to internal story page (BRIEF_HREF is the story page, BRIEF_SRC_HREF is original source) -->
-      <a href="{{BRIEF1_HREF}}" class="row gap-3" style="align-items:baseline;padding:10px 0;border-bottom:1px dashed var(--ink)">
-        <span class="sk-mono" style="font-size:10px;width:36px;color:var(--accent)">03.1</span>
-        <div class="col grow">
-          <span style="font-size:17px;font-weight:700">{{BRIEF1_TEXT}}</span>
-          <div class="row gap-3" style="align-items:center;margin-top:3px">
-            <span class="sk-mono" style="font-size:9px;color:var(--ink-2)">{{BRIEF1_META}}</span>
-            <a href="{{BRIEF1_SRC_HREF}}" class="sk-mono" style="font-size:9px;color:var(--teal);letter-spacing:1px" onclick="event.stopPropagation()">SOURCE ↗</a>
-          </div>
-        </div>
-        <span class="sk-mono" style="font-size:11px">↗</span>
+      <!-- brief row: links to internal story page -->
+      <a href="{{BRIEF1_HREF}}" class="row gap-3" style="align-items:baseline;padding:10px 0;border-bottom:1px dashed var(--ink);text-decoration:none;color:inherit">
+        <span class="sk-mono" style="font-size:12px;width:40px;color:var(--accent);flex-shrink:0">03.1</span>
+        <span style="font-size:16px;font-weight:700;flex:1;line-height:1.4">{{BRIEF1_TEXT}}</span>
+        <span class="sk-mono" style="font-size:12px;flex-shrink:0">&#8599;</span>
       </a>
       <!-- duplicate 5× more for 03.2 — 03.6 -->
     </section>
@@ -207,18 +201,12 @@
       </div>
       <div style="border-top:1px solid var(--card);margin-bottom:14px"></div>
 
-      <!-- tool row: TOOL_HREF is internal story page, TOOL_SRC_HREF is the actual tool URL -->
-      <a href="{{TOOL1_HREF}}" class="row gap-3" style="align-items:flex-start;padding:10px 0;border-bottom:1px dashed rgba(250,247,240,0.25)">
-        <span style="width:38px;height:38px;border:1.5px solid var(--hi);display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Serif',serif;font-size:9px;color:var(--hi);flex-shrink:0">04.1</span>
-        <div class="col grow">
-          <div class="row gap-2" style="align-items:center;flex-wrap:wrap">
-            <span style="font-size:14px;font-weight:700">{{TOOL1_NAME}}</span>
-            <span class="sk-stamp sk-stamp--hi" style="font-size:8px">{{TOOL1_CATEGORY}}</span>
-          </div>
-          <span style="font-size:13px;line-height:1.45;margin-top:4px;opacity:0.85">{{TOOL1_DESCRIPTION}}</span>
-          <a href="{{TOOL1_SRC_HREF}}" class="sk-mono" style="font-size:9px;color:var(--sage);margin-top:4px;display:inline-block" onclick="event.stopPropagation()">VISIT SITE ↗</a>
-        </div>
-        <span class="sk-mono" style="font-size:11px;color:var(--hi)">→</span>
+      <!-- tool row: TOOL_HREF is internal story page -->
+      <a href="{{TOOL1_HREF}}" class="row gap-3" style="align-items:baseline;padding:10px 0;border-bottom:1px dashed rgba(250,247,240,0.25);text-decoration:none;color:inherit">
+        <span class="sk-mono" style="font-size:12px;width:40px;color:var(--hi);flex-shrink:0">04.1</span>
+        <span style="font-size:16px;font-weight:700;flex:1;line-height:1.4">{{TOOL1_NAME}}</span>
+        <span class="sk-stamp sk-stamp--hi" style="font-size:9px;transform:none;flex-shrink:0">{{TOOL1_CATEGORY}}</span>
+        <span class="sk-mono" style="font-size:12px;flex-shrink:0">&#8599;</span>
       </a>
       <!-- duplicate 3× more for 04.2 — 04.4 -->
     </section>
