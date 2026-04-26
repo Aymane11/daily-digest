@@ -6,28 +6,31 @@
 <title>Daily Digest 001 — Thoughtworks Tech Radar: AI Forces Return to Fundamentals</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&display=swap');
-*{box-sizing:border-box}html,body{margin:0;padding:0}body{background:#f5f0e8;color:#111;font-family:'Lora',serif;font-size:18px;line-height:1.6;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}
+*{box-sizing:border-box}html,body{margin:0;padding:0}body{background:#f5f0e8;color:#111;font-family:'Lora',serif;font-size:20px;line-height:1.65;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}
 :root{--paper:#f5f0e8;--card:#fffdf7;--ink:#111111;--ink-2:#5a5a5a;--accent:#d62828;--hi:#f5c842}
 .sk-mono{font-family:'IBM Plex Serif','Georgia',serif;font-weight:500}.sk-script{font-family:'Playfair Display',serif;font-style:italic}
 .sk-box{border:1.5px solid var(--ink);background:transparent;position:relative}.sk-box-soft{border:1.25px solid #2a2a2a;background:transparent}
 .sk-rule-thin{height:0;border:0;border-top:1px solid var(--ink);margin:0}
-.sk-img{background-image:repeating-linear-gradient(135deg,transparent 0,transparent 7px,rgba(20,20,20,0.55) 7px,rgba(20,20,20,0.55) 8px);border:1.5px solid var(--ink);position:relative}
-.sk-img::after{content:attr(data-label);position:absolute;inset:0;margin:auto;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Serif',serif;font-size:11px;color:var(--ink);background:rgba(240,238,233,0.85);padding:4px 10px;width:max-content;height:max-content;border:1px solid var(--ink);letter-spacing:0.5px;text-transform:uppercase}
 .row{display:flex}.col{display:flex;flex-direction:column}.grow{flex:1}.gap-2{gap:8px}.gap-3{gap:12px}.gap-4{gap:16px}.gap-5{gap:20px}
-.dd-page{max-width:1200px;margin:0 auto;padding:28px}
+.dd-page{max-width:1200px;margin:0 auto;padding:32px}
 .dd-module-h{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px}
 .dd-module-h .num{font-size:56px;font-weight:700;line-height:0.9;color:var(--accent)}
 .dd-module-h .title{font-family:'IBM Plex Serif',serif;font-size:12px;letter-spacing:2px}
-.dd-module-h .right{font-family:'IBM Plex Serif',serif;font-size:10px;letter-spacing:1.5px}
+.dd-module-h .right{font-family:'IBM Plex Serif',serif;font-size:12px;letter-spacing:1.5px}
+
+/* responsive */
+@media(max-width:900px){.story-grid{grid-template-columns:1fr !important}.story-grid>*{grid-column:span 1 !important}}
+@media(max-width:640px){body{font-size:18px}.dd-page{padding:16px 14px}.story-hl{font-size:30px !important}.dd-module-h .num{font-size:48px}.row{flex-wrap:wrap}}
+@media(max-width:380px){body{font-size:17px}.dd-page{padding:12px 10px}.story-hl{font-size:26px !important}}
 </style>
 </head>
 <body>
 <div class="dd-page">
 
   <nav class="row" style="justify-content:space-between;align-items:baseline;margin-bottom:8px">
-    <a href="../index.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px">&larr; DIGEST &middot; &#8470; 001</a>
-    <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">STORY &middot; ENG.1 &middot; ENGINEERING &middot; DEPTH</span>
-    <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">6 MODULES &middot; 6 MIN</span>
+    <a href="../index.html" class="sk-mono" style="font-size:12px;letter-spacing:1.5px">&larr; DIGEST &middot; &#8470; 001</a>
+    <span class="sk-mono" style="font-size:12px;letter-spacing:1.5px">STORY &middot; ENG.1 &middot; ENGINEERING &middot; DEPTH</span>
+    <span class="sk-mono" style="font-size:12px;letter-spacing:1.5px">6 MODULES &middot; 6 MIN</span>
   </nav>
 
   <div class="row gap-2" style="margin-bottom:12px">
@@ -47,10 +50,10 @@
     </div>
     <div class="row gap-4" style="margin-top:14px">
       <div class="col grow" style="flex:1.4">
-        <h1 style="font-size:44px;font-weight:700;line-height:1.04;letter-spacing:-0.5px;text-wrap:balance;margin:0">
+        <h1 class="story-hl" style="font-size:50px;font-weight:700;line-height:1.04;letter-spacing:-0.5px;text-wrap:balance;margin:0">
           Thoughtworks 34th Tech Radar: the age of AI is a return to engineering fundamentals
         </h1>
-        <p style="font-size:14px;line-height:1.55;margin:14px 0 0;color:rgba(250,247,240,0.82)">
+        <p style="font-size:18px;line-height:1.655;margin:14px 0 0;color:rgba(250,247,240,0.82)">
           Martin Fowler's Fragments post from April 21 distills the headline finding from the 34th Technology Radar: amid the AI goldrush, Thoughtworks' engineering advisory council is moving <em>toward</em> the practices teams abandoned in the sprint to ship — pair programming, rigorous mutation testing, DORA metrics, zero-trust architecture. The implication is uncomfortable: AI-assisted development accelerates output, but it also accelerates the accumulation of every bad habit your team already had.
         </p>
         <div class="row gap-3" style="margin-top:16px;flex-wrap:wrap">
@@ -59,7 +62,6 @@
         </div>
       </div>
       <div class="col" style="flex:0.55;gap:12px;justify-content:flex-start">
-        <div class="sk-img" style="flex:1;min-height:160px" data-label="TECH RADAR VOL.34 — APR 2026"></div>
         <div style="background:var(--hi);color:var(--ink);padding:10px 12px">
           <div class="sk-mono" style="font-size:9px;letter-spacing:1.5px;margin-bottom:4px">SIGNAL</div>
           <div style="font-size:13px;line-height:1.4">Quality discipline is the <strong>moat</strong> AI cannot copy-paste.</div>
@@ -83,25 +85,25 @@
     <div class="row gap-4" style="flex-wrap:wrap">
 
       <div class="sk-box" style="flex:1;min-width:160px;padding:16px 18px">
-        <div style="font-size:52px;font-weight:700;line-height:0.9;color:var(--accent);font-family:'IBM Plex Serif',serif">34</div>
+        <div class="story-hl" style="font-size:52px;font-weight:700;line-height:0.9;color:var(--accent);font-family:'IBM Plex Serif',serif">34</div>
         <div class="sk-mono" style="font-size:9px;letter-spacing:1.5px;margin-top:6px;color:var(--ink-2)">EDITIONS PUBLISHED</div>
         <div style="font-size:13px;line-height:1.4;margin-top:8px">Thoughtworks has published the Radar since 2010; 34 editions is the longest-running practitioner advisory in the industry.</div>
       </div>
 
       <div class="sk-box" style="flex:1;min-width:160px;padding:16px 18px;background:var(--hi)">
-        <div style="font-size:52px;font-weight:700;line-height:0.9;color:var(--ink);font-family:'IBM Plex Serif',serif">100K</div>
+        <div class="story-hl" style="font-size:52px;font-weight:700;line-height:0.9;color:var(--ink);font-family:'IBM Plex Serif',serif">100K</div>
         <div class="sk-mono" style="font-size:9px;letter-spacing:1.5px;margin-top:6px;color:var(--ink-2)">LOC DEGRADATION THRESHOLD</div>
         <div style="font-size:13px;line-height:1.4;margin-top:8px">Mike Mason's finding: AI-generated codebases show measurable quality degradation after approximately 100,000 lines of code without human review gates.</div>
       </div>
 
       <div class="sk-box" style="flex:1;min-width:160px;padding:16px 18px">
-        <div style="font-size:52px;font-weight:700;line-height:0.9;color:var(--accent);font-family:'IBM Plex Serif',serif">4</div>
+        <div class="story-hl" style="font-size:52px;font-weight:700;line-height:0.9;color:var(--accent);font-family:'IBM Plex Serif',serif">4</div>
         <div class="sk-mono" style="font-size:9px;letter-spacing:1.5px;margin-top:6px;color:var(--ink-2)">FOUNDATIONAL PRACTICES RETURNING</div>
         <div style="font-size:13px;line-height:1.4;margin-top:8px">Pair programming, mutation testing, zero-trust architecture, and DORA metrics — all Adopt-or-Trial in this volume.</div>
       </div>
 
       <div class="sk-box" style="flex:1;min-width:160px;padding:16px 18px">
-        <div style="font-size:52px;font-weight:700;line-height:0.9;color:var(--accent);font-family:'IBM Plex Serif',serif">CLI</div>
+        <div class="story-hl" style="font-size:52px;font-weight:700;line-height:0.9;color:var(--accent);font-family:'IBM Plex Serif',serif">CLI</div>
         <div class="sk-mono" style="font-size:9px;letter-spacing:1.5px;margin-top:6px;color:var(--ink-2)">INTERFACE TYPE OF THE CYCLE</div>
         <div style="font-size:13px;line-height:1.4;margin-top:8px">Agentic tools are pulling developers back to the terminal. The CLI resurgence is the Radar's most surprising "we told you so" in three cycles.</div>
       </div>
@@ -205,7 +207,7 @@
 
       <div class="sk-box-soft" style="flex:1;min-width:240px;padding:16px 18px">
         <div class="sk-mono" style="font-size:9px;letter-spacing:1.5px;color:var(--ink-2);margin-bottom:10px">MARTIN FOWLER &middot; THOUGHTWORKS</div>
-        <blockquote style="margin:0;font-size:15px;line-height:1.55;font-style:italic">
+        <blockquote style="margin:0;font-size:18px;line-height:1.65;font-style:italic">
           "The tools accelerate, but they do not substitute for understanding. What they expose is the gap between teams that have invested in craft and those that have not."
         </blockquote>
         <div class="sk-mono" style="font-size:9px;margin-top:10px;color:var(--ink-2)">FRAGMENTS &middot; APRIL 21, 2026</div>
@@ -213,7 +215,7 @@
 
       <div class="sk-box-soft" style="flex:1;min-width:240px;padding:16px 18px">
         <div class="sk-mono" style="font-size:9px;letter-spacing:1.5px;color:var(--ink-2);margin-bottom:10px">MIKE MASON &middot; THOUGHTWORKS CTO</div>
-        <blockquote style="margin:0;font-size:15px;line-height:1.55;font-style:italic">
+        <blockquote style="margin:0;font-size:18px;line-height:1.65;font-style:italic">
           "After a hundred thousand lines, the code stops looking like code and starts looking like the training set. That's when your architecture eats itself."
         </blockquote>
         <div class="sk-mono" style="font-size:9px;margin-top:10px;color:var(--ink-2)">RADAR KEYNOTE &middot; APRIL 2026</div>
@@ -221,7 +223,7 @@
 
       <div class="sk-box-soft" style="flex:1;min-width:240px;padding:16px 18px">
         <div class="sk-mono" style="font-size:9px;letter-spacing:1.5px;color:var(--ink-2);margin-bottom:10px">COUNTERPOINT &middot; PRAGMATIC ENGINEER</div>
-        <blockquote style="margin:0;font-size:15px;line-height:1.55;font-style:italic">
+        <blockquote style="margin:0;font-size:18px;line-height:1.65;font-style:italic">
           "Thoughtworks has been promoting pair programming since the XP era. The Radar is a useful forcing function, but calling fundamentals 'new' every cycle undersells how many teams never stopped doing them."
         </blockquote>
         <div class="sk-mono" style="font-size:9px;margin-top:10px;color:var(--ink-2)">THE PRAGMATIC ENGINEER &middot; APR 2026</div>
@@ -361,9 +363,9 @@
 
   <!-- footer nav -->
   <div class="row" style="justify-content:space-between;align-items:center;border-top:1.5px solid var(--ink);padding-top:14px">
-    <a href="02-4-deepmind-decoupled-diloco.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px">&larr; 02.4 &middot; DeepMind DiLoCo</a>
-    <a href="../index.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px">DIGEST &middot; &#8470; 001</a>
-    <a href="paper-1-thinking-with-reasoning-skills.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px">PAPER.1 &middot; Reasoning Skills &#8594;</a>
+    <a href="02-4-deepmind-decoupled-diloco.html" class="sk-mono" style="font-size:12px;letter-spacing:1.5px">&larr; 02.4 &middot; DeepMind DiLoCo</a>
+    <a href="../index.html" class="sk-mono" style="font-size:12px;letter-spacing:1.5px">DIGEST &middot; &#8470; 001</a>
+    <a href="paper-1-thinking-with-reasoning-skills.html" class="sk-mono" style="font-size:12px;letter-spacing:1.5px">PAPER.1 &middot; Reasoning Skills &#8594;</a>
   </div>
 
 </div>

@@ -6,28 +6,31 @@
 <title>Daily Digest 001 — DeepMind Decoupled DiLoCo</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&display=swap');
-*{box-sizing:border-box}html,body{margin:0;padding:0}body{background:#f5f0e8;color:#111;font-family:'Lora',serif;font-size:18px;line-height:1.6;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}
+*{box-sizing:border-box}html,body{margin:0;padding:0}body{background:#f5f0e8;color:#111;font-family:'Lora',serif;font-size:20px;line-height:1.65;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}
 :root{--paper:#f5f0e8;--card:#fffdf7;--ink:#111111;--ink-2:#5a5a5a;--accent:#d62828;--hi:#f5c842}
 .sk-mono{font-family:'IBM Plex Serif','Georgia',serif;font-weight:500}.sk-script{font-family:'Playfair Display',serif;font-style:italic}
 .sk-box{border:1.5px solid var(--ink);background:transparent;position:relative}.sk-box-soft{border:1.25px solid #2a2a2a;background:transparent}
 .sk-rule-thin{height:0;border:0;border-top:1px solid var(--ink);margin:0}
-.sk-img{background-image:repeating-linear-gradient(135deg,transparent 0,transparent 7px,rgba(20,20,20,0.55) 7px,rgba(20,20,20,0.55) 8px);border:1.5px solid var(--ink);position:relative}
-.sk-img::after{content:attr(data-label);position:absolute;inset:0;margin:auto;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Serif',serif;font-size:11px;color:var(--ink);background:rgba(240,238,233,0.85);padding:4px 10px;width:max-content;height:max-content;border:1px solid var(--ink);letter-spacing:0.5px;text-transform:uppercase}
 .row{display:flex}.col{display:flex;flex-direction:column}.grow{flex:1}.gap-2{gap:8px}.gap-3{gap:12px}.gap-4{gap:16px}
-.dd-page{max-width:1200px;margin:0 auto;padding:28px}
+.dd-page{max-width:1200px;margin:0 auto;padding:32px}
 .dd-module-h{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px}
 .dd-module-h .num{font-size:56px;font-weight:700;line-height:0.9;color:var(--accent)}
 .dd-module-h .title{font-family:'IBM Plex Serif',serif;font-size:12px;letter-spacing:2px}
-.dd-module-h .right{font-family:'IBM Plex Serif',serif;font-size:10px;letter-spacing:1.5px}
+.dd-module-h .right{font-family:'IBM Plex Serif',serif;font-size:12px;letter-spacing:1.5px}
+
+/* responsive */
+@media(max-width:900px){.story-grid{grid-template-columns:1fr !important}.story-grid>*{grid-column:span 1 !important}}
+@media(max-width:640px){body{font-size:18px}.dd-page{padding:16px 14px}.story-hl{font-size:30px !important}.dd-module-h .num{font-size:48px}.row{flex-wrap:wrap}}
+@media(max-width:380px){body{font-size:17px}.dd-page{padding:12px 10px}.story-hl{font-size:26px !important}}
 </style>
 </head>
 <body>
 <div class="dd-page">
 
   <nav class="row" style="justify-content:space-between;align-items:baseline;margin-bottom:8px">
-    <a href="../index.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px">&larr; DIGEST &middot; &#8470; 001</a>
-    <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">STORY &middot; 02.4 &middot; AI &middot; INFRASTRUCTURE</span>
-    <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">5 MODULES &middot; 4 MIN</span>
+    <a href="../index.html" class="sk-mono" style="font-size:12px;letter-spacing:1.5px">&larr; DIGEST &middot; &#8470; 001</a>
+    <span class="sk-mono" style="font-size:12px;letter-spacing:1.5px">STORY &middot; 02.4 &middot; AI &middot; INFRASTRUCTURE</span>
+    <span class="sk-mono" style="font-size:12px;letter-spacing:1.5px">5 MODULES &middot; 4 MIN</span>
   </nav>
 
   <div class="row gap-2" style="margin-bottom:12px">
@@ -46,20 +49,19 @@
     </div>
     <div class="row gap-4" style="margin-top:14px">
       <div class="col grow" style="flex:1.4">
-        <h1 style="font-size:44px;font-weight:700;line-height:1.04;letter-spacing:-0.5px;text-wrap:balance;margin:0">
+        <h1 class="story-hl" style="font-size:50px;font-weight:700;line-height:1.04;letter-spacing:-0.5px;text-wrap:balance;margin:0">
           DeepMind's Decoupled DiLoCo trains 12B-parameter models across four US datacenters at 1/235 the bandwidth
         </h1>
         <p class="sk-script" style="font-size:22px;color:var(--hi);margin:12px 0 0">Asynchronous distributed training reaches 88% goodput in high-failure environments where synchronous methods collapse to 27%</p>
         <div class="row gap-3" style="margin-top:14px">
-          <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">BY &middot; EDITORIAL TEAM</span>
+          <span class="sk-mono" style="font-size:12px;letter-spacing:1.5px">BY &middot; EDITORIAL TEAM</span>
           <span class="sk-mono" style="font-size:10px;color:var(--hi)">&middot; 4 MIN &middot; AI &middot; INFRASTRUCTURE</span>
         </div>
         <div class="row gap-3" style="margin-top:8px">
-          <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--hi)">SOURCE &middot; DEEPMIND.GOOGLE &middot; BLOG</span>
+          <span class="sk-mono" style="font-size:12px;letter-spacing:1.5px;color:var(--hi)">SOURCE &middot; DEEPMIND.GOOGLE &middot; BLOG</span>
         </div>
       </div>
-      <div class="sk-img" data-label="HERO" style="width:280px;flex-shrink:0;height:200px;border-color:var(--card)"></div>
-    </div>
+      </div>
   </section>
 
   <!-- 02 NUMBERS -->
@@ -74,22 +76,22 @@
     <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0">
       <div class="col" style="padding:4px 16px">
         <div style="font-size:76px;font-weight:700;line-height:0.95;letter-spacing:-1px">0.84</div>
-        <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;margin:6px 0 0">GBPS INTER-DC BANDWIDTH</p>
+        <p class="sk-mono" style="font-size:12px;letter-spacing:1.5px;margin:6px 0 0">GBPS INTER-DC BANDWIDTH</p>
         <p style="font-size:12px;line-height:1.4;margin:6px 0 0">Down from 198 Gbps required by standard synchronous training — a 235x reduction</p>
       </div>
       <div class="col" style="padding:4px 16px;border-left:1.5px solid var(--ink)">
         <div style="font-size:76px;font-weight:700;line-height:0.95;letter-spacing:-1px">88%</div>
-        <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;margin:6px 0 0">GOODPUT IN HIGH FAILURE</p>
+        <p class="sk-mono" style="font-size:12px;letter-spacing:1.5px;margin:6px 0 0">GOODPUT IN HIGH FAILURE</p>
         <p style="font-size:12px;line-height:1.4;margin:6px 0 0">Versus 27% for standard distributed methods under the same hardware failure conditions</p>
       </div>
       <div class="col" style="padding:4px 16px;border-left:1.5px solid var(--ink)">
         <div style="font-size:76px;font-weight:700;line-height:0.95;letter-spacing:-1px">64.1%</div>
-        <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;margin:6px 0 0">ACCURACY VS 64.4% BASELINE</p>
+        <p class="sk-mono" style="font-size:12px;letter-spacing:1.5px;margin:6px 0 0">ACCURACY VS 64.4% BASELINE</p>
         <p style="font-size:12px;line-height:1.4;margin:6px 0 0">Near-identical ML quality to single-datacenter training despite asynchronous updates across regions</p>
       </div>
       <div class="col" style="padding:4px 16px;border-left:1.5px solid var(--ink)">
         <div style="font-size:76px;font-weight:700;line-height:0.95;letter-spacing:-1px">20x</div>
-        <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;margin:6px 0 0">FASTER THAN CONVENTIONAL</p>
+        <p class="sk-mono" style="font-size:12px;letter-spacing:1.5px;margin:6px 0 0">FASTER THAN CONVENTIONAL</p>
         <p style="font-size:12px;line-height:1.4;margin:6px 0 0">12B-parameter model trained across four US regions 20 times faster than prior distributed approaches</p>
       </div>
     </div>
@@ -202,26 +204,26 @@
           <span class="sk-mono" style="font-size:22px;font-weight:700;color:var(--accent);line-height:1;width:30px">01</span>
           <div class="col grow gap-1">
             <p style="font-size:18px;font-weight:700;line-height:1.25;margin:0">Frontier training no longer requires a single co-located cluster</p>
-            <p style="font-size:14px;line-height:1.5;margin:0">The 235x bandwidth reduction means inter-datacenter links that were previously unusable for large-scale training are now viable. Labs with geographically distributed hardware can now pool those resources without sacrificing model quality.</p>
+            <p style="font-size:18px;line-height:1.65;margin:0">The 235x bandwidth reduction means inter-datacenter links that were previously unusable for large-scale training are now viable. Labs with geographically distributed hardware can now pool those resources without sacrificing model quality.</p>
           </div>
         </div>
         <div class="row gap-3" style="align-items:flex-start;border-left:4px solid var(--accent);padding-left:12px">
           <span class="sk-mono" style="font-size:22px;font-weight:700;color:var(--accent);line-height:1;width:30px">02</span>
           <div class="col grow gap-1">
             <p style="font-size:18px;font-weight:700;line-height:1.25;margin:0">Hardware failures become a scheduling problem, not a training halt</p>
-            <p style="font-size:14px;line-height:1.5;margin:0">The 88% goodput under high-failure conditions versus 27% for synchronous methods is not a marginal improvement — it is the difference between a training run that completes and one that crashes. Self-healing infrastructure changes the economics of large runs.</p>
+            <p style="font-size:18px;line-height:1.65;margin:0">The 88% goodput under high-failure conditions versus 27% for synchronous methods is not a marginal improvement — it is the difference between a training run that completes and one that crashes. Self-healing infrastructure changes the economics of large runs.</p>
           </div>
         </div>
         <div class="row gap-3" style="align-items:flex-start;border-left:4px solid var(--accent);padding-left:12px">
           <span class="sk-mono" style="font-size:22px;font-weight:700;color:var(--accent);line-height:1;width:30px">03</span>
           <div class="col grow gap-1">
             <p style="font-size:18px;font-weight:700;line-height:1.25;margin:0">This changes who can train frontier-scale models</p>
-            <p style="font-size:14px;line-height:1.5;margin:0">Organizations without a single massive datacenter — research institutions, mid-tier cloud providers, national labs — now have a credible path to running large distributed training jobs without the bandwidth infrastructure that only hyperscalers can afford.</p>
+            <p style="font-size:18px;line-height:1.65;margin:0">Organizations without a single massive datacenter — research institutions, mid-tier cloud providers, national labs — now have a credible path to running large distributed training jobs without the bandwidth infrastructure that only hyperscalers can afford.</p>
           </div>
         </div>
       </div>
       <aside class="sk-box" style="background:var(--ink);color:var(--card);padding:14px">
-        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;color:var(--hi);margin:0">FURTHER &middot; READING</p>
+        <p class="sk-mono" style="font-size:13px;letter-spacing:2px;color:var(--hi);margin:0">FURTHER &middot; READING</p>
         <div style="border-top:1px solid var(--card);margin:8px 0 10px"></div>
         <a href="https://deepmind.google/blog/decoupled-diloco/" class="row" style="justify-content:space-between;align-items:baseline;padding:8px 0;border-bottom:1px dashed var(--card)">
           <span class="sk-mono" style="font-size:11px">&rarr; DEEPMIND.GOOGLE &middot; Full post</span>
@@ -242,12 +244,12 @@
   <footer class="sk-box-soft" style="padding:14px 18px;margin-top:12px">
     <div class="row" style="justify-content:space-between;align-items:center">
       <a href="02-3-swe-bench-retired.html" class="col">
-        <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--ink-2)">&larr; PREV</span>
+        <span class="sk-mono" style="font-size:12px;letter-spacing:1.5px;color:var(--ink-2)">&larr; PREV</span>
         <span style="font-size:14px;font-weight:700">02.3 &middot; SWE-bench retired</span>
       </a>
       <span class="sk-mono" style="font-size:10px;letter-spacing:2px">&middot; END OF STORY 02.4 &middot;</span>
       <a href="eng-1-thoughtworks-radar-ai-fundamentals.html" class="col" style="align-items:flex-end">
-        <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--accent)">NEXT &rarr;</span>
+        <span class="sk-mono" style="font-size:12px;letter-spacing:1.5px;color:var(--accent)">NEXT &rarr;</span>
         <span style="font-size:14px;font-weight:700">ENG.1 &middot; Thoughtworks Radar</span>
       </a>
     </div>

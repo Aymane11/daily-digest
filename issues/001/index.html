@@ -6,121 +6,154 @@
 <title>Daily Digest — Issue 001 — APR 26 2026</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&display=swap');
-/* daily-digest.css — shared sketchy editorial wireframe styles */
-*{box-sizing:border-box}html,body{margin:0;padding:0}body{background:#f5f0e8;color:#111;font-family:'Lora',serif;font-size:18px;line-height:1.6;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}
-:root{--paper:#f5f0e8;--card:#fffdf7;--ink:#111111;--ink-2:#5a5a5a;--accent:#d62828;--hi:#f5c842;--rule:#0d0d0d}
-.sk{font-family:'Lora',serif}.sk-mono{font-family:'IBM Plex Serif','Georgia',serif;font-weight:500}.sk-script{font-family:'Playfair Display',serif;font-style:italic}
-.sk-box{border:1.5px solid var(--ink);background:transparent;position:relative}.sk-box-soft{border:1.25px solid #2a2a2a;background:transparent}
-.sk-rule{height:0;border:0;border-top:1.5px solid var(--ink);margin:0}.sk-rule-thin{height:0;border:0;border-top:1px solid var(--ink);margin:0}
-.sk-img{background-image:repeating-linear-gradient(135deg,transparent 0,transparent 7px,rgba(20,20,20,0.55) 7px,rgba(20,20,20,0.55) 8px);border:1.5px solid var(--ink);position:relative}
-.sk-img::after{content:attr(data-label);position:absolute;inset:0;margin:auto;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Serif',serif;font-size:11px;color:var(--ink);background:rgba(240,238,233,0.85);padding:4px 10px;width:max-content;height:max-content;border:1px solid var(--ink);letter-spacing:0.5px;text-transform:uppercase}
-.sk-lines{display:flex;flex-direction:column;gap:5px}.sk-line{height:2px;background:#2a2a2a}.sk-annot{font-family:'Playfair Display',serif;font-style:italic;font-size:18px;color:var(--accent);line-height:1.05;transform:rotate(-2deg)}
-.row{display:flex}.col{display:flex;flex-direction:column}.grow{flex:1}.gap-2{gap:8px}.gap-3{gap:12px}.gap-4{gap:16px}.gap-5{gap:20px}
-.p-3{padding:12px}.p-4{padding:16px}.p-5{padding:20px}
-.dd-page{max-width:1200px;margin:0 auto;padding:28px}
-.dd-module-h{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px}
-.dd-module-h .num{font-size:56px;font-weight:700;line-height:0.9;color:var(--accent)}
-.dd-module-h .title{font-family:'IBM Plex Serif',serif;font-size:12px;letter-spacing:2px}
-.dd-module-h .right{font-family:'IBM Plex Serif',serif;font-size:10px;letter-spacing:1.5px}
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{background:#f5f0e8;color:#111;font-family:'Lora',serif;font-size:20px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:root{
+  --paper:#f5f0e8;--card:#fffdf7;--ink:#111111;--ink-2:#5a5a5a;
+  --accent:#d62828;--hi:#f5c842;--teal:#0d7377;--navy:#14213d;
+  --ochre:#e07b39;--slate:#3d5a80;--sage:#2d6a4f;--purple:#7b2d8b;--rule:#111111;
+}
+.sk{font-family:'Lora',serif}
+.sk-mono{font-family:'IBM Plex Serif','Georgia',serif;font-weight:500}
+.sk-script{font-family:'Playfair Display',serif;font-style:italic}
+.sk-box{border:1.5px solid var(--ink);background:transparent;position:relative}
+.sk-box-soft{border:1.25px solid #2a2a2a;background:transparent}
+.sk-rule{height:0;border:0;border-top:1.5px solid var(--ink);margin:0}
+.sk-rule-thin{height:0;border:0;border-top:1px solid var(--ink);margin:0}
+.sk-stamp{display:inline-block;font-family:'IBM Plex Serif',serif;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:3px 9px;border:1.5px solid currentColor;line-height:1.4;transform:rotate(-1deg);white-space:nowrap}
+.sk-stamp--red{color:var(--accent);border-color:var(--accent)}
+.sk-stamp--navy{color:var(--navy);border-color:var(--navy)}
+.sk-stamp--teal{color:var(--teal);border-color:var(--teal)}
+.sk-stamp--ochre{color:var(--ochre);border-color:var(--ochre)}
+.sk-stamp--slate{color:var(--slate);border-color:var(--slate)}
+.sk-stamp--hi{color:#9a7200;border-color:#9a7200}
+.sk-stamp--purple{color:var(--purple);border-color:var(--purple)}
+.sk-stamp--sage{color:var(--sage);border-color:var(--sage)}
+.row{display:flex}.col{display:flex;flex-direction:column}.grow{flex:1}
+.gap-2{gap:8px}.gap-3{gap:12px}.gap-4{gap:16px}.gap-5{gap:20px}
+.dd-page{max-width:1200px;margin:0 auto;padding:32px}
+.dd-module-h{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px}
+.dd-module-h .num{font-size:64px;font-weight:700;line-height:0.9;color:var(--accent)}
+.dd-module-h .title{font-family:'IBM Plex Serif',serif;font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase}
+.dd-module-h .right{font-family:'IBM Plex Serif',serif;font-size:11px;letter-spacing:1.5px}
+/* responsive */
+@media(max-width:900px){
+  .main-grid{grid-template-columns:1fr !important}
+  .main-grid>*{grid-column:span 1 !important}
+  .hl-grid{grid-template-columns:repeat(2,1fr) !important}
+}
+@media(max-width:640px){
+  body{font-size:18px}
+  .dd-page{padding:16px 14px}
+  .main-grid{grid-template-columns:1fr !important}
+  .main-grid>*{grid-column:span 1 !important}
+  .hl-grid{grid-template-columns:1fr !important}
+  .dd-module-h .num{font-size:48px}
+  .lead-hl{font-size:30px !important}
+  .masthead-row{flex-wrap:wrap;gap:10px}
+  .masthead-nav{flex-wrap:wrap;gap:6px}
+}
+@media(max-width:380px){
+  body{font-size:17px}
+  .dd-page{padding:12px 10px}
+  .lead-hl{font-size:26px !important}
+}
 </style>
 </head>
 <body>
 <div class="dd-page">
 
   <!-- MASTHEAD -->
-  <header class="sk-box" style="background:var(--ink);color:var(--card);padding:14px 18px">
-    <div class="row" style="justify-content:space-between;align-items:center">
+  <header class="sk-box" style="background:var(--ink);color:var(--card);padding:16px 20px">
+    <div class="row masthead-row" style="justify-content:space-between;align-items:center;gap:12px">
       <div class="row gap-3" style="align-items:baseline">
-        <span class="sk-mono" style="font-size:11px;letter-spacing:3px;color:var(--hi)">&#8470; 001 / 2026</span>
-        <span style="font-size:28px;font-weight:700;letter-spacing:-0.5px">DAILY &middot; DIGEST</span>
+        <span class="sk-mono" style="font-size:12px;letter-spacing:3px;color:var(--hi)">&#8470; 001 / 2026</span>
+        <span style="font-size:30px;font-weight:700;letter-spacing:-0.5px">DAILY &middot; DIGEST</span>
       </div>
-      <nav class="row gap-4">
-        <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--hi)">AI</span>
-        <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--hi)">TECH</span>
-        <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--hi)">ENGINEERING</span>
-        <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">2026 &middot; 04 &middot; 26</span>
+      <nav class="row gap-4 masthead-nav" style="align-items:center">
+        <span class="sk-mono" style="font-size:11px;letter-spacing:1.5px;color:var(--hi)">AI</span>
+        <span class="sk-mono" style="font-size:11px;letter-spacing:1.5px;color:var(--hi)">TECH</span>
+        <span class="sk-mono" style="font-size:11px;letter-spacing:1.5px;color:var(--hi)">ENGINEERING</span>
+        <span class="sk-mono" style="font-size:11px;letter-spacing:1.5px">2026 &middot; 04 &middot; 26</span>
+        <a href="../../archive.html" class="sk-mono" style="font-size:11px;letter-spacing:1.5px;color:var(--sage);border:1px solid var(--sage);padding:4px 12px">ARCHIVE &#8599;</a>
       </nav>
     </div>
   </header>
 
   <!-- meta strip -->
-  <div class="row gap-3" style="margin-top:8px;flex-wrap:wrap">
-    <span class="sk-box-soft sk-mono" style="padding:4px 10px;font-size:10px">ISSUE 001</span>
-    <span class="sk-box-soft sk-mono" style="padding:4px 10px;font-size:10px">AI &middot; SECURITY &middot; MODELS</span>
-    <span class="sk-box-soft sk-mono" style="padding:4px 10px;font-size:10px">SUN</span>
-    <span class="sk-box-soft sk-mono" style="padding:4px 10px;font-size:10px">04 &middot; 26</span>
-    <span class="sk-box-soft sk-mono" style="padding:4px 10px;font-size:10px">06:00 UTC</span>
-    <span class="sk-box-soft sk-mono" style="padding:4px 10px;font-size:10px">4 SECTIONS</span>
-    <span class="sk-box-soft sk-mono" style="padding:4px 10px;font-size:10px">7 STORIES</span>
+  <div class="row gap-3" style="margin-top:10px;flex-wrap:wrap">
+    <span class="sk-box-soft sk-mono" style="padding:5px 11px;font-size:11px">ISSUE 001</span>
+    <span class="sk-box-soft sk-mono" style="padding:5px 11px;font-size:11px">AI &middot; SECURITY &middot; MODELS</span>
+    <span class="sk-box-soft sk-mono" style="padding:5px 11px;font-size:11px">SUN 26 APR 2026</span>
+    <span class="sk-box-soft sk-mono" style="padding:5px 11px;font-size:11px">06:00 UTC</span>
+    <span class="sk-box-soft sk-mono" style="padding:5px 11px;font-size:11px">9 STORIES</span>
   </div>
 
   <!-- 12-COL GRID -->
-  <main style="display:grid;grid-template-columns:repeat(12,1fr);gap:10px;margin-top:14px">
+  <main class="main-grid" style="display:grid;grid-template-columns:repeat(12,1fr);gap:12px;margin-top:16px">
 
     <!-- 01 LEAD (8 col) -->
-    <article class="sk-box" style="grid-column:span 8;padding:18px;background:var(--card)">
+    <article class="sk-box" style="grid-column:span 8;padding:22px;background:var(--card)">
       <div class="dd-module-h">
         <div class="row gap-3" style="align-items:baseline">
           <span class="num">01</span>
           <span class="title">LEAD / FEATURE</span>
         </div>
-        <span class="right">08 / 12 COL</span>
+        <span class="right">SECURITY &middot; AI</span>
       </div>
-      <hr class="sk-rule-thin" style="margin-bottom:14px" />
-      <div class="row gap-4">
-        <div class="col grow gap-3" style="flex:1.3">
-          <h1 style="font-size:36px;font-weight:700;line-height:1.05;margin:0;text-wrap:balance">
-            Anthropic releases Claude Mythos Preview — the most capable model it has ever built — to vetted partners only
-          </h1>
-          <p class="sk-mono" style="font-size:11px;margin:4px 0 0">&rarr; A model that autonomously finds and exploits zero-days in major OSes is too dangerous for general release</p>
-          <p style="font-size:14px;line-height:1.5;margin:8px 0 0">Anthropic unveiled Claude Mythos Preview, a frontier model that far exceeds its Opus line in cybersecurity, autonomous coding, and long-horizon reasoning. In internal testing the model found thousands of zero-day vulnerabilities across patched systems — including a 27-year-old OpenBSD bug — and produced working exploits overnight. Rather than a public launch, Anthropic is distributing access only through Project Glasswing, a vetted consortium of 40+ partners including Google, Microsoft, and Apple. Benchmark scores of 93.9% on SWE-bench and 97.6% on USAMO make it the highest-scoring model ever disclosed publicly.</p>
-          <div class="row gap-3" style="margin-top:6px">
-            <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">BY &middot; EDITORIAL TEAM</span>
-            <span class="sk-mono" style="font-size:10px;color:var(--ink-2)">&middot; 5 MIN</span>
-          </div>
-          <a href="stories/01-lead-claude-mythos-preview.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--accent);margin-top:4px">READ FULL STORY &rarr;</a>
+      <hr class="sk-rule-thin" style="margin-bottom:16px" />
+      <div class="col gap-4">
+        <div class="row gap-2" style="flex-wrap:wrap">
+          <span class="sk-stamp sk-stamp--red">AI</span>
+          <span class="sk-stamp sk-stamp--ochre">SECURITY</span>
         </div>
-        <div class="col" style="flex:1;gap:6px">
-          <a href="stories/01-lead-claude-mythos-preview.html" class="sk-img" data-label="LEAD &middot; 4:5" style="height:250px;display:block"></a>
-          <span class="sk-mono" style="font-size:9px">FIG &middot; 01 &middot; Placeholder &mdash; Anthropic Project Glasswing partner announcement diagram</span>
+        <h1 class="lead-hl" style="font-size:42px;font-weight:700;line-height:1.05;margin:0;text-wrap:balance">
+          Anthropic releases Claude Mythos Preview — the most capable model it has ever built — to vetted partners only
+        </h1>
+        <p class="sk-mono" style="font-size:13px;margin:0">&rarr; A model that autonomously finds and exploits zero-days in major OSes is too dangerous for general release</p>
+        <p style="font-size:19px;line-height:1.65;margin:0">Anthropic unveiled Claude Mythos Preview, a frontier model that far exceeds its Opus line in cybersecurity, autonomous coding, and long-horizon reasoning. In internal testing the model found thousands of zero-day vulnerabilities across patched systems — including a 27-year-old OpenBSD bug — and produced working exploits overnight. Rather than a public launch, Anthropic is distributing access only through Project Glasswing, a vetted consortium of 40+ partners including Google, Microsoft, and Apple. Benchmark scores of 93.9% on SWE-bench and 97.6% on USAMO make it the highest-scoring model ever disclosed publicly.</p>
+        <div class="row gap-3" style="margin-top:6px;align-items:center;flex-wrap:wrap">
+          <span class="sk-mono" style="font-size:11px;letter-spacing:1.5px">BY &middot; EDITORIAL TEAM</span>
+          <span class="sk-mono" style="font-size:11px;color:var(--ink-2)">&middot; 5 MIN</span>
+          <a href="stories/01-lead-claude-mythos-preview.html" class="sk-mono" style="font-size:11px;letter-spacing:1.5px;color:var(--accent);margin-left:auto">READ FULL STORY &rarr;</a>
         </div>
       </div>
     </article>
 
-    <!-- 01 RAIL — Quote + stats -->
-    <aside class="sk-box" style="grid-column:span 4;padding:18px;background:var(--hi)">
+    <!-- 01 RAIL — Quote + stats (4 col, gold) -->
+    <aside class="sk-box" style="grid-column:span 4;padding:20px;background:var(--hi)">
       <div class="dd-module-h">
         <div class="row gap-3" style="align-items:baseline">
           <span class="num" style="color:var(--ink)">&#9733;</span>
           <span class="title">QUOTE OF THE DAY</span>
         </div>
       </div>
-      <hr class="sk-rule-thin" style="margin-bottom:14px" />
-      <!-- [EDITORIAL QUOTE] -->
-      <blockquote style="margin:0;font-size:22px;font-weight:700;line-height:1.2">
+      <hr class="sk-rule-thin" style="margin-bottom:16px" />
+      <blockquote style="margin:0;font-size:22px;font-weight:700;line-height:1.25">
         "Defenders need time to harden systems before frontier capabilities become widely available."
       </blockquote>
-      <p class="sk-mono" style="font-size:10px;margin-top:14px">&mdash; ANTHROPIC &middot; PROJECT GLASSWING ANNOUNCEMENT</p>
-      <hr class="sk-rule-thin" style="margin:18px 0" />
-      <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;margin:0">STAT BLOCK</p>
-      <div class="row" style="margin-top:10px;gap:14px">
+      <p class="sk-mono" style="font-size:11px;margin-top:14px">&mdash; ANTHROPIC &middot; PROJECT GLASSWING</p>
+      <hr class="sk-rule-thin" style="margin:20px 0" />
+      <p class="sk-mono" style="font-size:11px;letter-spacing:1.5px;margin:0">STAT BLOCK</p>
+      <div class="row" style="margin-top:12px;gap:14px;flex-wrap:wrap">
         <div class="col">
-          <span style="font-size:28px;font-weight:700;line-height:1">93.9%</span>
-          <span class="sk-mono" style="font-size:9px;margin-top:2px">MYTHOS SWE-BENCH</span>
+          <span style="font-size:30px;font-weight:700;line-height:1">93.9%</span>
+          <span class="sk-mono" style="font-size:10px;margin-top:3px">MYTHOS SWE-BENCH</span>
         </div>
         <div class="col">
-          <span style="font-size:28px;font-weight:700;line-height:1">1.6T</span>
-          <span class="sk-mono" style="font-size:9px;margin-top:2px">DEEPSEEK V4 PARAMS</span>
+          <span style="font-size:30px;font-weight:700;line-height:1">1.6T</span>
+          <span class="sk-mono" style="font-size:10px;margin-top:3px">DEEPSEEK V4 PARAMS</span>
         </div>
         <div class="col">
-          <span style="font-size:28px;font-weight:700;line-height:1">60yr</span>
-          <span class="sk-mono" style="font-size:9px;margin-top:2px">ERDOS PROBLEM SOLVED</span>
+          <span style="font-size:30px;font-weight:700;line-height:1">60yr</span>
+          <span class="sk-mono" style="font-size:10px;margin-top:3px">ERD&#337;S SOLVED</span>
         </div>
       </div>
     </aside>
 
     <!-- 02 TOP HEADLINES (12 col) -->
-    <section class="sk-box" style="grid-column:span 12;padding:18px;background:var(--card)">
+    <section class="sk-box" style="grid-column:span 12;padding:22px;background:var(--card)">
       <div class="dd-module-h">
         <div class="row gap-3" style="align-items:baseline">
           <span class="num">02</span>
@@ -128,57 +161,65 @@
         </div>
         <span class="right">FOUR &middot; STORIES</span>
       </div>
-      <hr class="sk-rule-thin" style="margin-bottom:14px" />
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px">
-        <article style="border-left:1.5px solid var(--ink);padding-left:12px">
-          <div class="row" style="justify-content:space-between">
-            <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">MODELS &middot; OPEN SOURCE</span>
-            <span class="sk-mono" style="font-size:10px;color:var(--accent)">02.1</span>
+      <hr class="sk-rule-thin" style="margin-bottom:16px" />
+      <div class="hl-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px">
+        <article style="border-left:3px solid var(--navy);padding-left:14px">
+          <div class="row gap-2" style="margin-bottom:8px;flex-wrap:wrap">
+            <span class="sk-stamp sk-stamp--navy">MODELS</span>
           </div>
-          <h2 style="font-size:18px;font-weight:700;line-height:1.1;margin:8px 0 0">
+          <div class="row" style="justify-content:flex-end">
+            <span class="sk-mono" style="font-size:11px;color:var(--accent)">02.1</span>
+          </div>
+          <h2 style="font-size:20px;font-weight:700;line-height:1.15;margin:6px 0 0">
             <a href="stories/02-1-deepseek-v4-million-context.html">DeepSeek V4 launches with 1M-token context and MIT license</a>
           </h2>
-          <p style="font-size:13px;line-height:1.45;margin:6px 0 0">A 1.6T-parameter open-weights model priced at $0.14/M tokens input, with 10x KV cache reduction enabling true million-token sequences.</p>
-          <span class="sk-mono" style="font-size:9px;display:block;margin-top:8px">&rarr; 4 MIN</span>
+          <p style="font-size:16px;line-height:1.55;margin:8px 0 0">A 1.6T-parameter open-weights model priced at $0.14/M tokens, with 10x KV cache reduction enabling true million-token sequences.</p>
+          <span class="sk-mono" style="font-size:11px;display:block;margin-top:10px">&rarr; 4 MIN</span>
         </article>
-        <article style="border-left:1.5px solid var(--ink);padding-left:12px">
-          <div class="row" style="justify-content:space-between">
-            <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">AI &middot; RESEARCH</span>
-            <span class="sk-mono" style="font-size:10px;color:var(--accent)">02.2</span>
+        <article style="border-left:3px solid var(--teal);padding-left:14px">
+          <div class="row gap-2" style="margin-bottom:8px;flex-wrap:wrap">
+            <span class="sk-stamp sk-stamp--teal">RESEARCH</span>
           </div>
-          <h2 style="font-size:18px;font-weight:700;line-height:1.1;margin:8px 0 0">
-            <a href="stories/02-2-erdos-problem-chatgpt.html">Amateur solves 60-year-old Erdős conjecture using ChatGPT Pro</a>
+          <div class="row" style="justify-content:flex-end">
+            <span class="sk-mono" style="font-size:11px;color:var(--accent)">02.2</span>
+          </div>
+          <h2 style="font-size:20px;font-weight:700;line-height:1.15;margin:6px 0 0">
+            <a href="stories/02-2-erdos-problem-chatgpt.html">Amateur solves 60-year-old Erd&#337;s conjecture using ChatGPT Pro</a>
           </h2>
-          <p style="font-size:13px;line-height:1.45;margin:6px 0 0">Liam Price, 23, prompted GPT-5.4 Pro which found a route via a formula mathematicians had overlooked, then Terence Tao and Jared Lichtman formalized the proof.</p>
-          <span class="sk-mono" style="font-size:9px;display:block;margin-top:8px">&rarr; 4 MIN</span>
+          <p style="font-size:16px;line-height:1.55;margin:8px 0 0">Liam Price, 23, prompted GPT-5.4 Pro which found a route via a formula mathematicians had overlooked, then Terence Tao formalized the proof.</p>
+          <span class="sk-mono" style="font-size:11px;display:block;margin-top:10px">&rarr; 4 MIN</span>
         </article>
-        <article style="border-left:1.5px solid var(--ink);padding-left:12px">
-          <div class="row" style="justify-content:space-between">
-            <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">AI &middot; BENCHMARKS</span>
-            <span class="sk-mono" style="font-size:10px;color:var(--accent)">02.3</span>
+        <article style="border-left:3px solid var(--ochre);padding-left:14px">
+          <div class="row gap-2" style="margin-bottom:8px;flex-wrap:wrap">
+            <span class="sk-stamp sk-stamp--ochre">BENCHMARKS</span>
           </div>
-          <h2 style="font-size:18px;font-weight:700;line-height:1.1;margin:8px 0 0">
+          <div class="row" style="justify-content:flex-end">
+            <span class="sk-mono" style="font-size:11px;color:var(--accent)">02.3</span>
+          </div>
+          <h2 style="font-size:20px;font-weight:700;line-height:1.15;margin:6px 0 0">
             <a href="stories/02-3-swe-bench-retired.html">OpenAI retires SWE-bench Verified as frontier coding benchmark</a>
           </h2>
-          <p style="font-size:13px;line-height:1.45;margin:6px 0 0">Top models now score over 80% on SWE-bench tasks, rendering it an unreliable signal for real-world software engineering capability.</p>
-          <span class="sk-mono" style="font-size:9px;display:block;margin-top:8px">&rarr; 3 MIN</span>
+          <p style="font-size:16px;line-height:1.55;margin:8px 0 0">Top models now score over 80% on SWE-bench tasks, rendering it an unreliable signal for real-world software engineering capability.</p>
+          <span class="sk-mono" style="font-size:11px;display:block;margin-top:10px">&rarr; 3 MIN</span>
         </article>
-        <article style="border-left:1.5px solid var(--ink);padding-left:12px">
-          <div class="row" style="justify-content:space-between">
-            <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">AI &middot; INFRASTRUCTURE</span>
-            <span class="sk-mono" style="font-size:10px;color:var(--accent)">02.4</span>
+        <article style="border-left:3px solid var(--slate);padding-left:14px">
+          <div class="row gap-2" style="margin-bottom:8px;flex-wrap:wrap">
+            <span class="sk-stamp sk-stamp--slate">INFRA</span>
           </div>
-          <h2 style="font-size:18px;font-weight:700;line-height:1.1;margin:8px 0 0">
+          <div class="row" style="justify-content:flex-end">
+            <span class="sk-mono" style="font-size:11px;color:var(--accent)">02.4</span>
+          </div>
+          <h2 style="font-size:20px;font-weight:700;line-height:1.15;margin:6px 0 0">
             <a href="stories/02-4-deepmind-decoupled-diloco.html">DeepMind trains frontier models across datacenters at 1/235 bandwidth cost</a>
           </h2>
-          <p style="font-size:13px;line-height:1.45;margin:6px 0 0">Decoupled DiLoCo reduces inter-datacenter bandwidth from 198 Gbps to 0.84 Gbps and maintains 88% goodput even in high-failure environments.</p>
-          <span class="sk-mono" style="font-size:9px;display:block;margin-top:8px">&rarr; 4 MIN</span>
+          <p style="font-size:16px;line-height:1.55;margin:8px 0 0">Decoupled DiLoCo reduces inter-datacenter bandwidth from 198 Gbps to 0.84 Gbps and maintains 88% goodput even in high-failure environments.</p>
+          <span class="sk-mono" style="font-size:11px;display:block;margin-top:10px">&rarr; 4 MIN</span>
         </article>
       </div>
     </section>
 
     <!-- 03 QUICK BRIEFS (7 col) -->
-    <section class="sk-box" style="grid-column:span 7;padding:18px;background:var(--card)">
+    <section class="sk-box" style="grid-column:span 7;padding:22px;background:var(--card)">
       <div class="dd-module-h">
         <div class="row gap-3" style="align-items:baseline">
           <span class="num">03</span>
@@ -186,60 +227,78 @@
         </div>
         <span class="right">SIX &middot; ITEMS</span>
       </div>
-      <hr class="sk-rule-thin" style="margin-bottom:8px" />
+      <hr class="sk-rule-thin" style="margin-bottom:10px" />
 
-      <a href="https://openai.com/index/introducing-gpt-5-5" class="row gap-3" style="align-items:baseline;padding:8px 0;border-bottom:1px dashed var(--ink);text-decoration:none;color:inherit">
-        <span class="sk-mono" style="font-size:10px;width:36px;color:var(--accent)">03.1</span>
+      <a href="stories/03-1-gpt55-unified.html" class="row gap-3" style="align-items:flex-start;padding:12px 0;border-bottom:1px dashed var(--ink);text-decoration:none;color:inherit">
+        <span class="sk-mono" style="font-size:12px;width:40px;color:var(--accent);flex-shrink:0">03.1</span>
         <div class="col grow">
-          <span style="font-size:14px;font-weight:700">OpenAI ships GPT-5.5 as a single unified model, ending separate Codex line</span>
-          <span class="sk-mono" style="font-size:9px;color:var(--ink-2);margin-top:2px">SOURCE &middot; OPENAI.COM &middot; MODELS &middot; 2 MIN</span>
+          <span style="font-size:17px;font-weight:700;line-height:1.3">OpenAI ships GPT-5.5 as a single unified model, ending separate Codex line</span>
+          <div class="row gap-3" style="align-items:center;margin-top:4px;flex-wrap:wrap">
+            <span class="sk-mono" style="font-size:10px;color:var(--ink-2)">MODELS &middot; 2 MIN</span>
+            <a href="https://openai.com/index/introducing-gpt-5-5" class="sk-mono" style="font-size:10px;color:var(--teal);text-decoration:underline;text-underline-offset:2px" onclick="event.stopPropagation()">SOURCE &#8599;</a>
+          </div>
         </div>
-        <span class="sk-mono" style="font-size:11px">&nearr;</span>
+        <span class="sk-mono" style="font-size:13px;flex-shrink:0">&#8599;</span>
       </a>
-      <a href="https://blog.cloudflare.com/internal-ai-engineering-stack/" class="row gap-3" style="align-items:baseline;padding:8px 0;border-bottom:1px dashed var(--ink);text-decoration:none;color:inherit">
-        <span class="sk-mono" style="font-size:10px;width:36px;color:var(--accent)">03.2</span>
+      <a href="stories/03-2-cloudflare-ai-adoption.html" class="row gap-3" style="align-items:flex-start;padding:12px 0;border-bottom:1px dashed var(--ink);text-decoration:none;color:inherit">
+        <span class="sk-mono" style="font-size:12px;width:40px;color:var(--accent);flex-shrink:0">03.2</span>
         <div class="col grow">
-          <span style="font-size:14px;font-weight:700">Cloudflare's R&amp;D teams hit 93% AI tool adoption, weekly merges climb from 5,600 to 8,700</span>
-          <span class="sk-mono" style="font-size:9px;color:var(--ink-2);margin-top:2px">SOURCE &middot; BLOG.CLOUDFLARE.COM &middot; ENGINEERING &middot; 3 MIN</span>
+          <span style="font-size:17px;font-weight:700;line-height:1.3">Cloudflare R&amp;D hits 93% AI tool adoption, weekly merges climb 5,600 &rarr; 8,700</span>
+          <div class="row gap-3" style="align-items:center;margin-top:4px;flex-wrap:wrap">
+            <span class="sk-mono" style="font-size:10px;color:var(--ink-2)">ENGINEERING &middot; 3 MIN</span>
+            <a href="https://blog.cloudflare.com/internal-ai-engineering-stack/" class="sk-mono" style="font-size:10px;color:var(--teal);text-decoration:underline;text-underline-offset:2px" onclick="event.stopPropagation()">SOURCE &#8599;</a>
+          </div>
         </div>
-        <span class="sk-mono" style="font-size:11px">&nearr;</span>
+        <span class="sk-mono" style="font-size:13px;flex-shrink:0">&#8599;</span>
       </a>
-      <a href="https://github.blog/engineering/infrastructure/how-github-uses-ebpf-to-improve-deployment-safety/" class="row gap-3" style="align-items:baseline;padding:8px 0;border-bottom:1px dashed var(--ink);text-decoration:none;color:inherit">
-        <span class="sk-mono" style="font-size:10px;width:36px;color:var(--accent)">03.3</span>
+      <a href="stories/03-3-github-ebpf.html" class="row gap-3" style="align-items:flex-start;padding:12px 0;border-bottom:1px dashed var(--ink);text-decoration:none;color:inherit">
+        <span class="sk-mono" style="font-size:12px;width:40px;color:var(--accent);flex-shrink:0">03.3</span>
         <div class="col grow">
-          <span style="font-size:14px;font-weight:700">GitHub ships eBPF-based deployment safety system that blocks circular DNS dependencies in CI</span>
-          <span class="sk-mono" style="font-size:9px;color:var(--ink-2);margin-top:2px">SOURCE &middot; GITHUB.BLOG &middot; INFRASTRUCTURE &middot; 3 MIN</span>
+          <span style="font-size:17px;font-weight:700;line-height:1.3">GitHub ships eBPF-based deployment safety system blocking circular DNS in CI</span>
+          <div class="row gap-3" style="align-items:center;margin-top:4px;flex-wrap:wrap">
+            <span class="sk-mono" style="font-size:10px;color:var(--ink-2)">INFRASTRUCTURE &middot; 3 MIN</span>
+            <a href="https://github.blog/engineering/infrastructure/how-github-uses-ebpf-to-improve-deployment-safety/" class="sk-mono" style="font-size:10px;color:var(--teal);text-decoration:underline;text-underline-offset:2px" onclick="event.stopPropagation()">SOURCE &#8599;</a>
+          </div>
         </div>
-        <span class="sk-mono" style="font-size:11px">&nearr;</span>
+        <span class="sk-mono" style="font-size:13px;flex-shrink:0">&#8599;</span>
       </a>
-      <a href="https://simonwillison.net/2026/Apr/24/llm/" class="row gap-3" style="align-items:baseline;padding:8px 0;border-bottom:1px dashed var(--ink);text-decoration:none;color:inherit">
-        <span class="sk-mono" style="font-size:10px;width:36px;color:var(--accent)">03.4</span>
+      <a href="stories/03-4-llm-cli.html" class="row gap-3" style="align-items:flex-start;padding:12px 0;border-bottom:1px dashed var(--ink);text-decoration:none;color:inherit">
+        <span class="sk-mono" style="font-size:12px;width:40px;color:var(--accent);flex-shrink:0">03.4</span>
         <div class="col grow">
-          <span style="font-size:14px;font-weight:700">Simon Willison's LLM CLI 0.31 adds GPT-5.5 support and per-token verbosity controls</span>
-          <span class="sk-mono" style="font-size:9px;color:var(--ink-2);margin-top:2px">SOURCE &middot; SIMONWILLISON.NET &middot; TOOLS &middot; 2 MIN</span>
+          <span style="font-size:17px;font-weight:700;line-height:1.3">Simon Willison's LLM CLI 0.31 adds GPT-5.5 support and per-token verbosity controls</span>
+          <div class="row gap-3" style="align-items:center;margin-top:4px;flex-wrap:wrap">
+            <span class="sk-mono" style="font-size:10px;color:var(--ink-2)">TOOLS &middot; 2 MIN</span>
+            <a href="https://simonwillison.net/2026/Apr/24/llm/" class="sk-mono" style="font-size:10px;color:var(--teal);text-decoration:underline;text-underline-offset:2px" onclick="event.stopPropagation()">SOURCE &#8599;</a>
+          </div>
         </div>
-        <span class="sk-mono" style="font-size:11px">&nearr;</span>
+        <span class="sk-mono" style="font-size:13px;flex-shrink:0">&#8599;</span>
       </a>
-      <a href="https://asahilinux.org/2026/04/progress-report-7-0/" class="row gap-3" style="align-items:baseline;padding:8px 0;border-bottom:1px dashed var(--ink);text-decoration:none;color:inherit">
-        <span class="sk-mono" style="font-size:10px;width:36px;color:var(--accent)">03.5</span>
+      <a href="stories/03-5-asahi-linux.html" class="row gap-3" style="align-items:flex-start;padding:12px 0;border-bottom:1px dashed var(--ink);text-decoration:none;color:inherit">
+        <span class="sk-mono" style="font-size:12px;width:40px;color:var(--accent);flex-shrink:0">03.5</span>
         <div class="col grow">
-          <span style="font-size:14px;font-weight:700">Asahi Linux 0.8.0 adds full M3 support and cuts idle power draw by 20% on M1 Pro</span>
-          <span class="sk-mono" style="font-size:9px;color:var(--ink-2);margin-top:2px">SOURCE &middot; ASAHILINUX.ORG &middot; OPEN SOURCE &middot; 3 MIN</span>
+          <span style="font-size:17px;font-weight:700;line-height:1.3">Asahi Linux 0.8.0 adds full M3 support and cuts idle power draw by 20% on M1 Pro</span>
+          <div class="row gap-3" style="align-items:center;margin-top:4px;flex-wrap:wrap">
+            <span class="sk-mono" style="font-size:10px;color:var(--ink-2)">OPEN SOURCE &middot; 3 MIN</span>
+            <a href="https://asahilinux.org/2026/04/progress-report-7-0/" class="sk-mono" style="font-size:10px;color:var(--teal);text-decoration:underline;text-underline-offset:2px" onclick="event.stopPropagation()">SOURCE &#8599;</a>
+          </div>
         </div>
-        <span class="sk-mono" style="font-size:11px">&nearr;</span>
+        <span class="sk-mono" style="font-size:13px;flex-shrink:0">&#8599;</span>
       </a>
-      <a href="https://www.anthropic.com/news" class="row gap-3" style="align-items:baseline;padding:8px 0;text-decoration:none;color:inherit">
-        <span class="sk-mono" style="font-size:10px;width:36px;color:var(--accent)">03.6</span>
+      <a href="stories/03-6-mcp-milestone.html" class="row gap-3" style="align-items:flex-start;padding:12px 0;text-decoration:none;color:inherit">
+        <span class="sk-mono" style="font-size:12px;width:40px;color:var(--accent);flex-shrink:0">03.6</span>
         <div class="col grow">
-          <span style="font-size:14px;font-weight:700">Anthropic's Model Context Protocol crosses 97 million installs, now the default agent tool layer</span>
-          <span class="sk-mono" style="font-size:9px;color:var(--ink-2);margin-top:2px">SOURCE &middot; ANTHROPIC.COM &middot; DEVELOPER TOOLS &middot; 2 MIN</span>
+          <span style="font-size:17px;font-weight:700;line-height:1.3">Anthropic's Model Context Protocol crosses 97 million installs, now the default agent tool layer</span>
+          <div class="row gap-3" style="align-items:center;margin-top:4px;flex-wrap:wrap">
+            <span class="sk-mono" style="font-size:10px;color:var(--ink-2)">DEVELOPER TOOLS &middot; 2 MIN</span>
+            <a href="https://www.anthropic.com/news" class="sk-mono" style="font-size:10px;color:var(--teal);text-decoration:underline;text-underline-offset:2px" onclick="event.stopPropagation()">SOURCE &#8599;</a>
+          </div>
         </div>
-        <span class="sk-mono" style="font-size:11px">&nearr;</span>
+        <span class="sk-mono" style="font-size:13px;flex-shrink:0">&#8599;</span>
       </a>
     </section>
 
     <!-- 04 TOOLS / RESOURCES (5 col, INVERTED) -->
-    <section class="sk-box" style="grid-column:span 5;padding:18px;background:var(--ink);color:var(--card)">
+    <section class="sk-box" style="grid-column:span 5;padding:22px;background:var(--ink);color:var(--card)">
       <div class="dd-module-h">
         <div class="row gap-3" style="align-items:baseline">
           <span class="num" style="color:var(--hi)">04</span>
@@ -247,48 +306,97 @@
         </div>
         <span class="right">FOUR &middot; PICKS</span>
       </div>
-      <div style="border-top:1px solid var(--card);margin-bottom:14px"></div>
+      <div style="border-top:1px solid var(--card);margin-bottom:16px"></div>
 
-      <a href="https://api-docs.deepseek.com/news/news260424" class="row gap-3" style="align-items:flex-start;padding:8px 0;border-bottom:1px dashed rgba(250,247,240,0.3);text-decoration:none;color:inherit">
-        <span style="width:38px;height:38px;border:1.5px solid var(--hi);display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Serif',serif;font-size:9px;color:var(--hi);flex-shrink:0">04.1</span>
+      <a href="stories/04-1-deepseek-api.html" class="row gap-3" style="align-items:flex-start;padding:12px 0;border-bottom:1px dashed rgba(255,253,247,0.25);text-decoration:none;color:inherit">
+        <span style="width:42px;height:42px;border:1.5px solid var(--hi);display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Serif',serif;font-size:10px;color:var(--hi);flex-shrink:0;font-weight:600">04.1</span>
         <div class="col grow">
-          <span style="font-size:14px;font-weight:700">DeepSeek V4 API &middot; MODEL</span>
-          <span style="font-size:12px;line-height:1.4;margin-top:4px;opacity:0.85">Open-weights 1.6T MoE with 1M-token context at $0.14/M tokens, MIT-licensed</span>
+          <div class="row gap-2" style="align-items:center;flex-wrap:wrap">
+            <span style="font-size:16px;font-weight:700">DeepSeek V4 API</span>
+            <span class="sk-stamp sk-stamp--hi" style="font-size:9px">MODEL</span>
+          </div>
+          <span style="font-size:15px;line-height:1.5;margin-top:5px;opacity:0.88">Open-weights 1.6T MoE with 1M-token context at $0.14/M tokens, MIT-licensed</span>
+          <a href="https://api-docs.deepseek.com/news/news260424" class="sk-mono" style="font-size:10px;color:var(--sage);margin-top:5px;display:inline-block;text-decoration:underline" onclick="event.stopPropagation()">VISIT SITE &#8599;</a>
         </div>
-        <span class="sk-mono" style="font-size:11px;color:var(--hi)">&rarr;</span>
       </a>
-      <a href="https://simonwillison.net/2026/Apr/24/llm/" class="row gap-3" style="align-items:flex-start;padding:8px 0;border-bottom:1px dashed rgba(250,247,240,0.3);text-decoration:none;color:inherit">
-        <span style="width:38px;height:38px;border:1.5px solid var(--hi);display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Serif',serif;font-size:9px;color:var(--hi);flex-shrink:0">04.2</span>
+      <a href="stories/04-2-llm-cli.html" class="row gap-3" style="align-items:flex-start;padding:12px 0;border-bottom:1px dashed rgba(255,253,247,0.25);text-decoration:none;color:inherit">
+        <span style="width:42px;height:42px;border:1.5px solid var(--hi);display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Serif',serif;font-size:10px;color:var(--hi);flex-shrink:0;font-weight:600">04.2</span>
         <div class="col grow">
-          <span style="font-size:14px;font-weight:700">LLM CLI 0.31 &middot; CLI</span>
-          <span style="font-size:12px;line-height:1.4;margin-top:4px;opacity:0.85">Terminal LLM tool now supports GPT-5.5, verbosity levels, and async model configs</span>
+          <div class="row gap-2" style="align-items:center;flex-wrap:wrap">
+            <span style="font-size:16px;font-weight:700">LLM CLI 0.31</span>
+            <span class="sk-stamp sk-stamp--hi" style="font-size:9px">CLI</span>
+          </div>
+          <span style="font-size:15px;line-height:1.5;margin-top:5px;opacity:0.88">Terminal LLM tool with GPT-5.5, verbosity levels, and async model configs</span>
+          <a href="https://simonwillison.net/2026/Apr/24/llm/" class="sk-mono" style="font-size:10px;color:var(--sage);margin-top:5px;display:inline-block;text-decoration:underline" onclick="event.stopPropagation()">VISIT SITE &#8599;</a>
         </div>
-        <span class="sk-mono" style="font-size:11px;color:var(--hi)">&rarr;</span>
       </a>
-      <a href="https://arxiv.org/abs/2604.21816" class="row gap-3" style="align-items:flex-start;padding:8px 0;border-bottom:1px dashed rgba(250,247,240,0.3);text-decoration:none;color:inherit">
-        <span style="width:38px;height:38px;border:1.5px solid var(--hi);display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Serif',serif;font-size:9px;color:var(--hi);flex-shrink:0">04.3</span>
+      <a href="stories/04-3-tool-attention.html" class="row gap-3" style="align-items:flex-start;padding:12px 0;border-bottom:1px dashed rgba(255,253,247,0.25);text-decoration:none;color:inherit">
+        <span style="width:42px;height:42px;border:1.5px solid var(--hi);display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Serif',serif;font-size:10px;color:var(--hi);flex-shrink:0;font-weight:600">04.3</span>
         <div class="col grow">
-          <span style="font-size:14px;font-weight:700">Tool Attention Middleware &middot; LIBRARY</span>
-          <span style="font-size:12px;line-height:1.4;margin-top:4px;opacity:0.85">Cuts MCP tool token overhead 95% via intent-matching dynamic schema loading</span>
+          <div class="row gap-2" style="align-items:center;flex-wrap:wrap">
+            <span style="font-size:16px;font-weight:700">Tool Attention Middleware</span>
+            <span class="sk-stamp sk-stamp--hi" style="font-size:9px">LIBRARY</span>
+          </div>
+          <span style="font-size:15px;line-height:1.5;margin-top:5px;opacity:0.88">Cuts MCP tool token overhead 95% via intent-matching dynamic schema loading</span>
+          <a href="https://arxiv.org/abs/2604.21816" class="sk-mono" style="font-size:10px;color:var(--sage);margin-top:5px;display:inline-block;text-decoration:underline" onclick="event.stopPropagation()">VISIT SITE &#8599;</a>
         </div>
-        <span class="sk-mono" style="font-size:11px;color:var(--hi)">&rarr;</span>
       </a>
-      <a href="https://github.blog/engineering/infrastructure/how-github-uses-ebpf-to-improve-deployment-safety/" class="row gap-3" style="align-items:flex-start;padding:8px 0;text-decoration:none;color:inherit">
-        <span style="width:38px;height:38px;border:1.5px solid var(--hi);display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Serif',serif;font-size:9px;color:var(--hi);flex-shrink:0">04.4</span>
+      <a href="stories/04-4-github-ebpf.html" class="row gap-3" style="align-items:flex-start;padding:12px 0;text-decoration:none;color:inherit">
+        <span style="width:42px;height:42px;border:1.5px solid var(--hi);display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Serif',serif;font-size:10px;color:var(--hi);flex-shrink:0;font-weight:600">04.4</span>
         <div class="col grow">
-          <span style="font-size:14px;font-weight:700">GitHub eBPF Deployment Guard &middot; FRAMEWORK</span>
-          <span style="font-size:12px;line-height:1.4;margin-top:4px;opacity:0.85">Kernel-level DNS interception blocks circular deployment dependencies in production</span>
+          <div class="row gap-2" style="align-items:center;flex-wrap:wrap">
+            <span style="font-size:16px;font-weight:700">GitHub eBPF Deploy Guard</span>
+            <span class="sk-stamp sk-stamp--hi" style="font-size:9px">FRAMEWORK</span>
+          </div>
+          <span style="font-size:15px;line-height:1.5;margin-top:5px;opacity:0.88">Kernel-level DNS interception blocks circular deployment dependencies</span>
+          <a href="https://github.blog/engineering/infrastructure/how-github-uses-ebpf-to-improve-deployment-safety/" class="sk-mono" style="font-size:10px;color:var(--sage);margin-top:5px;display:inline-block;text-decoration:underline" onclick="event.stopPropagation()">VISIT SITE &#8599;</a>
         </div>
-        <span class="sk-mono" style="font-size:11px;color:var(--hi)">&rarr;</span>
       </a>
     </section>
 
+    <!-- 05 FURTHER READING — Thoughtworks + Reasoning Paper -->
+    <section class="sk-box" style="grid-column:span 12;padding:22px;background:var(--card)">
+      <div class="dd-module-h">
+        <div class="row gap-3" style="align-items:baseline">
+          <span class="num">05</span>
+          <span class="title">FURTHER READING</span>
+        </div>
+        <span class="right">RADAR &middot; PAPER</span>
+      </div>
+      <hr class="sk-rule-thin" style="margin-bottom:16px" />
+      <div class="hl-grid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px">
+        <a href="stories/eng-1-thoughtworks-radar-ai-fundamentals.html" style="border-left:3px solid var(--purple);padding-left:16px;display:block;text-decoration:none;color:inherit">
+          <div class="row gap-2" style="margin-bottom:8px;flex-wrap:wrap">
+            <span class="sk-stamp sk-stamp--purple">ENGINEERING</span>
+            <span class="sk-stamp sk-stamp--slate">RADAR</span>
+          </div>
+          <h2 style="font-size:22px;font-weight:700;line-height:1.15;margin:0">
+            Thoughtworks 34th Technology Radar — AI Fundamentals edition
+          </h2>
+          <p style="font-size:16px;line-height:1.55;margin:8px 0 0">The 34th Radar flags "AI fundamentals" as the essential skill divide of 2026 — knowing when NOT to reach for a model is now as valued as knowing how to fine-tune one. MCP, structured outputs, and evals move to Adopt. Read the in-depth breakdown.</p>
+          <span class="sk-mono" style="font-size:11px;display:block;margin-top:10px;color:var(--teal)">READ STORY &rarr;</span>
+        </a>
+        <a href="stories/paper-1-thinking-with-reasoning-skills.html" style="border-left:3px solid var(--teal);padding-left:16px;display:block;text-decoration:none;color:inherit">
+          <div class="row gap-2" style="margin-bottom:8px;flex-wrap:wrap">
+            <span class="sk-stamp sk-stamp--teal">PAPER</span>
+            <span class="sk-stamp sk-stamp--navy">RESEARCH</span>
+          </div>
+          <h2 style="font-size:22px;font-weight:700;line-height:1.15;margin:0">
+            Thinking with Reasoning Skills — a new framework for chain-of-thought in production
+          </h2>
+          <p style="font-size:16px;line-height:1.55;margin:8px 0 0">Researchers from Stanford and DeepMind propose decoupling "reasoning skills" from base model weights — allowing hot-swappable CoT modules that cut hallucination rates 31% on medical and legal benchmarks without full retraining. Key implications for practitioners.</p>
+          <span class="sk-mono" style="font-size:11px;display:block;margin-top:10px;color:var(--teal)">READ STORY &rarr;</span>
+        </a>
+      </div>
+    </section>
+
     <!-- COLOPHON -->
-    <footer style="grid-column:span 12;padding:12px 18px;border-top:1.5px solid var(--ink);margin-top:6px">
-      <div class="row" style="justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px">
-        <span class="sk-mono" style="font-size:10px;letter-spacing:2px">COLOPHON &middot; DAILY DIGEST &middot; 2026</span>
-        <span class="sk-mono" style="font-size:10px">SET IN KALAM / SPECIAL ELITE &middot; GRID 12 / GUTTER 24</span>
-        <span class="sk-mono" style="font-size:10px">NEXT &middot; 04 &middot; 27 &middot; 06:00 UTC</span>
+    <footer style="grid-column:span 12;padding:14px 20px;border-top:1.5px solid var(--ink);margin-top:8px">
+      <div class="row" style="justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:10px">
+        <span class="sk-mono" style="font-size:11px;letter-spacing:2px">COLOPHON &middot; DAILY DIGEST &middot; 2026</span>
+        <a href="../../archive.html" class="sk-mono" style="font-size:11px;letter-spacing:1.5px;color:var(--teal)">&larr; ALL ISSUES &middot; ARCHIVE</a>
+        <span class="sk-mono" style="font-size:11px;letter-spacing:1.5px">SET IN LORA / IBM PLEX SERIF &middot; GRID 12 / GUTTER 24</span>
+        <span class="sk-mono" style="font-size:11px">NEXT &middot; 04 &middot; 27 &middot; 06:00 UTC</span>
       </div>
     </footer>
   </main>

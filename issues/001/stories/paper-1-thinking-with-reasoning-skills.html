@@ -6,28 +6,31 @@
 <title>Daily Digest 001 — Paper: Thinking with Reasoning Skills</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&display=swap');
-*{box-sizing:border-box}html,body{margin:0;padding:0}body{background:#f5f0e8;color:#111;font-family:'Lora',serif;font-size:18px;line-height:1.6;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}
+*{box-sizing:border-box}html,body{margin:0;padding:0}body{background:#f5f0e8;color:#111;font-family:'Lora',serif;font-size:20px;line-height:1.65;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}
 :root{--paper:#f5f0e8;--card:#fffdf7;--ink:#111111;--ink-2:#5a5a5a;--accent:#d62828;--hi:#f5c842}
 .sk-mono{font-family:'IBM Plex Serif','Georgia',serif;font-weight:500}.sk-script{font-family:'Playfair Display',serif;font-style:italic}
 .sk-box{border:1.5px solid var(--ink);background:transparent;position:relative}.sk-box-soft{border:1.25px solid #2a2a2a;background:transparent}
 .sk-rule-thin{height:0;border:0;border-top:1px solid var(--ink);margin:0}
-.sk-img{background-image:repeating-linear-gradient(135deg,transparent 0,transparent 7px,rgba(20,20,20,0.55) 7px,rgba(20,20,20,0.55) 8px);border:1.5px solid var(--ink);position:relative}
-.sk-img::after{content:attr(data-label);position:absolute;inset:0;margin:auto;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Serif',serif;font-size:11px;color:var(--ink);background:rgba(240,238,233,0.85);padding:4px 10px;width:max-content;height:max-content;border:1px solid var(--ink);letter-spacing:0.5px;text-transform:uppercase}
 .row{display:flex}.col{display:flex;flex-direction:column}.grow{flex:1}.gap-2{gap:8px}.gap-3{gap:12px}.gap-4{gap:16px}.gap-5{gap:20px}
-.dd-page{max-width:1200px;margin:0 auto;padding:28px}
+.dd-page{max-width:1200px;margin:0 auto;padding:32px}
 .dd-module-h{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px}
 .dd-module-h .num{font-size:56px;font-weight:700;line-height:0.9;color:var(--accent)}
 .dd-module-h .title{font-family:'IBM Plex Serif',serif;font-size:12px;letter-spacing:2px}
-.dd-module-h .right{font-family:'IBM Plex Serif',serif;font-size:10px;letter-spacing:1.5px}
+.dd-module-h .right{font-family:'IBM Plex Serif',serif;font-size:12px;letter-spacing:1.5px}
+
+/* responsive */
+@media(max-width:900px){.story-grid{grid-template-columns:1fr !important}.story-grid>*{grid-column:span 1 !important}}
+@media(max-width:640px){body{font-size:18px}.dd-page{padding:16px 14px}.story-hl{font-size:30px !important}.dd-module-h .num{font-size:48px}.row{flex-wrap:wrap}}
+@media(max-width:380px){body{font-size:17px}.dd-page{padding:12px 10px}.story-hl{font-size:26px !important}}
 </style>
 </head>
 <body>
 <div class="dd-page">
 
   <nav class="row" style="justify-content:space-between;align-items:baseline;margin-bottom:8px">
-    <a href="../index.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px">&larr; DIGEST &middot; &#8470; 001</a>
-    <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">STORY &middot; PAPER.1 &middot; RESEARCH &middot; INFERENCE</span>
-    <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">6 MODULES &middot; 7 MIN</span>
+    <a href="../index.html" class="sk-mono" style="font-size:12px;letter-spacing:1.5px">&larr; DIGEST &middot; &#8470; 001</a>
+    <span class="sk-mono" style="font-size:12px;letter-spacing:1.5px">STORY &middot; PAPER.1 &middot; RESEARCH &middot; INFERENCE</span>
+    <span class="sk-mono" style="font-size:12px;letter-spacing:1.5px">6 MODULES &middot; 7 MIN</span>
   </nav>
 
   <div class="row gap-2" style="margin-bottom:12px">
@@ -47,10 +50,10 @@
     </div>
     <div class="row gap-4" style="margin-top:14px">
       <div class="col grow" style="flex:1.4">
-        <h1 style="font-size:40px;font-weight:700;line-height:1.05;letter-spacing:-0.5px;text-wrap:balance;margin:0">
+        <h1 class="story-hl" style="font-size:52px;font-weight:700;line-height:1.05;letter-spacing:-0.5px;text-wrap:balance;margin:0">
           Thinking with Reasoning Skills: teaching models when to use extended chains of thought
         </h1>
-        <p style="font-size:14px;line-height:1.55;margin:14px 0 0;color:rgba(250,247,240,0.82)">
+        <p style="font-size:18px;line-height:1.655;margin:14px 0 0;color:rgba(250,247,240,0.82)">
           Researchers from the ACL 2026 industry track present a method for training language models to selectively engage extended chain-of-thought reasoning only for problems that genuinely require it. The result: fewer tokens on easy tasks, no accuracy regression on hard tasks, and a practical training recipe that can be applied to any instruction-tuned base model. The paper lands at exactly the moment practitioners are asking whether reasoning models' verbosity is a cost problem or a quality problem. The answer, per this work, is both &mdash; and you can fix the cost without sacrificing the quality.
         </p>
         <div class="row gap-3" style="margin-top:16px;flex-wrap:wrap">
@@ -59,7 +62,6 @@
         </div>
       </div>
       <div class="col" style="flex:0.55;gap:12px">
-        <div class="sk-img" style="flex:1;min-height:160px" data-label="arXiv 2604.21764 — ACL 2026"></div>
         <div style="background:var(--hi);color:var(--ink);padding:10px 12px">
           <div class="sk-mono" style="font-size:9px;letter-spacing:1.5px;margin-bottom:4px">CORE CLAIM</div>
           <div style="font-size:13px;line-height:1.4">Models can learn <strong>when</strong> to reason, not just <strong>how</strong> to reason.</div>
@@ -83,25 +85,25 @@
     <div class="row gap-4" style="flex-wrap:wrap">
 
       <div class="sk-box" style="flex:1;min-width:155px;padding:16px 18px;background:var(--hi)">
-        <div style="font-size:52px;font-weight:700;line-height:0.9;color:var(--ink);font-family:'IBM Plex Serif',serif">38%</div>
+        <div class="story-hl" style="font-size:52px;font-weight:700;line-height:0.9;color:var(--ink);font-family:'IBM Plex Serif',serif">38%</div>
         <div class="sk-mono" style="font-size:9px;letter-spacing:1.5px;margin-top:6px;color:var(--ink-2)">TOKEN REDUCTION</div>
         <div style="font-size:13px;line-height:1.4;margin-top:8px">Average reduction in tokens used across a mixed benchmark of easy, medium, and hard problems when the model applies selective reasoning.</div>
       </div>
 
       <div class="sk-box" style="flex:1;min-width:155px;padding:16px 18px">
-        <div style="font-size:52px;font-weight:700;line-height:0.9;color:var(--accent);font-family:'IBM Plex Serif',serif">0.3%</div>
+        <div class="story-hl" style="font-size:52px;font-weight:700;line-height:0.9;color:var(--accent);font-family:'IBM Plex Serif',serif">0.3%</div>
         <div class="sk-mono" style="font-size:9px;letter-spacing:1.5px;margin-top:6px;color:var(--ink-2)">ACCURACY DELTA</div>
         <div style="font-size:13px;line-height:1.4;margin-top:8px">Accuracy change on hard reasoning benchmarks (MATH, AIME, LiveCodeBench) vs. full chain-of-thought baseline. Within noise floor.</div>
       </div>
 
       <div class="sk-box" style="flex:1;min-width:155px;padding:16px 18px">
-        <div style="font-size:52px;font-weight:700;line-height:0.9;color:var(--accent);font-family:'IBM Plex Serif',serif">2</div>
+        <div class="story-hl" style="font-size:52px;font-weight:700;line-height:0.9;color:var(--accent);font-family:'IBM Plex Serif',serif">2</div>
         <div class="sk-mono" style="font-size:9px;letter-spacing:1.5px;margin-top:6px;color:var(--ink-2)">TRAINING PHASES</div>
         <div style="font-size:13px;line-height:1.4;margin-top:8px">Phase 1 teaches reasoning skill selection; Phase 2 fine-tunes on a difficulty-stratified dataset. Both phases use existing supervised fine-tuning infrastructure.</div>
       </div>
 
       <div class="sk-box" style="flex:1;min-width:155px;padding:16px 18px">
-        <div style="font-size:52px;font-weight:700;line-height:0.9;color:var(--accent);font-family:'IBM Plex Serif',serif">5</div>
+        <div class="story-hl" style="font-size:52px;font-weight:700;line-height:0.9;color:var(--accent);font-family:'IBM Plex Serif',serif">5</div>
         <div class="sk-mono" style="font-size:9px;letter-spacing:1.5px;margin-top:6px;color:var(--ink-2)">BASE MODELS TESTED</div>
         <div style="font-size:13px;line-height:1.4;margin-top:8px">Results replicated across five instruction-tuned base models ranging from 7B to 70B parameters. Token savings scale with model size.</div>
       </div>
@@ -205,7 +207,7 @@
 
       <div class="sk-box-soft" style="flex:1;min-width:240px;padding:16px 18px">
         <div class="sk-mono" style="font-size:9px;letter-spacing:1.5px;color:var(--ink-2);margin-bottom:10px">PRACTITIONER TAKE</div>
-        <blockquote style="margin:0;font-size:15px;line-height:1.55;font-style:italic">
+        <blockquote style="margin:0;font-size:18px;line-height:1.65;font-style:italic">
           "This is the paper I've been waiting for. We've been prompt-engineering our way around reasoning verbosity for six months. A training-time fix that generalises is a much cleaner solution."
         </blockquote>
         <div class="sk-mono" style="font-size:9px;margin-top:10px;color:var(--ink-2)">HN DISCUSSION &middot; APR 25, 2026</div>
@@ -213,7 +215,7 @@
 
       <div class="sk-box-soft" style="flex:1;min-width:240px;padding:16px 18px">
         <div class="sk-mono" style="font-size:9px;letter-spacing:1.5px;color:var(--ink-2);margin-bottom:10px">SKEPTICAL READ</div>
-        <blockquote style="margin:0;font-size:15px;line-height:1.55;font-style:italic">
+        <blockquote style="margin:0;font-size:18px;line-height:1.65;font-style:italic">
           "The 0.3% accuracy delta is within noise, but the evaluation set is MATH and AIME &mdash; structured problems with clear difficulty signals. The claim about generalisation needs testing on ambiguous, open-ended tasks where difficulty is not well-defined."
         </blockquote>
         <div class="sk-mono" style="font-size:9px;margin-top:10px;color:var(--ink-2)">ML RESEARCH FORUM &middot; APR 25, 2026</div>
@@ -221,7 +223,7 @@
 
       <div class="sk-box-soft" style="flex:1;min-width:240px;padding:16px 18px">
         <div class="sk-mono" style="font-size:9px;letter-spacing:1.5px;color:var(--ink-2);margin-bottom:10px">INDUSTRY SIGNAL</div>
-        <blockquote style="margin:0;font-size:15px;line-height:1.55;font-style:italic">
+        <blockquote style="margin:0;font-size:18px;line-height:1.65;font-style:italic">
           "Three inference providers reached out this week asking about the training data format. That's the clearest signal I have that something in a paper is practically relevant."
         </blockquote>
         <div class="sk-mono" style="font-size:9px;margin-top:10px;color:var(--ink-2)">LEAD AUTHOR &middot; X/TWITTER &middot; APR 24, 2026</div>
@@ -379,9 +381,9 @@
 
   <!-- footer nav -->
   <div class="row" style="justify-content:space-between;align-items:center;border-top:1.5px solid var(--ink);padding-top:14px">
-    <a href="eng-1-thoughtworks-radar-ai-fundamentals.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px">&larr; ENG.1 &middot; Thoughtworks Radar</a>
-    <a href="../index.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px">DIGEST &middot; &#8470; 001</a>
-    <a href="01-lead-claude-mythos-preview.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px">LEAD.1 &middot; Claude Mythos &#8594;</a>
+    <a href="eng-1-thoughtworks-radar-ai-fundamentals.html" class="sk-mono" style="font-size:12px;letter-spacing:1.5px">&larr; ENG.1 &middot; Thoughtworks Radar</a>
+    <a href="../index.html" class="sk-mono" style="font-size:12px;letter-spacing:1.5px">DIGEST &middot; &#8470; 001</a>
+    <a href="01-lead-claude-mythos-preview.html" class="sk-mono" style="font-size:12px;letter-spacing:1.5px">LEAD.1 &middot; Claude Mythos &#8594;</a>
   </div>
 
 </div>
