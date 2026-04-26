@@ -298,14 +298,14 @@ with one thing they can do, check, try, or bring to a conversation.
 ### Typography (Google Fonts — already in daily-digest.css)
   Lora             display + body — weights 400 / 600 / 700, italic available; base body size 18px
   IBM Plex Serif   mono/metadata — ALWAYS UPPERCASE, letter-spacing: 1.5px–3px; font-weight 500–600
-  Playfair Display script accent — italic, ONLY for deck-line on dark hero and large quote glyphs
+  Lora italic — ONLY for deck-line on dark hero and large quote glyphs (font-style:italic on .sk-script)
 
 ### Absolute prohibitions
   NO emoji anywhere — use mono symbols only: ★ → ↗ ← ¶ ·
   NO drop shadows anywhere
   NO rounded corners (border-radius must be 0 on all elements)
   NO colors outside the eleven tokens above
-  NO new fonts outside Lora / IBM Plex Serif / Playfair Display
+  NO new fonts outside Lora / IBM Plex Serif / Lora
   NO body text in --accent color
   NO red text on black (--ink) surfaces — use --hi or --sage instead
   NO inline style="color:#..." with literal hex — always var(--token)
@@ -360,7 +360,7 @@ ISO_DATE        YYYY · MM · DD
 TOPICS          1–3 tags from today's dominant themes, joined by · (e.g. AI · FUNDING · POLICY)
 WEEKDAY         3-letter uppercase: MON TUE WED THU FRI SAT SUN
 DATE_SHORT      MM · DD
-PUBLISH_TIME    06:00 UTC or whenever the issue is published
+PUBLISH_TIME    whenever the issue is published (Morocco Time Casablanca/Africa)
 STORY_COUNT     total story count (lead + 4 headlines + optional engineering + optional paper = 6–7 min)
 NEXT_DATE       tomorrow in MM · DD
 
@@ -677,7 +677,7 @@ Instead, inline everything the page needs directly in the file:
 1. Fonts — embed the Google Fonts @import as a <style> block inside <head>, NOT as a <link rel="stylesheet">:
    ```html
    <style>
-   @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&display=swap');
+   @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
    </style>
    ```
 

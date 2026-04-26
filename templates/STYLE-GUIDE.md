@@ -45,7 +45,7 @@ Never put red text on a black surface — it fails contrast and dilutes the acce
 - **Mono / metadata:** `IBM Plex Serif` — *only* for kickers, tags, captions,
   timestamps, author lines, breadcrumbs, "BY THE NUMBERS" labels. ALWAYS in
   UPPERCASE with `letter-spacing: 1.5–3px`; font-weight 500–600.
-- **Script accent:** `Playfair Display` — italic, *only* for the deck-line on the dark hero
+- **Script accent:** `Lora` — italic, *only* for the deck-line on the dark hero
   (story-page) and the giant `"` quote glyph. Sparingly.
 
 ### 1.3 Hierarchy & scale
@@ -114,7 +114,7 @@ Every page must have an archive link:
 ### 1.9 The 5 things you may NEVER do
 1. **No emoji.** Use mono symbols (`★`, `→`, `↗`, `←`, `¶`, `·`) only.
 2. **No drop shadows or rounded corners > 0**. The aesthetic is flat and ruled.
-3. **No new fonts** outside Lora / IBM Plex Serif / Playfair Display.
+3. **No new fonts** outside Lora / IBM Plex Serif / Lora.
 4. **No body text in `--accent`** — red is reserved for numbers + kickers + accent markers.
 5. **No image placeholder (`.sk-img`)** in the lead section of homepage or the hero slots of story templates — these have been removed. Keep `.sk-img` only if you are explicitly adding an image somewhere.
 
@@ -215,7 +215,7 @@ Replace every `{{TOKEN}}`. Drop a placeholder where you don't have data —
 | `TOPICS`          | 1–3 short tags joined by ` · ` — e.g. `AI · TECH`. |
 | `WEEKDAY`         | 3-letter UPPER — `MON`, `SAT`.                   |
 | `DATE_SHORT`      | `MM · DD` — `04 · 25`.                           |
-| `PUBLISH_TIME`    | `HH:MM UTC` — `06:00 UTC`.                       |
+| `PUBLISH_TIME`    | `HH:MM Morocco Time`.                       |
 | `STORY_COUNT`     | Total stories in the issue. Integer.             |
 | `NEXT_DATE`       | Tomorrow in `MM · DD` form.                      |
 
