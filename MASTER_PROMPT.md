@@ -16,41 +16,41 @@ Read the full text of every candidate story before making any decision.
 
 ---
 
-## SOURCES TO FETCH (in priority order)
+## SOURCES TO FETCH (in priority order, prioritize RSS to fetch content easily)
 
 ### Tier 1 — Primary engineering & AI intelligence
 - Hacker News top stories: https://hacker-news.firebaseio.com/v0/topstories.json
   (fetch top 20 IDs, then fetch each item and read the linked article, limit to stories in the last 24 hours)
   Get item detail using: https://hacker-news.firebaseio.com/v0/item/{ID}.json
-- Simon Willison's Weblog: https://simonwillison.net/
-- Andrej Karpathy's blog: https://karpathy.github.io/ + his X/Twitter posts (@karpathy)
-- The Pragmatic Engineer (Gergely Orosz): https://newsletter.pragmaticengineer.com/
-- ByteByteGo: https://blog.bytebytego.com/
-- Thoughtworks Technology Radar and blog: https://www.thoughtworks.com/radar and https://www.thoughtworks.com/insights/blog
-- Increment: https://increment.com/
-- All Things Distributed: https://www.allthingsdistributed.com/index.html
-- Smol AI news: https://news.smol.ai/
-- Paul Graham essays: https://paulgraham.com/articles.html
-- Martin Fowler: https://martinfowler.com/
-- Kent Beck: https://tidyfirst.substack.com/
-- Lee Robinson: https://leerob.com/
-- Latent Space: https://www.latent.space/
-- Replicate Hype: https://hype.replicate.dev/
-- Skimfeed (AI/tech aggregator): https://skimfeed.com/
+- Simon Willison's Weblog: https://simonwillison.net/ (Atom: https://simonwillison.net/atom/everything/)
+- Andrej Karpathy's blog: https://karpathy.github.io/ (RSS/Atom: https://karpathy.github.io/feed.xml) + his X/Twitter posts (@karpathy)
+- The Pragmatic Engineer (Gergely Orosz): https://newsletter.pragmaticengineer.com/ (RSS: https://newsletter.pragmaticengineer.com/feed)
+- ByteByteGo: https://blog.bytebytego.com/ (RSS: https://blog.bytebytego.com/feed)
+- Thoughtworks Technology Radar and blog: https://www.thoughtworks.com/radar and https://www.thoughtworks.com/insights/blog (RSS: https://www.thoughtworks.com/rss/insights.xml)
+- Increment: https://increment.com/ (RSS: none found)
+- All Things Distributed: https://www.allthingsdistributed.com/index.html (Atom: http://www.allthingsdistributed.com/atom.xml)
+- Smol AI news: https://news.smol.ai/ (RSS: https://news.smol.ai/rss.xml)
+- Paul Graham essays: https://paulgraham.com/articles.html (RSS: none)
+- Martin Fowler: https://martinfowler.com/ (Atom: https://martinfowler.com/feed.atom)
+- Kent Beck: https://tidyfirst.substack.com/ (RSS: https://tidyfirst.substack.com/feed)
+- Lee Robinson: https://leerob.com/ (RSS: none found)
+- Latent Space: https://www.latent.space/ (RSS: https://www.latent.space/feed)
+- Replicate Hype: https://hype.replicate.dev/ (RSS: none found)
+- Skimfeed (AI/tech aggregator): https://skimfeed.com/ (RSS: None)
 
 ### Tier 2 — Company engineering blogs
-- Netflix Tech Blog: https://netflixtechblog.com/
-- OpenAI blog: https://openai.com/blog/
-- Anthropic news: https://www.anthropic.com/news
-- Google DeepMind blog: https://deepmind.google/discover/blog/
-- Google AI Blog: https://ai.googleblog.com/
-- PlanetScale blog: https://planetscale.com/blog
-- Vercel blog: https://vercel.com/blog
-- Cloudflare blog: https://blog.cloudflare.com/
-- Stripe engineering: https://stripe.com/blog/engineering
-- GitHub blog: https://github.blog/
-- Spotify Engineering blog: https://engineering.atspotify.com/
-- AWS blog: https://aws.amazon.com/blogs/
+- Netflix Tech Blog: https://netflixtechblog.com/ (RSS: https://medium.com/feed/netflix-techblog)
+- OpenAI blog: https://openai.com/blog/ (RSS: https://openai.com/news/rss.xml)
+- Anthropic news: https://www.anthropic.com/news (RSS: none found)
+- Google DeepMind blog: https://deepmind.google/discover/blog/ (RSS: https://deepmind.google/blog/rss.xml)
+- Google AI Blog: https://ai.googleblog.com/ (RSS: https://research.google/blog/rss/)
+- PlanetScale blog: https://planetscale.com/blog (Atom: https://planetscale.com/blog/feed.atom)
+- Vercel blog: https://vercel.com/blog (Atom: https://vercel.com/atom)
+- Cloudflare blog: https://blog.cloudflare.com/ (RSS: https://blog.cloudflare.com/rss/)
+- Stripe engineering: https://stripe.com/blog/engineering (RSS: None)
+- GitHub blog: https://github.blog/ (RSS: https://github.blog/feed/)
+- Spotify Engineering blog: https://engineering.atspotify.com/ (RSS: https://engineering.atspotify.com/feed/)
+- AWS blog: https://aws.amazon.com/blogs/ (RSS (AWS News Blog): https://aws.amazon.com/blogs/aws/feed/)
 - ... (add more as needed)
 
 ### Tier 3 — News and broader tech coverage
@@ -257,7 +257,7 @@ ISO_DATE        YYYY · MM · DD
 TOPICS          1–3 tags from today's dominant themes, joined by · (e.g. AI · FUNDING · POLICY)
 WEEKDAY         3-letter uppercase: MON TUE WED THU FRI SAT SUN
 DATE_SHORT      MM · DD
-PUBLISH_TIME    06:00 UTC
+PUBLISH_TIME    06:00 UTC or whenever the issue is published
 STORY_COUNT     total story count (lead + 4 headlines + optional engineering + optional paper = 6–7 min)
 NEXT_DATE       tomorrow in MM · DD
 
