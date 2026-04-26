@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Daily Digest</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;700&family=Kalam:wght@300;400;700&family=Special+Elite&display=swap');
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: #ece7dc;
+  color: #0d0d0d;
+  font-family: 'Kalam', cursive;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+
+:root {
+  --paper: #ece7dc;
+  --card:  #faf7f0;
+  --ink:   #0d0d0d;
+  --ink-2: #6a6a6a;
+  --accent:#c0392b;
+  --hi:    #ffe89a;
+  --rule:  #0d0d0d;
+}
+
+.sk-mono   { font-family: 'Special Elite', 'Courier New', monospace; }
+.sk-script { font-family: 'Caveat', cursive; }
+.sk-box    { border: 1.5px solid var(--ink); background: transparent; position: relative; }
+.sk-rule   { height: 0; border: 0; border-top: 1.5px solid var(--ink); margin: 0; }
+.sk-rule-thin { height: 0; border: 0; border-top: 1px solid var(--ink); margin: 0; }
+.row { display: flex; }
+.col { display: flex; flex-direction: column; }
+.grow { flex: 1; }
+.gap-3 { gap: 12px; }
+.gap-4 { gap: 16px; }
+
+.dd-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 28px;
+}
+
+.coming-soon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+}
+.coming-soon-box {
+  border: 1.5px solid var(--ink);
+  background: var(--card);
+  padding: 48px 56px;
+  text-align: center;
+  max-width: 520px;
+  width: 100%;
+}
+</style>
+</head>
+<body>
+<div class="dd-page">
+
+  <header class="sk-box" style="background:var(--ink);color:var(--card);padding:14px 18px">
+    <div class="row" style="justify-content:space-between;align-items:center">
+      <div class="row gap-3" style="align-items:baseline">
+        <span class="sk-mono" style="font-size:11px;letter-spacing:3px;color:var(--hi)">DAILY · DIGEST</span>
+        <span style="font-size:28px;font-weight:700;letter-spacing:-0.5px">AI &amp; TECH · EVERY MORNING</span>
+      </div>
+      <nav>
+        <a href="archive.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--hi)">ARCHIVE →</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="coming-soon-wrap">
+    <div class="coming-soon-box">
+      <p class="sk-mono" style="font-size:10px;letter-spacing:3px;color:var(--accent);margin:0 0 18px">NO · ISSUE · YET</p>
+      <hr class="sk-rule-thin" style="margin-bottom:24px" />
+      <p style="font-size:22px;font-weight:700;line-height:1.2;margin:0 0 16px">
+        The first issue will appear here when the routine runs.
+      </p>
+      <p class="sk-mono" style="font-size:11px;line-height:1.6;color:var(--ink-2);margin:0 0 24px">
+        DAILY · AI &amp; TECH · PUBLISHED 06:00 UTC<br />
+        HACKER NEWS · ENGINEERING BLOGS · ARXIV
+      </p>
+      <hr class="sk-rule-thin" style="margin-bottom:16px" />
+      <a href="archive.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px">VIEW ARCHIVE →</a>
+    </div>
+  </div>
+
+  <footer style="border-top:1.5px solid var(--ink);margin-top:24px;padding:12px 4px">
+    <div class="row" style="justify-content:space-between;align-items:baseline">
+      <span class="sk-mono" style="font-size:10px;letter-spacing:2px">DAILY DIGEST</span>
+      <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--ink-2)">GRID 12 · GUTTER 24 · SET IN KALAM / SPECIAL ELITE</span>
+      <a href="archive.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px">ARCHIVE →</a>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
