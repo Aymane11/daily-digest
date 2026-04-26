@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Daily Digest — Story · Data-First Template</title>
+<link rel="stylesheet" href="daily-digest.css" />
+</head>
+<body>
+<div class="dd-page">
+  <div class="sk-annot blue" style="position:absolute;top:6px;right:14px">↘ STORY · DATA-FIRST · 3 mega stats up top</div>
+
+  <!-- breadcrumb -->
+  <nav class="row" style="justify-content:space-between;align-items:baseline;margin-bottom:10px">
+    <a href="../index.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px">← DAILY · DIGEST · № {{ISSUE_NUMBER}}</a>
+    <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">{{FILE_REF}} · {{TOPIC}}</span>
+    <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">SHARE ↗ · SAVE ☆ · LISTEN ▶</span>
+  </nav>
+
+  <!-- KICKER + headline -->
+  <header class="col" style="align-items:center;text-align:center;padding:18px 60px 8px">
+    <span class="sk-mono" style="font-size:11px;letter-spacing:3px;color:var(--accent);padding:4px 10px;border:1.5px solid var(--accent)">FEATURE / {{FILE_REF}}</span>
+    <h1 style="font-size:56px;line-height:1.02;font-weight:700;margin:16px 0 12px;letter-spacing:-0.5px;text-wrap:balance;max-width:880px">
+      {{HEADLINE}}
+    </h1>
+    <p class="sk-script" style="font-size:24px;color:#3a3a3a;max-width:660px;margin:0">{{DECK}}</p>
+    <div class="row" style="gap:14px;margin-top:12px">
+      <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">BY · {{AUTHOR}}</span>
+      <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--ink-2)">· {{DATE_LONG}} · {{READ_TIME}}</span>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <div class="sk-img" data-label="HERO · 21:9" style="height:240px;margin-top:14px"></div>
+  <p class="sk-mono" style="font-size:9px;margin:6px 0 0;font-style:italic">FIG · 01 · {{HERO_CAPTION}}</p>
+
+  <!-- ★ STATS SLAB — the centerpiece -->
+  <section class="sk-box" style="background:var(--ink);padding:24px 26px;margin-top:14px">
+    <div class="row" style="justify-content:space-between;align-items:baseline;margin-bottom:18px">
+      <span class="sk-mono" style="font-size:11px;letter-spacing:3px;color:var(--hi)">★ THE NUMBERS</span>
+      <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--card)">SOURCE · {{STATS_SOURCE}}</span>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0">
+      <div class="col" style="padding:0 18px">
+        <div style="font-size:96px;font-weight:700;line-height:0.92;color:var(--hi);letter-spacing:-2px">{{BIG_STAT_1_VALUE}}</div>
+        <p class="sk-mono" style="font-size:11px;letter-spacing:1.5px;color:var(--card);margin:8px 0 6px">{{BIG_STAT_1_LABEL}}</p>
+        <p style="font-size:13px;line-height:1.45;color:var(--card);opacity:0.85;margin:0">{{BIG_STAT_1_CONTEXT}}</p>
+      </div>
+      <div class="col" style="padding:0 18px;border-left:1.5px solid var(--card)">
+        <div style="font-size:96px;font-weight:700;line-height:0.92;color:var(--card);letter-spacing:-2px">{{BIG_STAT_2_VALUE}}</div>
+        <p class="sk-mono" style="font-size:11px;letter-spacing:1.5px;color:var(--card);margin:8px 0 6px">{{BIG_STAT_2_LABEL}}</p>
+        <p style="font-size:13px;line-height:1.45;color:var(--card);opacity:0.85;margin:0">{{BIG_STAT_2_CONTEXT}}</p>
+      </div>
+      <div class="col" style="padding:0 18px;border-left:1.5px solid var(--card)">
+        <div style="font-size:96px;font-weight:700;line-height:0.92;color:var(--hi);letter-spacing:-2px">{{BIG_STAT_3_VALUE}}</div>
+        <p class="sk-mono" style="font-size:11px;letter-spacing:1.5px;color:var(--card);margin:8px 0 6px">{{BIG_STAT_3_LABEL}}</p>
+        <p style="font-size:13px;line-height:1.45;color:var(--card);opacity:0.85;margin:0">{{BIG_STAT_3_CONTEXT}}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BODY 2-col + sidebar -->
+  <main style="display:grid;grid-template-columns:1fr 1fr 280px;gap:18px;margin-top:16px">
+    <section class="col gap-3">
+      <div class="row gap-2" style="align-items:baseline">
+        <span style="font-size:22px;font-weight:700;color:var(--accent)">01</span>
+        <span class="sk-mono" style="font-size:11px;letter-spacing:2px">CONTEXT</span>
+      </div>
+      <hr class="sk-rule-thin" />
+      <p style="font-size:18px;font-weight:700;line-height:1.3;margin:0">{{LEAD_PARAGRAPH}}</p>
+      <p style="font-size:15px;line-height:1.6;margin:0">{{BODY_PARAGRAPH_1}}</p>
+    </section>
+
+    <section class="col gap-3">
+      <div class="row gap-2" style="align-items:baseline">
+        <span style="font-size:22px;font-weight:700;color:var(--accent)">02</span>
+        <span class="sk-mono" style="font-size:11px;letter-spacing:2px">WHAT'S NEW</span>
+      </div>
+      <hr class="sk-rule-thin" />
+      <p style="font-size:15px;line-height:1.6;margin:0">{{BODY_PARAGRAPH_2}}</p>
+    </section>
+
+    <aside class="col gap-3">
+      <!-- KEY PLAYERS -->
+      <div class="sk-box" style="background:var(--hi);padding:14px">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0">KEY · PLAYERS</p>
+        <hr class="sk-rule-thin" style="margin:8px 0 10px" />
+        <div>
+          <p class="sk-mono" style="font-size:11px;font-weight:700;letter-spacing:1px;margin:0">{{PLAYER_1_NAME}}</p>
+          <p style="font-size:12px;line-height:1.4;margin:4px 0 0">{{PLAYER_1_ROLE}}</p>
+        </div>
+        <hr class="sk-rule-thin" style="border-top-style:dashed;margin:10px 0" />
+        <div>
+          <p class="sk-mono" style="font-size:11px;font-weight:700;letter-spacing:1px;margin:0">{{PLAYER_2_NAME}}</p>
+          <p style="font-size:12px;line-height:1.4;margin:4px 0 0">{{PLAYER_2_ROLE}}</p>
+        </div>
+      </div>
+
+      <!-- TIMELINE compact -->
+      <div class="sk-box-soft" style="padding:14px;background:var(--card)">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0">TIMELINE</p>
+        <hr class="sk-rule-thin" style="margin:8px 0 10px" />
+        <div class="row gap-3" style="align-items:baseline;padding:6px 0;border-bottom:1px dashed var(--ink)">
+          <span class="sk-mono" style="font-size:12px;font-weight:700">{{T1_YEAR}}</span>
+          <span class="sk-mono" style="font-size:11px">{{T1_LABEL}}</span>
+        </div>
+        <div class="row gap-3" style="align-items:baseline;padding:6px 0;border-bottom:1px dashed var(--ink)">
+          <span class="sk-mono" style="font-size:12px;font-weight:700">{{T2_YEAR}}</span>
+          <span class="sk-mono" style="font-size:11px">{{T2_LABEL}}</span>
+        </div>
+        <div class="row gap-3" style="align-items:baseline;padding:6px 0;border-bottom:1px dashed var(--ink)">
+          <span class="sk-mono" style="font-size:12px;font-weight:700">{{T3_YEAR}}</span>
+          <span class="sk-mono" style="font-size:11px">{{T3_LABEL}}</span>
+        </div>
+        <div class="row gap-3" style="align-items:baseline;padding:6px 0">
+          <span class="sk-mono" style="font-size:12px;font-weight:700;color:var(--accent)">{{T4_YEAR}}</span>
+          <span class="sk-mono" style="font-size:11px">← TODAY</span>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <!-- BIG QUOTE band -->
+  <blockquote class="sk-box" style="background:var(--hi);padding:28px 36px;margin:14px 0 0">
+    <div class="row gap-4" style="align-items:flex-start">
+      <span style="font-size:100px;font-weight:700;line-height:0.7;font-family:'Caveat',cursive;color:var(--accent)">"</span>
+      <div class="col grow">
+        <p style="font-size:32px;font-weight:700;line-height:1.15;text-wrap:balance;margin:0">{{PULL_QUOTE}}</p>
+        <p class="sk-mono" style="font-size:11px;margin:14px 0 0;letter-spacing:1.5px">— {{PULL_QUOTE_SOURCE}}</p>
+      </div>
+    </div>
+  </blockquote>
+
+  <!-- ¶ 03 -->
+  <div class="row gap-2" style="align-items:baseline;margin-top:14px">
+    <span style="font-size:22px;font-weight:700;color:var(--accent)">03</span>
+    <span class="sk-mono" style="font-size:11px;letter-spacing:2px">WHAT TO WATCH</span>
+    <span class="grow" style="border-top:1px dashed var(--ink);height:1px;margin-left:8px"></span>
+  </div>
+  <p style="font-size:15px;line-height:1.6;margin:8px 0 0">{{BODY_PARAGRAPH_3}}</p>
+
+  <hr class="sk-rule" style="margin-top:14px" />
+  <footer class="row" style="justify-content:space-between;padding:10px 4px">
+    <a href="{{PREV_HREF}}" class="sk-mono" style="font-size:10px">← PREV STORY</a>
+    <span class="sk-mono" style="font-size:10px;letter-spacing:2px">· END · {{FILE_REF}} ·</span>
+    <a href="{{NEXT_HREF}}" class="sk-mono" style="font-size:10px">NEXT STORY →</a>
+  </footer>
+</div>
+</body>
+</html>

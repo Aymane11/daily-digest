@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Daily Digest — Story · Modules Template</title>
+<link rel="stylesheet" href="daily-digest.css" />
+</head>
+<body>
+<div class="dd-page">
+  <div class="sk-annot" style="position:absolute;top:4px;right:14px">↘ STORY · MODULES · 5 numbered blocks</div>
+
+  <!-- breadcrumb -->
+  <nav class="row" style="justify-content:space-between;align-items:baseline;margin-bottom:8px">
+    <a href="../index.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px">← DIGEST · № {{ISSUE_NUMBER}}</a>
+    <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">STORY · {{FILE_REF}} · {{TOPIC}}</span>
+    <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">5 MODULES · {{READ_TIME}}</span>
+  </nav>
+
+  <!-- progress strip -->
+  <div class="row gap-2" style="margin-bottom:12px">
+    <div class="row gap-2 grow" style="align-items:center">
+      <span class="sk-mono" style="font-size:10px;font-weight:700;color:var(--accent)">01</span>
+      <div style="flex:1;height:3px;background:var(--accent)"></div>
+    </div>
+    <div class="row gap-2 grow" style="align-items:center">
+      <span class="sk-mono" style="font-size:10px;font-weight:700;color:#888">02</span>
+      <div style="flex:1;height:3px;background:#888;opacity:0.3"></div>
+    </div>
+    <div class="row gap-2 grow" style="align-items:center">
+      <span class="sk-mono" style="font-size:10px;font-weight:700;color:#888">03</span>
+      <div style="flex:1;height:3px;background:#888;opacity:0.3"></div>
+    </div>
+    <div class="row gap-2 grow" style="align-items:center">
+      <span class="sk-mono" style="font-size:10px;font-weight:700;color:#888">04</span>
+      <div style="flex:1;height:3px;background:#888;opacity:0.3"></div>
+    </div>
+    <div class="row gap-2 grow" style="align-items:center">
+      <span class="sk-mono" style="font-size:10px;font-weight:700;color:#888">05</span>
+      <div style="flex:1;height:3px;background:#888;opacity:0.3"></div>
+    </div>
+  </div>
+
+  <!-- ── 01 OPENER (dark) ─── -->
+  <section class="sk-box" style="background:var(--ink);color:var(--card);padding:20px 22px">
+    <div class="row" style="justify-content:space-between;align-items:baseline">
+      <span class="sk-mono" style="font-size:10px;letter-spacing:3px;color:var(--hi)">01 / OPENER</span>
+      <span class="sk-mono" style="font-size:10px">{{DATE_LONG}}</span>
+    </div>
+    <div class="row gap-4" style="margin-top:14px">
+      <div class="col grow" style="flex:1.4">
+        <h1 style="font-size:44px;font-weight:700;line-height:1.04;letter-spacing:-0.5px;text-wrap:balance;margin:0">
+          {{HEADLINE}}
+        </h1>
+        <p class="sk-script" style="font-size:22px;color:var(--hi);margin:12px 0 0">{{DECK}}</p>
+        <div class="row gap-3" style="margin-top:14px">
+          <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">BY · {{AUTHOR}}</span>
+          <span class="sk-mono" style="font-size:10px;color:var(--hi)">·  {{READ_TIME}}  ·  {{TOPIC}}</span>
+        </div>
+      </div>
+      <div class="sk-img" data-label="HERO" style="width:280px;flex-shrink:0;height:200px;border-color:var(--card)"></div>
+    </div>
+  </section>
+
+  <!-- ── 02 NUMBERS (yellow, full bleed) ─── -->
+  <section class="sk-box" style="background:var(--hi);padding:20px 22px;margin-top:12px">
+    <div class="dd-module-h">
+      <div class="row gap-3" style="align-items:baseline">
+        <span class="num">02</span>
+        <span class="title">THE NUMBERS · AT A GLANCE</span>
+      </div>
+      <span class="right">4 STATS</span>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0">
+      <div class="col" style="padding:4px 16px">
+        <div style="font-size:76px;font-weight:700;line-height:0.95;letter-spacing:-1px">{{STAT_1_VALUE}}</div>
+        <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;margin:6px 0 0">{{STAT_1_LABEL}}</p>
+        <p style="font-size:12px;line-height:1.4;margin:6px 0 0">{{STAT_1_NOTE}}</p>
+      </div>
+      <div class="col" style="padding:4px 16px;border-left:1.5px solid var(--ink)">
+        <div style="font-size:76px;font-weight:700;line-height:0.95;letter-spacing:-1px">{{STAT_2_VALUE}}</div>
+        <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;margin:6px 0 0">{{STAT_2_LABEL}}</p>
+        <p style="font-size:12px;line-height:1.4;margin:6px 0 0">{{STAT_2_NOTE}}</p>
+      </div>
+      <div class="col" style="padding:4px 16px;border-left:1.5px solid var(--ink)">
+        <div style="font-size:76px;font-weight:700;line-height:0.95;letter-spacing:-1px">{{STAT_3_VALUE}}</div>
+        <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;margin:6px 0 0">{{STAT_3_LABEL}}</p>
+        <p style="font-size:12px;line-height:1.4;margin:6px 0 0">{{STAT_3_NOTE}}</p>
+      </div>
+      <div class="col" style="padding:4px 16px;border-left:1.5px solid var(--ink)">
+        <div style="font-size:76px;font-weight:700;line-height:0.95;letter-spacing:-1px">{{STAT_4_VALUE}}</div>
+        <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;margin:6px 0 0">{{STAT_4_LABEL}}</p>
+        <p style="font-size:12px;line-height:1.4;margin:6px 0 0">{{STAT_4_NOTE}}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 03 TIMELINE ─── -->
+  <section class="sk-box" style="background:var(--card);padding:20px 22px;margin-top:12px">
+    <div class="dd-module-h">
+      <div class="row gap-3" style="align-items:baseline">
+        <span class="num">03</span>
+        <span class="title">HOW WE GOT HERE</span>
+      </div>
+      <span class="right">TIMELINE · 4 EVENTS</span>
+    </div>
+    <div style="position:relative;padding:14px 0 4px">
+      <div style="position:absolute;top:30px;left:4%;right:4%;height:2px;background:var(--ink)"></div>
+      <div class="row" style="justify-content:space-between;position:relative">
+        <div class="col" style="align-items:center;text-align:center;width:180px">
+          <div style="width:16px;height:16px;border-radius:8px;background:var(--ink);margin-bottom:10px"></div>
+          <span class="sk-mono" style="font-size:12px;font-weight:700">{{T1_YEAR}}</span>
+          <span style="font-size:16px;font-weight:700;margin-top:4px">{{T1_LABEL}}</span>
+          <span class="sk-mono" style="font-size:10px;color:var(--ink-2);margin-top:2px">{{T1_DETAIL}}</span>
+        </div>
+        <div class="col" style="align-items:center;text-align:center;width:180px">
+          <div style="width:16px;height:16px;border-radius:8px;background:var(--ink);margin-bottom:10px"></div>
+          <span class="sk-mono" style="font-size:12px;font-weight:700">{{T2_YEAR}}</span>
+          <span style="font-size:16px;font-weight:700;margin-top:4px">{{T2_LABEL}}</span>
+          <span class="sk-mono" style="font-size:10px;color:var(--ink-2);margin-top:2px">{{T2_DETAIL}}</span>
+        </div>
+        <div class="col" style="align-items:center;text-align:center;width:180px">
+          <div style="width:16px;height:16px;border-radius:8px;background:var(--ink);margin-bottom:10px"></div>
+          <span class="sk-mono" style="font-size:12px;font-weight:700">{{T3_YEAR}}</span>
+          <span style="font-size:16px;font-weight:700;margin-top:4px">{{T3_LABEL}}</span>
+          <span class="sk-mono" style="font-size:10px;color:var(--ink-2);margin-top:2px">{{T3_DETAIL}}</span>
+        </div>
+        <div class="col" style="align-items:center;text-align:center;width:180px">
+          <div style="width:16px;height:16px;border-radius:8px;background:var(--accent);margin-bottom:10px"></div>
+          <span class="sk-mono" style="font-size:12px;font-weight:700;color:var(--accent)">{{T4_YEAR}}</span>
+          <span style="font-size:16px;font-weight:700;margin-top:4px">← TODAY</span>
+          <span class="sk-mono" style="font-size:10px;color:var(--ink-2);margin-top:2px">{{T4_DETAIL}}</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 04 VOICES (3 quote cards) ─── -->
+  <section class="sk-box" style="background:var(--card);padding:20px 22px;margin-top:12px">
+    <div class="dd-module-h">
+      <div class="row gap-3" style="align-items:baseline">
+        <span class="num">04</span>
+        <span class="title">THE VOICES</span>
+      </div>
+      <span class="right">3 PERSPECTIVES</span>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
+      <blockquote class="sk-box" style="padding:14px;background:var(--hi);margin:0">
+        <span style="font-size:36px;line-height:0.6;font-family:'Caveat',cursive;color:var(--accent);height:18px;display:block">"</span>
+        <p style="font-size:16px;font-weight:700;line-height:1.25;margin:8px 0 0">{{VOICE_1_QUOTE}}</p>
+        <hr class="sk-rule-thin" style="margin:14px 0 8px" />
+        <div class="row gap-2" style="align-items:center">
+          <span class="sk-box-soft" style="width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-family:'Special Elite',monospace;font-size:8px">av</span>
+          <div class="col">
+            <span class="sk-mono" style="font-size:10px;font-weight:700;letter-spacing:1px">{{VOICE_1_TAG}}</span>
+            <span class="sk-mono" style="font-size:9px;color:var(--ink-2)">{{VOICE_1_NAME}}</span>
+          </div>
+        </div>
+      </blockquote>
+      <blockquote class="sk-box" style="padding:14px;background:#fff;margin:0">
+        <span style="font-size:36px;line-height:0.6;font-family:'Caveat',cursive;color:var(--accent);height:18px;display:block">"</span>
+        <p style="font-size:16px;font-weight:700;line-height:1.25;margin:8px 0 0">{{VOICE_2_QUOTE}}</p>
+        <hr class="sk-rule-thin" style="margin:14px 0 8px" />
+        <div class="row gap-2" style="align-items:center">
+          <span class="sk-box-soft" style="width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-family:'Special Elite',monospace;font-size:8px">av</span>
+          <div class="col">
+            <span class="sk-mono" style="font-size:10px;font-weight:700;letter-spacing:1px">{{VOICE_2_TAG}}</span>
+            <span class="sk-mono" style="font-size:9px;color:var(--ink-2)">{{VOICE_2_NAME}}</span>
+          </div>
+        </div>
+      </blockquote>
+      <blockquote class="sk-box" style="padding:14px;background:#fff;margin:0">
+        <span style="font-size:36px;line-height:0.6;font-family:'Caveat',cursive;color:var(--accent);height:18px;display:block">"</span>
+        <p style="font-size:16px;font-weight:700;line-height:1.25;margin:8px 0 0">{{VOICE_3_QUOTE}}</p>
+        <hr class="sk-rule-thin" style="margin:14px 0 8px" />
+        <div class="row gap-2" style="align-items:center">
+          <span class="sk-box-soft" style="width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-family:'Special Elite',monospace;font-size:8px">av</span>
+          <div class="col">
+            <span class="sk-mono" style="font-size:10px;font-weight:700;letter-spacing:1px">{{VOICE_3_TAG}}</span>
+            <span class="sk-mono" style="font-size:9px;color:var(--ink-2)">{{VOICE_3_NAME}}</span>
+          </div>
+        </div>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- ── 05 WHAT IT MEANS ─── -->
+  <section class="sk-box" style="background:var(--card);padding:20px 22px;margin-top:12px">
+    <div class="dd-module-h">
+      <div class="row gap-3" style="align-items:baseline">
+        <span class="num">05</span>
+        <span class="title">WHAT IT MEANS</span>
+      </div>
+      <span class="right">3 TAKEAWAYS · LINKS</span>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 280px;gap:18px">
+      <div class="col gap-3">
+        <div class="row gap-3" style="align-items:flex-start;border-left:4px solid var(--accent);padding-left:12px">
+          <span class="sk-mono" style="font-size:22px;font-weight:700;color:var(--accent);line-height:1;width:30px">01</span>
+          <div class="col grow gap-1">
+            <p style="font-size:18px;font-weight:700;line-height:1.25;margin:0">{{TAKEAWAY_1_HEAD}}</p>
+            <p style="font-size:14px;line-height:1.5;margin:0">{{TAKEAWAY_1_BODY}}</p>
+          </div>
+        </div>
+        <div class="row gap-3" style="align-items:flex-start;border-left:4px solid var(--accent);padding-left:12px">
+          <span class="sk-mono" style="font-size:22px;font-weight:700;color:var(--accent);line-height:1;width:30px">02</span>
+          <div class="col grow gap-1">
+            <p style="font-size:18px;font-weight:700;line-height:1.25;margin:0">{{TAKEAWAY_2_HEAD}}</p>
+            <p style="font-size:14px;line-height:1.5;margin:0">{{TAKEAWAY_2_BODY}}</p>
+          </div>
+        </div>
+        <div class="row gap-3" style="align-items:flex-start;border-left:4px solid var(--accent);padding-left:12px">
+          <span class="sk-mono" style="font-size:22px;font-weight:700;color:var(--accent);line-height:1;width:30px">03</span>
+          <div class="col grow gap-1">
+            <p style="font-size:18px;font-weight:700;line-height:1.25;margin:0">{{TAKEAWAY_3_HEAD}}</p>
+            <p style="font-size:14px;line-height:1.5;margin:0">{{TAKEAWAY_3_BODY}}</p>
+          </div>
+        </div>
+      </div>
+
+      <aside class="sk-box" style="background:var(--ink);color:var(--card);padding:14px">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;color:var(--hi);margin:0">FURTHER · READING</p>
+        <div style="border-top:1px solid var(--card);margin:8px 0 10px"></div>
+        <a href="{{LINK_1_HREF}}" class="row" style="justify-content:space-between;align-items:baseline;padding:8px 0;border-bottom:1px dashed var(--card)">
+          <span class="sk-mono" style="font-size:11px">→ {{LINK_1_LABEL}}</span>
+          <span class="sk-mono" style="font-size:10px;color:var(--hi)">↗</span>
+        </a>
+        <a href="{{LINK_2_HREF}}" class="row" style="justify-content:space-between;align-items:baseline;padding:8px 0;border-bottom:1px dashed var(--card)">
+          <span class="sk-mono" style="font-size:11px">→ {{LINK_2_LABEL}}</span>
+          <span class="sk-mono" style="font-size:10px;color:var(--hi)">↗</span>
+        </a>
+        <a href="{{LINK_3_HREF}}" class="row" style="justify-content:space-between;align-items:baseline;padding:8px 0">
+          <span class="sk-mono" style="font-size:11px">→ {{LINK_3_LABEL}}</span>
+          <span class="sk-mono" style="font-size:10px;color:var(--hi)">↗</span>
+        </a>
+      </aside>
+    </div>
+  </section>
+
+  <!-- prev / next -->
+  <footer class="sk-box-soft" style="padding:14px 18px;margin-top:12px">
+    <div class="row" style="justify-content:space-between;align-items:center">
+      <a href="{{PREV_HREF}}" class="col">
+        <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--ink-2)">← PREV</span>
+        <span style="font-size:14px;font-weight:700">{{PREV_REF}} · {{PREV_TITLE}}</span>
+      </a>
+      <span class="sk-mono" style="font-size:10px;letter-spacing:2px">· END OF STORY {{FILE_REF}} ·</span>
+      <a href="{{NEXT_HREF}}" class="col" style="align-items:flex-end">
+        <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--accent)">NEXT →</span>
+        <span style="font-size:14px;font-weight:700">{{NEXT_REF}} · {{NEXT_TITLE}}</span>
+      </a>
+    </div>
+  </footer>
+</div>
+</body>
+</html>

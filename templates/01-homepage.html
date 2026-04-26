@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Daily Digest — Homepage Template</title>
+<link rel="stylesheet" href="daily-digest.css" />
+</head>
+<body>
+<div class="dd-page">
+  <div class="sk-annot" style="position:absolute;top:6px;right:18px">↘ HOMEPAGE · grid · numbered sections</div>
+
+  <!-- ── MASTHEAD ─────────────────────────────────── -->
+  <header class="sk-box" style="background:var(--ink);color:var(--card);padding:14px 18px">
+    <div class="row" style="justify-content:space-between;align-items:center">
+      <div class="row gap-3" style="align-items:baseline">
+        <span class="sk-mono" style="font-size:11px;letter-spacing:3px;color:var(--hi)">№ {{ISSUE_NUMBER}} / {{YEAR}}</span>
+        <span style="font-size:28px;font-weight:700;letter-spacing:-0.5px">DAILY · DIGEST</span>
+      </div>
+      <nav class="row gap-4">
+        <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--hi)">AI</span>
+        <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--hi)">TECH</span>
+        <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--hi)">WEEKLY</span>
+        <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">{{ISO_DATE}}</span>
+      </nav>
+    </div>
+  </header>
+
+  <!-- meta strip — keep ≤7 chips, mono uppercase only -->
+  <div class="row gap-3" style="margin-top:8px;flex-wrap:wrap">
+    <span class="sk-box-soft sk-mono" style="padding:4px 10px;font-size:10px">ISSUE {{ISSUE_NUMBER}}</span>
+    <span class="sk-box-soft sk-mono" style="padding:4px 10px;font-size:10px">{{TOPICS}}</span>
+    <span class="sk-box-soft sk-mono" style="padding:4px 10px;font-size:10px">{{WEEKDAY}}</span>
+    <span class="sk-box-soft sk-mono" style="padding:4px 10px;font-size:10px">{{DATE_SHORT}}</span>
+    <span class="sk-box-soft sk-mono" style="padding:4px 10px;font-size:10px">{{PUBLISH_TIME}}</span>
+    <span class="sk-box-soft sk-mono" style="padding:4px 10px;font-size:10px">4 SECTIONS</span>
+    <span class="sk-box-soft sk-mono" style="padding:4px 10px;font-size:10px">{{STORY_COUNT}} STORIES</span>
+  </div>
+
+  <!-- ── 12-COL GRID ─────────────────────────────── -->
+  <main style="display:grid;grid-template-columns:repeat(12,1fr);gap:10px;margin-top:14px">
+
+    <!-- 01 LEAD (8 col) -->
+    <article class="sk-box" style="grid-column:span 8;padding:18px;background:var(--card)">
+      <div class="dd-module-h">
+        <div class="row gap-3" style="align-items:baseline">
+          <span class="num">01</span>
+          <span class="title">LEAD / FEATURE</span>
+        </div>
+        <span class="right">08 / 12 COL</span>
+      </div>
+      <hr class="sk-rule-thin" style="margin-bottom:14px" />
+      <div class="row gap-4">
+        <div class="col grow gap-3" style="flex:1.3">
+          <h1 style="font-size:36px;font-weight:700;line-height:1.05;margin:0;text-wrap:balance">
+            {{LEAD_HEADLINE}}
+          </h1>
+          <p class="sk-mono" style="font-size:11px;margin:4px 0 0">→ {{LEAD_DECK}}</p>
+          <p style="font-size:14px;line-height:1.5;margin:8px 0 0">{{LEAD_BODY_PARAGRAPH}}</p>
+          <div class="row gap-3" style="margin-top:6px">
+            <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">BY · {{LEAD_AUTHOR}}</span>
+            <span class="sk-mono" style="font-size:10px;color:var(--ink-2)">·  {{LEAD_READ_TIME}}</span>
+          </div>
+        </div>
+        <div class="col" style="flex:1;gap:6px">
+          <a href="{{LEAD_HREF}}" class="sk-img" data-label="LEAD · 4:5" style="height:250px;display:block"></a>
+          <span class="sk-mono" style="font-size:9px">FIG · 01 · {{LEAD_CAPTION}}</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- 01 RAIL — Quote of the day + stats (4 col, yellow) -->
+    <aside class="sk-box" style="grid-column:span 4;padding:18px;background:var(--hi)">
+      <div class="dd-module-h">
+        <div class="row gap-3" style="align-items:baseline">
+          <span class="num" style="color:var(--ink)">★</span>
+          <span class="title">QUOTE OF THE DAY</span>
+        </div>
+      </div>
+      <hr class="sk-rule-thin" style="margin-bottom:14px" />
+      <blockquote style="margin:0;font-size:22px;font-weight:700;line-height:1.2">
+        "{{QUOTE_TEXT}}"
+      </blockquote>
+      <p class="sk-mono" style="font-size:10px;margin-top:14px">— {{QUOTE_SOURCE}}</p>
+      <hr class="sk-rule-thin" style="margin:18px 0" />
+      <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;margin:0">STAT BLOCK</p>
+      <div class="row" style="margin-top:10px;gap:14px">
+        <div class="col">
+          <span style="font-size:28px;font-weight:700;line-height:1">{{STAT_1_VALUE}}</span>
+          <span class="sk-mono" style="font-size:9px;margin-top:2px">{{STAT_1_LABEL}}</span>
+        </div>
+        <div class="col">
+          <span style="font-size:28px;font-weight:700;line-height:1">{{STAT_2_VALUE}}</span>
+          <span class="sk-mono" style="font-size:9px;margin-top:2px">{{STAT_2_LABEL}}</span>
+        </div>
+        <div class="col">
+          <span style="font-size:28px;font-weight:700;line-height:1">{{STAT_3_VALUE}}</span>
+          <span class="sk-mono" style="font-size:9px;margin-top:2px">{{STAT_3_LABEL}}</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- 02 TOP HEADLINES (12 col) — 4 stories -->
+    <section class="sk-box" style="grid-column:span 12;padding:18px;background:var(--card)">
+      <div class="dd-module-h">
+        <div class="row gap-3" style="align-items:baseline">
+          <span class="num">02</span>
+          <span class="title">TOP HEADLINES</span>
+        </div>
+        <span class="right">FOUR · STORIES</span>
+      </div>
+      <hr class="sk-rule-thin" style="margin-bottom:14px" />
+
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px">
+        <!-- repeat 4× — duplicate this block per headline -->
+        <article style="border-left:1.5px solid var(--ink);padding-left:12px">
+          <div class="row" style="justify-content:space-between">
+            <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">{{HL1_TAG}}</span>
+            <span class="sk-mono" style="font-size:10px;color:var(--accent)">02.1</span>
+          </div>
+          <h2 style="font-size:18px;font-weight:700;line-height:1.1;margin:8px 0 0">
+            <a href="{{HL1_HREF}}">{{HL1_HEADLINE}}</a>
+          </h2>
+          <p style="font-size:13px;line-height:1.45;margin:6px 0 0">{{HL1_DEK}}</p>
+          <span class="sk-mono" style="font-size:9px;display:block;margin-top:8px">→ {{HL1_READ_TIME}}</span>
+        </article>
+        <article style="border-left:1.5px solid var(--ink);padding-left:12px">
+          <div class="row" style="justify-content:space-between">
+            <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">{{HL2_TAG}}</span>
+            <span class="sk-mono" style="font-size:10px;color:var(--accent)">02.2</span>
+          </div>
+          <h2 style="font-size:18px;font-weight:700;line-height:1.1;margin:8px 0 0">
+            <a href="{{HL2_HREF}}">{{HL2_HEADLINE}}</a>
+          </h2>
+          <p style="font-size:13px;line-height:1.45;margin:6px 0 0">{{HL2_DEK}}</p>
+          <span class="sk-mono" style="font-size:9px;display:block;margin-top:8px">→ {{HL2_READ_TIME}}</span>
+        </article>
+        <article style="border-left:1.5px solid var(--ink);padding-left:12px">
+          <div class="row" style="justify-content:space-between">
+            <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">{{HL3_TAG}}</span>
+            <span class="sk-mono" style="font-size:10px;color:var(--accent)">02.3</span>
+          </div>
+          <h2 style="font-size:18px;font-weight:700;line-height:1.1;margin:8px 0 0">
+            <a href="{{HL3_HREF}}">{{HL3_HEADLINE}}</a>
+          </h2>
+          <p style="font-size:13px;line-height:1.45;margin:6px 0 0">{{HL3_DEK}}</p>
+          <span class="sk-mono" style="font-size:9px;display:block;margin-top:8px">→ {{HL3_READ_TIME}}</span>
+        </article>
+        <article style="border-left:1.5px solid var(--ink);padding-left:12px">
+          <div class="row" style="justify-content:space-between">
+            <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">{{HL4_TAG}}</span>
+            <span class="sk-mono" style="font-size:10px;color:var(--accent)">02.4</span>
+          </div>
+          <h2 style="font-size:18px;font-weight:700;line-height:1.1;margin:8px 0 0">
+            <a href="{{HL4_HREF}}">{{HL4_HEADLINE}}</a>
+          </h2>
+          <p style="font-size:13px;line-height:1.45;margin:6px 0 0">{{HL4_DEK}}</p>
+          <span class="sk-mono" style="font-size:9px;display:block;margin-top:8px">→ {{HL4_READ_TIME}}</span>
+        </article>
+      </div>
+    </section>
+
+    <!-- 03 QUICK BRIEFS (7 col) — 6 items -->
+    <section class="sk-box" style="grid-column:span 7;padding:18px;background:var(--card)">
+      <div class="dd-module-h">
+        <div class="row gap-3" style="align-items:baseline">
+          <span class="num">03</span>
+          <span class="title">QUICK BRIEFS</span>
+        </div>
+        <span class="right">SIX · ITEMS</span>
+      </div>
+      <hr class="sk-rule-thin" style="margin-bottom:8px" />
+
+      <!-- repeat brief row -->
+      <a href="{{BRIEF1_HREF}}" class="row gap-3" style="align-items:baseline;padding:8px 0;border-bottom:1px dashed var(--ink)">
+        <span class="sk-mono" style="font-size:10px;width:36px;color:var(--accent)">03.1</span>
+        <div class="col grow">
+          <span style="font-size:14px;font-weight:700">{{BRIEF1_TEXT}}</span>
+          <span class="sk-mono" style="font-size:9px;color:var(--ink-2);margin-top:2px">{{BRIEF1_META}}</span>
+        </div>
+        <span class="sk-mono" style="font-size:11px">↗</span>
+      </a>
+      <!-- duplicate 5× more for 03.2 — 03.6 -->
+    </section>
+
+    <!-- 04 TOOLS / RESOURCES (5 col, INVERTED) -->
+    <section class="sk-box" style="grid-column:span 5;padding:18px;background:var(--ink);color:var(--card)">
+      <div class="dd-module-h">
+        <div class="row gap-3" style="align-items:baseline">
+          <span class="num" style="color:var(--hi)">04</span>
+          <span class="title" style="color:var(--hi)">TOOLS / RESOURCES</span>
+        </div>
+        <span class="right">FOUR · PICKS</span>
+      </div>
+      <div style="border-top:1px solid var(--card);margin-bottom:14px"></div>
+
+      <!-- repeat tool row -->
+      <a href="{{TOOL1_HREF}}" class="row gap-3" style="align-items:flex-start;padding:8px 0">
+        <span style="width:38px;height:38px;border:1.5px solid var(--hi);display:flex;align-items:center;justify-content:center;font-family:'Special Elite',monospace;font-size:9px;color:var(--hi);flex-shrink:0">04.1</span>
+        <div class="col grow">
+          <span style="font-size:14px;font-weight:700">{{TOOL1_NAME}} · {{TOOL1_CATEGORY}}</span>
+          <span style="font-size:12px;line-height:1.4;margin-top:4px;opacity:0.85">{{TOOL1_DESCRIPTION}}</span>
+        </div>
+        <span class="sk-mono" style="font-size:11px;color:var(--hi)">→</span>
+      </a>
+      <!-- duplicate 3× more for 04.2 — 04.4 -->
+    </section>
+
+    <!-- COLOPHON -->
+    <footer style="grid-column:span 12;padding:12px 18px;border-top:1.5px solid var(--ink);margin-top:6px">
+      <div class="row" style="justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px">
+        <span class="sk-mono" style="font-size:10px;letter-spacing:2px">COLOPHON · DAILY DIGEST · {{YEAR}}</span>
+        <span class="sk-mono" style="font-size:10px">SET IN [SANS] / [MONO] · GRID 12 / GUTTER 24</span>
+        <span class="sk-mono" style="font-size:10px">NEXT · {{NEXT_DATE}} · {{PUBLISH_TIME}}</span>
+      </div>
+    </footer>
+  </main>
+</div>
+</body>
+</html>

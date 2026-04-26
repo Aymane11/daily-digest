@@ -1,0 +1,102 @@
+/* daily-digest.css — shared sketchy editorial wireframe styles
+   Used by all four templates: homepage + 3 story-page variants.
+   Style C — Swiss Editorial Zine voice. */
+
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;700&family=Kalam:wght@300;400;700&family=Special+Elite&display=swap');
+
+/* ── reset / base ─────────────────────────────── */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: #ece7dc;
+  color: #0d0d0d;
+  font-family: 'Kalam', cursive;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+
+/* ── tokens ───────────────────────────────────── */
+:root {
+  --paper: #ece7dc;        /* page bg */
+  --card:  #faf7f0;        /* card bg */
+  --ink:   #0d0d0d;        /* primary ink */
+  --ink-2: #6a6a6a;        /* muted */
+  --accent:#c0392b;        /* red — numbers, kickers */
+  --hi:    #ffe89a;        /* yellow — highlight blocks */
+  --rule:  #0d0d0d;
+}
+
+/* ── type helpers ─────────────────────────────── */
+.sk        { font-family: 'Kalam', cursive; }
+.sk-mono   { font-family: 'Special Elite', 'Courier New', monospace; }
+.sk-script { font-family: 'Caveat', cursive; }
+
+/* ── boxes & rules ────────────────────────────── */
+.sk-box       { border: 1.5px solid var(--ink); background: transparent; position: relative; }
+.sk-box-soft  { border: 1.25px solid #2a2a2a; background: transparent; }
+.sk-rule      { height: 0; border: 0; border-top: 1.5px solid var(--ink); margin: 0; }
+.sk-rule-thin { height: 0; border: 0; border-top: 1px solid var(--ink); margin: 0; }
+
+/* ── photo placeholder ────────────────────────── */
+.sk-img {
+  background-image: repeating-linear-gradient(135deg,
+    transparent 0, transparent 7px,
+    rgba(20,20,20,0.55) 7px, rgba(20,20,20,0.55) 8px);
+  border: 1.5px solid var(--ink);
+  position: relative;
+}
+.sk-img::after {
+  content: attr(data-label);
+  position: absolute; inset: 0; margin: auto;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Special Elite', monospace; font-size: 11px;
+  color: var(--ink); background: rgba(240,238,233,0.85);
+  padding: 4px 10px; width: max-content; height: max-content;
+  border: 1px solid var(--ink); letter-spacing: 0.5px; text-transform: uppercase;
+}
+
+/* ── squiggle text lines (for placeholder copy) ─ */
+.sk-lines { display: flex; flex-direction: column; gap: 5px; }
+.sk-line  { height: 2px; background: #2a2a2a; border-radius: 2px; }
+.sk-line.w90 { width: 90%; }
+.sk-line.w75 { width: 75%; }
+.sk-line.w60 { width: 60%; }
+.sk-line.w45 { width: 45%; }
+.sk-line.w30 { width: 30%; }
+.sk-line.thick { height: 3px; }
+.sk-line.faint { background: #6a6a6a; height: 1.5px; }
+
+/* ── annotations / margin notes ───────────────── */
+.sk-annot {
+  font-family: 'Caveat', cursive; font-size: 18px;
+  color: var(--accent); line-height: 1.05; transform: rotate(-2deg);
+}
+.sk-annot.blue { color: #1f5eaa; }
+
+/* ── flex helpers ─────────────────────────────── */
+.row { display: flex; }
+.col { display: flex; flex-direction: column; }
+.grow { flex: 1; }
+.gap-2 { gap: 8px; } .gap-3 { gap: 12px; } .gap-4 { gap: 16px; } .gap-5 { gap: 20px; }
+.p-3 { padding: 12px; } .p-4 { padding: 16px; } .p-5 { padding: 20px; }
+
+/* ── page frame ───────────────────────────────── */
+.dd-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 28px;
+}
+
+/* ── module: numbered section header (story pages) ── */
+.dd-module-h {
+  display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px;
+}
+.dd-module-h .num {
+  font-size: 56px; font-weight: 700; line-height: 0.9; color: var(--accent);
+}
+.dd-module-h .title {
+  font-family: 'Special Elite', monospace; font-size: 12px; letter-spacing: 2px;
+}
+.dd-module-h .right {
+  font-family: 'Special Elite', monospace; font-size: 10px; letter-spacing: 1.5px;
+}
