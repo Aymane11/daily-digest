@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>EvanFlow — Daily Digest 002</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{background:#f5f0e8;color:#111;font-family:'Lora',serif;font-size:19px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:root{--paper:#f5f0e8;--card:#fffdf7;--ink:#111111;--ink-2:#5a5a5a;--accent:#d62828;--hi:#f5c842;--teal:#0d7377;--navy:#14213d;--ochre:#e07b39;--slate:#3d5a80;--sage:#2d6a4f}
+.sk-mono{font-family:'IBM Plex Serif','Georgia',serif;font-weight:500}
+.sk-box{border:1.5px solid var(--ink);background:transparent}
+.sk-rule-thin{height:0;border:0;border-top:1px solid var(--ink);margin:0}
+.sk-stamp{display:inline-block;font-family:'IBM Plex Serif',serif;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:3px 9px;border:1.5px solid currentColor;line-height:1.4;transform:rotate(-1deg);white-space:nowrap}
+.sk-stamp--ochre{color:var(--ochre);border-color:var(--ochre)}
+.sk-stamp--navy{color:var(--navy);border-color:var(--navy)}
+.row{display:flex}.col{display:flex;flex-direction:column}.gap-2{gap:8px}.gap-3{gap:12px}
+.dd-page{max-width:900px;margin:0 auto;padding:32px}
+@media(max-width:640px){body{font-size:17px}.dd-page{padding:16px 14px}}
+</style>
+</head>
+<body>
+<div class="dd-page">
+
+  <header class="sk-box" style="background:var(--ink);color:var(--card);padding:14px 20px;margin-bottom:16px">
+    <div class="row" style="justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
+      <a href="../index.html" style="color:var(--card)">
+        <span class="sk-mono" style="font-size:12px;letter-spacing:3px;color:var(--hi)">&#8470; 002 / 2026</span>
+        <span style="font-size:22px;font-weight:700;letter-spacing:-0.5px;margin-left:12px">DAILY &middot; DIGEST</span>
+      </a>
+      <div class="row gap-3" style="align-items:center;flex-wrap:wrap">
+        <a href="../index.html" class="sk-mono" style="font-size:11px;color:var(--hi)">&larr; ISSUE 002</a>
+        <a href="../../../archive.html" class="sk-mono" style="font-size:11px;color:var(--sage);border:1px solid var(--sage);padding:3px 10px">ARCHIVE &#8599;</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="row gap-2" style="margin-bottom:16px">
+    <a href="../index.html" class="sk-mono" style="font-size:11px;color:var(--ink-2)">ISSUE 002</a>
+    <span class="sk-mono" style="font-size:11px;color:var(--ink-2)">/</span>
+    <span class="sk-mono" style="font-size:11px">03.5 &middot; BRIEF</span>
+  </div>
+
+  <article>
+    <div class="row gap-2" style="margin-bottom:14px;flex-wrap:wrap">
+      <span class="sk-stamp sk-stamp--ochre">TOOLING</span>
+      <span class="sk-stamp sk-stamp--navy">CLAUDE CODE</span>
+    </div>
+    <h1 style="font-size:34px;font-weight:700;line-height:1.1;margin:0 0 16px;text-wrap:balance">
+      EvanFlow adds a TDD-driven feedback loop to Claude Code for tighter agentic iteration
+    </h1>
+    <p class="sk-mono" style="font-size:13px;margin:0 0 20px;padding:12px 16px;background:var(--hi);border-left:4px solid var(--ink)">
+      TL;DR &mdash; EvanFlow is an open-source harness that wires a test runner into Claude Code&rsquo;s iteration loop: write a failing test, let the agent implement until it passes, repeat. Constrains agents to test-observable outcomes rather than open-ended code generation.
+    </p>
+    <div class="sk-mono" style="font-size:11px;letter-spacing:1px;margin-bottom:20px;color:var(--ink-2)">
+      MON 27 APR 2026 &middot; 2 MIN READ &middot; SOURCE: GITHUB.COM/EVANKLEM/EVANFLOW &middot; HN 68 PTS
+    </div>
+
+    <p style="margin:0 0 16px">EvanFlow is a TDD (test-driven development) harness for Claude Code that structures the agent&rsquo;s loop around test execution: you write a failing test, EvanFlow runs it, feeds the result back to Claude Code, and lets the agent iterate until the test passes. The cycle repeats for the next failing test. This constrains the agent to work toward concrete, verifiable outcomes rather than generating code in an unconstrained direction.</p>
+    <p style="margin:0 0 16px">The tool appeared in a &ldquo;Show HN&rdquo; post and gathered 68 points. It sits at the intersection of two current engineering concerns: getting AI agents to produce reliable code, and maintaining human-readable verification criteria (tests) that can be reviewed independently of the agent&rsquo;s output.</p>
+    <p style="margin:0 0 16px">The approach is particularly relevant given the AI database deletion incident in today&rsquo;s lead story: TDD loops constrain agent scope to what the tests define, making runaway destructive behavior significantly harder.</p>
+
+    <div style="background:var(--hi);padding:16px;margin:20px 0;border-left:4px solid var(--ink)">
+      <p class="sk-mono" style="font-size:11px;letter-spacing:1.5px;margin:0 0 8px">WHAT TO WATCH</p>
+      <p style="font-size:16px;margin:0">Try EvanFlow on a bounded feature: write three failing tests for a new function, configure EvanFlow against your Claude Code setup, and let the agent implement to green. Compare the output quality and scope to an unconstrained Claude Code session on the same task.</p>
+    </div>
+
+    <div style="margin-top:24px;padding-top:16px;border-top:1px solid var(--ink)">
+      <a href="https://github.com/evanklem/evanflow" class="sk-mono" style="font-size:12px;color:var(--teal);display:block;margin-bottom:6px">SOURCE &middot; GITHUB.COM/EVANKLEM/EVANFLOW &#8599;</a>
+      <a href="https://news.ycombinator.com/item?id=47916909" class="sk-mono" style="font-size:12px;color:var(--teal);display:block">HN DISCUSSION &middot; 68 PTS &#8599;</a>
+    </div>
+  </article>
+
+  <div style="margin-top:24px;padding-top:16px;border-top:1.5px solid var(--ink)">
+    <div class="row" style="justify-content:space-between;flex-wrap:wrap;gap:10px">
+      <a href="../index.html" class="sk-mono" style="font-size:11px;color:var(--teal)">&larr; BACK TO ISSUE 002</a>
+      <a href="../../../archive.html" class="sk-mono" style="font-size:11px;color:var(--teal)">ALL ISSUES &middot; ARCHIVE &#8599;</a>
+      <a href="03-6-swe-bench-pro.html" class="sk-mono" style="font-size:11px;color:var(--accent)">NEXT BRIEF &rarr;</a>
+    </div>
+  </div>
+</div>
+</body>
+</html>

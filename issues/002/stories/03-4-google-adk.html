@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Google Agent Development Kit — Daily Digest 002</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{background:#f5f0e8;color:#111;font-family:'Lora',serif;font-size:19px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:root{--paper:#f5f0e8;--card:#fffdf7;--ink:#111111;--ink-2:#5a5a5a;--accent:#d62828;--hi:#f5c842;--teal:#0d7377;--navy:#14213d;--ochre:#e07b39;--slate:#3d5a80;--sage:#2d6a4f}
+.sk-mono{font-family:'IBM Plex Serif','Georgia',serif;font-weight:500}
+.sk-box{border:1.5px solid var(--ink);background:transparent}
+.sk-rule-thin{height:0;border:0;border-top:1px solid var(--ink);margin:0}
+.sk-stamp{display:inline-block;font-family:'IBM Plex Serif',serif;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:3px 9px;border:1.5px solid currentColor;line-height:1.4;transform:rotate(-1deg);white-space:nowrap}
+.sk-stamp--teal{color:var(--teal);border-color:var(--teal)}
+.sk-stamp--slate{color:var(--slate);border-color:var(--slate)}
+.row{display:flex}.col{display:flex;flex-direction:column}.gap-2{gap:8px}.gap-3{gap:12px}
+.dd-page{max-width:900px;margin:0 auto;padding:32px}
+@media(max-width:640px){body{font-size:17px}.dd-page{padding:16px 14px}}
+</style>
+</head>
+<body>
+<div class="dd-page">
+
+  <header class="sk-box" style="background:var(--ink);color:var(--card);padding:14px 20px;margin-bottom:16px">
+    <div class="row" style="justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
+      <a href="../index.html" style="color:var(--card)">
+        <span class="sk-mono" style="font-size:12px;letter-spacing:3px;color:var(--hi)">&#8470; 002 / 2026</span>
+        <span style="font-size:22px;font-weight:700;letter-spacing:-0.5px;margin-left:12px">DAILY &middot; DIGEST</span>
+      </a>
+      <div class="row gap-3" style="align-items:center;flex-wrap:wrap">
+        <a href="../index.html" class="sk-mono" style="font-size:11px;color:var(--hi)">&larr; ISSUE 002</a>
+        <a href="../../../archive.html" class="sk-mono" style="font-size:11px;color:var(--sage);border:1px solid var(--sage);padding:3px 10px">ARCHIVE &#8599;</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="row gap-2" style="margin-bottom:16px">
+    <a href="../index.html" class="sk-mono" style="font-size:11px;color:var(--ink-2)">ISSUE 002</a>
+    <span class="sk-mono" style="font-size:11px;color:var(--ink-2)">/</span>
+    <span class="sk-mono" style="font-size:11px">03.4 &middot; BRIEF</span>
+  </div>
+
+  <article>
+    <div class="row gap-2" style="margin-bottom:14px;flex-wrap:wrap">
+      <span class="sk-stamp sk-stamp--teal">AGENTS</span>
+      <span class="sk-stamp sk-stamp--slate">OPEN SOURCE</span>
+    </div>
+    <h1 style="font-size:34px;font-weight:700;line-height:1.1;margin:0 0 16px;text-wrap:balance">
+      Google open-sources Agent Development Kit; 8,200 GitHub stars in two weeks
+    </h1>
+    <p class="sk-mono" style="font-size:13px;margin:0 0 20px;padding:12px 16px;background:var(--hi);border-left:4px solid var(--ink)">
+      TL;DR &mdash; Google&rsquo;s Agent Development Kit (adk-python) is a multi-agent orchestration framework with built-in tool calling, memory management, and structured output. Connectors for Vertex AI, Gemini, and any OpenAI-compatible API. 8,200+ stars in its first two weeks on GitHub.
+    </p>
+    <div class="sk-mono" style="font-size:11px;letter-spacing:1px;margin-bottom:20px;color:var(--ink-2)">
+      MON 27 APR 2026 &middot; 2 MIN READ
+    </div>
+
+    <p style="margin:0 0 16px">Google open-sourced the Agent Development Kit (ADK) on April 9, 2026. The Python library provides multi-agent orchestration with a declarative API: define agents, tools, and the routing logic between them; ADK handles execution, state management, and structured output validation. It ships with built-in connectors for Vertex AI, Gemini, and any OpenAI-compatible API endpoint&mdash;including DeepSeek V4 and self-hosted models.</p>
+    <p style="margin:0 0 16px">ADK gained 8,200+ GitHub stars in its first two weeks, placing it among the fastest-growing agent frameworks of April 2026. The framework is designed for production multi-agent systems: it handles task decomposition, inter-agent communication, memory persistence across sessions, and tool call retry logic out of the box.</p>
+    <p style="margin:0 0 16px">The practical entry point: ADK is the cleaner option if your agent system involves multiple specialized sub-agents that need to hand off tasks to each other. For single-agent workflows, simpler options like the Anthropic Python SDK or OpenAI Assistants are less overhead.</p>
+
+    <div style="background:var(--hi);padding:16px;margin:20px 0;border-left:4px solid var(--ink)">
+      <p class="sk-mono" style="font-size:11px;letter-spacing:1.5px;margin:0 0 8px">WHAT TO WATCH</p>
+      <p style="font-size:16px;margin:0">Evaluate ADK if you are building a system with more than one agent role. Install via <code style="font-family:'IBM Plex Serif',serif;font-size:15px">pip install google-adk</code>, follow the quickstart at github.com/google/adk-python, and run the multi-agent example to understand the routing model before committing to it.</p>
+    </div>
+  </article>
+
+  <div style="margin-top:24px;padding-top:16px;border-top:1.5px solid var(--ink)">
+    <div class="row" style="justify-content:space-between;flex-wrap:wrap;gap:10px">
+      <a href="../index.html" class="sk-mono" style="font-size:11px;color:var(--teal)">&larr; BACK TO ISSUE 002</a>
+      <a href="../../../archive.html" class="sk-mono" style="font-size:11px;color:var(--teal)">ALL ISSUES &middot; ARCHIVE &#8599;</a>
+      <a href="03-5-evanflow.html" class="sk-mono" style="font-size:11px;color:var(--accent)">NEXT BRIEF &rarr;</a>
+    </div>
+  </div>
+</div>
+</body>
+</html>

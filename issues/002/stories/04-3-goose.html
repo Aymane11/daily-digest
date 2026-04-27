@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Block Goose — Tool — Daily Digest 002</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{background:#f5f0e8;color:#111;font-family:'Lora',serif;font-size:19px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:root{--paper:#f5f0e8;--card:#fffdf7;--ink:#111111;--ink-2:#5a5a5a;--accent:#d62828;--hi:#f5c842;--teal:#0d7377;--navy:#14213d;--ochre:#e07b39;--slate:#3d5a80;--sage:#2d6a4f}
+.sk-mono{font-family:'IBM Plex Serif','Georgia',serif;font-weight:500}
+.sk-box{border:1.5px solid var(--ink);background:transparent}
+.sk-rule-thin{height:0;border:0;border-top:1px solid var(--ink);margin:0}
+.sk-stamp{display:inline-block;font-family:'IBM Plex Serif',serif;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:3px 9px;border:1.5px solid currentColor;line-height:1.4;transform:rotate(-1deg);white-space:nowrap}
+.sk-stamp--sage{color:var(--sage);border-color:var(--sage)}
+.sk-stamp--hi{color:#9a7200;border-color:#9a7200}
+.code-block{background:var(--navy);color:var(--card);padding:14px 16px;font-family:'IBM Plex Serif',serif;font-size:14px;line-height:1.6;overflow-x:auto;margin:12px 0}
+.row{display:flex}.col{display:flex;flex-direction:column}.gap-2{gap:8px}.gap-3{gap:12px}
+.dd-page{max-width:1000px;margin:0 auto;padding:32px}
+@media(max-width:640px){body{font-size:17px}.dd-page{padding:16px 14px}}
+</style>
+</head>
+<body>
+<div class="dd-page">
+
+  <header class="sk-box" style="background:var(--ink);color:var(--card);padding:14px 20px;margin-bottom:16px">
+    <div class="row" style="justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
+      <a href="../index.html" style="color:var(--card)">
+        <span class="sk-mono" style="font-size:12px;letter-spacing:3px;color:var(--hi)">&#8470; 002 / 2026</span>
+        <span style="font-size:22px;font-weight:700;letter-spacing:-0.5px;margin-left:12px">DAILY &middot; DIGEST</span>
+      </a>
+      <div class="row gap-3" style="align-items:center;flex-wrap:wrap">
+        <a href="../index.html" class="sk-mono" style="font-size:11px;color:var(--hi)">&larr; ISSUE 002</a>
+        <a href="../../../archive.html" class="sk-mono" style="font-size:11px;color:var(--sage);border:1px solid var(--sage);padding:3px 10px">ARCHIVE &#8599;</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="row gap-2" style="margin-bottom:16px;flex-wrap:wrap">
+    <a href="../index.html" class="sk-mono" style="font-size:11px;color:var(--ink-2)">ISSUE 002</a>
+    <span class="sk-mono" style="font-size:11px;color:var(--ink-2)">/</span>
+    <span class="sk-mono" style="font-size:11px">04.3 &middot; TOOL</span>
+  </div>
+
+  <article>
+    <div class="row gap-2" style="margin-bottom:14px;flex-wrap:wrap">
+      <span class="sk-stamp sk-stamp--sage">AGENT</span>
+      <span class="sk-stamp sk-stamp--hi">FREE &amp; OPEN SOURCE</span>
+    </div>
+    <h1 style="font-size:36px;font-weight:700;line-height:1.05;margin:0 0 12px;text-wrap:balance">
+      Block Goose
+    </h1>
+    <p style="font-size:17px;margin:0 0 8px"><strong>What it is:</strong> A local-first AI coding agent written in Rust, donated to the Linux Foundation. Supports MCP tools and any LLM backend. Runs entirely on your machine&mdash;no cloud dependency.</p>
+    <p style="font-size:17px;margin:0 0 20px"><strong>Problem it solves:</strong> Teams with data-residency constraints, air-gapped environments, or cost sensitivities need a capable agentic coding tool that does not require sending code to external APIs. Goose is the first production-grade agent in this category under neutral open-source governance.</p>
+
+    <div class="sk-box" style="padding:14px 18px;background:var(--card);margin-bottom:20px">
+      <p class="sk-mono" style="font-size:11px;letter-spacing:1.5px;margin:0 0 8px;color:var(--accent)">ACCESS &amp; COST</p>
+      <p style="font-size:16px;margin:0">Free and open source (Apache 2.0). Costs zero if you run a local model (Ollama, llama.cpp). API costs only if you configure Goose to use a cloud LLM backend&mdash;those are billed by the model provider, not by Goose.</p>
+    </div>
+
+    <h2 style="font-size:13px;font-family:'IBM Plex Serif',serif;letter-spacing:2px;text-transform:uppercase;margin:0 0 12px;color:var(--accent)">Copy-paste quickstart</h2>
+    <hr class="sk-rule-thin" style="margin-bottom:12px" />
+
+    <p class="sk-mono" style="font-size:12px;margin:0 0 4px;color:var(--ink-2)">1. Install Goose (macOS / Linux)</p>
+    <div class="code-block">
+<pre>curl -fsSL https://github.com/block/goose/releases/latest/download/install.sh | bash</pre>
+    </div>
+
+    <p class="sk-mono" style="font-size:12px;margin:0 0 4px;color:var(--ink-2)">2. Configure a local model backend (Ollama example)</p>
+    <div class="code-block">
+<pre># First install Ollama and pull a model
+ollama pull deepseek-r1:7b
+
+# Configure Goose to use it
+goose configure --provider ollama --model deepseek-r1:7b</pre>
+    </div>
+
+    <p class="sk-mono" style="font-size:12px;margin:0 0 4px;color:var(--ink-2)">3. Or configure a cloud backend (Anthropic example)</p>
+    <div class="code-block">
+<pre>export ANTHROPIC_API_KEY="your-key"
+goose configure --provider anthropic --model claude-sonnet-4-6</pre>
+    </div>
+
+    <p class="sk-mono" style="font-size:12px;margin:0 0 4px;color:var(--ink-2)">4. Run Goose on a task</p>
+    <div class="code-block">
+<pre>cd your-project
+goose run "Add input validation to the POST /users endpoint and write tests for it"</pre>
+    </div>
+
+    <p class="sk-mono" style="font-size:12px;margin:0 0 4px;color:var(--ink-2)">5. Add an MCP server for additional tools</p>
+    <div class="code-block">
+<pre># goose.yaml
+extensions:
+  - name: filesystem
+    type: mcp
+    server: "npx @modelcontextprotocol/server-filesystem /your/project"</pre>
+    </div>
+
+    <div style="background:var(--hi);padding:16px;margin:20px 0;border-left:4px solid var(--ink)">
+      <p class="sk-mono" style="font-size:11px;letter-spacing:1.5px;margin:0 0 8px">WHAT TO OBSERVE</p>
+      <p style="font-size:16px;margin:0 0 8px">After running a task, check the diff with <code style="font-family:'IBM Plex Serif',serif;font-size:15px">git diff</code>. Verify Goose touched only the files relevant to the task. If it modified unrelated files or accessed resources outside the project directory, that signals a scope issue in your instructions or tool configuration.</p>
+      <p style="font-size:16px;margin:0">Confirm that with a local model backend, <code style="font-family:'IBM Plex Serif',serif;font-size:15px">goose run</code> produces no outbound network traffic to AI providers (check with <code style="font-family:'IBM Plex Serif',serif;font-size:15px">lsof -i</code> or a network monitor). That confirms the local-first guarantee is actually in effect.</p>
+    </div>
+
+    <div style="margin-top:24px;padding-top:16px;border-top:1px solid var(--ink)">
+      <a href="https://github.com/block/goose" class="sk-mono" style="font-size:12px;color:var(--teal);display:block">SOURCE &middot; GITHUB.COM/BLOCK/GOOSE &#8599;</a>
+    </div>
+  </article>
+
+  <div style="margin-top:24px;padding-top:16px;border-top:1.5px solid var(--ink)">
+    <div class="row" style="justify-content:space-between;flex-wrap:wrap;gap:10px">
+      <a href="../index.html" class="sk-mono" style="font-size:11px;color:var(--teal)">&larr; BACK TO ISSUE 002</a>
+      <a href="../../../archive.html" class="sk-mono" style="font-size:11px;color:var(--teal)">ALL ISSUES &middot; ARCHIVE &#8599;</a>
+      <a href="04-4-chrome-prompt-api.html" class="sk-mono" style="font-size:11px;color:var(--accent)">NEXT TOOL &rarr;</a>
+    </div>
+  </div>
+</div>
+</body>
+</html>

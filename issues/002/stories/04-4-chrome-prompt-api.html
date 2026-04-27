@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Chrome Prompt API — Tool — Daily Digest 002</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{background:#f5f0e8;color:#111;font-family:'Lora',serif;font-size:19px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:root{--paper:#f5f0e8;--card:#fffdf7;--ink:#111111;--ink-2:#5a5a5a;--accent:#d62828;--hi:#f5c842;--teal:#0d7377;--navy:#14213d;--ochre:#e07b39;--slate:#3d5a80;--sage:#2d6a4f}
+.sk-mono{font-family:'IBM Plex Serif','Georgia',serif;font-weight:500}
+.sk-box{border:1.5px solid var(--ink);background:transparent}
+.sk-rule-thin{height:0;border:0;border-top:1px solid var(--ink);margin:0}
+.sk-stamp{display:inline-block;font-family:'IBM Plex Serif',serif;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:3px 9px;border:1.5px solid currentColor;line-height:1.4;transform:rotate(-1deg);white-space:nowrap}
+.sk-stamp--ochre{color:var(--ochre);border-color:var(--ochre)}
+.sk-stamp--hi{color:#9a7200;border-color:#9a7200}
+.code-block{background:var(--navy);color:var(--card);padding:14px 16px;font-family:'IBM Plex Serif',serif;font-size:14px;line-height:1.6;overflow-x:auto;margin:12px 0}
+.row{display:flex}.col{display:flex;flex-direction:column}.gap-2{gap:8px}.gap-3{gap:12px}
+.dd-page{max-width:1000px;margin:0 auto;padding:32px}
+@media(max-width:640px){body{font-size:17px}.dd-page{padding:16px 14px}}
+</style>
+</head>
+<body>
+<div class="dd-page">
+
+  <header class="sk-box" style="background:var(--ink);color:var(--card);padding:14px 20px;margin-bottom:16px">
+    <div class="row" style="justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
+      <a href="../index.html" style="color:var(--card)">
+        <span class="sk-mono" style="font-size:12px;letter-spacing:3px;color:var(--hi)">&#8470; 002 / 2026</span>
+        <span style="font-size:22px;font-weight:700;letter-spacing:-0.5px;margin-left:12px">DAILY &middot; DIGEST</span>
+      </a>
+      <div class="row gap-3" style="align-items:center;flex-wrap:wrap">
+        <a href="../index.html" class="sk-mono" style="font-size:11px;color:var(--hi)">&larr; ISSUE 002</a>
+        <a href="../../../archive.html" class="sk-mono" style="font-size:11px;color:var(--sage);border:1px solid var(--sage);padding:3px 10px">ARCHIVE &#8599;</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="row gap-2" style="margin-bottom:16px;flex-wrap:wrap">
+    <a href="../index.html" class="sk-mono" style="font-size:11px;color:var(--ink-2)">ISSUE 002</a>
+    <span class="sk-mono" style="font-size:11px;color:var(--ink-2)">/</span>
+    <span class="sk-mono" style="font-size:11px">04.4 &middot; TOOL</span>
+  </div>
+
+  <article>
+    <div class="row gap-2" style="margin-bottom:14px;flex-wrap:wrap">
+      <span class="sk-stamp sk-stamp--ochre">BROWSER API</span>
+      <span class="sk-stamp sk-stamp--hi">FREE / NO API KEY</span>
+    </div>
+    <h1 style="font-size:36px;font-weight:700;line-height:1.05;margin:0 0 12px;text-wrap:balance">
+      Chrome Prompt API
+    </h1>
+    <p style="font-size:17px;margin:0 0 8px"><strong>What it is:</strong> A JavaScript API in Chrome 138+ that runs Gemini Nano on-device. No server, no API key, no data leaves the machine. Supports text, image, and audio input with streaming output.</p>
+    <p style="font-size:17px;margin:0 0 20px"><strong>Problem it solves:</strong> Adding AI features to a web app normally requires a server-side API call, API key management, latency, and per-call cost. The Prompt API moves all of that to the user&rsquo;s local hardware for users on qualifying devices.</p>
+
+    <div class="sk-box" style="padding:14px 18px;background:var(--card);margin-bottom:20px">
+      <p class="sk-mono" style="font-size:11px;letter-spacing:1.5px;margin:0 0 8px;color:var(--accent)">REQUIREMENTS &amp; COST</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;font-size:16px">
+        <div><strong>Chrome:</strong> 138+, desktop only</div>
+        <div><strong>Storage:</strong> 22 GB free</div>
+        <div><strong>GPU path:</strong> 4 GB+ VRAM</div>
+        <div><strong>CPU path:</strong> 16 GB RAM, 4+ cores</div>
+      </div>
+      <p style="font-size:15px;margin:12px 0 0;color:var(--ink-2)">Cost: $0. No API key. One-time model download on first use (requires unmetered connection).</p>
+    </div>
+
+    <h2 style="font-size:13px;font-family:'IBM Plex Serif',serif;letter-spacing:2px;text-transform:uppercase;margin:0 0 12px;color:var(--accent)">Copy-paste quickstart</h2>
+    <hr class="sk-rule-thin" style="margin-bottom:12px" />
+
+    <p class="sk-mono" style="font-size:12px;margin:0 0 4px;color:var(--ink-2)">1. Enable the flag in Chrome 138+</p>
+    <div class="code-block">
+<pre>chrome://flags → search "Prompt API" → enable
+# then relaunch Chrome</pre>
+    </div>
+
+    <p class="sk-mono" style="font-size:12px;margin:0 0 4px;color:var(--ink-2)">2. Check availability and create a session (DevTools console)</p>
+    <div class="code-block">
+<pre>const avail = await LanguageModel.availability({
+  expectedInputs: [{ type: 'text', languages: ['en'] }],
+  expectedOutputs: [{ type: 'text', languages: ['en'] }]
+});
+console.log(avail); // "readily" = ready, "downloading" = model loading
+
+const session = await LanguageModel.create();
+console.log(`Context: ${session.contextUsage}/${session.contextWindow} tokens`);</pre>
+    </div>
+
+    <p class="sk-mono" style="font-size:12px;margin:0 0 4px;color:var(--ink-2)">3. Simple prompt</p>
+    <div class="code-block">
+<pre>const result = await session.prompt(
+  'Summarize this text in one sentence: ' + document.body.innerText.slice(0, 2000)
+);
+console.log(result);</pre>
+    </div>
+
+    <p class="sk-mono" style="font-size:12px;margin:0 0 4px;color:var(--ink-2)">4. Streaming response</p>
+    <div class="code-block">
+<pre>const output = document.getElementById('output');
+const stream = session.promptStreaming('Explain this page step by step:');
+for await (const chunk of stream) {
+  output.innerText += chunk;
+}</pre>
+    </div>
+
+    <p class="sk-mono" style="font-size:12px;margin:0 0 4px;color:var(--ink-2)">5. JSON schema-constrained output</p>
+    <div class="code-block">
+<pre>const schema = {
+  type: "object",
+  properties: {
+    category: { type: "string", enum: ["tech", "sports", "finance", "other"] },
+    confidence: { type: "number" }
+  }
+};
+const result = await session.prompt(
+  'Classify this article: ' + articleText,
+  { responseConstraint: schema }
+);
+const parsed = JSON.parse(result); // guaranteed valid against schema</pre>
+    </div>
+
+    <div style="background:var(--hi);padding:16px;margin:20px 0;border-left:4px solid var(--ink)">
+      <p class="sk-mono" style="font-size:11px;letter-spacing:1.5px;margin:0 0 8px">WHAT TO OBSERVE</p>
+      <p style="font-size:16px;margin:0 0 8px">After calling <code style="font-family:'IBM Plex Serif',serif;font-size:15px">LanguageModel.create()</code>, open Activity Monitor (macOS) or Task Manager (Windows) and verify no outbound network connections spike. All inference should run locally&mdash;network activity means the model is still downloading, not that inference is cloud-side.</p>
+      <p style="font-size:16px;margin:0">Test the JSON schema constraint: send a prompt that would naturally produce free-form text and verify the output parses correctly against your schema. Constraint satisfaction is the distinguishing feature for structured classification tasks.</p>
+    </div>
+
+    <div style="margin-top:20px;padding:14px;background:var(--card);border:1.5px solid var(--ink)">
+      <p class="sk-mono" style="font-size:11px;letter-spacing:1.5px;margin:0 0 8px">PAID ALTERNATIVE FOR UNSUPPORTED HARDWARE</p>
+      <p style="font-size:16px;margin:0">If your users&rsquo; hardware does not meet the requirements, fall back to a small cloud model: Gemini Flash, Claude Haiku 4.5, or GPT-4o-mini are all low-cost options for the same classification/summarization tasks at &lt;$0.01/M tokens.</p>
+    </div>
+
+    <div style="margin-top:24px;padding-top:16px;border-top:1px solid var(--ink)">
+      <a href="https://developer.chrome.com/docs/ai/prompt-api" class="sk-mono" style="font-size:12px;color:var(--teal);display:block">SOURCE &middot; DEVELOPER.CHROME.COM &#8599;</a>
+    </div>
+  </article>
+
+  <div style="margin-top:24px;padding-top:16px;border-top:1.5px solid var(--ink)">
+    <div class="row" style="justify-content:space-between;flex-wrap:wrap;gap:10px">
+      <a href="../index.html" class="sk-mono" style="font-size:11px;color:var(--teal)">&larr; BACK TO ISSUE 002</a>
+      <a href="../../../archive.html" class="sk-mono" style="font-size:11px;color:var(--teal)">ALL ISSUES &middot; ARCHIVE &#8599;</a>
+    </div>
+  </div>
+</div>
+</body>
+</html>

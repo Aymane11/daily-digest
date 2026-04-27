@@ -10,7 +10,7 @@
 :root{--paper:#f5f0e8;--card:#fffdf7;--ink:#111111;--ink-2:#5a5a5a;--accent:#d62828;--hi:#f5c842;--teal:#0d7377;--navy:#14213d;--ochre:#e07b39;--slate:#3d5a80;--sage:#2d6a4f}
 .sk-mono{font-family:'IBM Plex Serif','Georgia',serif;font-weight:500}
 .sk-stamp{display:inline-block;font-family:'IBM Plex Serif',serif;font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:3px 8px;border:1.5px solid currentColor;line-height:1.4;transform:rotate(-1deg);white-space:nowrap}
-.sk-stamp--red{color:var(--accent);border-color:var(--accent)}.sk-stamp--navy{color:var(--navy);border-color:var(--navy)}.sk-stamp--teal{color:var(--teal);border-color:var(--teal)}.sk-stamp--ochre{color:var(--ochre);border-color:var(--ochre)}.sk-stamp--slate{color:var(--slate);border-color:var(--slate)}
+.sk-stamp--red{color:var(--accent);border-color:var(--accent)}.sk-stamp--navy{color:var(--navy);border-color:var(--navy)}.sk-stamp--teal{color:var(--teal);border-color:var(--teal)}.sk-stamp--ochre{color:var(--ochre);border-color:var(--ochre)}.sk-stamp--slate{color:var(--slate);border-color:var(--slate)}.sk-stamp--sage{color:var(--sage);border-color:var(--sage)}
 .sk-box{border:1.5px solid var(--ink);background:transparent;position:relative}
 .sk-box-soft{border:1.25px solid #2a2a2a;background:transparent}
 .sk-rule{height:0;border:0;border-top:1.5px solid var(--ink);margin:0}
@@ -30,7 +30,7 @@
   <header class="sk-box" style="background:var(--ink);color:var(--card);padding:14px 18px">
     <div class="row" style="justify-content:space-between;align-items:center">
       <div class="row gap-3" style="align-items:baseline">
-        <span class="sk-mono" style="font-size:11px;letter-spacing:3px;color:var(--hi)">DAILY · DIGEST</span>
+        <span class="sk-mono" style="font-size:11px;letter-spacing:3px;color:var(--hi)">DAILY &middot; DIGEST</span>
         <span style="font-size:28px;font-weight:700;letter-spacing:-0.5px">ARCHIVE</span>
       </div>
       <a href="index.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--hi)">&larr; TODAY'S ISSUE</a>
@@ -40,7 +40,7 @@
   <div class="row gap-3" style="margin-top:8px;flex-wrap:wrap">
     <span class="sk-box-soft sk-mono" style="padding:4px 10px;font-size:10px">ALL ISSUES</span>
     <span class="sk-box-soft sk-mono" style="padding:4px 10px;font-size:10px">REVERSE CHRONOLOGICAL</span>
-    <span class="sk-box-soft sk-mono" style="padding:4px 10px;font-size:10px">AI · TECH · ENGINEERING</span>
+    <span class="sk-box-soft sk-mono" style="padding:4px 10px;font-size:10px">AI &middot; TECH &middot; ENGINEERING</span>
   </div>
 
   <main style="margin-top:16px">
@@ -50,9 +50,22 @@
           <span class="num">01</span>
           <span class="title">ALL ISSUES</span>
         </div>
-        <span class="right">1 ISSUE</span>
+        <span class="right">2 ISSUES</span>
       </div>
       <hr class="sk-rule-thin" style="margin-bottom:14px" />
+
+      <!-- issue 002 -->
+      <a href="issues/002/index.html" style="display:flex;align-items:baseline;gap:16px;padding:16px 0;border-bottom:1px dashed var(--ink);text-decoration:none;color:inherit">
+        <span class="sk-mono" style="font-size:28px;font-weight:700;color:var(--accent);line-height:1;flex-shrink:0">002</span>
+        <span class="sk-mono" style="font-size:12px;letter-spacing:1.5px;color:var(--ink-2);flex-shrink:0;min-width:160px">MON 27 APR 2026</span>
+        <span style="font-size:17px;line-height:1.55;flex:1">AI agent deletes production database, DeepSeek V4 API live, SWE-bench Pro replaces Verified, Chrome Prompt API on-device inference, Block Goose open-sourced</span>
+        <div class="row gap-3" style="flex-shrink:0;flex-wrap:wrap;justify-content:flex-end;align-items:center">
+          <span class="sk-stamp sk-stamp--red">AI</span>
+          <span class="sk-stamp sk-stamp--sage">AGENTS</span>
+          <span class="sk-stamp sk-stamp--navy">MODELS</span>
+          <span class="sk-stamp sk-stamp--teal">ENGINEERING</span>
+        </div>
+      </a>
 
       <!-- issue 001 -->
       <a href="issues/001/index.html" style="display:flex;align-items:baseline;gap:16px;padding:16px 0;border-bottom:1px dashed var(--ink);text-decoration:none;color:inherit">
@@ -71,8 +84,8 @@
 
   <footer style="border-top:1.5px solid var(--ink);margin-top:24px;padding:12px 4px">
     <div class="row" style="justify-content:space-between;align-items:baseline">
-      <span class="sk-mono" style="font-size:10px;letter-spacing:2px">DAILY DIGEST · ARCHIVE</span>
-      <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--ink-2)">GRID 12 · GUTTER 24 · SET IN KALAM / SPECIAL ELITE</span>
+      <span class="sk-mono" style="font-size:10px;letter-spacing:2px">DAILY DIGEST &middot; ARCHIVE</span>
+      <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--ink-2)">GRID 12 &middot; GUTTER 24 &middot; SET IN LORA / IBM PLEX SERIF</span>
       <a href="index.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px">&larr; LATEST ISSUE</a>
     </div>
   </footer>

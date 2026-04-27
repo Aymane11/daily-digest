@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>OpenAI retires SWE-bench Verified — Daily Digest 002</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{background:#f5f0e8;color:#111;font-family:'Lora',serif;font-size:19px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:root{--paper:#f5f0e8;--card:#fffdf7;--ink:#111111;--ink-2:#5a5a5a;--accent:#d62828;--hi:#f5c842;--teal:#0d7377;--navy:#14213d;--ochre:#e07b39;--slate:#3d5a80;--sage:#2d6a4f}
+.sk-mono{font-family:'IBM Plex Serif','Georgia',serif;font-weight:500}
+.sk-box{border:1.5px solid var(--ink);background:transparent}
+.sk-rule-thin{height:0;border:0;border-top:1px solid var(--ink);margin:0}
+.sk-stamp{display:inline-block;font-family:'IBM Plex Serif',serif;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:3px 9px;border:1.5px solid currentColor;line-height:1.4;transform:rotate(-1deg);white-space:nowrap}
+.sk-stamp--teal{color:var(--teal);border-color:var(--teal)}
+.sk-stamp--ochre{color:var(--ochre);border-color:var(--ochre)}
+.row{display:flex}.col{display:flex;flex-direction:column}.gap-2{gap:8px}.gap-3{gap:12px}.gap-4{gap:16px}
+.dd-page{max-width:1200px;margin:0 auto;padding:32px}
+@media(max-width:900px){.story-grid{grid-template-columns:1fr !important}}
+@media(max-width:640px){body{font-size:17px}.dd-page{padding:16px 14px}.story-hl{font-size:26px !important}}
+</style>
+</head>
+<body>
+<div class="dd-page">
+
+  <header class="sk-box" style="background:var(--ink);color:var(--card);padding:14px 20px;margin-bottom:16px">
+    <div class="row" style="justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
+      <a href="../index.html" style="color:var(--card)">
+        <span class="sk-mono" style="font-size:12px;letter-spacing:3px;color:var(--hi)">&#8470; 002 / 2026</span>
+        <span style="font-size:22px;font-weight:700;letter-spacing:-0.5px;margin-left:12px">DAILY &middot; DIGEST</span>
+      </a>
+      <div class="row gap-3" style="align-items:center;flex-wrap:wrap">
+        <a href="../index.html" class="sk-mono" style="font-size:11px;color:var(--hi)">&larr; ISSUE 002</a>
+        <a href="../../../archive.html" class="sk-mono" style="font-size:11px;color:var(--sage);border:1px solid var(--sage);padding:3px 10px">ARCHIVE &#8599;</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="row gap-2" style="margin-bottom:16px;flex-wrap:wrap">
+    <a href="../index.html" class="sk-mono" style="font-size:11px;color:var(--ink-2)">ISSUE 002</a>
+    <span class="sk-mono" style="font-size:11px;color:var(--ink-2)">/</span>
+    <span class="sk-mono" style="font-size:11px">02.2 &middot; BENCHMARKS</span>
+  </div>
+
+  <div class="story-grid" style="display:grid;grid-template-columns:1fr 300px;gap:24px">
+    <article>
+      <div class="row gap-2" style="margin-bottom:14px;flex-wrap:wrap">
+        <span class="sk-stamp sk-stamp--teal">BENCHMARKS</span>
+        <span class="sk-stamp sk-stamp--ochre">AI CODING</span>
+      </div>
+      <h1 class="story-hl" style="font-size:38px;font-weight:700;line-height:1.05;margin:0 0 16px;text-wrap:balance">
+        OpenAI says SWE-bench Verified no longer measures frontier coding capability
+      </h1>
+      <p class="sk-mono" style="font-size:13px;margin:0 0 20px;padding:12px 16px;background:var(--hi);border-left:4px solid var(--ink)">
+        TL;DR &mdash; OpenAI published research showing 59.4% of SWE-bench Verified problems have flawed test cases. Frontier models score 80%+ on Verified but only 45&ndash;50% on SWE-bench Pro. OpenAI now recommends SWE-bench Pro as the standard for frontier coding evaluations.
+      </p>
+      <div class="sk-mono" style="font-size:11px;letter-spacing:1px;margin-bottom:20px;color:var(--ink-2)">
+        MON 27 APR 2026 &middot; 4 MIN READ &middot; SOURCE: OPENAI.COM
+      </div>
+
+      <h2 style="font-size:13px;font-family:'IBM Plex Serif',serif;letter-spacing:2px;text-transform:uppercase;margin:0 0 12px;color:var(--accent)">¶01 &mdash; What happened</h2>
+      <hr class="sk-rule-thin" style="margin-bottom:16px" />
+      <p style="margin:0 0 16px">On February 23, 2026, OpenAI published a research post explaining why it is no longer reporting SWE-bench Verified scores for its frontier models. The post identified two fundamental problems with the benchmark at the current performance level of frontier systems.</p>
+      <p style="margin:0 0 16px">First: flawed tests. An audit of SWE-bench Verified problems found that at least 59.4% contain test cases that reject functionally correct solutions. A model can produce a valid fix for a GitHub issue and still fail the benchmark because the test itself is wrong or incomplete. At lower performance levels this noise was acceptable; at 80%+ scores it dominates the signal.</p>
+      <p style="margin:0 0 16px">Second: training contamination. Frontier models may have seen SWE-bench problems and solutions in their training data. The benchmark was designed before models began scoring above 30%; at 80%+ it is plausible that memorization rather than generalizable coding skill is driving part of the score.</p>
+      <p style="margin:0 0 16px">OpenAI now recommends reporting SWE-bench Pro, a harder benchmark with verified, uncontaminated problems designed for 2026-era model capabilities. Scale AI maintains a public leaderboard.</p>
+
+      <h2 style="font-size:13px;font-family:'IBM Plex Serif',serif;letter-spacing:2px;text-transform:uppercase;margin:24px 0 12px;color:var(--accent)">¶02 &mdash; Why it matters</h2>
+      <hr class="sk-rule-thin" style="margin-bottom:16px" />
+      <p style="margin:0 0 16px">The performance gap between the two benchmarks is stark. Claude Opus 4.5 scores 80.9% on SWE-bench Verified but only 45.9% on SWE-bench Pro&mdash;a 35-point drop. This is not a small calibration difference; it suggests Verified scores were significantly inflated by test flaws and possible contamination.</p>
+      <p style="margin:0 0 16px">For teams choosing models for coding tasks, this means SWE-bench Verified leaderboard positions are no longer reliable proxies for real-world performance. A model ranked higher on Verified may not be better at your actual codebase. Run your own eval on representative tasks before making infrastructure decisions based on published benchmarks.</p>
+      <p style="margin:0 0 16px">More broadly, this is a benchmark lifecycle story. SWE-bench Verified was created in 2024 when 30% was a frontier score. Two years later frontier models saturate it. Benchmark saturation is a normal part of AI progress, but it creates a window where marketing claims based on high Verified scores are misleading.</p>
+
+      <h2 style="font-size:13px;font-family:'IBM Plex Serif',serif;letter-spacing:2px;text-transform:uppercase;margin:24px 0 12px;color:var(--accent)">¶03 &mdash; What to watch</h2>
+      <hr class="sk-rule-thin" style="margin-bottom:16px" />
+      <div style="background:var(--hi);padding:16px;margin:0 0 20px;border-left:4px solid var(--ink)">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:1.5px;margin:0 0 8px">WHAT TO WATCH</p>
+        <p style="font-size:16px;margin:0 0 8px">Check the SWE-bench Pro leaderboard at labs.scale.com before your next model selection decision. Compare Pro scores, not Verified scores, for any model you are evaluating for coding work.</p>
+        <p style="font-size:16px;margin:0">Watch for other benchmarks that frontier models now score 70%+ on (MMLU, HumanEval, GSM8K). Each of these is approaching the same saturation threshold and may require similar retirement.</p>
+      </div>
+
+      <div style="margin-top:24px;padding-top:16px;border-top:1px solid var(--ink)">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:1.5px;margin:0 0 8px">SOURCES</p>
+        <a href="https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified/" class="sk-mono" style="font-size:12px;color:var(--teal);display:block;margin-bottom:6px">SOURCE &middot; OPENAI.COM &#8599;</a>
+        <a href="https://labs.scale.com/leaderboard/swe_bench_pro_public" class="sk-mono" style="font-size:12px;color:var(--teal);display:block">SWE-BENCH PRO LEADERBOARD &middot; SCALE AI &#8599;</a>
+      </div>
+    </article>
+
+    <aside class="col gap-4">
+      <div class="sk-box" style="padding:16px;background:var(--card)">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:1.5px;margin:0 0 12px">THE NUMBERS</p>
+        <div class="col gap-3">
+          <div><span style="font-size:28px;font-weight:700;line-height:1;display:block">59.4%</span><span class="sk-mono" style="font-size:10px">of Verified problems have flawed tests</span></div>
+          <hr class="sk-rule-thin" />
+          <div><span style="font-size:28px;font-weight:700;line-height:1;display:block">80.9%</span><span class="sk-mono" style="font-size:10px">Claude Opus 4.5 on SWE-bench Verified</span></div>
+          <hr class="sk-rule-thin" />
+          <div><span style="font-size:28px;font-weight:700;line-height:1;display:block">45.9%</span><span class="sk-mono" style="font-size:10px">Claude Opus 4.5 on SWE-bench Pro</span></div>
+          <hr class="sk-rule-thin" />
+          <div><span style="font-size:28px;font-weight:700;line-height:1;display:block">35pt</span><span class="sk-mono" style="font-size:10px">score drop between benchmarks</span></div>
+        </div>
+      </div>
+      <div class="sk-box" style="padding:16px;background:var(--navy);color:var(--card)">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:1.5px;margin:0 0 10px;color:var(--hi)">REPLACEMENT</p>
+        <p style="font-size:15px;margin:0">SWE-bench Pro &mdash; harder, uncontaminated problems. Leaderboard at labs.scale.com</p>
+      </div>
+    </aside>
+  </div>
+
+  <div style="margin-top:24px;padding-top:16px;border-top:1.5px solid var(--ink)">
+    <div class="row" style="justify-content:space-between;flex-wrap:wrap;gap:10px">
+      <a href="../index.html" class="sk-mono" style="font-size:11px;color:var(--teal)">&larr; BACK TO ISSUE 002</a>
+      <a href="../../../archive.html" class="sk-mono" style="font-size:11px;color:var(--teal)">ALL ISSUES &middot; ARCHIVE &#8599;</a>
+      <a href="02-3-chrome-prompt-api.html" class="sk-mono" style="font-size:11px;color:var(--accent)">NEXT: CHROME PROMPT API &rarr;</a>
+    </div>
+  </div>
+</div>
+</body>
+</html>

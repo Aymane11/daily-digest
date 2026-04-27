@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>DeepSeek V4 — Daily Digest 002</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{background:#f5f0e8;color:#111;font-family:'Lora',serif;font-size:19px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:root{--paper:#f5f0e8;--card:#fffdf7;--ink:#111111;--ink-2:#5a5a5a;--accent:#d62828;--hi:#f5c842;--teal:#0d7377;--navy:#14213d;--ochre:#e07b39;--slate:#3d5a80;--sage:#2d6a4f;--purple:#7b2d8b}
+.sk-mono{font-family:'IBM Plex Serif','Georgia',serif;font-weight:500}
+.sk-box{border:1.5px solid var(--ink);background:transparent}
+.sk-rule-thin{height:0;border:0;border-top:1px solid var(--ink);margin:0}
+.sk-stamp{display:inline-block;font-family:'IBM Plex Serif',serif;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:3px 9px;border:1.5px solid currentColor;line-height:1.4;transform:rotate(-1deg);white-space:nowrap}
+.sk-stamp--navy{color:var(--navy);border-color:var(--navy)}
+.sk-stamp--teal{color:var(--teal);border-color:var(--teal)}
+.sk-stamp--hi{color:#9a7200;border-color:#9a7200}
+.row{display:flex}.col{display:flex;flex-direction:column}.gap-2{gap:8px}.gap-3{gap:12px}.gap-4{gap:16px}
+.dd-page{max-width:1200px;margin:0 auto;padding:32px}
+@media(max-width:900px){.story-grid{grid-template-columns:1fr !important}.story-grid>*{grid-column:span 1 !important}}
+@media(max-width:640px){body{font-size:17px}.dd-page{padding:16px 14px}.story-hl{font-size:26px !important}}
+</style>
+</head>
+<body>
+<div class="dd-page">
+
+  <header class="sk-box" style="background:var(--ink);color:var(--card);padding:14px 20px;margin-bottom:16px">
+    <div class="row" style="justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
+      <a href="../index.html" style="color:var(--card)">
+        <span class="sk-mono" style="font-size:12px;letter-spacing:3px;color:var(--hi)">&#8470; 002 / 2026</span>
+        <span style="font-size:22px;font-weight:700;letter-spacing:-0.5px;margin-left:12px">DAILY &middot; DIGEST</span>
+      </a>
+      <div class="row gap-3" style="align-items:center;flex-wrap:wrap">
+        <a href="../index.html" class="sk-mono" style="font-size:11px;letter-spacing:1.5px;color:var(--hi)">&larr; ISSUE 002</a>
+        <a href="../../../archive.html" class="sk-mono" style="font-size:11px;letter-spacing:1.5px;color:var(--sage);border:1px solid var(--sage);padding:3px 10px">ARCHIVE &#8599;</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="row gap-2" style="margin-bottom:16px;flex-wrap:wrap">
+    <a href="../index.html" class="sk-mono" style="font-size:11px;color:var(--ink-2)">ISSUE 002</a>
+    <span class="sk-mono" style="font-size:11px;color:var(--ink-2)">/</span>
+    <span class="sk-mono" style="font-size:11px">02.1 &middot; MODELS</span>
+  </div>
+
+  <div class="story-grid" style="display:grid;grid-template-columns:1fr 300px;gap:24px">
+    <article>
+      <div class="row gap-2" style="margin-bottom:14px;flex-wrap:wrap">
+        <span class="sk-stamp sk-stamp--navy">MODELS</span>
+        <span class="sk-stamp sk-stamp--teal">OPEN SOURCE</span>
+      </div>
+      <h1 class="story-hl" style="font-size:38px;font-weight:700;line-height:1.05;margin:0 0 16px;text-wrap:balance">
+        DeepSeek V4 ships 1.6T-parameter open model with 1M-token context and MIT license
+      </h1>
+      <p class="sk-mono" style="font-size:13px;margin:0 0 20px;padding:12px 16px;background:var(--hi);border-left:4px solid var(--ink)">
+        TL;DR &mdash; DeepSeek-V4-Pro is a 1.6T-parameter MoE model, 49B active params per token, 1M-token context, MIT licensed, API at $0.14/M input tokens. It achieves 80.6% on SWE-bench Verified&mdash;within 0.2 points of Claude Opus 4.6&mdash;at roughly one-tenth the inference cost.
+      </p>
+      <div class="sk-mono" style="font-size:11px;letter-spacing:1px;margin-bottom:20px;color:var(--ink-2)">
+        MON 27 APR 2026 &middot; 4 MIN READ &middot; SOURCE: API-DOCS.DEEPSEEK.COM
+      </div>
+
+      <h2 style="font-size:13px;font-family:'IBM Plex Serif',serif;letter-spacing:2px;text-transform:uppercase;margin:0 0 12px;color:var(--accent)">¶01 &mdash; What happened</h2>
+      <hr class="sk-rule-thin" style="margin-bottom:16px" />
+      <p style="margin:0 0 16px">On April 24, 2026, DeepSeek released a two-model family under the MIT License. V4-Pro is a 1.6 trillion-parameter Mixture-of-Experts model that activates only 49 billion parameters per token&mdash;comparable compute per call to a 50B dense model, but with the capacity of a much larger system. V4-Flash is the lighter variant: 284B total, 13B active, intended for latency-sensitive applications.</p>
+      <p style="margin:0 0 16px">Both models support a 1 million-token context window. In the 1M-token configuration, V4-Pro requires only 27% of single-token inference FLOPs and 10% of KV cache versus DeepSeek V3.2&mdash;achieved through architectural changes to attention and routing that the team calls &ldquo;efficient long-context MoE&rdquo;.</p>
+      <p style="margin:0 0 16px">The API is live at <code style="font-family:'IBM Plex Serif',serif">api-docs.deepseek.com</code> with compatibility for both OpenAI ChatCompletions and Anthropic API formats, making migration a drop-in change for most codebases. Pricing: $0.14/M input tokens, $0.56/M output tokens for V4-Pro.</p>
+
+      <h2 style="font-size:13px;font-family:'IBM Plex Serif',serif;letter-spacing:2px;text-transform:uppercase;margin:24px 0 12px;color:var(--accent)">¶02 &mdash; Why it matters</h2>
+      <hr class="sk-rule-thin" style="margin-bottom:16px" />
+      <p style="margin:0 0 16px">V4-Pro scores 80.6% on SWE-bench Verified, within 0.2 points of Claude Opus 4.6 (80.8%) and ahead of GPT-5.4 on the same benchmark. On the Putnam-2025 math competition benchmark, V4 reaches a proof-perfect 120/120. In coding competitions, DeepSeek rates V4 performance as &ldquo;comparable to GPT-5.4&rdquo;.</p>
+      <p style="margin:0 0 16px">The MIT license means V4 weights can be used commercially, fine-tuned, and redistributed without restriction. For teams currently spending on frontier APIs for coding tasks, V4-Pro at $0.14/M tokens represents roughly a 10&times; cost reduction versus Claude Opus 4.6 ($1.50/M) and GPT-5.4 ($2/M) at similar capability levels.</p>
+      <p style="margin:0 0 16px">One gap remains: V4 trails proprietary frontier models in knowledge-intensive benchmarks by roughly 3&ndash;6 months. Teams building knowledge-retrieval or multi-domain reasoning products should run their own evals before switching.</p>
+
+      <h2 style="font-size:13px;font-family:'IBM Plex Serif',serif;letter-spacing:2px;text-transform:uppercase;margin:24px 0 12px;color:var(--accent)">¶03 &mdash; What to watch</h2>
+      <hr class="sk-rule-thin" style="margin-bottom:16px" />
+      <div style="background:var(--hi);padding:16px;margin:0 0 20px;border-left:4px solid var(--ink)">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:1.5px;margin:0 0 8px">WHAT TO WATCH</p>
+        <p style="font-size:16px;margin:0 0 8px">Try V4-Pro on your current coding workload this week using the <code style="font-family:'IBM Plex Serif',serif;font-size:15px">deepseek-chat</code> endpoint with the OpenAI-compatible format. Compare quality and latency against your existing model. The MIT license means you can self-host on your own infra if the API cost or data-residency picture changes.</p>
+        <p style="font-size:16px;margin:0">Watch V4-Flash for latency-sensitive agentic loops where a smaller active parameter count matters more than peak benchmark scores.</p>
+      </div>
+
+      <div style="margin-top:24px;padding-top:16px;border-top:1px solid var(--ink)">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:1.5px;margin:0 0 8px">SOURCES</p>
+        <a href="https://api-docs.deepseek.com/news/news260424" class="sk-mono" style="font-size:12px;color:var(--teal);display:block;margin-bottom:6px">SOURCE &middot; DEEPSEEK API DOCS &#8599;</a>
+        <a href="https://techcrunch.com/2026/04/24/deepseek-previews-new-ai-model-that-closes-the-gap-with-frontier-models/" class="sk-mono" style="font-size:12px;color:var(--teal);display:block;margin-bottom:6px">TECHCRUNCH &middot; DEEPSEEK V4 PREVIEW &#8599;</a>
+        <a href="https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro" class="sk-mono" style="font-size:12px;color:var(--teal);display:block">HUGGING FACE &middot; MODEL CARD &#8599;</a>
+      </div>
+    </article>
+
+    <aside class="col gap-4">
+      <div class="sk-box" style="padding:16px;background:var(--card)">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:1.5px;margin:0 0 12px">V4 AT A GLANCE</p>
+        <div class="col gap-3">
+          <div><span style="font-size:28px;font-weight:700;line-height:1;display:block">1.6T</span><span class="sk-mono" style="font-size:10px">total parameters (V4-Pro)</span></div>
+          <hr class="sk-rule-thin" />
+          <div><span style="font-size:28px;font-weight:700;line-height:1;display:block">49B</span><span class="sk-mono" style="font-size:10px">active params per token</span></div>
+          <hr class="sk-rule-thin" />
+          <div><span style="font-size:28px;font-weight:700;line-height:1;display:block">1M</span><span class="sk-mono" style="font-size:10px">token context window</span></div>
+          <hr class="sk-rule-thin" />
+          <div><span style="font-size:28px;font-weight:700;line-height:1;display:block">80.6%</span><span class="sk-mono" style="font-size:10px">SWE-bench Verified</span></div>
+          <hr class="sk-rule-thin" />
+          <div><span style="font-size:28px;font-weight:700;line-height:1;display:block">$0.14</span><span class="sk-mono" style="font-size:10px">per million input tokens</span></div>
+        </div>
+      </div>
+      <div class="sk-box" style="padding:16px;background:var(--navy);color:var(--card)">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:1.5px;margin:0 0 10px;color:var(--hi)">LICENSE</p>
+        <p style="font-size:15px;margin:0">MIT — weights are freely usable, fine-tunable, and redistributable for commercial use.</p>
+      </div>
+    </aside>
+  </div>
+
+  <div style="margin-top:24px;padding-top:16px;border-top:1.5px solid var(--ink)">
+    <div class="row" style="justify-content:space-between;flex-wrap:wrap;gap:10px">
+      <a href="../index.html" class="sk-mono" style="font-size:11px;color:var(--teal)">&larr; BACK TO ISSUE 002</a>
+      <a href="../../../archive.html" class="sk-mono" style="font-size:11px;color:var(--teal)">ALL ISSUES &middot; ARCHIVE &#8599;</a>
+      <a href="02-2-swe-bench-retired.html" class="sk-mono" style="font-size:11px;color:var(--accent)">NEXT: SWE-BENCH RETIRED &rarr;</a>
+    </div>
+  </div>
+</div>
+</body>
+</html>

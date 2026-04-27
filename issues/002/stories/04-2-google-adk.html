@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Google Agent Development Kit — Tool — Daily Digest 002</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{background:#f5f0e8;color:#111;font-family:'Lora',serif;font-size:19px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:root{--paper:#f5f0e8;--card:#fffdf7;--ink:#111111;--ink-2:#5a5a5a;--accent:#d62828;--hi:#f5c842;--teal:#0d7377;--navy:#14213d;--ochre:#e07b39;--slate:#3d5a80;--sage:#2d6a4f}
+.sk-mono{font-family:'IBM Plex Serif','Georgia',serif;font-weight:500}
+.sk-box{border:1.5px solid var(--ink);background:transparent}
+.sk-rule-thin{height:0;border:0;border-top:1px solid var(--ink);margin:0}
+.sk-stamp{display:inline-block;font-family:'IBM Plex Serif',serif;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:3px 9px;border:1.5px solid currentColor;line-height:1.4;transform:rotate(-1deg);white-space:nowrap}
+.sk-stamp--teal{color:var(--teal);border-color:var(--teal)}
+.sk-stamp--hi{color:#9a7200;border-color:#9a7200}
+.code-block{background:var(--navy);color:var(--card);padding:14px 16px;font-family:'IBM Plex Serif',serif;font-size:14px;line-height:1.6;overflow-x:auto;margin:12px 0}
+.row{display:flex}.col{display:flex;flex-direction:column}.gap-2{gap:8px}.gap-3{gap:12px}
+.dd-page{max-width:1000px;margin:0 auto;padding:32px}
+@media(max-width:640px){body{font-size:17px}.dd-page{padding:16px 14px}}
+</style>
+</head>
+<body>
+<div class="dd-page">
+
+  <header class="sk-box" style="background:var(--ink);color:var(--card);padding:14px 20px;margin-bottom:16px">
+    <div class="row" style="justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
+      <a href="../index.html" style="color:var(--card)">
+        <span class="sk-mono" style="font-size:12px;letter-spacing:3px;color:var(--hi)">&#8470; 002 / 2026</span>
+        <span style="font-size:22px;font-weight:700;letter-spacing:-0.5px;margin-left:12px">DAILY &middot; DIGEST</span>
+      </a>
+      <div class="row gap-3" style="align-items:center;flex-wrap:wrap">
+        <a href="../index.html" class="sk-mono" style="font-size:11px;color:var(--hi)">&larr; ISSUE 002</a>
+        <a href="../../../archive.html" class="sk-mono" style="font-size:11px;color:var(--sage);border:1px solid var(--sage);padding:3px 10px">ARCHIVE &#8599;</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="row gap-2" style="margin-bottom:16px;flex-wrap:wrap">
+    <a href="../index.html" class="sk-mono" style="font-size:11px;color:var(--ink-2)">ISSUE 002</a>
+    <span class="sk-mono" style="font-size:11px;color:var(--ink-2)">/</span>
+    <span class="sk-mono" style="font-size:11px">04.2 &middot; TOOL</span>
+  </div>
+
+  <article>
+    <div class="row gap-2" style="margin-bottom:14px;flex-wrap:wrap">
+      <span class="sk-stamp sk-stamp--teal">FRAMEWORK</span>
+      <span class="sk-stamp sk-stamp--hi">FREE &amp; OPEN SOURCE</span>
+    </div>
+    <h1 style="font-size:36px;font-weight:700;line-height:1.05;margin:0 0 12px;text-wrap:balance">
+      Google Agent Development Kit (ADK)
+    </h1>
+    <p style="font-size:17px;margin:0 0 8px"><strong>What it is:</strong> An open-source Python framework for building production multi-agent systems with declarative orchestration, built-in tool calling, memory persistence, and structured output.</p>
+    <p style="font-size:17px;margin:0 0 20px"><strong>Problem it solves:</strong> Coordinating multiple specialized AI agents that hand off tasks to each other requires significant plumbing. ADK handles routing, state management, tool retry logic, and inter-agent communication so you can focus on agent behavior rather than infrastructure.</p>
+
+    <div class="sk-box" style="padding:14px 18px;background:var(--card);margin-bottom:20px">
+      <p class="sk-mono" style="font-size:11px;letter-spacing:1.5px;margin:0 0 8px;color:var(--accent)">ACCESS</p>
+      <p style="font-size:16px;margin:0">Free and open source (Apache 2.0). No paid tier. Vertex AI and Gemini connectors require a Google Cloud account; OpenAI-compatible connector works with any endpoint including DeepSeek and local models.</p>
+    </div>
+
+    <h2 style="font-size:13px;font-family:'IBM Plex Serif',serif;letter-spacing:2px;text-transform:uppercase;margin:0 0 12px;color:var(--accent)">Copy-paste quickstart</h2>
+    <hr class="sk-rule-thin" style="margin-bottom:12px" />
+
+    <p class="sk-mono" style="font-size:12px;margin:0 0 4px;color:var(--ink-2)">1. Install</p>
+    <div class="code-block">
+<pre>pip install google-adk</pre>
+    </div>
+
+    <p class="sk-mono" style="font-size:12px;margin:0 0 4px;color:var(--ink-2)">2. Define a simple agent with a tool</p>
+    <div class="code-block">
+<pre>from google.adk.agents import Agent
+from google.adk.tools import tool
+
+@tool
+def search_docs(query: str) -> str:
+    """Search internal documentation."""
+    # your search logic here
+    return f"Results for: {query}"
+
+agent = Agent(
+    name="docs-agent",
+    model="gemini-2.0-flash",   # or any OpenAI-compatible endpoint
+    tools=[search_docs],
+    instruction="Answer questions using the search_docs tool."
+)
+
+response = agent.run("How do I configure TLS in our API gateway?")
+print(response.text)</pre>
+    </div>
+
+    <p class="sk-mono" style="font-size:12px;margin:0 0 4px;color:var(--ink-2)">3. Multi-agent orchestration (route between specialists)</p>
+    <div class="code-block">
+<pre>from google.adk.agents import Agent, OrchestratorAgent
+
+code_agent   = Agent(name="coder",    model="...", tools=[...])
+review_agent = Agent(name="reviewer", model="...", tools=[...])
+test_agent   = Agent(name="tester",   model="...", tools=[...])
+
+orchestrator = OrchestratorAgent(
+    agents=[code_agent, review_agent, test_agent],
+    instruction="Break the task into subtasks and route to the right agent."
+)
+
+result = orchestrator.run("Add input validation to the user registration endpoint.")</pre>
+    </div>
+
+    <div style="background:var(--hi);padding:16px;margin:20px 0;border-left:4px solid var(--ink)">
+      <p class="sk-mono" style="font-size:11px;letter-spacing:1.5px;margin:0 0 8px">WHAT TO OBSERVE</p>
+      <p style="font-size:16px;margin:0 0 8px">Run the multi-agent example from the ADK repo (github.com/google/adk-python/tree/main/examples). Watch the orchestrator&rsquo;s routing decisions in the console output&mdash;verify it correctly decomposes the task and routes to the right specialist.</p>
+      <p style="font-size:16px;margin:0">Check memory persistence across turns: ask a follow-up question that references context from the first turn. If the agent correctly uses prior context without re-querying, memory is working correctly.</p>
+    </div>
+
+    <div style="margin-top:20px;padding:14px;background:var(--card);border:1.5px solid var(--ink)">
+      <p class="sk-mono" style="font-size:11px;letter-spacing:1.5px;margin:0 0 8px">WHEN NOT TO USE ADK</p>
+      <p style="font-size:16px;margin:0">Single-agent workflows&mdash;the Anthropic Python SDK, OpenAI Assistants, or a simple while-loop are less overhead. ADK earns its complexity only when you genuinely need multiple specialized agents coordinating on a shared task.</p>
+    </div>
+
+    <div style="margin-top:24px;padding-top:16px;border-top:1px solid var(--ink)">
+      <a href="https://github.com/google/adk-python" class="sk-mono" style="font-size:12px;color:var(--teal);display:block">SOURCE &middot; GITHUB.COM/GOOGLE/ADK-PYTHON &#8599;</a>
+    </div>
+  </article>
+
+  <div style="margin-top:24px;padding-top:16px;border-top:1.5px solid var(--ink)">
+    <div class="row" style="justify-content:space-between;flex-wrap:wrap;gap:10px">
+      <a href="../index.html" class="sk-mono" style="font-size:11px;color:var(--teal)">&larr; BACK TO ISSUE 002</a>
+      <a href="../../../archive.html" class="sk-mono" style="font-size:11px;color:var(--teal)">ALL ISSUES &middot; ARCHIVE &#8599;</a>
+      <a href="04-3-goose.html" class="sk-mono" style="font-size:11px;color:var(--accent)">NEXT TOOL &rarr;</a>
+    </div>
+  </div>
+</div>
+</body>
+</html>

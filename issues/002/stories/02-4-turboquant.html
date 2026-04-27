@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>TurboQuant — Daily Digest 002</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{background:#f5f0e8;color:#111;font-family:'Lora',serif;font-size:19px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:root{--paper:#f5f0e8;--card:#fffdf7;--ink:#111111;--ink-2:#5a5a5a;--accent:#d62828;--hi:#f5c842;--teal:#0d7377;--navy:#14213d;--ochre:#e07b39;--slate:#3d5a80;--sage:#2d6a4f}
+.sk-mono{font-family:'IBM Plex Serif','Georgia',serif;font-weight:500}
+.sk-box{border:1.5px solid var(--ink);background:transparent}
+.sk-rule-thin{height:0;border:0;border-top:1px solid var(--ink);margin:0}
+.sk-stamp{display:inline-block;font-family:'IBM Plex Serif',serif;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:3px 9px;border:1.5px solid currentColor;line-height:1.4;transform:rotate(-1deg);white-space:nowrap}
+.sk-stamp--slate{color:var(--slate);border-color:var(--slate)}
+.sk-stamp--teal{color:var(--teal);border-color:var(--teal)}
+.row{display:flex}.col{display:flex;flex-direction:column}.gap-2{gap:8px}.gap-3{gap:12px}.gap-4{gap:16px}
+.dd-page{max-width:1200px;margin:0 auto;padding:32px}
+@media(max-width:900px){.story-grid{grid-template-columns:1fr !important}}
+@media(max-width:640px){body{font-size:17px}.dd-page{padding:16px 14px}.story-hl{font-size:26px !important}}
+</style>
+</head>
+<body>
+<div class="dd-page">
+
+  <header class="sk-box" style="background:var(--ink);color:var(--card);padding:14px 20px;margin-bottom:16px">
+    <div class="row" style="justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
+      <a href="../index.html" style="color:var(--card)">
+        <span class="sk-mono" style="font-size:12px;letter-spacing:3px;color:var(--hi)">&#8470; 002 / 2026</span>
+        <span style="font-size:22px;font-weight:700;letter-spacing:-0.5px;margin-left:12px">DAILY &middot; DIGEST</span>
+      </a>
+      <div class="row gap-3" style="align-items:center;flex-wrap:wrap">
+        <a href="../index.html" class="sk-mono" style="font-size:11px;color:var(--hi)">&larr; ISSUE 002</a>
+        <a href="../../../archive.html" class="sk-mono" style="font-size:11px;color:var(--sage);border:1px solid var(--sage);padding:3px 10px">ARCHIVE &#8599;</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="row gap-2" style="margin-bottom:16px;flex-wrap:wrap">
+    <a href="../index.html" class="sk-mono" style="font-size:11px;color:var(--ink-2)">ISSUE 002</a>
+    <span class="sk-mono" style="font-size:11px;color:var(--ink-2)">/</span>
+    <span class="sk-mono" style="font-size:11px">02.4 &middot; ML / INFRA</span>
+  </div>
+
+  <div class="story-grid" style="display:grid;grid-template-columns:1fr 300px;gap:24px">
+    <article>
+      <div class="row gap-2" style="margin-bottom:14px;flex-wrap:wrap">
+        <span class="sk-stamp sk-stamp--slate">ML / INFRA</span>
+        <span class="sk-stamp sk-stamp--teal">QUANTIZATION</span>
+      </div>
+      <h1 class="story-hl" style="font-size:38px;font-weight:700;line-height:1.05;margin:0 0 16px;text-wrap:balance">
+        TurboQuant compresses KV-cache vectors to 2&ndash;4 bits with near-Shannon fidelity
+      </h1>
+      <p class="sk-mono" style="font-size:13px;margin:0 0 20px;padding:12px 16px;background:var(--hi);border-left:4px solid var(--ink)">
+        TL;DR &mdash; TurboQuant applies a single fixed random rotation to any input vector, turning it into a vector whose coordinates follow a known distribution. A universal Lloyd&ndash;Max codebook then quantizes it to 2&ndash;4 bits with MSE within 1.45&times; of Shannon&rsquo;s minimum at 1 bit. On Llama-3.1-8B, 4&times; KV cache compression matches full-precision Needle-in-Haystack recall (0.997 vs 0.997).
+      </p>
+      <div class="sk-mono" style="font-size:11px;letter-spacing:1px;margin-bottom:20px;color:var(--ink-2)">
+        MON 27 APR 2026 &middot; 4 MIN READ &middot; SOURCE: ARKAUNG.GITHUB.IO &middot; HN 158 PTS
+      </div>
+
+      <h2 style="font-size:13px;font-family:'IBM Plex Serif',serif;letter-spacing:2px;text-transform:uppercase;margin:0 0 12px;color:var(--accent)">¶01 &mdash; What happened</h2>
+      <hr class="sk-rule-thin" style="margin-bottom:16px" />
+      <p style="margin:0 0 16px">TurboQuant is a vector quantization method that compresses high-dimensional vectors&mdash;KV caches, embeddings, attention keys&mdash;to 2&ndash;4 bits per coordinate while maintaining near-optimal reconstruction fidelity. It appeared as an interactive walkthrough on Hacker News and gathered 158 points.</p>
+      <p style="margin:0 0 16px">The core idea: apply a fixed random orthogonal rotation matrix to any input vector. In high dimensions, this rotation distributes concentrated magnitude evenly across all coordinates. The resulting rotated vector follows a known, fixed distribution (converging to Gaussian as dimensions grow). A single universal Lloyd&ndash;Max codebook, designed once for this distribution, can then optimally quantize any vector&mdash;with no per-block metadata, no calibration data, and no training.</p>
+      <p style="margin:0 0 16px">Existing quantization methods require per-block scale factors and zero-points&mdash;32 bits of overhead per small block&mdash;which effectively doubles the real bit rate at low precision. TurboQuant eliminates this overhead entirely: one scalar per vector (residual norm in the unbiased variant).</p>
+
+      <div class="sk-box" style="padding:16px;margin:20px 0;background:var(--card)">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:1.5px;margin:0 0 10px">THE ALGORITHM IN 4 STEPS</p>
+        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px">
+          <div style="border-left:3px solid var(--accent);padding-left:10px">
+            <p class="sk-mono" style="font-size:10px;margin:0 0 4px;color:var(--accent)">1 &mdash; ROTATE</p>
+            <p style="font-size:15px;margin:0">Multiply input vector by a fixed random orthogonal matrix &Pi;. This distributes concentrated magnitude evenly.</p>
+          </div>
+          <div style="border-left:3px solid var(--teal);padding-left:10px">
+            <p class="sk-mono" style="font-size:10px;margin:0 0 4px;color:var(--teal)">2 &mdash; CODEBOOK</p>
+            <p style="font-size:15px;margin:0">Each coordinate now follows a known Beta/Gaussian distribution. A Lloyd&ndash;Max codebook designed for this distribution is optimal.</p>
+          </div>
+          <div style="border-left:3px solid var(--slate);padding-left:10px">
+            <p class="sk-mono" style="font-size:10px;margin:0 0 4px;color:var(--slate)">3 &mdash; QUANTIZE</p>
+            <p style="font-size:15px;margin:0">Snap each rotated coordinate to the nearest codebook entry. This is a table lookup&mdash;no multiplications.</p>
+          </div>
+          <div style="border-left:3px solid var(--navy);padding-left:10px">
+            <p class="sk-mono" style="font-size:10px;margin:0 0 4px;color:var(--navy)">4 &mdash; DECODE</p>
+            <p style="font-size:15px;margin:0">Multiply the quantized vector by &Pi;&sup1; (transposed) to recover the approximate original. No per-block metadata needed.</p>
+          </div>
+        </div>
+      </div>
+
+      <h2 style="font-size:13px;font-family:'IBM Plex Serif',serif;letter-spacing:2px;text-transform:uppercase;margin:24px 0 12px;color:var(--accent)">¶02 &mdash; Why it matters</h2>
+      <hr class="sk-rule-thin" style="margin-bottom:16px" />
+      <p style="margin:0 0 16px">KV cache is the primary memory bottleneck for long-context inference. A 1M-token context in a large model can require hundreds of gigabytes of KV cache if stored at full precision. 4&times; compression via TurboQuant brings that to tens of gigabytes&mdash;the difference between needing a server cluster and a single high-memory GPU.</p>
+      <p style="margin:0 0 16px">On Llama-3.1-8B, 4-bit TurboQuant achieves 0.997 Needle-in-Haystack recall versus 0.997 at full precision&mdash;statistically identical. Vector search encoding runs 4&ndash;6 orders of magnitude faster than alternatives (milliseconds vs hours on 100K vectors) because quantization is rotation plus table lookup with no learned parameters.</p>
+      <p style="margin:0 0 16px">The method requires no training data and no calibration. A fixed random rotation matrix and precomputed codebooks are the only prerequisites&mdash;both are pure math, not model-dependent artifacts.</p>
+
+      <h2 style="font-size:13px;font-family:'IBM Plex Serif',serif;letter-spacing:2px;text-transform:uppercase;margin:24px 0 12px;color:var(--accent)">¶03 &mdash; What to watch</h2>
+      <hr class="sk-rule-thin" style="margin-bottom:16px" />
+      <div style="background:var(--hi);padding:16px;margin:0 0 20px;border-left:4px solid var(--ink)">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:1.5px;margin:0 0 8px">WHAT TO WATCH</p>
+        <p style="font-size:16px;margin:0 0 8px">Read the interactive walkthrough at arkaung.github.io/interactive-turboquant to understand exactly where the MSE bound comes from. If you run inference on models with long contexts, evaluate TurboQuant-MSE against your current KV compression scheme on your benchmark tasks.</p>
+        <p style="font-size:16px;margin:0">Watch for integration into vLLM and llama.cpp&mdash;the logical next step once the method gains wider attention. The zero-calibration property makes it a drop-in candidate for any inference serving stack.</p>
+      </div>
+
+      <div style="margin-top:24px;padding-top:16px;border-top:1px solid var(--ink)">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:1.5px;margin:0 0 8px">SOURCES</p>
+        <a href="https://arkaung.github.io/interactive-turboquant/" class="sk-mono" style="font-size:12px;color:var(--teal);display:block;margin-bottom:6px">SOURCE &middot; INTERACTIVE WALKTHROUGH &#8599;</a>
+        <a href="https://news.ycombinator.com/item?id=47916890" class="sk-mono" style="font-size:12px;color:var(--teal);display:block">HN DISCUSSION &middot; 158 PTS &#8599;</a>
+      </div>
+    </article>
+
+    <aside class="col gap-4">
+      <div class="sk-box" style="padding:16px;background:var(--card)">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:1.5px;margin:0 0 12px">KEY RESULTS</p>
+        <div class="col gap-3">
+          <div><span style="font-size:28px;font-weight:700;line-height:1;display:block">4&times;</span><span class="sk-mono" style="font-size:10px">KV cache compression on Llama-3.1-8B</span></div>
+          <hr class="sk-rule-thin" />
+          <div><span style="font-size:28px;font-weight:700;line-height:1;display:block">0.997</span><span class="sk-mono" style="font-size:10px">Needle-in-Haystack recall (vs 0.997 full precision)</span></div>
+          <hr class="sk-rule-thin" />
+          <div><span style="font-size:28px;font-weight:700;line-height:1;display:block">1.45&times;</span><span class="sk-mono" style="font-size:10px">MSE from Shannon theoretical minimum at 1 bit</span></div>
+          <hr class="sk-rule-thin" />
+          <div><span style="font-size:28px;font-weight:700;line-height:1;display:block">4&ndash;6</span><span class="sk-mono" style="font-size:10px">orders of magnitude faster encoding vs alternatives</span></div>
+        </div>
+      </div>
+      <div class="sk-box" style="padding:16px;background:var(--navy);color:var(--card)">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:1.5px;margin:0 0 10px;color:var(--hi)">NO TRAINING REQUIRED</p>
+        <p style="font-size:15px;margin:0">Fixed rotation matrix + precomputed Lloyd&ndash;Max codebooks. Pure math&mdash;no calibration data, no fine-tuning.</p>
+      </div>
+    </aside>
+  </div>
+
+  <div style="margin-top:24px;padding-top:16px;border-top:1.5px solid var(--ink)">
+    <div class="row" style="justify-content:space-between;flex-wrap:wrap;gap:10px">
+      <a href="../index.html" class="sk-mono" style="font-size:11px;color:var(--teal)">&larr; BACK TO ISSUE 002</a>
+      <a href="../../../archive.html" class="sk-mono" style="font-size:11px;color:var(--teal)">ALL ISSUES &middot; ARCHIVE &#8599;</a>
+      <a href="eng-1-ai-elevate-thinking.html" class="sk-mono" style="font-size:11px;color:var(--accent)">NEXT: ENGINEERING READ &rarr;</a>
+    </div>
+  </div>
+</div>
+</body>
+</html>

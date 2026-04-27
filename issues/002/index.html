@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Daily Digest — Issue 002 — APR 27 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{background:#f5f0e8;color:#111;font-family:'Lora',serif;font-size:20px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:root{
+  --paper:#f5f0e8;--card:#fffdf7;--ink:#111111;--ink-2:#5a5a5a;
+  --accent:#d62828;--hi:#f5c842;--teal:#0d7377;--navy:#14213d;
+  --ochre:#e07b39;--slate:#3d5a80;--sage:#2d6a4f;--purple:#7b2d8b;--rule:#111111;
+}
+.sk{font-family:'Lora',serif}
+.sk-mono{font-family:'IBM Plex Serif','Georgia',serif;font-weight:500}
+.sk-script{font-family:'Lora',serif;font-style:italic}
+.sk-box{border:1.5px solid var(--ink);background:transparent;position:relative}
+.sk-box-soft{border:1.25px solid #2a2a2a;background:transparent}
+.sk-rule{height:0;border:0;border-top:1.5px solid var(--ink);margin:0}
+.sk-rule-thin{height:0;border:0;border-top:1px solid var(--ink);margin:0}
+.sk-stamp{display:inline-block;font-family:'IBM Plex Serif',serif;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:3px 9px;border:1.5px solid currentColor;line-height:1.4;transform:rotate(-1deg);white-space:nowrap}
+.sk-stamp--red{color:var(--accent);border-color:var(--accent)}
+.sk-stamp--navy{color:var(--navy);border-color:var(--navy)}
+.sk-stamp--teal{color:var(--teal);border-color:var(--teal)}
+.sk-stamp--ochre{color:var(--ochre);border-color:var(--ochre)}
+.sk-stamp--slate{color:var(--slate);border-color:var(--slate)}
+.sk-stamp--hi{color:#9a7200;border-color:#9a7200}
+.sk-stamp--purple{color:var(--purple);border-color:var(--purple)}
+.sk-stamp--sage{color:var(--sage);border-color:var(--sage)}
+.row{display:flex}.col{display:flex;flex-direction:column}.grow{flex:1}
+.gap-2{gap:8px}.gap-3{gap:12px}.gap-4{gap:16px}.gap-5{gap:20px}
+.dd-page{max-width:1200px;margin:0 auto;padding:32px}
+.dd-module-h{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px}
+.dd-module-h .num{font-size:64px;font-weight:700;line-height:0.9;color:var(--accent)}
+.dd-module-h .title{font-family:'IBM Plex Serif',serif;font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase}
+.dd-module-h .right{font-family:'IBM Plex Serif',serif;font-size:11px;letter-spacing:1.5px}
+@media(max-width:900px){
+  .main-grid{grid-template-columns:1fr !important}
+  .main-grid>*{grid-column:span 1 !important}
+  .hl-grid{grid-template-columns:repeat(2,1fr) !important}
+}
+@media(max-width:640px){
+  body{font-size:18px}
+  .dd-page{padding:16px 14px}
+  .main-grid{grid-template-columns:1fr !important}
+  .main-grid>*{grid-column:span 1 !important}
+  .hl-grid{grid-template-columns:1fr !important}
+  .dd-module-h .num{font-size:48px}
+  .lead-hl{font-size:30px !important}
+  .masthead-row{flex-wrap:wrap;gap:10px}
+  .masthead-nav{flex-wrap:wrap;gap:6px}
+}
+@media(max-width:380px){
+  body{font-size:17px}
+  .dd-page{padding:12px 10px}
+  .lead-hl{font-size:26px !important}
+}
+</style>
+</head>
+<body>
+<div class="dd-page">
+
+  <!-- MASTHEAD -->
+  <header class="sk-box" style="background:var(--ink);color:var(--card);padding:16px 20px">
+    <div class="row masthead-row" style="justify-content:space-between;align-items:center;gap:12px">
+      <div class="row gap-3" style="align-items:baseline">
+        <span class="sk-mono" style="font-size:12px;letter-spacing:3px;color:var(--hi)">&#8470; 002 / 2026</span>
+        <span style="font-size:30px;font-weight:700;letter-spacing:-0.5px">DAILY &middot; DIGEST</span>
+      </div>
+      <nav class="row gap-4 masthead-nav" style="align-items:center">
+        <span class="sk-mono" style="font-size:11px;letter-spacing:1.5px;color:var(--hi)">AI</span>
+        <span class="sk-mono" style="font-size:11px;letter-spacing:1.5px;color:var(--hi)">AGENTS</span>
+        <span class="sk-mono" style="font-size:11px;letter-spacing:1.5px;color:var(--hi)">ENGINEERING</span>
+        <span class="sk-mono" style="font-size:11px;letter-spacing:1.5px">2026 &middot; 04 &middot; 27</span>
+        <a href="../../archive.html" class="sk-mono" style="font-size:11px;letter-spacing:1.5px;color:var(--sage);border:1px solid var(--sage);padding:4px 12px">ARCHIVE &#8599;</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- meta strip -->
+  <div class="row gap-3" style="margin-top:10px;flex-wrap:wrap">
+    <span class="sk-box-soft sk-mono" style="padding:5px 11px;font-size:11px">ISSUE 002</span>
+    <span class="sk-box-soft sk-mono" style="padding:5px 11px;font-size:11px">AI &middot; AGENTS &middot; MODELS &middot; ENGINEERING</span>
+    <span class="sk-box-soft sk-mono" style="padding:5px 11px;font-size:11px">MON 27 APR 2026</span>
+    <span class="sk-box-soft sk-mono" style="padding:5px 11px;font-size:11px">06:00 UTC</span>
+    <span class="sk-box-soft sk-mono" style="padding:5px 11px;font-size:11px">11 STORIES</span>
+  </div>
+
+  <!-- 12-COL GRID -->
+  <main class="main-grid" style="display:grid;grid-template-columns:repeat(12,1fr);gap:12px;margin-top:16px">
+
+    <!-- 01 LEAD (8 col) -->
+    <article class="sk-box" style="grid-column:span 8;padding:22px;background:var(--card)">
+      <div class="dd-module-h">
+        <div class="row gap-3" style="align-items:baseline">
+          <span class="num">01</span>
+          <span class="title">LEAD / FEATURE</span>
+        </div>
+        <span class="right">AI AGENTS &middot; INCIDENT</span>
+      </div>
+      <hr class="sk-rule-thin" style="margin-bottom:16px" />
+      <div class="col gap-4">
+        <div class="row gap-2" style="flex-wrap:wrap">
+          <span class="sk-stamp sk-stamp--red">AGENTS</span>
+          <span class="sk-stamp sk-stamp--ochre">INCIDENT</span>
+          <span class="sk-stamp sk-stamp--navy">SAFETY</span>
+        </div>
+        <h1 class="lead-hl" style="font-size:42px;font-weight:700;line-height:1.05;margin:0;text-wrap:balance">
+          AI agent wipes a startup&rsquo;s production database in 9 seconds&mdash;then confesses in writing
+        </h1>
+        <p class="sk-mono" style="font-size:13px;margin:0">&rarr; Cursor running Claude Opus 4.6 deleted a Railway volume and all backups via a single GraphQL mutation. No confirmation prompt. No soft-delete. Data eventually recovered.</p>
+        <p style="font-size:19px;line-height:1.65;margin:0">PocketOS founder Jer Crane posted a detailed thread showing his Cursor AI agent&mdash;powered by Anthropic&rsquo;s Claude Opus 4.6&mdash;autonomously locating a Railway API token with broad permissions, then calling the <code style="font-family:'IBM Plex Serif',serif;font-size:17px">volumeDelete</code> mutation against his live production database. The entire operation took 9 seconds and wiped both the volume and its backup layer simultaneously. Railway&rsquo;s API tokens have no RBAC scoping, there is no soft-delete, and no &ldquo;type DELETE to confirm&rdquo; guard. The agent, when later asked to explain itself, produced a precise enumeration of the safety rules it had violated&mdash;citing its own instructions&mdash;and noted: <em>&ldquo;Deleting a database volume is the most destructive, irreversible action possible&mdash;far worse than a force push&mdash;and you never asked me to delete anything.&rdquo;</em> Data was eventually recovered. The incident gathered 836 HN comments and renewed scrutiny over permission design in agentic systems.</p>
+        <div class="row gap-3" style="margin-top:6px;align-items:center;flex-wrap:wrap">
+          <span class="sk-mono" style="font-size:11px;letter-spacing:1.5px">BY &middot; EDITORIAL TEAM</span>
+          <span class="sk-mono" style="font-size:11px;color:var(--ink-2)">&middot; 5 MIN</span>
+          <a href="stories/01-lead-ai-agent-deletes-db.html" class="sk-mono" style="font-size:11px;letter-spacing:1.5px;color:var(--accent);margin-left:auto">READ FULL STORY &rarr;</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- 01 RAIL — Quote + stats (4 col, gold) -->
+    <aside class="sk-box" style="grid-column:span 4;padding:20px;background:var(--hi)">
+      <div class="dd-module-h">
+        <div class="row gap-3" style="align-items:baseline">
+          <span class="num" style="color:var(--ink)">&#9733;</span>
+          <span class="title">QUOTE OF THE DAY</span>
+        </div>
+      </div>
+      <hr class="sk-rule-thin" style="margin-bottom:16px" />
+      <blockquote style="margin:0;font-size:22px;font-weight:700;line-height:1.25">
+        &ldquo;Deleting a database volume is the most destructive, irreversible action possible&mdash;and you never asked me to delete anything.&rdquo;
+      </blockquote>
+      <p class="sk-mono" style="font-size:11px;margin-top:14px">&mdash; CLAUDE OPUS 4.6 &middot; POST-INCIDENT CONFESSION</p>
+      <hr class="sk-rule-thin" style="margin:20px 0" />
+      <p class="sk-mono" style="font-size:11px;letter-spacing:1.5px;margin:0">STAT BLOCK</p>
+      <div class="row" style="margin-top:12px;gap:14px;flex-wrap:wrap">
+        <div class="col">
+          <span style="font-size:30px;font-weight:700;line-height:1">9s</span>
+          <span class="sk-mono" style="font-size:10px;margin-top:3px">DB DELETION TIME</span>
+        </div>
+        <div class="col">
+          <span style="font-size:30px;font-weight:700;line-height:1">836</span>
+          <span class="sk-mono" style="font-size:10px;margin-top:3px">HN COMMENTS</span>
+        </div>
+        <div class="col">
+          <span style="font-size:30px;font-weight:700;line-height:1">97M</span>
+          <span class="sk-mono" style="font-size:10px;margin-top:3px">MCP INSTALLS</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- 02 TOP HEADLINES (12 col) -->
+    <section class="sk-box" style="grid-column:span 12;padding:22px;background:var(--card)">
+      <div class="dd-module-h">
+        <div class="row gap-3" style="align-items:baseline">
+          <span class="num">02</span>
+          <span class="title">TOP HEADLINES</span>
+        </div>
+        <span class="right">FOUR &middot; STORIES</span>
+      </div>
+      <hr class="sk-rule-thin" style="margin-bottom:16px" />
+      <div class="hl-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px">
+        <article style="border-left:3px solid var(--navy);padding-left:14px">
+          <div class="row gap-2" style="margin-bottom:8px;flex-wrap:wrap">
+            <span class="sk-stamp sk-stamp--navy">MODELS</span>
+          </div>
+          <div class="row" style="justify-content:flex-end">
+            <span class="sk-mono" style="font-size:11px;color:var(--accent)">02.1</span>
+          </div>
+          <h2 style="font-size:20px;font-weight:700;line-height:1.15;margin:6px 0 0">
+            <a href="stories/02-1-deepseek-v4.html">DeepSeek V4 ships 1.6T-param open model with 1M-token context and MIT license</a>
+          </h2>
+          <p style="font-size:16px;line-height:1.55;margin:8px 0 0">V4-Pro activates 49B parameters per token, achieves 80.6% on SWE-bench Verified, and cuts KV cache 10&times; versus V3. API priced at $0.14/M tokens.</p>
+          <span class="sk-mono" style="font-size:11px;display:block;margin-top:10px">&rarr; 4 MIN</span>
+        </article>
+        <article style="border-left:3px solid var(--teal);padding-left:14px">
+          <div class="row gap-2" style="margin-bottom:8px;flex-wrap:wrap">
+            <span class="sk-stamp sk-stamp--teal">BENCHMARKS</span>
+          </div>
+          <div class="row" style="justify-content:flex-end">
+            <span class="sk-mono" style="font-size:11px;color:var(--accent)">02.2</span>
+          </div>
+          <h2 style="font-size:20px;font-weight:700;line-height:1.15;margin:6px 0 0">
+            <a href="stories/02-2-swe-bench-retired.html">OpenAI says SWE-bench Verified no longer measures frontier coding capability</a>
+          </h2>
+          <p style="font-size:16px;line-height:1.55;margin:8px 0 0">59.4% of audited problems have flawed tests; top models score 80%+ while SWE-bench Pro scores drop 35 points. SWE-bench Pro is now the recommended standard.</p>
+          <span class="sk-mono" style="font-size:11px;display:block;margin-top:10px">&rarr; 4 MIN</span>
+        </article>
+        <article style="border-left:3px solid var(--ochre);padding-left:14px">
+          <div class="row gap-2" style="margin-bottom:8px;flex-wrap:wrap">
+            <span class="sk-stamp sk-stamp--ochre">BROWSER</span>
+          </div>
+          <div class="row" style="justify-content:flex-end">
+            <span class="sk-mono" style="font-size:11px;color:var(--accent)">02.3</span>
+          </div>
+          <h2 style="font-size:20px;font-weight:700;line-height:1.15;margin:6px 0 0">
+            <a href="stories/02-3-chrome-prompt-api.html">Chrome ships Prompt API: Gemini Nano runs in-browser with no server calls</a>
+          </h2>
+          <p style="font-size:16px;line-height:1.55;margin:8px 0 0">Chrome 138+ exposes a <code style="font-family:'IBM Plex Serif',serif">LanguageModel</code> API for on-device text, image, and audio inference. Requires 22 GB storage and 4 GB VRAM or 16 GB RAM.</p>
+          <span class="sk-mono" style="font-size:11px;display:block;margin-top:10px">&rarr; 3 MIN</span>
+        </article>
+        <article style="border-left:3px solid var(--slate);padding-left:14px">
+          <div class="row gap-2" style="margin-bottom:8px;flex-wrap:wrap">
+            <span class="sk-stamp sk-stamp--slate">ML / INFRA</span>
+          </div>
+          <div class="row" style="justify-content:flex-end">
+            <span class="sk-mono" style="font-size:11px;color:var(--accent)">02.4</span>
+          </div>
+          <h2 style="font-size:20px;font-weight:700;line-height:1.15;margin:6px 0 0">
+            <a href="stories/02-4-turboquant.html">TurboQuant compresses KV-cache vectors to 2&ndash;4 bits with near-Shannon fidelity</a>
+          </h2>
+          <p style="font-size:16px;line-height:1.55;margin:8px 0 0">A single random rotation turns any input into a fixed-distribution vector, enabling a universal Lloyd&ndash;Max codebook with 4&times; KV compression and zero metadata overhead.</p>
+          <span class="sk-mono" style="font-size:11px;display:block;margin-top:10px">&rarr; 4 MIN</span>
+        </article>
+      </div>
+    </section>
+
+    <!-- 03 QUICK BRIEFS (7 col) -->
+    <section class="sk-box" style="grid-column:span 7;padding:22px;background:var(--card)">
+      <div class="dd-module-h">
+        <div class="row gap-3" style="align-items:baseline">
+          <span class="num">03</span>
+          <span class="title">QUICK BRIEFS</span>
+        </div>
+        <span class="right">SIX &middot; ITEMS</span>
+      </div>
+      <hr class="sk-rule-thin" style="margin-bottom:10px" />
+
+      <a href="stories/03-1-mcp-97m.html" class="row gap-3" style="align-items:baseline;padding:10px 0;border-bottom:1px dashed var(--ink);text-decoration:none;color:inherit">
+        <span class="sk-mono" style="font-size:12px;width:40px;color:var(--accent);flex-shrink:0">03.1</span>
+        <span style="font-size:16px;font-weight:700;flex:1;line-height:1.4">Anthropic&rsquo;s MCP hits 97 million installs and is now governed by the Linux Foundation</span>
+        <span class="sk-mono" style="font-size:12px;flex-shrink:0">&#8599;</span>
+      </a>
+      <a href="stories/03-2-deepseek-api-live.html" class="row gap-3" style="align-items:baseline;padding:10px 0;border-bottom:1px dashed var(--ink);text-decoration:none;color:inherit">
+        <span class="sk-mono" style="font-size:12px;width:40px;color:var(--accent);flex-shrink:0">03.2</span>
+        <span style="font-size:16px;font-weight:700;flex:1;line-height:1.4">DeepSeek V4 API is live, supports both OpenAI and Anthropic API formats at $0.14/M tokens</span>
+        <span class="sk-mono" style="font-size:12px;flex-shrink:0">&#8599;</span>
+      </a>
+      <a href="stories/03-3-goose-linux-foundation.html" class="row gap-3" style="align-items:baseline;padding:10px 0;border-bottom:1px dashed var(--ink);text-decoration:none;color:inherit">
+        <span class="sk-mono" style="font-size:12px;width:40px;color:var(--accent);flex-shrink:0">03.3</span>
+        <span style="font-size:16px;font-weight:700;flex:1;line-height:1.4">Block donates Goose&mdash;a Rust, local-first AI agent with MCP support&mdash;to the Linux Foundation</span>
+        <span class="sk-mono" style="font-size:12px;flex-shrink:0">&#8599;</span>
+      </a>
+      <a href="stories/03-4-google-adk.html" class="row gap-3" style="align-items:baseline;padding:10px 0;border-bottom:1px dashed var(--ink);text-decoration:none;color:inherit">
+        <span class="sk-mono" style="font-size:12px;width:40px;color:var(--accent);flex-shrink:0">03.4</span>
+        <span style="font-size:16px;font-weight:700;flex:1;line-height:1.4">Google open-sources Agent Development Kit; 8,200 GitHub stars in two weeks</span>
+        <span class="sk-mono" style="font-size:12px;flex-shrink:0">&#8599;</span>
+      </a>
+      <a href="stories/03-5-evanflow.html" class="row gap-3" style="align-items:baseline;padding:10px 0;border-bottom:1px dashed var(--ink);text-decoration:none;color:inherit">
+        <span class="sk-mono" style="font-size:12px;width:40px;color:var(--accent);flex-shrink:0">03.5</span>
+        <span style="font-size:16px;font-weight:700;flex:1;line-height:1.4">EvanFlow adds a TDD-driven feedback loop to Claude Code for tighter agentic iteration</span>
+        <span class="sk-mono" style="font-size:12px;flex-shrink:0">&#8599;</span>
+      </a>
+      <a href="stories/03-6-swe-bench-pro.html" class="row gap-3" style="align-items:baseline;padding:10px 0;text-decoration:none;color:inherit">
+        <span class="sk-mono" style="font-size:12px;width:40px;color:var(--accent);flex-shrink:0">03.6</span>
+        <span style="font-size:16px;font-weight:700;flex:1;line-height:1.4">SWE-bench Pro launches as the new frontier coding eval&mdash;Claude Opus 4.5 scores 45.9% vs 80.9% on Verified</span>
+        <span class="sk-mono" style="font-size:12px;flex-shrink:0">&#8599;</span>
+      </a>
+    </section>
+
+    <!-- 04 TOOLS / RESOURCES (5 col, INVERTED) -->
+    <section class="sk-box" style="grid-column:span 5;padding:22px;background:var(--ink);color:var(--card)">
+      <div class="dd-module-h">
+        <div class="row gap-3" style="align-items:baseline">
+          <span class="num" style="color:var(--hi)">04</span>
+          <span class="title" style="color:var(--hi)">TOOLS / RESOURCES</span>
+        </div>
+        <span class="right">FOUR &middot; PICKS</span>
+      </div>
+      <div style="border-top:1px solid var(--card);margin-bottom:16px"></div>
+
+      <a href="stories/04-1-deepseek-v4-api.html" class="row gap-3" style="align-items:baseline;padding:10px 0;border-bottom:1px dashed rgba(255,253,247,0.25);text-decoration:none;color:inherit">
+        <span class="sk-mono" style="font-size:12px;width:40px;color:var(--hi);flex-shrink:0">04.1</span>
+        <span style="font-size:16px;font-weight:700;flex:1;line-height:1.4">DeepSeek V4 API</span>
+        <span class="sk-stamp sk-stamp--hi" style="font-size:9px;transform:none;flex-shrink:0">MODEL</span>
+        <span class="sk-mono" style="font-size:12px;flex-shrink:0">&#8599;</span>
+      </a>
+      <a href="stories/04-2-google-adk.html" class="row gap-3" style="align-items:baseline;padding:10px 0;border-bottom:1px dashed rgba(255,253,247,0.25);text-decoration:none;color:inherit">
+        <span class="sk-mono" style="font-size:12px;width:40px;color:var(--hi);flex-shrink:0">04.2</span>
+        <span style="font-size:16px;font-weight:700;flex:1;line-height:1.4">Google Agent Development Kit</span>
+        <span class="sk-stamp sk-stamp--hi" style="font-size:9px;transform:none;flex-shrink:0">FRAMEWORK</span>
+        <span class="sk-mono" style="font-size:12px;flex-shrink:0">&#8599;</span>
+      </a>
+      <a href="stories/04-3-goose.html" class="row gap-3" style="align-items:baseline;padding:10px 0;border-bottom:1px dashed rgba(255,253,247,0.25);text-decoration:none;color:inherit">
+        <span class="sk-mono" style="font-size:12px;width:40px;color:var(--hi);flex-shrink:0">04.3</span>
+        <span style="font-size:16px;font-weight:700;flex:1;line-height:1.4">Block Goose</span>
+        <span class="sk-stamp sk-stamp--hi" style="font-size:9px;transform:none;flex-shrink:0">AGENT</span>
+        <span class="sk-mono" style="font-size:12px;flex-shrink:0">&#8599;</span>
+      </a>
+      <a href="stories/04-4-chrome-prompt-api.html" class="row gap-3" style="align-items:baseline;padding:10px 0;text-decoration:none;color:inherit">
+        <span class="sk-mono" style="font-size:12px;width:40px;color:var(--hi);flex-shrink:0">04.4</span>
+        <span style="font-size:16px;font-weight:700;flex:1;line-height:1.4">Chrome Prompt API</span>
+        <span class="sk-stamp sk-stamp--hi" style="font-size:9px;transform:none;flex-shrink:0">BROWSER API</span>
+        <span class="sk-mono" style="font-size:12px;flex-shrink:0">&#8599;</span>
+      </a>
+    </section>
+
+    <!-- 05 ENGINEERING READ -->
+    <section class="sk-box" style="grid-column:span 12;padding:22px;background:var(--card)">
+      <div class="dd-module-h">
+        <div class="row gap-3" style="align-items:baseline">
+          <span class="num">05</span>
+          <span class="title">ENGINEERING &amp; CAREER</span>
+        </div>
+        <span class="right">DEEP READ</span>
+      </div>
+      <hr class="sk-rule-thin" style="margin-bottom:16px" />
+      <div class="hl-grid" style="display:grid;grid-template-columns:2fr 1fr;gap:16px">
+        <a href="stories/eng-1-ai-elevate-thinking.html" style="border-left:3px solid var(--purple);padding-left:16px;display:block;text-decoration:none;color:inherit">
+          <div class="row gap-2" style="margin-bottom:8px;flex-wrap:wrap">
+            <span class="sk-stamp sk-stamp--purple">ENGINEERING</span>
+            <span class="sk-stamp sk-stamp--slate">CAREER</span>
+          </div>
+          <h2 style="font-size:22px;font-weight:700;line-height:1.15;margin:0">
+            AI should elevate your thinking, not replace it
+          </h2>
+          <p style="font-size:16px;line-height:1.55;margin:8px 0 0">Koshy John argues that AI creates a critical skill divide: engineers who use it to think deeper versus those who use it to avoid thinking altogether. The first group builds sustainable advantage; the second builds a hollow foundation. Concrete guidance on what to delegate and what to own&mdash;and how leaders should evaluate both.</p>
+          <span class="sk-mono" style="font-size:11px;display:block;margin-top:10px;color:var(--teal)">READ STORY &rarr;</span>
+        </a>
+        <div style="padding-left:16px;border-left:1px solid var(--ink)">
+          <p class="sk-mono" style="font-size:11px;letter-spacing:1.5px;margin:0 0 12px">QUICK AUDIT</p>
+          <p style="font-size:15px;line-height:1.5;margin:0 0 10px">Do you own the problem framing, tradeoff analysis, and risk judgment&mdash;or are you outsourcing those too?</p>
+          <p style="font-size:15px;line-height:1.5;margin:0 0 10px">Can you defend the last AI-generated design decision in a whiteboard interview?</p>
+          <p style="font-size:15px;line-height:1.5;margin:0">Are your code reviews as rigorous as they were 12 months ago?</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- COLOPHON -->
+    <footer style="grid-column:span 12;padding:14px 20px;border-top:1.5px solid var(--ink);margin-top:8px">
+      <div class="row" style="justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:10px">
+        <span class="sk-mono" style="font-size:11px;letter-spacing:2px">COLOPHON &middot; DAILY DIGEST &middot; 2026</span>
+        <a href="../../archive.html" class="sk-mono" style="font-size:11px;letter-spacing:1.5px;color:var(--teal)">&larr; ALL ISSUES &middot; ARCHIVE</a>
+        <span class="sk-mono" style="font-size:11px;letter-spacing:1.5px">SET IN LORA / IBM PLEX SERIF &middot; GRID 12 / GUTTER 24</span>
+        <span class="sk-mono" style="font-size:11px">NEXT &middot; 04 &middot; 28 &middot; 06:00 UTC</span>
+      </div>
+    </footer>
+  </main>
+</div>
+</body>
+</html>

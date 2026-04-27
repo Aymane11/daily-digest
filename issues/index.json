@@ -4,5 +4,11 @@
     "date": "2026-04-26",
     "path": "issues/001/index.html",
     "topics": ["AI", "SECURITY", "MODELS"]
+  },
+  {
+    "issue": "002",
+    "date": "2026-04-27",
+    "path": "issues/002/index.html",
+    "topics": ["AI", "AGENTS", "MODELS", "ENGINEERING"]
   }
 ]

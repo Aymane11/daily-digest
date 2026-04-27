@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Chrome Prompt API — Daily Digest 002</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{background:#f5f0e8;color:#111;font-family:'Lora',serif;font-size:19px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:root{--paper:#f5f0e8;--card:#fffdf7;--ink:#111111;--ink-2:#5a5a5a;--accent:#d62828;--hi:#f5c842;--teal:#0d7377;--navy:#14213d;--ochre:#e07b39;--slate:#3d5a80;--sage:#2d6a4f}
+.sk-mono{font-family:'IBM Plex Serif','Georgia',serif;font-weight:500}
+.sk-box{border:1.5px solid var(--ink);background:transparent}
+.sk-rule-thin{height:0;border:0;border-top:1px solid var(--ink);margin:0}
+.sk-stamp{display:inline-block;font-family:'IBM Plex Serif',serif;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:3px 9px;border:1.5px solid currentColor;line-height:1.4;transform:rotate(-1deg);white-space:nowrap}
+.sk-stamp--ochre{color:var(--ochre);border-color:var(--ochre)}
+.sk-stamp--teal{color:var(--teal);border-color:var(--teal)}
+.code-block{background:var(--navy);color:var(--card);padding:14px 16px;font-family:'IBM Plex Serif',serif;font-size:14px;line-height:1.6;overflow-x:auto}
+.row{display:flex}.col{display:flex;flex-direction:column}.gap-2{gap:8px}.gap-3{gap:12px}.gap-4{gap:16px}
+.dd-page{max-width:1200px;margin:0 auto;padding:32px}
+@media(max-width:900px){.story-grid{grid-template-columns:1fr !important}}
+@media(max-width:640px){body{font-size:17px}.dd-page{padding:16px 14px}.story-hl{font-size:26px !important}}
+</style>
+</head>
+<body>
+<div class="dd-page">
+
+  <header class="sk-box" style="background:var(--ink);color:var(--card);padding:14px 20px;margin-bottom:16px">
+    <div class="row" style="justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
+      <a href="../index.html" style="color:var(--card)">
+        <span class="sk-mono" style="font-size:12px;letter-spacing:3px;color:var(--hi)">&#8470; 002 / 2026</span>
+        <span style="font-size:22px;font-weight:700;letter-spacing:-0.5px;margin-left:12px">DAILY &middot; DIGEST</span>
+      </a>
+      <div class="row gap-3" style="align-items:center;flex-wrap:wrap">
+        <a href="../index.html" class="sk-mono" style="font-size:11px;color:var(--hi)">&larr; ISSUE 002</a>
+        <a href="../../../archive.html" class="sk-mono" style="font-size:11px;color:var(--sage);border:1px solid var(--sage);padding:3px 10px">ARCHIVE &#8599;</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="row gap-2" style="margin-bottom:16px;flex-wrap:wrap">
+    <a href="../index.html" class="sk-mono" style="font-size:11px;color:var(--ink-2)">ISSUE 002</a>
+    <span class="sk-mono" style="font-size:11px;color:var(--ink-2)">/</span>
+    <span class="sk-mono" style="font-size:11px">02.3 &middot; BROWSER</span>
+  </div>
+
+  <div class="story-grid" style="display:grid;grid-template-columns:1fr 300px;gap:24px">
+    <article>
+      <div class="row gap-2" style="margin-bottom:14px;flex-wrap:wrap">
+        <span class="sk-stamp sk-stamp--ochre">BROWSER</span>
+        <span class="sk-stamp sk-stamp--teal">ON-DEVICE AI</span>
+      </div>
+      <h1 class="story-hl" style="font-size:38px;font-weight:700;line-height:1.05;margin:0 0 16px;text-wrap:balance">
+        Chrome ships Prompt API: Gemini Nano runs in-browser with no server calls
+      </h1>
+      <p class="sk-mono" style="font-size:13px;margin:0 0 20px;padding:12px 16px;background:var(--hi);border-left:4px solid var(--ink)">
+        TL;DR &mdash; Chrome 138+ exposes a <code>LanguageModel</code> JavaScript API backed by Gemini Nano running fully on-device. Supports text, image, and audio input. Requires 22 GB storage and 4 GB VRAM or 16 GB RAM. Still in origin trial as of April 2026.
+      </p>
+      <div class="sk-mono" style="font-size:11px;letter-spacing:1px;margin-bottom:20px;color:var(--ink-2)">
+        MON 27 APR 2026 &middot; 3 MIN READ &middot; SOURCE: DEVELOPER.CHROME.COM
+      </div>
+
+      <h2 style="font-size:13px;font-family:'IBM Plex Serif',serif;letter-spacing:2px;text-transform:uppercase;margin:0 0 12px;color:var(--accent)">¶01 &mdash; What happened</h2>
+      <hr class="sk-rule-thin" style="margin-bottom:16px" />
+      <p style="margin:0 0 16px">Google shipped the Prompt API for Chrome 138+, allowing web developers to send natural-language requests directly to Gemini Nano running on the user&rsquo;s device. No API key, no server round-trip, no data leaves the machine. The API is available today on localhost with a flag, and via origin trial for production deployments.</p>
+      <p style="margin:0 0 16px">The <code style="font-family:'IBM Plex Serif',serif">LanguageModel</code> global exposes <code style="font-family:'IBM Plex Serif',serif">availability()</code>, <code style="font-family:'IBM Plex Serif',serif">create()</code>, and <code style="font-family:'IBM Plex Serif',serif">prompt()</code> / <code style="font-family:'IBM Plex Serif',serif">promptStreaming()</code>. Sessions maintain conversation context up to a token limit and emit a <code style="font-family:'IBM Plex Serif',serif">contextoverflow</code> event when exceeded. JSON schema-constrained output is supported via <code style="font-family:'IBM Plex Serif',serif">responseConstraint</code>.</p>
+
+      <div class="code-block" style="margin:0 0 20px">
+<pre>// check availability first
+const avail = await LanguageModel.availability({
+  expectedInputs: [{ type: 'text', languages: ['en'] }]
+});
+
+// create a session
+const session = await LanguageModel.create();
+
+// simple prompt
+const result = await session.prompt('Summarize this page.');
+console.log(result);
+
+// streaming
+const stream = session.promptStreaming('Explain step by step:');
+for await (const chunk of stream) {
+  document.body.innerText += chunk;
+}</pre>
+      </div>
+
+      <h2 style="font-size:13px;font-family:'IBM Plex Serif',serif;letter-spacing:2px;text-transform:uppercase;margin:0 0 12px;color:var(--accent)">¶02 &mdash; Why it matters</h2>
+      <hr class="sk-rule-thin" style="margin-bottom:16px" />
+      <p style="margin:0 0 16px">On-device inference removes the two main barriers to building AI features into web apps: API cost and data privacy. A content filter, smart search, or classification feature that runs locally costs nothing per call and never exposes user data to a server. For regulated industries (healthcare, legal, finance) this matters enormously.</p>
+      <p style="margin:0 0 16px">The hardware requirements are a real constraint today: 22 GB storage, plus either a 4 GB VRAM GPU or 16 GB RAM CPU. That covers high-end laptops and desktops well, but excludes most mobile devices and low-end hardware. On Chromebook Plus the API is available directly; on standard Chromebooks it is not.</p>
+      <p style="margin:0 0 16px">The model is Gemini Nano, a significantly smaller model than Gemini Pro or Ultra. Expect it to handle summarization, classification, extraction, and short-form generation well; do not expect complex multi-step reasoning or code generation at the level of frontier APIs.</p>
+
+      <h2 style="font-size:13px;font-family:'IBM Plex Serif',serif;letter-spacing:2px;text-transform:uppercase;margin:24px 0 12px;color:var(--accent)">¶03 &mdash; What to watch</h2>
+      <hr class="sk-rule-thin" style="margin-bottom:16px" />
+      <div style="background:var(--hi);padding:16px;margin:0 0 20px;border-left:4px solid var(--ink)">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:1.5px;margin:0 0 8px">WHAT TO WATCH</p>
+        <p style="font-size:16px;margin:0 0 8px">Try the API today: open Chrome 138+ on desktop, navigate to <code style="font-family:'IBM Plex Serif',serif;font-size:15px">chrome://flags</code>, enable <code style="font-family:'IBM Plex Serif',serif;font-size:15px">#prompt-api-for-gemini-nano</code>, then run the snippet above in DevTools console to confirm your hardware qualifies.</p>
+        <p style="font-size:16px;margin:0">Watch for the origin trial window&mdash;currently limited to Chrome 138+. When the API graduates to stable it will become available to all Chrome users meeting the hardware bar, which represents hundreds of millions of potential zero-cost inference endpoints.</p>
+      </div>
+
+      <div style="margin-top:24px;padding-top:16px;border-top:1px solid var(--ink)">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:1.5px;margin:0 0 8px">SOURCE</p>
+        <a href="https://developer.chrome.com/docs/ai/prompt-api" class="sk-mono" style="font-size:12px;color:var(--teal);display:block">SOURCE &middot; DEVELOPER.CHROME.COM &#8599;</a>
+      </div>
+    </article>
+
+    <aside class="col gap-4">
+      <div class="sk-box" style="padding:16px;background:var(--card)">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:1.5px;margin:0 0 12px">REQUIREMENTS</p>
+        <div class="col gap-3" style="font-size:15px">
+          <div><strong>OS:</strong> Windows 10/11, macOS 13+, Linux, ChromeOS (Chromebook Plus only)</div>
+          <hr class="sk-rule-thin" />
+          <div><strong>Storage:</strong> 22 GB free</div>
+          <hr class="sk-rule-thin" />
+          <div><strong>GPU:</strong> 4 GB VRAM</div>
+          <hr class="sk-rule-thin" />
+          <div><strong>or CPU:</strong> 16 GB RAM, 4+ cores</div>
+          <hr class="sk-rule-thin" />
+          <div><strong>Chrome:</strong> 138+</div>
+        </div>
+      </div>
+      <div class="sk-box" style="padding:16px;background:var(--navy);color:var(--card)">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:1.5px;margin:0 0 10px;color:var(--hi)">STATUS</p>
+        <p style="font-size:15px;margin:0">Origin trial &mdash; available now with flag; production rollout via trial token for enrolled origins.</p>
+      </div>
+    </aside>
+  </div>
+
+  <div style="margin-top:24px;padding-top:16px;border-top:1.5px solid var(--ink)">
+    <div class="row" style="justify-content:space-between;flex-wrap:wrap;gap:10px">
+      <a href="../index.html" class="sk-mono" style="font-size:11px;color:var(--teal)">&larr; BACK TO ISSUE 002</a>
+      <a href="../../../archive.html" class="sk-mono" style="font-size:11px;color:var(--teal)">ALL ISSUES &middot; ARCHIVE &#8599;</a>
+      <a href="02-4-turboquant.html" class="sk-mono" style="font-size:11px;color:var(--accent)">NEXT: TURBOQUANT &rarr;</a>
+    </div>
+  </div>
+</div>
+</body>
+</html>

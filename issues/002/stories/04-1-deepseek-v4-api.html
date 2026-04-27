@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>DeepSeek V4 API — Tool — Daily Digest 002</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{background:#f5f0e8;color:#111;font-family:'Lora',serif;font-size:19px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:root{--paper:#f5f0e8;--card:#fffdf7;--ink:#111111;--ink-2:#5a5a5a;--accent:#d62828;--hi:#f5c842;--teal:#0d7377;--navy:#14213d;--ochre:#e07b39;--slate:#3d5a80;--sage:#2d6a4f}
+.sk-mono{font-family:'IBM Plex Serif','Georgia',serif;font-weight:500}
+.sk-box{border:1.5px solid var(--ink);background:transparent}
+.sk-rule-thin{height:0;border:0;border-top:1px solid var(--ink);margin:0}
+.sk-stamp{display:inline-block;font-family:'IBM Plex Serif',serif;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:3px 9px;border:1.5px solid currentColor;line-height:1.4;transform:rotate(-1deg);white-space:nowrap}
+.sk-stamp--navy{color:var(--navy);border-color:var(--navy)}
+.sk-stamp--hi{color:#9a7200;border-color:#9a7200}
+.code-block{background:var(--navy);color:var(--card);padding:14px 16px;font-family:'IBM Plex Serif',serif;font-size:14px;line-height:1.6;overflow-x:auto;margin:12px 0}
+.row{display:flex}.col{display:flex;flex-direction:column}.gap-2{gap:8px}.gap-3{gap:12px}.gap-4{gap:16px}
+.dd-page{max-width:1000px;margin:0 auto;padding:32px}
+@media(max-width:640px){body{font-size:17px}.dd-page{padding:16px 14px}}
+</style>
+</head>
+<body>
+<div class="dd-page">
+
+  <header class="sk-box" style="background:var(--ink);color:var(--card);padding:14px 20px;margin-bottom:16px">
+    <div class="row" style="justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
+      <a href="../index.html" style="color:var(--card)">
+        <span class="sk-mono" style="font-size:12px;letter-spacing:3px;color:var(--hi)">&#8470; 002 / 2026</span>
+        <span style="font-size:22px;font-weight:700;letter-spacing:-0.5px;margin-left:12px">DAILY &middot; DIGEST</span>
+      </a>
+      <div class="row gap-3" style="align-items:center;flex-wrap:wrap">
+        <a href="../index.html" class="sk-mono" style="font-size:11px;color:var(--hi)">&larr; ISSUE 002</a>
+        <a href="../../../archive.html" class="sk-mono" style="font-size:11px;color:var(--sage);border:1px solid var(--sage);padding:3px 10px">ARCHIVE &#8599;</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="row gap-2" style="margin-bottom:16px;flex-wrap:wrap">
+    <a href="../index.html" class="sk-mono" style="font-size:11px;color:var(--ink-2)">ISSUE 002</a>
+    <span class="sk-mono" style="font-size:11px;color:var(--ink-2)">/</span>
+    <span class="sk-mono" style="font-size:11px">04.1 &middot; TOOL</span>
+  </div>
+
+  <article>
+    <div class="row gap-2" style="margin-bottom:14px;flex-wrap:wrap">
+      <span class="sk-stamp sk-stamp--navy">MODEL</span>
+      <span class="sk-stamp sk-stamp--hi">FREE TIER AVAILABLE</span>
+    </div>
+    <h1 style="font-size:36px;font-weight:700;line-height:1.05;margin:0 0 12px;text-wrap:balance">
+      DeepSeek V4 API
+    </h1>
+    <p style="font-size:17px;margin:0 0 8px"><strong>What it is:</strong> REST API for DeepSeek-V4-Pro and V4-Flash&mdash;MoE models with 1M-token context that match Claude Opus 4.6 SWE-bench scores at ~10&times; lower cost.</p>
+    <p style="font-size:17px;margin:0 0 20px"><strong>Problem it solves:</strong> Frontier-quality coding and reasoning at a price point that makes high-volume agentic workloads economically viable ($0.14/M vs $1.50/M input tokens).</p>
+
+    <div class="sk-box" style="padding:14px 18px;background:var(--card);margin-bottom:20px">
+      <p class="sk-mono" style="font-size:11px;letter-spacing:1.5px;margin:0 0 8px;color:var(--accent)">PRICING</p>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;font-size:16px">
+        <div><strong>V4-Pro input</strong><br/>$0.14/M tokens</div>
+        <div><strong>V4-Pro output</strong><br/>$0.56/M tokens</div>
+        <div><strong>V4-Flash</strong><br/>Lower — see docs</div>
+      </div>
+      <p style="font-size:15px;margin:12px 0 0;color:var(--ink-2)">Free tier: limited daily quota available without payment method on first signup.</p>
+    </div>
+
+    <h2 style="font-size:13px;font-family:'IBM Plex Serif',serif;letter-spacing:2px;text-transform:uppercase;margin:0 0 12px;color:var(--accent)">Copy-paste quickstart</h2>
+    <hr class="sk-rule-thin" style="margin-bottom:12px" />
+
+    <p class="sk-mono" style="font-size:12px;margin:0 0 4px;color:var(--ink-2)">1. Get an API key at platform.deepseek.com</p>
+    <div class="code-block">
+<pre>export DEEPSEEK_API_KEY="your-key-here"</pre>
+    </div>
+
+    <p class="sk-mono" style="font-size:12px;margin:0 0 4px;color:var(--ink-2)">2. Install the OpenAI SDK (no DeepSeek-specific SDK needed)</p>
+    <div class="code-block">
+<pre>pip install openai</pre>
+    </div>
+
+    <p class="sk-mono" style="font-size:12px;margin:0 0 4px;color:var(--ink-2)">3. Send your first request</p>
+    <div class="code-block">
+<pre>from openai import OpenAI
+import os
+
+client = OpenAI(
+    api_key=os.environ["DEEPSEEK_API_KEY"],
+    base_url="https://api.deepseek.com/v1"
+)
+
+response = client.chat.completions.create(
+    model="deepseek-chat",        # V4-Pro
+    # model="deepseek-flash",     # V4-Flash (faster, cheaper)
+    messages=[
+        {"role": "system", "content": "You are a senior software engineer."},
+        {"role": "user",   "content": "Review this function for bugs: ..."}
+    ],
+    max_tokens=1024
+)
+print(response.choices[0].message.content)</pre>
+    </div>
+
+    <p class="sk-mono" style="font-size:12px;margin:0 0 4px;color:var(--ink-2)">4. For 1M-token context (large codebase ingestion)</p>
+    <div class="code-block">
+<pre># Same as above — V4-Pro supports 1M tokens natively.
+# Pass your entire codebase as context; no chunking required
+# for repos under ~750K tokens (leaving room for the response).</pre>
+    </div>
+
+    <div style="background:var(--hi);padding:16px;margin:20px 0;border-left:4px solid var(--ink)">
+      <p class="sk-mono" style="font-size:11px;letter-spacing:1.5px;margin:0 0 8px">WHAT TO OBSERVE</p>
+      <p style="font-size:16px;margin:0 0 8px">On a coding task: compare the reasoning quality in the response to your current model. V4-Pro should produce comparable output on code generation and review. If you see regressions on knowledge-heavy questions (domain-specific APIs, niche libraries), that is expected&mdash;V4 trails frontier models on knowledge benchmarks by ~3&ndash;6 months.</p>
+      <p style="font-size:16px;margin:0">On a 1M-context task: pass a large file tree and ask a question that requires cross-file reasoning. Verify the model correctly uses context from multiple files rather than hallucinating.</p>
+    </div>
+
+    <div style="margin-top:20px;padding:14px;background:var(--card);border:1.5px solid var(--ink)">
+      <p class="sk-mono" style="font-size:11px;letter-spacing:1.5px;margin:0 0 8px">FREE ALTERNATIVE</p>
+      <p style="font-size:16px;margin:0">Self-host DeepSeek V4-Pro weights (MIT licensed) via Ollama or vLLM on hardware with sufficient VRAM. Weights available at huggingface.co/deepseek-ai/DeepSeek-V4-Pro.</p>
+    </div>
+
+    <div style="margin-top:24px;padding-top:16px;border-top:1px solid var(--ink)">
+      <a href="https://api-docs.deepseek.com" class="sk-mono" style="font-size:12px;color:var(--teal);display:block;margin-bottom:6px">SOURCE &middot; API-DOCS.DEEPSEEK.COM &#8599;</a>
+      <a href="https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro" class="sk-mono" style="font-size:12px;color:var(--teal);display:block">MODEL WEIGHTS &middot; HUGGING FACE &#8599;</a>
+    </div>
+  </article>
+
+  <div style="margin-top:24px;padding-top:16px;border-top:1.5px solid var(--ink)">
+    <div class="row" style="justify-content:space-between;flex-wrap:wrap;gap:10px">
+      <a href="../index.html" class="sk-mono" style="font-size:11px;color:var(--teal)">&larr; BACK TO ISSUE 002</a>
+      <a href="../../../archive.html" class="sk-mono" style="font-size:11px;color:var(--teal)">ALL ISSUES &middot; ARCHIVE &#8599;</a>
+      <a href="04-2-google-adk.html" class="sk-mono" style="font-size:11px;color:var(--accent)">NEXT TOOL &rarr;</a>
+    </div>
+  </div>
+</div>
+</body>
+</html>
