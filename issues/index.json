@@ -10,5 +10,11 @@
     "date": "2026-04-27",
     "path": "issues/002/index.html",
     "topics": ["AI", "AGENTS", "MODELS", "ENGINEERING"]
+  },
+  {
+    "issue": "003",
+    "date": "2026-04-28",
+    "path": "issues/003/index.html",
+    "topics": ["AI", "INDUSTRY", "SECURITY", "POLICY", "ENGINEERING"]
   }
 ]

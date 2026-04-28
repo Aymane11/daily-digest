@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Daily Digest — Mercor data breach — Issue 003</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{background:#f5f0e8;color:#111;font-family:'Lora',serif;font-size:18px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:root{--paper:#f5f0e8;--card:#fffdf7;--ink:#111111;--ink-2:#5a5a5a;--accent:#d62828;--hi:#f5c842;--teal:#0d7377;--navy:#14213d;--ochre:#e07b39;--slate:#3d5a80;--sage:#2d6a4f;--purple:#7b2d8b;--rule:#111111}
+.sk-mono{font-family:'IBM Plex Serif','Georgia',serif;font-weight:500}
+.sk-script{font-family:'Lora',serif;font-style:italic}
+.sk-box{border:1.5px solid var(--ink);background:transparent;position:relative}
+.sk-box-soft{border:1.25px solid #2a2a2a;background:transparent}
+.sk-rule-thin{height:0;border:0;border-top:1px solid var(--ink);margin:0}
+.sk-stamp{display:inline-block;font-family:'IBM Plex Serif',serif;font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:3px 8px;border:1.5px solid currentColor;line-height:1.4;transform:rotate(-1deg);white-space:nowrap}
+.sk-stamp--red{color:var(--accent);border-color:var(--accent)}
+.sk-stamp--navy{color:var(--navy);border-color:var(--navy)}
+.sk-stamp--teal{color:var(--teal);border-color:var(--teal)}
+.sk-stamp--ochre{color:var(--ochre);border-color:var(--ochre)}
+.sk-stamp--hi{color:#9a7200;border-color:#9a7200}
+.row{display:flex}.col{display:flex;flex-direction:column}.grow{flex:1}
+.gap-2{gap:8px}.gap-3{gap:12px}
+.dd-page{max-width:1200px;margin:0 auto;padding:32px}
+.sk-grid-brief{display:grid;grid-template-columns:1fr 300px;gap:14px}
+@media(max-width:900px){.sk-grid-brief{grid-template-columns:1fr 260px!important}}
+@media(max-width:640px){body{font-size:17px}.dd-page{padding:16px 14px}.sk-grid-brief{grid-template-columns:1fr!important}.sk-dossier-hl{font-size:28px!important}}
+</style>
+</head>
+<body>
+<div class="dd-page">
+  <nav class="row" style="justify-content:space-between;align-items:baseline;margin-bottom:8px">
+    <a href="../index.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px">&#8592; DIGEST &middot; &numero; 003</a>
+    <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">HEADLINE &middot; 02.2 &middot; SECURITY</span>
+    <a href="../../../archive.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--teal)">ARCHIVE &#8599;</a>
+  </nav>
+
+  <section class="sk-box" style="background:var(--ink);color:var(--card);padding:20px 22px">
+    <div class="row" style="justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px">
+      <span class="sk-mono" style="font-size:10px;letter-spacing:3px;color:var(--hi)">HEADLINE / 02.2</span>
+      <span class="sk-mono" style="font-size:10px">TUE 28 APR 2026</span>
+      <a href="https://www.halborn.com/blog/post/explained-the-mercor-hack-april-2026" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--sage)">SOURCE &middot; HALBORN &#8599;</a>
+    </div>
+    <div class="row gap-2" style="margin-top:12px;flex-wrap:wrap">
+      <span class="sk-stamp sk-stamp--hi">SECURITY</span>
+      <span class="sk-stamp" style="color:var(--card);border-color:var(--card)">SUPPLY CHAIN</span>
+      <span class="sk-stamp" style="color:var(--ochre);border-color:var(--ochre)">BIOMETRICS</span>
+    </div>
+    <h1 class="sk-dossier-hl" style="font-size:42px;font-weight:700;line-height:1.06;letter-spacing:-0.5px;text-wrap:balance;margin:14px 0 0">
+      4TB of voice prints and ID documents stolen from 40,000 AI contractors in a LiteLLM supply chain attack on Mercor
+    </h1>
+    <p class="sk-script" style="font-size:20px;color:var(--hi);margin:12px 0 0">Lapsus$ exploited a malicious LiteLLM release (95M monthly downloads) to harvest credentials and pivot into Mercor&rsquo;s systems. Five lawsuits filed in ten days. Organizations pinning dependencies with cryptographic hashes were fully protected.</p>
+    <div class="row gap-3" style="margin-top:14px">
+      <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">BY &middot; EDITORIAL TEAM</span>
+      <span class="sk-mono" style="font-size:10px;color:var(--hi)">&middot; 5 MIN</span>
+    </div>
+  </section>
+
+  <section class="sk-grid-brief" style="margin-top:12px">
+    <div class="col gap-3">
+      <div class="sk-box" style="background:var(--hi);padding:16px">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0">&#9733; WHAT HAPPENED</p>
+        <hr class="sk-rule-thin" style="margin:8px 0 10px" />
+        <p style="font-size:18px;line-height:1.65;margin:0">In late February 2026, threat group TeamPCP compromised Trivy&mdash;an open-source security scanner&mdash;by stealing maintainer credentials via a GitHub Actions vulnerability. On March 24, they published two malicious LiteLLM versions (1.82.7 and 1.82.8) to PyPI within 13 minutes of each other. LiteLLM, downloaded 95 million times monthly, holds API keys for dozens of AI providers. The malicious payload harvested credentials, exfiltrated data, and installed persistent backdoors. Mercor&mdash;a $10B AI training startup serving OpenAI, Anthropic, and Meta&mdash;ran the compromised library. The breach exposed 4TB of data: studio-quality voice recordings averaging two to five minutes per contractor, government-issued ID documents, Social Security numbers, face biometrics, video interviews, and source code. On April 4, Lapsus$ posted the archive on its leak site. Five contractor lawsuits were filed within ten days.</p>
+      </div>
+
+      <div class="sk-box" style="background:var(--card);padding:16px">
+        <div class="row gap-3" style="align-items:baseline;margin-bottom:10px">
+          <span style="font-size:28px;font-weight:700;color:var(--accent);line-height:1">&#182; 01</span>
+          <span class="sk-mono" style="font-size:11px;letter-spacing:2px">WHY &middot; IT &middot; MATTERS</span>
+        </div>
+        <p style="font-size:17px;line-height:1.65;margin:0">Voice prints paired with verified identity documents enable a complete attacker toolkit: bank verification bypasses, deepfake video calls, vishing campaigns against employers, insurance fraud, and scams targeting elderly victims. The combination is uniquely dangerous because voice was collected under a &ldquo;training data&rdquo; framing&mdash;contractors did not understand they were generating permanent biometric identifiers. The broader implication: LiteLLM&rsquo;s architectural role (it holds API keys for multiple AI providers) made it an exceptionally high-value target. Thousands of companies that used the library were potentially exposed; Mercor is simply the most visible victim. Delve Technologies, the GRC firm that had SOC 2&ndash;certified LiteLLM, was simultaneously exposed as running fabricated compliance reports&mdash;99.8% identical text across 494 clients. Delve was expelled from Y Combinator on April 4.</p>
+      </div>
+
+      <div class="sk-box" style="background:var(--card);padding:16px">
+        <div class="row gap-3" style="align-items:baseline;margin-bottom:10px">
+          <span style="font-size:28px;font-weight:700;color:var(--accent);line-height:1">&#182; 02</span>
+          <span class="sk-mono" style="font-size:11px;letter-spacing:2px">WHAT &middot; TO &middot; WATCH</span>
+        </div>
+        <p style="font-size:17px;line-height:1.65;margin:0">Audit your <code style="font-family:'IBM Plex Serif',serif;font-size:15px">requirements.txt</code> or <code style="font-family:'IBM Plex Serif',serif;font-size:15px">pyproject.toml</code> today: check whether you pin LiteLLM and its dependencies with cryptographic hashes (use <code style="font-family:'IBM Plex Serif',serif;font-size:15px">pip-compile --generate-hashes</code> or switch to <code style="font-family:'IBM Plex Serif',serif;font-size:15px">uv.lock</code>). Organizations with locked dependency files were fully protected. Evaluate whether any service in your stack holds AI provider credentials in an environment variable accessible to a library like LiteLLM&mdash;consider using a secrets manager with tight IAM scoping instead. Watch for NSA/CISA/FBI joint guidance on AI supply chain security expected before EU AI Act enforcement in August 2026.</p>
+      </div>
+    </div>
+
+    <aside class="col gap-3">
+      <div class="sk-box" style="background:var(--card);padding:14px">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0">BY &middot; THE &middot; NUMBERS</p>
+        <hr class="sk-rule-thin" style="margin:8px 0 12px" />
+        <div class="col gap-3">
+          <div>
+            <div style="font-size:44px;font-weight:700;line-height:0.95;color:var(--accent)">4TB</div>
+            <p class="sk-mono" style="font-size:10px;margin:4px 0 0;letter-spacing:1px">DATA STOLEN</p>
+          </div>
+          <hr class="sk-rule-thin" />
+          <div>
+            <div style="font-size:44px;font-weight:700;line-height:0.95">40K</div>
+            <p class="sk-mono" style="font-size:10px;margin:4px 0 0;letter-spacing:1px">CONTRACTORS AFFECTED</p>
+          </div>
+          <hr class="sk-rule-thin" />
+          <div>
+            <div style="font-size:44px;font-weight:700;line-height:0.95">95M</div>
+            <p class="sk-mono" style="font-size:10px;margin:4px 0 0;letter-spacing:1px">LITELLM MONTHLY DOWNLOADS</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="sk-box-soft" style="padding:12px">
+        <p class="sk-mono" style="font-size:10px;letter-spacing:2px;margin:0 0 10px">FILED &middot; UNDER</p>
+        <div class="row gap-2" style="flex-wrap:wrap">
+          <span class="sk-stamp sk-stamp--red">SECURITY</span>
+          <span class="sk-stamp sk-stamp--navy">BIOMETRICS</span>
+          <span class="sk-stamp sk-stamp--teal">SUPPLY CHAIN</span>
+        </div>
+      </div>
+
+      <div class="sk-box-soft" style="padding:12px;background:var(--card)">
+        <p class="sk-mono" style="font-size:10px;letter-spacing:2px;margin:0 0 8px">SOURCE</p>
+        <a href="https://www.strikegraph.com/blog/the-mercor-breach-exposed-silicon-valleys-fragile-ai-supply-chain" class="sk-mono" style="font-size:11px;letter-spacing:1px;color:var(--teal);text-decoration:underline;text-underline-offset:2px">STRIKEGRAPH.COM &#8599;</a>
+        <p class="sk-mono" style="font-size:9px;color:var(--ink-2);margin:6px 0 0">BREACH DATE MAR 31, 2026 &middot; DISCLOSED APR 4</p>
+      </div>
+    </aside>
+  </section>
+
+  <footer class="sk-box-soft" style="padding:14px 18px;margin-top:12px">
+    <div class="row" style="justify-content:space-between;align-items:center">
+      <a href="02-1-gpt-5-5-launch.html" class="col">
+        <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--ink-2)">&#8592; PREV</span>
+        <span style="font-size:14px;font-weight:700">02.1 &middot; GPT-5.5</span>
+      </a>
+      <span class="sk-mono" style="font-size:10px;letter-spacing:2px">&middot; 02.2 &middot;</span>
+      <a href="02-3-datacenter-backlash.html" class="col" style="align-items:flex-end">
+        <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--accent)">NEXT &rarr;</span>
+        <span style="font-size:14px;font-weight:700">02.3 &middot; Data center backlash</span>
+      </a>
+    </div>
+  </footer>
+</div>
+</body>
+</html>

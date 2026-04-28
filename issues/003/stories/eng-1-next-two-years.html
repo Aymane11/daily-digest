@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Daily Digest — The Next Two Years of Software Engineering — Issue 003</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{background:#f5f0e8;color:#111;font-family:'Lora',serif;font-size:18px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:root{--paper:#f5f0e8;--card:#fffdf7;--ink:#111111;--ink-2:#5a5a5a;--accent:#d62828;--hi:#f5c842;--teal:#0d7377;--navy:#14213d;--ochre:#e07b39;--slate:#3d5a80;--sage:#2d6a4f;--purple:#7b2d8b;--rule:#111111}
+.sk-mono{font-family:'IBM Plex Serif','Georgia',serif;font-weight:500}
+.sk-script{font-family:'Lora',serif;font-style:italic}
+.sk-box{border:1.5px solid var(--ink);background:transparent;position:relative}
+.sk-box-soft{border:1.25px solid #2a2a2a;background:transparent}
+.sk-rule-thin{height:0;border:0;border-top:1px solid var(--ink);margin:0}
+.sk-stamp{display:inline-block;font-family:'IBM Plex Serif',serif;font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:3px 8px;border:1.5px solid currentColor;line-height:1.4;transform:rotate(-1deg);white-space:nowrap}
+.sk-stamp--red{color:var(--accent);border-color:var(--accent)}
+.sk-stamp--navy{color:var(--navy);border-color:var(--navy)}
+.sk-stamp--teal{color:var(--teal);border-color:var(--teal)}
+.sk-stamp--hi{color:#9a7200;border-color:#9a7200}
+.row{display:flex}.col{display:flex;flex-direction:column}.grow{flex:1}
+.gap-1{gap:4px}.gap-2{gap:8px}.gap-3{gap:12px}
+.dd-page{max-width:1200px;margin:0 auto;padding:32px}
+@media(max-width:900px){.sk-grid-modules{grid-template-columns:1fr!important}.eng-means-grid{grid-template-columns:1fr!important}}
+@media(max-width:640px){body{font-size:17px}.dd-page{padding:16px 14px}.sk-dossier-hl{font-size:26px!important}.sk-grid-stats{grid-template-columns:repeat(2,1fr)!important}}
+</style>
+</head>
+<body>
+<div class="dd-page">
+  <nav class="row" style="justify-content:space-between;align-items:baseline;margin-bottom:8px">
+    <a href="../index.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px">&#8592; DIGEST &middot; &numero; 003</a>
+    <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">ENG READ &middot; 05 &middot; CAREER</span>
+    <a href="../../../archive.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--teal)">ARCHIVE &#8599;</a>
+  </nav>
+
+  <!-- progress strip -->
+  <div class="row gap-2" style="margin-bottom:12px">
+    <div class="row gap-2 grow" style="align-items:center">
+      <span class="sk-mono" style="font-size:10px;font-weight:700;color:var(--accent)">01</span>
+      <div style="flex:1;height:3px;background:var(--accent)"></div>
+    </div>
+    <div class="row gap-2 grow" style="align-items:center">
+      <span class="sk-mono" style="font-size:10px;font-weight:700;color:var(--accent)">02</span>
+      <div style="flex:1;height:3px;background:var(--accent)"></div>
+    </div>
+    <div class="row gap-2 grow" style="align-items:center">
+      <span class="sk-mono" style="font-size:10px;font-weight:700;color:var(--accent)">03</span>
+      <div style="flex:1;height:3px;background:var(--accent)"></div>
+    </div>
+    <div class="row gap-2 grow" style="align-items:center">
+      <span class="sk-mono" style="font-size:10px;font-weight:700;color:var(--accent)">04</span>
+      <div style="flex:1;height:3px;background:var(--accent)"></div>
+    </div>
+    <div class="row gap-2 grow" style="align-items:center">
+      <span class="sk-mono" style="font-size:10px;font-weight:700;color:var(--accent)">05</span>
+      <div style="flex:1;height:3px;background:var(--accent)"></div>
+    </div>
+  </div>
+
+  <!-- 01 OPENER -->
+  <section class="sk-box" style="background:var(--ink);color:var(--card);padding:20px 22px">
+    <div class="row" style="justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px">
+      <span class="sk-mono" style="font-size:10px;letter-spacing:3px;color:var(--hi)">01 / OPENER</span>
+      <span class="sk-mono" style="font-size:10px">TUE 28 APR 2026</span>
+      <a href="https://addyosmani.com/blog/next-two-years/" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--sage)">SOURCE &middot; ADDYOSMANI.COM &#8599;</a>
+    </div>
+    <div class="row gap-2" style="margin-top:12px;flex-wrap:wrap">
+      <span class="sk-stamp sk-stamp--hi">ENGINEERING</span>
+      <span class="sk-stamp" style="color:var(--card);border-color:var(--card)">CAREER</span>
+    </div>
+    <h1 class="sk-dossier-hl" style="font-size:44px;font-weight:700;line-height:1.06;letter-spacing:-0.5px;text-wrap:balance;margin:14px 0 0">
+      The Next Two Years of Software Engineering
+    </h1>
+    <p class="sk-script" style="font-size:22px;color:var(--hi);margin:12px 0 0">Addy Osmani maps the five questions that will determine which engineers thrive when AI writes the majority of code: junior pipeline collapse, skills atrophy, role evolution from coder to auditor, specialist versus T-shaped identity, and what education needs to become.</p>
+    <div class="row gap-3" style="margin-top:14px;flex-wrap:wrap">
+      <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">BY &middot; ADDY OSMANI</span>
+      <span class="sk-mono" style="font-size:10px;color:var(--hi)">&middot; 8 MIN &middot; CAREER</span>
+    </div>
+  </section>
+
+  <!-- 02 NUMBERS -->
+  <section class="sk-box" style="background:var(--hi);padding:20px 22px;margin-top:12px">
+    <div class="row" style="justify-content:space-between;align-items:baseline;margin-bottom:16px">
+      <div class="row gap-3" style="align-items:baseline">
+        <span class="sk-mono" style="font-size:28px;font-weight:700;line-height:1">02</span>
+        <span class="sk-mono" style="font-size:11px;letter-spacing:2px">THE &middot; NUMBERS &middot; AT A GLANCE</span>
+      </div>
+      <span class="sk-mono" style="font-size:10px">5 QUESTIONS</span>
+    </div>
+    <div class="sk-grid-stats" style="display:grid;grid-template-columns:repeat(4,1fr);gap:0">
+      <div class="col" style="padding:4px 16px">
+        <div style="font-size:64px;font-weight:700;line-height:0.95;letter-spacing:-1px">2</div>
+        <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;margin:6px 0 0">YEARS OUT</p>
+        <p style="font-size:13px;line-height:1.45;margin:6px 0 0">The horizon Osmani argues is when the current AI-acceleration inflection point resolves into a new stable engineering equilibrium&mdash;or doesn&rsquo;t.</p>
+      </div>
+      <div class="col" style="padding:4px 16px;border-left:1.5px solid var(--ink)">
+        <div style="font-size:64px;font-weight:700;line-height:0.95;letter-spacing:-1px">5</div>
+        <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;margin:6px 0 0">CRITICAL QUESTIONS</p>
+        <p style="font-size:13px;line-height:1.45;margin:6px 0 0">Pipeline collapse, skills atrophy, role evolution, specialist identity, and education redesign. Each one is individually consequential; together they define the profession.</p>
+      </div>
+      <div class="col" style="padding:4px 16px;border-left:1.5px solid var(--ink)">
+        <div style="font-size:64px;font-weight:700;line-height:0.95;letter-spacing:-1px">1</div>
+        <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;margin:6px 0 0">QUICK START</p>
+        <p style="font-size:13px;line-height:1.45;margin:6px 0 0">30 minutes reviewing one AI-generated code block in depth without AI assistance&mdash;the single diagnostic Osmani recommends doing this week.</p>
+      </div>
+      <div class="col" style="padding:4px 16px;border-left:1.5px solid var(--ink)">
+        <div style="font-size:64px;font-weight:700;line-height:0.95;letter-spacing:-1px">0</div>
+        <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;margin:6px 0 0">SHORTCUTS ALLOWED</p>
+        <p style="font-size:13px;line-height:1.45;margin:6px 0 0">Osmani&rsquo;s core warning: using AI as a learning shortcut rather than a learning tool is the fastest route to professional obsolescence.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 THE FIVE QUESTIONS -->
+  <section class="sk-box" style="background:var(--card);padding:20px 22px;margin-top:12px">
+    <div class="row" style="justify-content:space-between;align-items:baseline;margin-bottom:16px">
+      <div class="row gap-3" style="align-items:baseline">
+        <span class="sk-mono" style="font-size:28px;font-weight:700;line-height:1">03</span>
+        <span class="sk-mono" style="font-size:11px;letter-spacing:2px">THE &middot; FIVE &middot; QUESTIONS</span>
+      </div>
+      <span class="sk-mono" style="font-size:10px">WHAT OSMANI IS ACTUALLY ASKING</span>
+    </div>
+    <div class="col gap-3">
+      <div class="row gap-3" style="align-items:flex-start;padding:14px;background:var(--paper);border-left:4px solid var(--accent)">
+        <span class="sk-mono" style="font-size:18px;font-weight:700;color:var(--accent);line-height:1;min-width:28px">Q1</span>
+        <div>
+          <p style="font-size:17px;font-weight:700;margin:0 0 4px">Junior pipeline collapse</p>
+          <p style="font-size:15px;line-height:1.55;margin:0">If AI writes code that juniors used to write as practice, how do engineers develop the foundational pattern recognition that enables senior judgment? Osmani argues the pipeline problem is real and largely unaddressed: companies are hiring fewer juniors, which means fewer senior engineers in five years.</p>
+        </div>
+      </div>
+      <div class="row gap-3" style="align-items:flex-start;padding:14px;background:var(--paper);border-left:4px solid var(--teal)">
+        <span class="sk-mono" style="font-size:18px;font-weight:700;color:var(--teal);line-height:1;min-width:28px">Q2</span>
+        <div>
+          <p style="font-size:17px;font-weight:700;margin:0 0 4px">Skills atrophy</p>
+          <p style="font-size:15px;line-height:1.55;margin:0">Experienced engineers who stop exercising low-level skills lose them. The question is whether architectural judgment and debugging intuition can be maintained when engineers spend most of their time reviewing and directing AI output rather than writing and debugging directly.</p>
+        </div>
+      </div>
+      <div class="row gap-3" style="align-items:flex-start;padding:14px;background:var(--paper);border-left:4px solid var(--ochre)">
+        <span class="sk-mono" style="font-size:18px;font-weight:700;color:var(--ochre);line-height:1;min-width:28px">Q3</span>
+        <div>
+          <p style="font-size:17px;font-weight:700;margin:0 0 4px">Auditor vs. orchestrator</p>
+          <p style="font-size:15px;line-height:1.55;margin:0">The engineering role is shifting from writer to reviewer: the primary daily task is evaluating AI-generated code for correctness, security, and architectural fit rather than producing it. Osmani calls this the &ldquo;auditor&rdquo; model, and argues it requires different skills than traditional engineering&mdash;particularly strong system-level mental models that let you evaluate code you didn&rsquo;t write.</p>
+        </div>
+      </div>
+      <div class="row gap-3" style="align-items:flex-start;padding:14px;background:var(--paper);border-left:4px solid var(--navy)">
+        <span class="sk-mono" style="font-size:18px;font-weight:700;color:var(--navy);line-height:1;min-width:28px">Q4</span>
+        <div>
+          <p style="font-size:17px;font-weight:700;margin:0 0 4px">Specialist vs. T-shaped</p>
+          <p style="font-size:15px;line-height:1.55;margin:0">AI makes broad coverage cheaper and deep specialization more valuable simultaneously. Osmani&rsquo;s recommendation: build a T-shaped profile where the vertical is deep enough to debug and reason about AI output in your domain, and the horizontal is broad enough to direct AI across adjacent areas without being blind to its mistakes.</p>
+        </div>
+      </div>
+      <div class="row gap-3" style="align-items:flex-start;padding:14px;background:var(--paper);border-left:4px solid var(--purple)">
+        <span class="sk-mono" style="font-size:18px;font-weight:700;color:var(--purple);line-height:1;min-width:28px">Q5</span>
+        <div>
+          <p style="font-size:17px;font-weight:700;margin:0 0 4px">Education redesign</p>
+          <p style="font-size:15px;line-height:1.55;margin:0">CS curricula and bootcamps built around writing code from scratch are increasingly misaligned with the job. Osmani argues education needs to center problem framing, system design, code evaluation, and debugging&mdash;with AI-assisted coding treated as the environment, not as the skill to be taught.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 VOICES -->
+  <section class="sk-box" style="background:var(--card);padding:20px 22px;margin-top:12px">
+    <div class="row" style="justify-content:space-between;align-items:baseline;margin-bottom:16px">
+      <div class="row gap-3" style="align-items:baseline">
+        <span class="sk-mono" style="font-size:28px;font-weight:700;line-height:1">04</span>
+        <span class="sk-mono" style="font-size:11px;letter-spacing:2px">THE &middot; ARGUMENT</span>
+      </div>
+      <span class="sk-mono" style="font-size:10px">3 PERSPECTIVES</span>
+    </div>
+    <div class="sk-grid-modules" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
+      <blockquote class="sk-box" style="padding:14px;background:var(--hi);margin:0">
+        <span style="font-size:36px;line-height:0.6;font-family:'Lora',serif;color:var(--accent);height:18px;display:block">&ldquo;</span>
+        <p style="font-size:16px;font-weight:700;line-height:1.3;margin:8px 0 0">The engineers who thrive won&rsquo;t be those who can code fastest. They&rsquo;ll be those who can think clearest about what the code needs to do&mdash;and catch what the AI got wrong.</p>
+        <hr class="sk-rule-thin" style="margin:14px 0 8px" />
+        <div class="col">
+          <span class="sk-mono" style="font-size:10px;font-weight:700;letter-spacing:1px">THE CORE ARGUMENT</span>
+          <span class="sk-mono" style="font-size:9px;color:var(--ink-2)">OSMANI &middot; ADDYOSMANI.COM</span>
+        </div>
+      </blockquote>
+      <blockquote class="sk-box" style="padding:14px;background:var(--card);margin:0;border-left:3px solid var(--teal)">
+        <span style="font-size:36px;line-height:0.6;font-family:'Lora',serif;color:var(--teal);height:18px;display:block">&ldquo;</span>
+        <p style="font-size:16px;font-weight:700;line-height:1.3;margin:8px 0 0">Using AI as a shortcut to avoid learning is the fastest way to make yourself irreplaceable by AI. The tool should accelerate your understanding, not replace the act of developing it.</p>
+        <hr class="sk-rule-thin" style="margin:14px 0 8px" />
+        <div class="col">
+          <span class="sk-mono" style="font-size:10px;font-weight:700;letter-spacing:1px">ON LEARNING</span>
+          <span class="sk-mono" style="font-size:9px;color:var(--ink-2)">OSMANI &middot; ADDYOSMANI.COM</span>
+        </div>
+      </blockquote>
+      <blockquote class="sk-box" style="padding:14px;background:var(--card);margin:0;border-left:3px solid var(--ochre)">
+        <span style="font-size:36px;line-height:0.6;font-family:'Lora',serif;color:var(--ochre);height:18px;display:block">&ldquo;</span>
+        <p style="font-size:16px;font-weight:700;line-height:1.3;margin:8px 0 0">Mentoring juniors is no longer optional for senior engineers. If senior engineers don&rsquo;t actively invest in junior development now, they will find themselves in an organization with no one to hand off to&mdash;and no one to question their assumptions.</p>
+        <hr class="sk-rule-thin" style="margin:14px 0 8px" />
+        <div class="col">
+          <span class="sk-mono" style="font-size:10px;font-weight:700;letter-spacing:1px">ON MENTORSHIP</span>
+          <span class="sk-mono" style="font-size:9px;color:var(--ink-2)">OSMANI &middot; ADDYOSMANI.COM</span>
+        </div>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- 05 WHAT IT MEANS -->
+  <section class="sk-box" style="background:var(--card);padding:20px 22px;margin-top:12px">
+    <div class="row" style="justify-content:space-between;align-items:baseline;margin-bottom:16px">
+      <div class="row gap-3" style="align-items:baseline">
+        <span class="sk-mono" style="font-size:28px;font-weight:700;line-height:1">05</span>
+        <span class="sk-mono" style="font-size:11px;letter-spacing:2px">WHAT &middot; IT &middot; MEANS</span>
+      </div>
+      <span class="sk-mono" style="font-size:10px">3 TAKEAWAYS &middot; LINKS</span>
+    </div>
+    <div class="eng-means-grid" style="display:grid;grid-template-columns:1fr 280px;gap:18px">
+      <div class="col gap-3">
+        <div class="row gap-3" style="align-items:flex-start;border-left:4px solid var(--accent);padding-left:12px">
+          <span class="sk-mono" style="font-size:22px;font-weight:700;color:var(--accent);line-height:1;width:30px">01</span>
+          <div class="col grow gap-1">
+            <p style="font-size:18px;font-weight:700;line-height:1.25;margin:0">Audit your own code reviews</p>
+            <p style="font-size:15px;line-height:1.55;margin:0">If your code reviews have gotten less rigorous since you started using AI coding tools, that is the atrophy signal. Set a personal standard: at least one review per week where you trace every non-trivial function the AI generated back to its first principles. The bar is not &ldquo;does it look right&rdquo; but &ldquo;can I defend every decision.&rdquo;</p>
+          </div>
+        </div>
+        <div class="row gap-3" style="align-items:flex-start;border-left:4px solid var(--teal);padding-left:12px">
+          <span class="sk-mono" style="font-size:22px;font-weight:700;color:var(--teal);line-height:1;width:30px">02</span>
+          <div class="col grow gap-1">
+            <p style="font-size:18px;font-weight:700;line-height:1.25;margin:0">Own problem framing, delegate implementation</p>
+            <p style="font-size:15px;line-height:1.55;margin:0">The highest-leverage skill you can develop right now is the ability to decompose a complex problem into a sequence of well-scoped sub-problems that an AI can execute reliably. This is a distinct skill from coding and from traditional system design&mdash;it requires knowing the failure modes of AI well enough to design tasks that avoid them.</p>
+          </div>
+        </div>
+        <div class="row gap-3" style="align-items:flex-start;border-left:4px solid var(--ochre);padding-left:12px">
+          <span class="sk-mono" style="font-size:22px;font-weight:700;color:var(--ochre);line-height:1;width:30px">03</span>
+          <div class="col grow gap-1">
+            <p style="font-size:18px;font-weight:700;line-height:1.25;margin:0">This week: the 30-minute diagnostic</p>
+            <p style="font-size:15px;line-height:1.55;margin:0">Take one block of AI-generated code from your current codebase. Spend 30 minutes reviewing it with no AI assistance: understand every line, trace every dependency, and document what you would have done differently. If you find nothing to change, that is evidence the code is exceptional or evidence your judgment is degrading. Both are worth knowing.</p>
+          </div>
+        </div>
+      </div>
+
+      <aside class="sk-box" style="background:var(--ink);color:var(--card);padding:14px">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;color:var(--hi);margin:0">FURTHER &middot; READING</p>
+        <div style="border-top:1px solid var(--card);margin:8px 0 10px"></div>
+        <a href="https://addyosmani.com/blog/next-two-years/" class="row" style="justify-content:space-between;align-items:baseline;padding:8px 0;border-bottom:1px dashed rgba(255,255,255,0.3)">
+          <span class="sk-mono" style="font-size:11px">&#8594; The Next Two Years</span>
+          <span class="sk-mono" style="font-size:10px;color:var(--hi)">&#8599;</span>
+        </a>
+        <a href="https://addyosmani.com/blog/software-engineering-2025/" class="row" style="justify-content:space-between;align-items:baseline;padding:8px 0;border-bottom:1px dashed rgba(255,255,255,0.3)">
+          <span class="sk-mono" style="font-size:11px">&#8594; SE in 2025 (Osmani)</span>
+          <span class="sk-mono" style="font-size:10px;color:var(--hi)">&#8599;</span>
+        </a>
+        <a href="https://newsletter.pragmaticengineer.com/" class="row" style="justify-content:space-between;align-items:baseline;padding:8px 0">
+          <span class="sk-mono" style="font-size:11px">&#8594; Pragmatic Engineer</span>
+          <span class="sk-mono" style="font-size:10px;color:var(--hi)">&#8599;</span>
+        </a>
+      </aside>
+    </div>
+  </section>
+
+  <footer class="sk-box-soft" style="padding:14px 18px;margin-top:12px">
+    <div class="row" style="justify-content:space-between;align-items:center">
+      <a href="04-4-markitdown.html" class="col">
+        <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--ink-2)">&#8592; PREV</span>
+        <span style="font-size:14px;font-weight:700">04.4 &middot; MarkItDown</span>
+      </a>
+      <span class="sk-mono" style="font-size:10px;letter-spacing:2px">&middot; END OF ISSUE 003 &middot;</span>
+      <a href="../index.html" class="col" style="align-items:flex-end">
+        <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--accent)">BACK &rarr;</span>
+        <span style="font-size:14px;font-weight:700">Issue 003 homepage</span>
+      </a>
+    </div>
+  </footer>
+</div>
+</body>
+</html>

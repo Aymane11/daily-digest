@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Daily Digest — Issue 003 — TUE 28 APR 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{background:#f5f0e8;color:#111;font-family:'Lora',serif;font-size:20px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:root{
+  --paper:#f5f0e8;--card:#fffdf7;--ink:#111111;--ink-2:#5a5a5a;
+  --accent:#d62828;--hi:#f5c842;--teal:#0d7377;--navy:#14213d;
+  --ochre:#e07b39;--slate:#3d5a80;--sage:#2d6a4f;--purple:#7b2d8b;--rule:#111111;
+}
+.sk-mono{font-family:'IBM Plex Serif','Georgia',serif;font-weight:500}
+.sk-script{font-family:'Lora',serif;font-style:italic}
+.sk-box{border:1.5px solid var(--ink);background:transparent;position:relative}
+.sk-box-soft{border:1.25px solid #2a2a2a;background:transparent}
+.sk-rule{height:0;border:0;border-top:1.5px solid var(--ink);margin:0}
+.sk-rule-thin{height:0;border:0;border-top:1px solid var(--ink);margin:0}
+.sk-stamp{display:inline-block;font-family:'IBM Plex Serif',serif;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:3px 9px;border:1.5px solid currentColor;line-height:1.4;transform:rotate(-1deg);white-space:nowrap}
+.sk-stamp--red{color:var(--accent);border-color:var(--accent)}
+.sk-stamp--navy{color:var(--navy);border-color:var(--navy)}
+.sk-stamp--teal{color:var(--teal);border-color:var(--teal)}
+.sk-stamp--ochre{color:var(--ochre);border-color:var(--ochre)}
+.sk-stamp--slate{color:var(--slate);border-color:var(--slate)}
+.sk-stamp--hi{color:#9a7200;border-color:#9a7200}
+.sk-stamp--purple{color:var(--purple);border-color:var(--purple)}
+.sk-stamp--sage{color:var(--sage);border-color:var(--sage)}
+.row{display:flex}.col{display:flex;flex-direction:column}.grow{flex:1}
+.gap-2{gap:8px}.gap-3{gap:12px}.gap-4{gap:16px}.gap-5{gap:20px}
+.dd-page{max-width:1200px;margin:0 auto;padding:32px}
+.dd-module-h{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px}
+.dd-module-h .num{font-size:64px;font-weight:700;line-height:0.9;color:var(--accent)}
+.dd-module-h .title{font-family:'IBM Plex Serif',serif;font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase}
+.dd-module-h .right{font-family:'IBM Plex Serif',serif;font-size:11px;letter-spacing:1.5px}
+@media(max-width:900px){
+  .main-grid{grid-template-columns:1fr !important}
+  .main-grid>*{grid-column:span 1 !important}
+  .hl-grid{grid-template-columns:repeat(2,1fr) !important}
+}
+@media(max-width:640px){
+  body{font-size:18px}
+  .dd-page{padding:16px 14px}
+  .main-grid{grid-template-columns:1fr !important}
+  .main-grid>*{grid-column:span 1 !important}
+  .hl-grid{grid-template-columns:1fr !important}
+  .dd-module-h .num{font-size:48px}
+  .lead-hl{font-size:28px !important}
+  .masthead-row{flex-wrap:wrap;gap:10px}
+  .masthead-nav{flex-wrap:wrap;gap:6px}
+}
+@media(max-width:380px){
+  body{font-size:17px}
+  .dd-page{padding:12px 10px}
+  .lead-hl{font-size:24px !important}
+}
+</style>
+</head>
+<body>
+<div class="dd-page">
+
+  <!-- MASTHEAD -->
+  <header class="sk-box" style="background:var(--ink);color:var(--card);padding:16px 20px">
+    <div class="row masthead-row" style="justify-content:space-between;align-items:center;gap:12px">
+      <div class="row gap-3" style="align-items:baseline">
+        <span class="sk-mono" style="font-size:12px;letter-spacing:3px;color:var(--hi)">&numero; 003 / 2026</span>
+        <span style="font-size:30px;font-weight:700;letter-spacing:-0.5px">DAILY &middot; DIGEST</span>
+      </div>
+      <nav class="row gap-4 masthead-nav" style="align-items:center">
+        <span class="sk-mono" style="font-size:11px;letter-spacing:1.5px;color:var(--hi)">AI</span>
+        <span class="sk-mono" style="font-size:11px;letter-spacing:1.5px;color:var(--hi)">INDUSTRY</span>
+        <span class="sk-mono" style="font-size:11px;letter-spacing:1.5px;color:var(--hi)">SECURITY</span>
+        <span class="sk-mono" style="font-size:11px;letter-spacing:1.5px">2026 &middot; 04 &middot; 28</span>
+        <a href="../../archive.html" class="sk-mono" style="font-size:11px;letter-spacing:1.5px;color:var(--sage);border:1px solid var(--sage);padding:4px 12px">ARCHIVE &#8599;</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- meta strip -->
+  <div class="row gap-3" style="margin-top:10px;flex-wrap:wrap">
+    <span class="sk-box-soft sk-mono" style="padding:5px 11px;font-size:11px">ISSUE 003</span>
+    <span class="sk-box-soft sk-mono" style="padding:5px 11px;font-size:11px">AI &middot; INDUSTRY &middot; SECURITY &middot; POLICY &middot; ENGINEERING</span>
+    <span class="sk-box-soft sk-mono" style="padding:5px 11px;font-size:11px">TUE 28 APR 2026</span>
+    <span class="sk-box-soft sk-mono" style="padding:5px 11px;font-size:11px">06:00 UTC</span>
+    <span class="sk-box-soft sk-mono" style="padding:5px 11px;font-size:11px">13 STORIES</span>
+  </div>
+
+  <!-- 12-COL GRID -->
+  <main class="main-grid" style="display:grid;grid-template-columns:repeat(12,1fr);gap:12px;margin-top:16px">
+
+    <!-- 01 LEAD (8 col) -->
+    <article class="sk-box" style="grid-column:span 8;padding:22px;background:var(--card)">
+      <div class="dd-module-h">
+        <div class="row gap-3" style="align-items:baseline">
+          <span class="num">01</span>
+          <span class="title">LEAD / FEATURE</span>
+        </div>
+        <span class="right">INDUSTRY &middot; M&amp;A</span>
+      </div>
+      <hr class="sk-rule-thin" style="margin-bottom:16px" />
+      <div class="col gap-4">
+        <div class="row gap-2" style="flex-wrap:wrap">
+          <span class="sk-stamp sk-stamp--red">INDUSTRY</span>
+          <span class="sk-stamp sk-stamp--navy">M&amp;A</span>
+          <span class="sk-stamp sk-stamp--teal">PARTNERSHIPS</span>
+        </div>
+        <h1 class="lead-hl" style="font-size:40px;font-weight:700;line-height:1.05;margin:0;text-wrap:balance">
+          Microsoft and OpenAI dissolve their exclusive partnership&mdash;the deal that built the AI industry as we know it
+        </h1>
+        <p class="sk-mono" style="font-size:13px;margin:0">&rarr; The 2019 exclusive is replaced by a preferred-provider arrangement expiring 2032. OpenAI can now close deals with AWS, Google Cloud, and others. Microsoft retains perpetual rights to GPT-4-era models.</p>
+        <p style="font-size:19px;line-height:1.65;margin:0">OpenAI and Microsoft announced on April 27, 2026 that their exclusive partnership&mdash;the $13 billion deal struck in 2019 that made Microsoft the sole commercial cloud partner for OpenAI&rsquo;s models&mdash;will be restructured as a non-exclusive preferred-provider arrangement expiring in 2032. OpenAI is simultaneously closing a $50 billion cloud infrastructure deal with AWS and entering discussions with Google Cloud. Microsoft retains perpetual rights to GPT-4-era model weights and a 49% revenue share from OpenAI&rsquo;s enterprise API business. The restructuring ends a commercial constraint that had prevented OpenAI from closing deals with competitors since 2019&mdash;and signals that the company is preparing for a post-IPO operational model with diversified cloud infrastructure.</p>
+        <div class="row gap-3" style="margin-top:6px;align-items:center;flex-wrap:wrap">
+          <span class="sk-mono" style="font-size:11px;letter-spacing:1.5px">BY &middot; EDITORIAL TEAM</span>
+          <span class="sk-mono" style="font-size:11px;color:var(--ink-2)">&middot; 5 MIN</span>
+          <a href="stories/01-lead-msft-openai-split.html" class="sk-mono" style="font-size:11px;letter-spacing:1.5px;color:var(--accent);margin-left:auto">READ FULL STORY &rarr;</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- 01 RAIL — stats (4 col, gold) -->
+    <aside class="sk-box" style="grid-column:span 4;padding:20px;background:var(--hi)">
+      <div class="dd-module-h">
+        <div class="row gap-3" style="align-items:baseline">
+          <span class="num" style="color:var(--ink)">&#9733;</span>
+          <span class="title">BY THE NUMBERS</span>
+        </div>
+      </div>
+      <hr class="sk-rule-thin" style="margin-bottom:16px" />
+      <p style="font-size:17px;font-weight:700;line-height:1.3;margin:0 0 16px">The Microsoft&ndash;OpenAI deal in numbers</p>
+      <div class="row" style="gap:14px;flex-wrap:wrap;margin-bottom:16px">
+        <div class="col">
+          <span style="font-size:28px;font-weight:700;line-height:1">$13B</span>
+          <span class="sk-mono" style="font-size:10px;margin-top:3px">MSFT TOTAL INVESTMENT</span>
+        </div>
+        <div class="col">
+          <span style="font-size:28px;font-weight:700;line-height:1">$50B</span>
+          <span class="sk-mono" style="font-size:10px;margin-top:3px">AWS CLOUD DEAL</span>
+        </div>
+      </div>
+      <div class="row" style="gap:14px;flex-wrap:wrap">
+        <div class="col">
+          <span style="font-size:28px;font-weight:700;line-height:1">49%</span>
+          <span class="sk-mono" style="font-size:10px;margin-top:3px">MSFT REVENUE SHARE</span>
+        </div>
+        <div class="col">
+          <span style="font-size:28px;font-weight:700;line-height:1">2032</span>
+          <span class="sk-mono" style="font-size:10px;margin-top:3px">PREFERRED EXPIRY</span>
+        </div>
+      </div>
+      <hr class="sk-rule-thin" style="margin:16px 0" />
+      <p style="font-size:14px;line-height:1.5;margin:0">OpenAI now free to sell API access to AWS, Google Cloud, and other hyperscalers&mdash;a structural shift in AI distribution.</p>
+    </aside>
+
+    <!-- 02 TOP HEADLINES (12 col) -->
+    <section class="sk-box" style="grid-column:span 12;padding:22px;background:var(--card)">
+      <div class="dd-module-h">
+        <div class="row gap-3" style="align-items:baseline">
+          <span class="num">02</span>
+          <span class="title">TOP HEADLINES</span>
+        </div>
+        <span class="right">FOUR &middot; STORIES</span>
+      </div>
+      <hr class="sk-rule-thin" style="margin-bottom:16px" />
+      <div class="hl-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px">
+        <article style="border-left:3px solid var(--navy);padding-left:14px">
+          <div class="row gap-2" style="margin-bottom:8px;flex-wrap:wrap">
+            <span class="sk-stamp sk-stamp--navy">MODELS</span>
+          </div>
+          <div class="row" style="justify-content:flex-end">
+            <span class="sk-mono" style="font-size:11px;color:var(--accent)">02.1</span>
+          </div>
+          <h2 style="font-size:20px;font-weight:700;line-height:1.15;margin:6px 0 0">
+            <a href="stories/02-1-gpt-5-5-launch.html">GPT-5.5 launches at $5/$30 per million tokens with 84.9% GDPval and 58.6% SWE-bench Pro</a>
+          </h2>
+          <p style="font-size:16px;line-height:1.55;margin:8px 0 0">OpenAI&rsquo;s new frontier model trails Claude Opus 4.7 by 5.7pp on coding but leads on general reasoning. Available via Responses API and Chat Completions.</p>
+          <span class="sk-mono" style="font-size:11px;display:block;margin-top:10px">&rarr; 3 MIN</span>
+        </article>
+        <article style="border-left:3px solid var(--accent);padding-left:14px">
+          <div class="row gap-2" style="margin-bottom:8px;flex-wrap:wrap">
+            <span class="sk-stamp sk-stamp--red">SECURITY</span>
+          </div>
+          <div class="row" style="justify-content:flex-end">
+            <span class="sk-mono" style="font-size:11px;color:var(--accent)">02.2</span>
+          </div>
+          <h2 style="font-size:20px;font-weight:700;line-height:1.15;margin:6px 0 0">
+            <a href="stories/02-2-mercor-breach.html">Mercor breach: 4TB of voice and biometric data from 40,000 AI contractors exposed via LiteLLM attack</a>
+          </h2>
+          <p style="font-size:16px;line-height:1.55;margin:8px 0 0">Attackers exploited the LiteLLM supply chain compromise to exfiltrate raw interview recordings, facial recognition data, and contractor profiles from the AI hiring platform.</p>
+          <span class="sk-mono" style="font-size:11px;display:block;margin-top:10px">&rarr; 3 MIN</span>
+        </article>
+        <article style="border-left:3px solid var(--ochre);padding-left:14px">
+          <div class="row gap-2" style="margin-bottom:8px;flex-wrap:wrap">
+            <span class="sk-stamp sk-stamp--ochre">POLICY</span>
+          </div>
+          <div class="row" style="justify-content:flex-end">
+            <span class="sk-mono" style="font-size:11px;color:var(--accent)">02.3</span>
+          </div>
+          <h2 style="font-size:20px;font-weight:700;line-height:1.15;margin:6px 0 0">
+            <a href="stories/02-3-datacenter-backlash.html">Rural data center backlash: 267% electricity increase, 25 projects cancelled, Maine moratorium</a>
+          </h2>
+          <p style="font-size:16px;line-height:1.55;margin:8px 0 0">67% of planned AI data centers target rural areas, which have less political capacity to absorb grid load. A wave of local opposition is reshaping where the next generation of AI infrastructure gets built.</p>
+          <span class="sk-mono" style="font-size:11px;display:block;margin-top:10px">&rarr; 3 MIN</span>
+        </article>
+        <article style="border-left:3px solid var(--slate);padding-left:14px">
+          <div class="row gap-2" style="margin-bottom:8px;flex-wrap:wrap">
+            <span class="sk-stamp sk-stamp--slate">AI GOVERNANCE</span>
+          </div>
+          <div class="row" style="justify-content:flex-end">
+            <span class="sk-mono" style="font-size:11px;color:var(--accent)">02.4</span>
+          </div>
+          <h2 style="font-size:20px;font-weight:700;line-height:1.15;margin:6px 0 0">
+            <a href="stories/02-4-google-dod.html">Google negotiates classified Pentagon AI deal; 600 employees sign open letter in opposition</a>
+          </h2>
+          <p style="font-size:16px;line-height:1.55;margin:8px 0 0">The largest internal AI ethics protest at a major lab since Project Maven in 2018. Google has proposed the same guardrail conditions that led DoD to drop Anthropic in March.</p>
+          <span class="sk-mono" style="font-size:11px;display:block;margin-top:10px">&rarr; 3 MIN</span>
+        </article>
+      </div>
+    </section>
+
+    <!-- 03 QUICK BRIEFS (7 col) -->
+    <section class="sk-box" style="grid-column:span 7;padding:22px;background:var(--card)">
+      <div class="dd-module-h">
+        <div class="row gap-3" style="align-items:baseline">
+          <span class="num">03</span>
+          <span class="title">QUICK BRIEFS</span>
+        </div>
+        <span class="right">SIX &middot; ITEMS</span>
+      </div>
+      <hr class="sk-rule-thin" style="margin-bottom:10px" />
+
+      <a href="stories/03-1-macos-27-networking.html" class="row gap-3" style="align-items:baseline;padding:10px 0;border-bottom:1px dashed var(--ink)">
+        <span class="sk-mono" style="font-size:12px;width:40px;color:var(--accent);flex-shrink:0">03.1</span>
+        <span style="font-size:16px;font-weight:700;flex:1;line-height:1.4">macOS 27 drops AFP and enforces TLS 1.2 minimum&mdash;developers have until June 8 beta to audit</span>
+        <span class="sk-mono" style="font-size:12px;flex-shrink:0">&#8599;</span>
+      </a>
+      <a href="stories/03-2-talkie-lm.html" class="row gap-3" style="align-items:baseline;padding:10px 0;border-bottom:1px dashed var(--ink)">
+        <span class="sk-mono" style="font-size:12px;width:40px;color:var(--accent);flex-shrink:0">03.2</span>
+        <span style="font-size:16px;font-weight:700;flex:1;line-height:1.4">Talkie: 13B model trained on 260B tokens of pre-1931 text&mdash;a contamination-free research testbed</span>
+        <span class="sk-mono" style="font-size:12px;flex-shrink:0">&#8599;</span>
+      </a>
+      <a href="stories/03-3-nvidia-ising.html" class="row gap-3" style="align-items:baseline;padding:10px 0;border-bottom:1px dashed var(--ink)">
+        <span class="sk-mono" style="font-size:12px;width:40px;color:var(--accent);flex-shrink:0">03.3</span>
+        <span style="font-size:16px;font-weight:700;flex:1;line-height:1.4">NVIDIA Ising: open-source quantum AI models 2.5&times; faster and 3&times; more accurate than pyMatching</span>
+        <span class="sk-mono" style="font-size:12px;flex-shrink:0">&#8599;</span>
+      </a>
+      <a href="stories/03-4-google-employee-protest.html" class="row gap-3" style="align-items:baseline;padding:10px 0;border-bottom:1px dashed var(--ink)">
+        <span class="sk-mono" style="font-size:12px;width:40px;color:var(--accent);flex-shrink:0">03.4</span>
+        <span style="font-size:16px;font-weight:700;flex:1;line-height:1.4">600 Google employees sign open letter urging Pichai to reject classified Pentagon AI contracts</span>
+        <span class="sk-mono" style="font-size:12px;flex-shrink:0">&#8599;</span>
+      </a>
+      <a href="stories/03-5-claw-code.html" class="row gap-3" style="align-items:baseline;padding:10px 0;border-bottom:1px dashed var(--ink)">
+        <span class="sk-mono" style="font-size:12px;width:40px;color:var(--accent);flex-shrink:0">03.5</span>
+        <span style="font-size:16px;font-weight:700;flex:1;line-height:1.4">Claw Code: open-source Rust/Python Claude Code rewrite hits 172,000 GitHub stars in weeks</span>
+        <span class="sk-mono" style="font-size:12px;flex-shrink:0">&#8599;</span>
+      </a>
+      <a href="stories/03-6-litellm-supply-chain.html" class="row gap-3" style="align-items:baseline;padding:10px 0">
+        <span class="sk-mono" style="font-size:12px;width:40px;color:var(--accent);flex-shrink:0">03.6</span>
+        <span style="font-size:16px;font-weight:700;flex:1;line-height:1.4">LiteLLM supply chain attack: 95M monthly downloads, 2 malicious versions published in 13 minutes</span>
+        <span class="sk-mono" style="font-size:12px;flex-shrink:0">&#8599;</span>
+      </a>
+    </section>
+
+    <!-- 04 TOOLS / RESOURCES (5 col, INVERTED) -->
+    <section class="sk-box" style="grid-column:span 5;padding:22px;background:var(--ink);color:var(--card)">
+      <div class="dd-module-h">
+        <div class="row gap-3" style="align-items:baseline">
+          <span class="num" style="color:var(--hi)">04</span>
+          <span class="title" style="color:var(--hi)">TOOLS / RESOURCES</span>
+        </div>
+        <span class="right">FOUR &middot; PICKS</span>
+      </div>
+      <div style="border-top:1px solid var(--card);margin-bottom:16px"></div>
+
+      <a href="stories/04-1-gpt-5-5-api.html" class="row gap-3" style="align-items:baseline;padding:10px 0;border-bottom:1px dashed rgba(255,253,247,0.25)">
+        <span class="sk-mono" style="font-size:12px;width:40px;color:var(--hi);flex-shrink:0">04.1</span>
+        <span style="font-size:16px;font-weight:700;flex:1;line-height:1.4">GPT-5.5 API</span>
+        <span class="sk-stamp sk-stamp--hi" style="font-size:9px;transform:none;flex-shrink:0">MODEL</span>
+        <span class="sk-mono" style="font-size:12px;flex-shrink:0">&#8599;</span>
+      </a>
+      <a href="stories/04-2-claw-code-tool.html" class="row gap-3" style="align-items:baseline;padding:10px 0;border-bottom:1px dashed rgba(255,253,247,0.25)">
+        <span class="sk-mono" style="font-size:12px;width:40px;color:var(--hi);flex-shrink:0">04.2</span>
+        <span style="font-size:16px;font-weight:700;flex:1;line-height:1.4">Claw Code</span>
+        <span class="sk-stamp sk-stamp--hi" style="font-size:9px;transform:none;flex-shrink:0">AGENT</span>
+        <span class="sk-mono" style="font-size:12px;flex-shrink:0">&#8599;</span>
+      </a>
+      <a href="stories/04-3-nvidia-ising-tool.html" class="row gap-3" style="align-items:baseline;padding:10px 0;border-bottom:1px dashed rgba(255,253,247,0.25)">
+        <span class="sk-mono" style="font-size:12px;width:40px;color:var(--hi);flex-shrink:0">04.3</span>
+        <span style="font-size:16px;font-weight:700;flex:1;line-height:1.4">NVIDIA Ising</span>
+        <span class="sk-stamp sk-stamp--hi" style="font-size:9px;transform:none;flex-shrink:0">QUANTUM</span>
+        <span class="sk-mono" style="font-size:12px;flex-shrink:0">&#8599;</span>
+      </a>
+      <a href="stories/04-4-markitdown.html" class="row gap-3" style="align-items:baseline;padding:10px 0">
+        <span class="sk-mono" style="font-size:12px;width:40px;color:var(--hi);flex-shrink:0">04.4</span>
+        <span style="font-size:16px;font-weight:700;flex:1;line-height:1.4">MarkItDown</span>
+        <span class="sk-stamp sk-stamp--hi" style="font-size:9px;transform:none;flex-shrink:0">UTILITY</span>
+        <span class="sk-mono" style="font-size:12px;flex-shrink:0">&#8599;</span>
+      </a>
+    </section>
+
+    <!-- 05 ENGINEERING READ -->
+    <section class="sk-box" style="grid-column:span 12;padding:22px;background:var(--card)">
+      <div class="dd-module-h">
+        <div class="row gap-3" style="align-items:baseline">
+          <span class="num">05</span>
+          <span class="title">ENGINEERING &amp; CAREER</span>
+        </div>
+        <span class="right">DEEP READ</span>
+      </div>
+      <hr class="sk-rule-thin" style="margin-bottom:16px" />
+      <div class="hl-grid" style="display:grid;grid-template-columns:2fr 1fr;gap:16px">
+        <a href="stories/eng-1-next-two-years.html" style="border-left:3px solid var(--purple);padding-left:16px;display:block">
+          <div class="row gap-2" style="margin-bottom:8px;flex-wrap:wrap">
+            <span class="sk-stamp sk-stamp--purple">ENGINEERING</span>
+            <span class="sk-stamp sk-stamp--slate">CAREER</span>
+          </div>
+          <h2 style="font-size:22px;font-weight:700;line-height:1.15;margin:0">
+            The Next Two Years of Software Engineering
+          </h2>
+          <p style="font-size:16px;line-height:1.55;margin:8px 0 0">Addy Osmani maps the five questions that will determine which engineers thrive when AI writes the majority of code: junior pipeline collapse, skills atrophy, the shift from coder to auditor, specialist vs T-shaped identity, and what education needs to become. Concrete recommendations and a 30-minute diagnostic you can run this week.</p>
+          <span class="sk-mono" style="font-size:11px;display:block;margin-top:10px;color:var(--teal)">READ STORY &rarr;</span>
+        </a>
+        <div style="padding-left:16px;border-left:1px solid var(--ink)">
+          <p class="sk-mono" style="font-size:11px;letter-spacing:1.5px;margin:0 0 12px">QUICK AUDIT</p>
+          <p style="font-size:15px;line-height:1.5;margin:0 0 10px">Can you defend the last design decision an AI made in your codebase without the AI&rsquo;s help?</p>
+          <p style="font-size:15px;line-height:1.5;margin:0 0 10px">Are your code reviews as rigorous as they were 12 months ago?</p>
+          <p style="font-size:15px;line-height:1.5;margin:0">When did you last debug a hard problem entirely on your own&mdash;no AI, no Stack Overflow?</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- COLOPHON -->
+    <footer style="grid-column:span 12;padding:14px 20px;border-top:1.5px solid var(--ink);margin-top:8px">
+      <div class="row" style="justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:10px">
+        <span class="sk-mono" style="font-size:11px;letter-spacing:2px">COLOPHON &middot; DAILY DIGEST &middot; 2026</span>
+        <a href="../../archive.html" class="sk-mono" style="font-size:11px;letter-spacing:1.5px;color:var(--teal)">&larr; ALL ISSUES &middot; ARCHIVE</a>
+        <span class="sk-mono" style="font-size:11px;letter-spacing:1.5px">SET IN LORA / IBM PLEX SERIF &middot; GRID 12 / GUTTER 24</span>
+        <span class="sk-mono" style="font-size:11px">NEXT &middot; 04 &middot; 29 &middot; 06:00 UTC</span>
+      </div>
+    </footer>
+  </main>
+</div>
+</body>
+</html>

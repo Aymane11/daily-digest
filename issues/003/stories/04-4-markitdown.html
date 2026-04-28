@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Daily Digest — MarkItDown Tool — Issue 003</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{background:#f5f0e8;color:#111;font-family:'Lora',serif;font-size:18px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:root{--paper:#f5f0e8;--card:#fffdf7;--ink:#111111;--ink-2:#5a5a5a;--accent:#d62828;--hi:#f5c842;--teal:#0d7377;--navy:#14213d;--ochre:#e07b39;--slate:#3d5a80;--sage:#2d6a4f;--purple:#7b2d8b;--rule:#111111}
+.sk-mono{font-family:'IBM Plex Serif','Georgia',serif;font-weight:500}
+.sk-script{font-family:'Lora',serif;font-style:italic}
+.sk-box{border:1.5px solid var(--ink);background:transparent;position:relative}
+.sk-box-soft{border:1.25px solid #2a2a2a;background:transparent}
+.sk-rule-thin{height:0;border:0;border-top:1px solid var(--ink);margin:0}
+.sk-stamp{display:inline-block;font-family:'IBM Plex Serif',serif;font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:3px 8px;border:1.5px solid currentColor;line-height:1.4;transform:rotate(-1deg);white-space:nowrap}
+.sk-stamp--red{color:var(--accent);border-color:var(--accent)}
+.sk-stamp--navy{color:var(--navy);border-color:var(--navy)}
+.sk-stamp--teal{color:var(--teal);border-color:var(--teal)}
+.sk-stamp--hi{color:#9a7200;border-color:#9a7200}
+.sk-stamp--ochre{color:var(--ochre);border-color:var(--ochre)}
+.row{display:flex}.col{display:flex;flex-direction:column}.grow{flex:1}
+.gap-2{gap:8px}.gap-3{gap:12px}
+.dd-page{max-width:1200px;margin:0 auto;padding:32px}
+@media(max-width:900px){.sk-grid-tool{grid-template-columns:1fr 260px!important}}
+@media(max-width:640px){body{font-size:17px}.dd-page{padding:16px 14px}.sk-grid-tool{grid-template-columns:1fr!important}.sk-dossier-hl{font-size:28px!important}}
+</style>
+</head>
+<body>
+<div class="dd-page">
+  <nav class="row" style="justify-content:space-between;align-items:baseline;margin-bottom:8px">
+    <a href="../index.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px">&#8592; DIGEST &middot; &numero; 003</a>
+    <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">TOOL &middot; 04.4 &middot; UTILITIES</span>
+    <a href="../../../archive.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--teal)">ARCHIVE &#8599;</a>
+  </nav>
+
+  <section class="sk-box" style="background:var(--ink);color:var(--card);padding:20px 22px">
+    <div class="row" style="justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px">
+      <span class="sk-mono" style="font-size:10px;letter-spacing:3px;color:var(--hi)">TOOL / 04.4</span>
+      <div class="row gap-2">
+        <span class="sk-stamp sk-stamp--hi">UTILITIES</span>
+        <span class="sk-stamp" style="color:var(--card);border-color:var(--card)">DOCUMENT AI</span>
+      </div>
+      <a href="https://github.com/microsoft/markitdown" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--sage)">VISIT TOOL &#8599;</a>
+    </div>
+    <h1 class="sk-dossier-hl" style="font-size:44px;font-weight:700;line-height:1.06;letter-spacing:-0.5px;text-wrap:balance;margin:14px 0 0">
+      MarkItDown
+    </h1>
+    <p style="font-size:20px;font-weight:700;line-height:1.3;color:var(--card);margin:10px 0 0">Microsoft&rsquo;s open-source document-to-Markdown converter for LLM pipelines</p>
+    <p class="sk-script" style="font-size:20px;color:var(--hi);margin:8px 0 0">One command converts PDF, DOCX, XLSX, PPTX, HTML, images, audio, and ZIP archives to clean Markdown. MIT license. Python 3.10+. v0.1.5 released Feb 20, 2026.</p>
+    <div class="row gap-3" style="margin-top:14px">
+      <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">TUE 28 APR 2026 &middot; BY EDITORIAL TEAM</span>
+    </div>
+  </section>
+
+  <main class="sk-grid-tool" style="display:grid;grid-template-columns:1fr 320px;gap:14px;margin-top:12px">
+
+    <div class="col gap-3">
+
+      <div class="sk-box" style="background:var(--hi);padding:18px">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0">&#9733; WHAT IT IS</p>
+        <hr class="sk-rule-thin" style="margin:8px 0 10px" />
+        <p style="font-size:19px;line-height:1.65;margin:0">MarkItDown is a Python utility from Microsoft that converts virtually any document format to clean Markdown text&mdash;the format that LLMs consume most efficiently. It handles PDF (with OCR fallback), Word DOCX, Excel XLSX (tables become Markdown tables), PowerPoint PPTX, HTML, images (via optional vision model integration), audio files (via transcription), and ZIP archives (recursively processes contained files). The output prioritizes semantic structure&mdash;headings, lists, tables, code blocks&mdash;rather than pixel-perfect layout fidelity. v0.1.5, released February 20, 2026, added improved table extraction from PDFs and better handling of multi-column layouts. It runs as a CLI tool or as a Python library you can embed in preprocessing pipelines. MIT license, no vendor lock-in, no API calls required for the core conversion pipeline.</p>
+      </div>
+
+      <div class="sk-box" style="background:var(--card);padding:16px">
+        <div class="row gap-3" style="align-items:baseline;margin-bottom:10px">
+          <span style="font-size:28px;font-weight:700;color:var(--accent);line-height:1">&#182; 01</span>
+          <span class="sk-mono" style="font-size:11px;letter-spacing:2px">WHY &middot; IT &middot; MATTERS</span>
+        </div>
+        <p style="font-size:18px;line-height:1.65;margin:0">The practical bottleneck in most enterprise RAG and document-processing pipelines is not the LLM&mdash;it is getting structured, clean text out of the diverse document formats that actually exist in organizations: scanned PDFs, financial spreadsheets, PowerPoint decks, email attachments. MarkItDown is a single-dependency solution to that preprocessing problem, and Microsoft&rsquo;s decision to open-source it under MIT means it can be embedded in any commercial pipeline without licensing friction. The table extraction improvement in v0.1.5 is particularly significant: financial and legal documents that contain tables are among the highest-value enterprise document types, and table extraction from PDFs has historically been the hardest conversion problem. A tool that reliably gets tables out of PDFs as Markdown tables dramatically reduces the custom preprocessing engineering that teams currently build and maintain.</p>
+      </div>
+
+      <div class="sk-box" style="background:var(--card);padding:16px">
+        <div class="row gap-3" style="align-items:baseline;margin-bottom:12px">
+          <span style="font-size:28px;font-weight:700;color:var(--teal);line-height:1">&#182; 02</span>
+          <span class="sk-mono" style="font-size:11px;letter-spacing:2px;color:var(--teal)">HOW &middot; TO &middot; TRY &middot; IT</span>
+          <span class="sk-mono" style="font-size:9px;color:var(--ink-2);margin-left:auto">~5 MIN</span>
+        </div>
+        <div class="col gap-3">
+          <div class="row gap-3" style="align-items:flex-start">
+            <span class="sk-mono" style="font-size:14px;font-weight:700;color:var(--teal);line-height:1;width:28px;flex-shrink:0">01</span>
+            <p style="font-size:17px;line-height:1.6;margin:0">Install: <code style="font-family:'IBM Plex Serif',serif;font-size:15px">pip install markitdown</code>. Requires Python 3.10+. For optional OCR support on scanned PDFs add: <code style="font-family:'IBM Plex Serif',serif;font-size:15px">pip install markitdown[ocr]</code>.</p>
+          </div>
+          <div class="row gap-3" style="align-items:flex-start">
+            <span class="sk-mono" style="font-size:14px;font-weight:700;color:var(--teal);line-height:1;width:28px;flex-shrink:0">02</span>
+            <p style="font-size:17px;line-height:1.6;margin:0">Convert a document: <code style="font-family:'IBM Plex Serif',serif;font-size:15px">markitdown input.pdf &gt; output.md</code>. Works identically for DOCX, XLSX, PPTX, and HTML inputs. No flags needed for basic conversion.</p>
+          </div>
+          <div class="row gap-3" style="align-items:flex-start">
+            <span class="sk-mono" style="font-size:14px;font-weight:700;color:var(--teal);line-height:1;width:28px;flex-shrink:0">03</span>
+            <p style="font-size:17px;line-height:1.6;margin:0">Test a document that contains tables: a financial report PDF or an XLSX file with multi-column data. Check whether the tables come out as valid Markdown tables that an LLM can reason over without additional parsing.</p>
+          </div>
+          <div class="row gap-3" style="align-items:flex-start">
+            <span class="sk-mono" style="font-size:14px;font-weight:700;color:var(--teal);line-height:1;width:28px;flex-shrink:0">04</span>
+            <p style="font-size:17px;line-height:1.6;margin:0">Use in Python: <code style="font-family:'IBM Plex Serif',serif;font-size:15px">from markitdown import MarkItDown; md = MarkItDown(); result = md.convert("file.pdf"); print(result.text_content)</code>. Drop this into your RAG preprocessing pipeline in place of whatever custom extraction code you currently run.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="sk-box" style="background:var(--card);padding:16px">
+        <div class="row gap-3" style="align-items:baseline;margin-bottom:10px">
+          <span style="font-size:28px;font-weight:700;color:var(--accent);line-height:1">&#182; 03</span>
+          <span class="sk-mono" style="font-size:11px;letter-spacing:2px">WHAT &middot; TO &middot; OBSERVE</span>
+        </div>
+        <p style="font-size:18px;line-height:1.65;margin:0">Test conversion quality on the document types that are hardest in your specific pipeline: scanned PDFs with irregular column layouts, spreadsheets with merged cells, PowerPoints with text in shapes rather than text boxes. Compare the token count of the MarkItDown Markdown output to a naive text extraction (e.g., <code style="font-family:'IBM Plex Serif',serif;font-size:15px">pdfplumber</code> plain text) on the same documents&mdash;Markdown structure typically reduces the tokens needed by an LLM to correctly parse tables and headings. Also measure end-to-end answer quality in your RAG system: if the downstream LLM answers are more accurate on table-heavy queries after switching to MarkItDown, that is the real signal. Watch whether Microsoft integrates MarkItDown into Azure AI Document Intelligence as a managed service, which would add SLA and support guarantees for enterprise adoption.</p>
+      </div>
+    </div>
+
+    <aside class="col gap-3">
+
+      <div class="sk-box" style="background:var(--card);padding:14px">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0">QUICK &middot; FACTS</p>
+        <hr class="sk-rule-thin" style="margin:8px 0 12px" />
+        <div class="col gap-2">
+          <div class="row gap-2" style="align-items:baseline">
+            <span class="sk-mono" style="font-size:9px;color:var(--ink-2);min-width:60px">MADE BY</span>
+            <span style="font-size:14px;font-weight:700">Microsoft</span>
+          </div>
+          <div class="row gap-2" style="align-items:baseline">
+            <span class="sk-mono" style="font-size:9px;color:var(--ink-2);min-width:60px">LICENSE</span>
+            <span style="font-size:14px;font-weight:700">MIT</span>
+          </div>
+          <div class="row gap-2" style="align-items:baseline">
+            <span class="sk-mono" style="font-size:9px;color:var(--ink-2);min-width:60px">VERSION</span>
+            <span style="font-size:14px;font-weight:700">0.1.5</span>
+          </div>
+          <div class="row gap-2" style="align-items:baseline">
+            <span class="sk-mono" style="font-size:9px;color:var(--ink-2);min-width:60px">RELEASED</span>
+            <span style="font-size:13px;line-height:1.4">Feb 20, 2026</span>
+          </div>
+          <div class="row gap-2" style="align-items:baseline">
+            <span class="sk-mono" style="font-size:9px;color:var(--ink-2);min-width:60px">NEEDS</span>
+            <span style="font-size:13px;line-height:1.4">Python 3.10+</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sk-box" style="background:var(--card);padding:14px">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0">SUPPORTED &middot; FORMATS</p>
+        <hr class="sk-rule-thin" style="margin:8px 0 12px" />
+        <div class="col gap-2" style="font-size:14px;font-weight:700">
+          <span>PDF &middot; DOCX &middot; XLSX</span>
+          <span>PPTX &middot; HTML &middot; CSV</span>
+          <span>Images (OCR) &middot; Audio</span>
+          <span>ZIP archives</span>
+        </div>
+      </div>
+
+      <div class="sk-box-soft" style="padding:12px">
+        <p class="sk-mono" style="font-size:10px;letter-spacing:2px;margin:0 0 10px">FILED &middot; UNDER</p>
+        <div class="row gap-2" style="flex-wrap:wrap">
+          <span class="sk-stamp sk-stamp--teal">DOCUMENT AI</span>
+          <span class="sk-stamp sk-stamp--navy">MICROSOFT</span>
+          <span class="sk-stamp sk-stamp--ochre">RAG</span>
+        </div>
+      </div>
+
+      <div class="sk-box" style="background:var(--ink);color:var(--card);padding:14px">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;color:var(--hi);margin:0">GET &middot; THE &middot; TOOL</p>
+        <div style="border-top:1px solid var(--card);margin:8px 0 10px"></div>
+        <a href="https://github.com/microsoft/markitdown" class="sk-mono" style="font-size:12px;color:var(--sage);text-decoration:underline;text-underline-offset:2px;display:block">GITHUB &#8599;</a>
+        <p class="sk-mono" style="font-size:9px;color:var(--card);opacity:0.7;margin:6px 0 0">V0.1.5 &middot; FEB 20, 2026 &middot; MIT</p>
+        <a href="https://pypi.org/project/markitdown/" class="sk-mono" style="font-size:11px;color:var(--hi);display:block;margin-top:10px">PYPI &#8599;</a>
+      </div>
+
+      <div class="sk-box" style="background:var(--hi);padding:14px">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0">THE &middot; QUESTION</p>
+        <hr class="sk-rule-thin" style="margin:8px 0 10px" />
+        <p style="font-size:15px;font-weight:700;line-height:1.45;margin:0">On your hardest document type&mdash;scanned multi-column PDFs with embedded tables&mdash;does MarkItDown produce output that your LLM can reason over correctly without additional parsing?</p>
+      </div>
+    </aside>
+  </main>
+
+  <footer class="sk-box-soft" style="padding:14px 18px;margin-top:12px">
+    <div class="row" style="justify-content:space-between;align-items:center">
+      <a href="04-3-nvidia-ising-tool.html" class="col">
+        <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--ink-2)">&#8592; PREV</span>
+        <span style="font-size:14px;font-weight:700">04.3 &middot; NVIDIA Ising</span>
+      </a>
+      <span class="sk-mono" style="font-size:10px;letter-spacing:2px">&middot; TOOL &middot; 04.4 &middot;</span>
+      <a href="eng-1-next-two-years.html" class="col" style="align-items:flex-end">
+        <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--accent)">NEXT &rarr;</span>
+        <span style="font-size:14px;font-weight:700">ENG &middot; The Next Two Years</span>
+      </a>
+    </div>
+  </footer>
+</div>
+</body>
+</html>

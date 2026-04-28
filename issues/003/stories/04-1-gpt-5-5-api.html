@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Daily Digest — GPT-5.5 API — Issue 003</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{background:#f5f0e8;color:#111;font-family:'Lora',serif;font-size:18px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:root{--paper:#f5f0e8;--card:#fffdf7;--ink:#111111;--ink-2:#5a5a5a;--accent:#d62828;--hi:#f5c842;--teal:#0d7377;--navy:#14213d;--ochre:#e07b39;--slate:#3d5a80;--sage:#2d6a4f;--purple:#7b2d8b;--rule:#111111}
+.sk-mono{font-family:'IBM Plex Serif','Georgia',serif;font-weight:500}
+.sk-script{font-family:'Lora',serif;font-style:italic}
+.sk-box{border:1.5px solid var(--ink);background:transparent;position:relative}
+.sk-box-soft{border:1.25px solid #2a2a2a;background:transparent}
+.sk-rule-thin{height:0;border:0;border-top:1px solid var(--ink);margin:0}
+.sk-stamp{display:inline-block;font-family:'IBM Plex Serif',serif;font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:3px 8px;border:1.5px solid currentColor;line-height:1.4;transform:rotate(-1deg);white-space:nowrap}
+.sk-stamp--red{color:var(--accent);border-color:var(--accent)}
+.sk-stamp--navy{color:var(--navy);border-color:var(--navy)}
+.sk-stamp--teal{color:var(--teal);border-color:var(--teal)}
+.sk-stamp--hi{color:#9a7200;border-color:#9a7200}
+.sk-stamp--ochre{color:var(--ochre);border-color:var(--ochre)}
+.row{display:flex}.col{display:flex;flex-direction:column}.grow{flex:1}
+.gap-2{gap:8px}.gap-3{gap:12px}
+.dd-page{max-width:1200px;margin:0 auto;padding:32px}
+@media(max-width:900px){.sk-grid-tool{grid-template-columns:1fr 260px!important}}
+@media(max-width:640px){body{font-size:17px}.dd-page{padding:16px 14px}.sk-grid-tool{grid-template-columns:1fr!important}.sk-dossier-hl{font-size:28px!important}}
+</style>
+</head>
+<body>
+<div class="dd-page">
+  <nav class="row" style="justify-content:space-between;align-items:baseline;margin-bottom:8px">
+    <a href="../index.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px">&#8592; DIGEST &middot; &numero; 003</a>
+    <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">TOOL &middot; 04.1 &middot; API</span>
+    <a href="../../../archive.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--teal)">ARCHIVE &#8599;</a>
+  </nav>
+
+  <section class="sk-box" style="background:var(--ink);color:var(--card);padding:20px 22px">
+    <div class="row" style="justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px">
+      <span class="sk-mono" style="font-size:10px;letter-spacing:3px;color:var(--hi)">TOOL / 04.1</span>
+      <div class="row gap-2">
+        <span class="sk-stamp sk-stamp--hi">API</span>
+        <span class="sk-stamp" style="color:var(--card);border-color:var(--card)">LANGUAGE MODELS</span>
+      </div>
+      <a href="https://platform.openai.com/docs/models" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--sage)">VISIT TOOL &#8599;</a>
+    </div>
+    <h1 class="sk-dossier-hl" style="font-size:44px;font-weight:700;line-height:1.06;letter-spacing:-0.5px;text-wrap:balance;margin:14px 0 0">
+      GPT-5.5 API
+    </h1>
+    <p style="font-size:20px;font-weight:700;line-height:1.3;color:var(--card);margin:10px 0 0">OpenAI&rsquo;s most capable agentic model, now at API pricing you can run in production</p>
+    <p class="sk-script" style="font-size:20px;color:var(--hi);margin:8px 0 0">$5 input / $30 output per million tokens. 84.9% GDPval. 58.6% SWE-bench Pro. Available via the Responses API and legacy Chat Completions. No free tier&mdash;requires a paid API account.</p>
+    <div class="row gap-3" style="margin-top:14px">
+      <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">TUE 28 APR 2026 &middot; BY EDITORIAL TEAM</span>
+    </div>
+  </section>
+
+  <main class="sk-grid-tool" style="display:grid;grid-template-columns:1fr 320px;gap:14px;margin-top:12px">
+
+    <div class="col gap-3">
+
+      <div class="sk-box" style="background:var(--hi);padding:18px">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0">&#9733; WHAT IT IS</p>
+        <hr class="sk-rule-thin" style="margin:8px 0 10px" />
+        <p style="font-size:19px;line-height:1.65;margin:0">GPT-5.5 is OpenAI&rsquo;s frontier agentic model, released via API on April 24, 2026. It is accessible through the OpenAI Responses API (OpenAI&rsquo;s new preferred interface for multi-step, tool-using agents) and the legacy Chat Completions endpoint for backwards compatibility. The model posts 84.9% on GDPval and 58.6% on SWE-bench Pro&mdash;trailing Claude Opus 4.7 by 5.7 percentage points on the coding benchmark but leading on general reasoning. Pricing is $5 per million input tokens and $30 per million output tokens, with a 128K context window. No free-tier access; a paid API account is required. ChatGPT Pro subscribers can access the model in the ChatGPT interface.</p>
+      </div>
+
+      <div class="sk-box" style="background:var(--card);padding:16px">
+        <div class="row gap-3" style="align-items:baseline;margin-bottom:10px">
+          <span style="font-size:28px;font-weight:700;color:var(--accent);line-height:1">&#182; 01</span>
+          <span class="sk-mono" style="font-size:11px;letter-spacing:2px">WHY &middot; IT &middot; MATTERS</span>
+        </div>
+        <p style="font-size:18px;line-height:1.65;margin:0">GPT-5.5 closes most of the gap between GPT-5.4 and Claude Opus 4.7 on coding benchmarks while holding the pricing line from its predecessor&mdash;$5/$30 is the same pricing tier as GPT-5.4, making it a drop-in performance upgrade. For teams running agentic pipelines on OpenAI infrastructure, this is a meaningful capability step without a cost regression. The Responses API endpoint is the more important change architecturally: it is OpenAI&rsquo;s bet on the agentic interaction model (multi-step, tool-use-first, stateful), and GPT-5.5 is the first model to fully support it. Teams still using Chat Completions for agentic tasks should treat this release as a prompt to evaluate migrating to Responses API&mdash;OpenAI has signaled Chat Completions will remain supported but receive lower investment going forward.</p>
+      </div>
+
+      <div class="sk-box" style="background:var(--card);padding:16px">
+        <div class="row gap-3" style="align-items:baseline;margin-bottom:12px">
+          <span style="font-size:28px;font-weight:700;color:var(--teal);line-height:1">&#182; 02</span>
+          <span class="sk-mono" style="font-size:11px;letter-spacing:2px;color:var(--teal)">HOW &middot; TO &middot; TRY &middot; IT</span>
+          <span class="sk-mono" style="font-size:9px;color:var(--ink-2);margin-left:auto">~10 MIN</span>
+        </div>
+        <div class="col gap-3">
+          <div class="row gap-3" style="align-items:flex-start">
+            <span class="sk-mono" style="font-size:14px;font-weight:700;color:var(--teal);line-height:1;width:28px;flex-shrink:0">01</span>
+            <p style="font-size:17px;line-height:1.6;margin:0">Get an API key from <span class="sk-mono" style="font-size:15px">platform.openai.com</span>. You need a paid account (the free tier does not include GPT-5.5). Set it as an environment variable: <code style="font-family:'IBM Plex Serif',serif;font-size:15px">export OPENAI_API_KEY=sk-...</code></p>
+          </div>
+          <div class="row gap-3" style="align-items:flex-start">
+            <span class="sk-mono" style="font-size:14px;font-weight:700;color:var(--teal);line-height:1;width:28px;flex-shrink:0">02</span>
+            <p style="font-size:17px;line-height:1.6;margin:0">Install or upgrade the SDK: <code style="font-family:'IBM Plex Serif',serif;font-size:15px">pip install --upgrade openai</code>. The Responses API client is available from <code style="font-family:'IBM Plex Serif',serif;font-size:15px">openai&gt;=1.76.0</code>.</p>
+          </div>
+          <div class="row gap-3" style="align-items:flex-start">
+            <span class="sk-mono" style="font-size:14px;font-weight:700;color:var(--teal);line-height:1;width:28px;flex-shrink:0">03</span>
+            <p style="font-size:17px;line-height:1.6;margin:0">Call via the Responses API: <code style="font-family:'IBM Plex Serif',serif;font-size:15px">client.responses.create(model="gpt-5.5", input="...")</code>. Or use legacy Chat Completions: <code style="font-family:'IBM Plex Serif',serif;font-size:15px">client.chat.completions.create(model="gpt-5.5", messages=[...])</code>.</p>
+          </div>
+          <div class="row gap-3" style="align-items:flex-start">
+            <span class="sk-mono" style="font-size:14px;font-weight:700;color:var(--teal);line-height:1;width:28px;flex-shrink:0">04</span>
+            <p style="font-size:17px;line-height:1.6;margin:0">Run an agentic coding task: give it a multi-file refactor with explicit tool calls for reading and writing files. Compare output token count and accuracy against a GPT-5.4 baseline on the same task to measure the real-world delta.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="sk-box" style="background:var(--card);padding:16px">
+        <div class="row gap-3" style="align-items:baseline;margin-bottom:10px">
+          <span style="font-size:28px;font-weight:700;color:var(--accent);line-height:1">&#182; 03</span>
+          <span class="sk-mono" style="font-size:11px;letter-spacing:2px">WHAT &middot; TO &middot; OBSERVE</span>
+        </div>
+        <p style="font-size:18px;line-height:1.65;margin:0">Watch whether GPT-5.5 reduces the number of tool-call round trips versus GPT-5.4 on agentic tasks&mdash;fewer iterations at the same accuracy is the primary efficiency signal. Check whether Responses API state management (built-in context threading) actually reduces your prompt engineering burden versus manually reconstructing context in Chat Completions. Monitor your token spend over the first week: the 6&times; output-to-input price ratio makes verbose reasoning traces expensive&mdash;test whether setting <code style="font-family:'IBM Plex Serif',serif;font-size:15px">max_output_tokens</code> aggressively degrades quality on your specific workload. Also evaluate the 5.7pp gap to Claude Opus 4.7 on SWE-bench Pro on your own real tasks&mdash;benchmarks and production diverge, and your codebase may favor one model&rsquo;s behavior.</p>
+      </div>
+    </div>
+
+    <aside class="col gap-3">
+
+      <div class="sk-box" style="background:var(--card);padding:14px">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0">QUICK &middot; FACTS</p>
+        <hr class="sk-rule-thin" style="margin:8px 0 12px" />
+        <div class="col gap-2">
+          <div class="row gap-2" style="align-items:baseline">
+            <span class="sk-mono" style="font-size:9px;color:var(--ink-2);min-width:60px">MADE BY</span>
+            <span style="font-size:14px;font-weight:700">OpenAI</span>
+          </div>
+          <div class="row gap-2" style="align-items:baseline">
+            <span class="sk-mono" style="font-size:9px;color:var(--ink-2);min-width:60px">LICENSE</span>
+            <span style="font-size:14px;font-weight:700">Commercial API</span>
+          </div>
+          <div class="row gap-2" style="align-items:baseline">
+            <span class="sk-mono" style="font-size:9px;color:var(--ink-2);min-width:60px">PRICING</span>
+            <span style="font-size:13px;line-height:1.4">$5 / $30 per M tokens</span>
+          </div>
+          <div class="row gap-2" style="align-items:baseline">
+            <span class="sk-mono" style="font-size:9px;color:var(--ink-2);min-width:60px">CONTEXT</span>
+            <span style="font-size:13px;line-height:1.4">128K tokens</span>
+          </div>
+          <div class="row gap-2" style="align-items:baseline">
+            <span class="sk-mono" style="font-size:9px;color:var(--ink-2);min-width:60px">NEEDS</span>
+            <span style="font-size:13px;line-height:1.4">Paid OpenAI API account, Python 3.8+</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sk-box" style="background:var(--card);padding:14px">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0">BENCHMARKS</p>
+        <hr class="sk-rule-thin" style="margin:8px 0 12px" />
+        <div class="col gap-3">
+          <div>
+            <div style="font-size:36px;font-weight:700;line-height:0.95;color:var(--accent)">84.9%</div>
+            <p class="sk-mono" style="font-size:10px;margin:4px 0 0;letter-spacing:1px">GDPVAL</p>
+          </div>
+          <hr class="sk-rule-thin" />
+          <div>
+            <div style="font-size:36px;font-weight:700;line-height:0.95">58.6%</div>
+            <p class="sk-mono" style="font-size:10px;margin:4px 0 0;letter-spacing:1px">SWE-BENCH PRO</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="sk-box-soft" style="padding:12px">
+        <p class="sk-mono" style="font-size:10px;letter-spacing:2px;margin:0 0 10px">FILED &middot; UNDER</p>
+        <div class="row gap-2" style="flex-wrap:wrap">
+          <span class="sk-stamp sk-stamp--teal">API</span>
+          <span class="sk-stamp sk-stamp--navy">OPENAI</span>
+          <span class="sk-stamp sk-stamp--ochre">AGENTS</span>
+        </div>
+      </div>
+
+      <div class="sk-box" style="background:var(--ink);color:var(--card);padding:14px">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;color:var(--hi);margin:0">GET &middot; THE &middot; TOOL</p>
+        <div style="border-top:1px solid var(--card);margin:8px 0 10px"></div>
+        <a href="https://platform.openai.com/docs/models" class="sk-mono" style="font-size:12px;color:var(--sage);text-decoration:underline;text-underline-offset:2px;display:block">PLATFORM.OPENAI.COM &#8599;</a>
+        <p class="sk-mono" style="font-size:9px;color:var(--card);opacity:0.7;margin:6px 0 0">RELEASED APR 24, 2026</p>
+        <a href="https://platform.openai.com/docs/api-reference/responses" class="sk-mono" style="font-size:11px;color:var(--hi);display:block;margin-top:10px">RESPONSES API DOCS &#8599;</a>
+      </div>
+
+      <div class="sk-box" style="background:var(--hi);padding:14px">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0">THE &middot; QUESTION</p>
+        <hr class="sk-rule-thin" style="margin:8px 0 10px" />
+        <p style="font-size:15px;font-weight:700;line-height:1.45;margin:0">On your real production workloads, does GPT-5.5 beat GPT-5.4 by enough to justify the migration cost&mdash;or does the 5.7pp SWE-bench gap to Claude Opus 4.7 matter more?</p>
+      </div>
+    </aside>
+  </main>
+
+  <footer class="sk-box-soft" style="padding:14px 18px;margin-top:12px">
+    <div class="row" style="justify-content:space-between;align-items:center">
+      <a href="03-6-litellm-supply-chain.html" class="col">
+        <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--ink-2)">&#8592; PREV</span>
+        <span style="font-size:14px;font-weight:700">03.6 &middot; LiteLLM supply chain</span>
+      </a>
+      <span class="sk-mono" style="font-size:10px;letter-spacing:2px">&middot; TOOL &middot; 04.1 &middot;</span>
+      <a href="04-2-claw-code-tool.html" class="col" style="align-items:flex-end">
+        <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--accent)">NEXT &rarr;</span>
+        <span style="font-size:14px;font-weight:700">04.2 &middot; Claw Code</span>
+      </a>
+    </div>
+  </footer>
+</div>
+</body>
+</html>

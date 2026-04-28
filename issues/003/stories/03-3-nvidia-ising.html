@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Daily Digest — NVIDIA Ising quantum AI models — Issue 003</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{background:#f5f0e8;color:#111;font-family:'Lora',serif;font-size:18px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:root{--paper:#f5f0e8;--card:#fffdf7;--ink:#111111;--ink-2:#5a5a5a;--accent:#d62828;--hi:#f5c842;--teal:#0d7377;--navy:#14213d;--ochre:#e07b39;--slate:#3d5a80;--sage:#2d6a4f;--purple:#7b2d8b;--rule:#111111}
+.sk-mono{font-family:'IBM Plex Serif','Georgia',serif;font-weight:500}
+.sk-script{font-family:'Lora',serif;font-style:italic}
+.sk-box{border:1.5px solid var(--ink);background:transparent;position:relative}
+.sk-box-soft{border:1.25px solid #2a2a2a;background:transparent}
+.sk-rule-thin{height:0;border:0;border-top:1px solid var(--ink);margin:0}
+.sk-stamp{display:inline-block;font-family:'IBM Plex Serif',serif;font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:3px 8px;border:1.5px solid currentColor;line-height:1.4;transform:rotate(-1deg);white-space:nowrap}
+.sk-stamp--red{color:var(--accent);border-color:var(--accent)}
+.sk-stamp--navy{color:var(--navy);border-color:var(--navy)}
+.sk-stamp--teal{color:var(--teal);border-color:var(--teal)}
+.sk-stamp--hi{color:#9a7200;border-color:#9a7200}
+.row{display:flex}.col{display:flex;flex-direction:column}.grow{flex:1}
+.gap-2{gap:8px}.gap-3{gap:12px}
+.dd-page{max-width:1200px;margin:0 auto;padding:32px}
+.sk-grid-brief{display:grid;grid-template-columns:1fr 300px;gap:14px}
+@media(max-width:900px){.sk-grid-brief{grid-template-columns:1fr 260px!important}}
+@media(max-width:640px){body{font-size:17px}.dd-page{padding:16px 14px}.sk-grid-brief{grid-template-columns:1fr!important}.sk-dossier-hl{font-size:26px!important}}
+</style>
+</head>
+<body>
+<div class="dd-page">
+  <nav class="row" style="justify-content:space-between;align-items:baseline;margin-bottom:8px">
+    <a href="../index.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px">&#8592; DIGEST &middot; &numero; 003</a>
+    <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">BRIEF &middot; 03.3 &middot; QUANTUM</span>
+    <a href="../../../archive.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--teal)">ARCHIVE &#8599;</a>
+  </nav>
+
+  <section class="sk-box" style="background:var(--ink);color:var(--card);padding:20px 22px">
+    <div class="row" style="justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px">
+      <span class="sk-mono" style="font-size:10px;letter-spacing:3px;color:var(--hi)">BRIEF / 03.3</span>
+      <span class="sk-mono" style="font-size:10px">TUE 28 APR 2026</span>
+      <a href="https://nvidianews.nvidia.com/news/nvidia-launches-ising-the-worlds-first-open-ai-models-to-accelerate-the-path-to-useful-quantum-computers" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--sage)">SOURCE &middot; NVIDIA &#8599;</a>
+    </div>
+    <div class="row gap-2" style="margin-top:12px;flex-wrap:wrap">
+      <span class="sk-stamp sk-stamp--hi">QUANTUM</span>
+      <span class="sk-stamp" style="color:var(--card);border-color:var(--card)">OPEN SOURCE</span>
+    </div>
+    <h1 class="sk-dossier-hl" style="font-size:40px;font-weight:700;line-height:1.08;letter-spacing:-0.5px;text-wrap:balance;margin:14px 0 0">
+      NVIDIA releases Ising: open-source AI models that cut quantum processor calibration time from days to hours and triple error correction accuracy
+    </h1>
+    <p class="sk-script" style="font-size:20px;color:var(--hi);margin:12px 0 0">A vision-language model for automated calibration plus two 3D-CNN variants for real-time error decoding. Available on GitHub, Hugging Face, and build.nvidia.com. 2.5&times; faster and 3&times; more accurate than pyMatching, the current standard.</p>
+    <div class="row gap-3" style="margin-top:14px">
+      <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">BY &middot; EDITORIAL TEAM</span>
+      <span class="sk-mono" style="font-size:10px;color:var(--hi)">&middot; 2 MIN</span>
+    </div>
+  </section>
+
+  <section class="sk-grid-brief" style="margin-top:12px">
+    <div class="col gap-3">
+      <div class="sk-box" style="background:var(--hi);padding:16px">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0">&#9733; WHAT HAPPENED</p>
+        <hr class="sk-rule-thin" style="margin:8px 0 10px" />
+        <p style="font-size:18px;line-height:1.65;margin:0">NVIDIA released the Ising family of open-source AI models in April 2026, targeting two fundamental bottlenecks in quantum computing: calibration and error correction. Calibration&mdash;the continuous tuning of quantum processors&mdash;currently takes days when done manually; the Ising calibration model (a vision-language model that interprets processor measurements) reduces this to hours via AI-driven automation. Error correction uses two variants of 3D convolutional neural networks optimized for speed or accuracy respectively. Against pyMatching, the current industry-standard error decoder, Ising achieves 2.5&times; faster performance and 3&times; higher accuracy. All models are available on GitHub, Hugging Face, and NVIDIA&rsquo;s NIM microservice platform.</p>
+      </div>
+
+      <div class="sk-box" style="background:var(--card);padding:16px">
+        <div class="row gap-3" style="align-items:baseline;margin-bottom:10px">
+          <span style="font-size:28px;font-weight:700;color:var(--accent);line-height:1">&#182; 01</span>
+          <span class="sk-mono" style="font-size:11px;letter-spacing:2px">WHY &middot; IT &middot; MATTERS</span>
+        </div>
+        <p style="font-size:17px;line-height:1.65;margin:0">Calibration and error correction are not exotic research problems&mdash;they are operational costs every quantum computing lab incurs continuously. Reducing calibration from days to hours materially changes the economics of running a quantum processor: more experiment cycles per unit time, lower operator cost, faster iteration on hardware improvements. A 3&times; improvement in error correction accuracy is significant because error rates are the primary blocker preventing near-term quantum processors from running circuits long enough to be useful. Open-sourcing both models accelerates the entire ecosystem rather than giving NVIDIA a proprietary moat.</p>
+      </div>
+
+      <div class="sk-box" style="background:var(--card);padding:16px">
+        <div class="row gap-3" style="align-items:baseline;margin-bottom:10px">
+          <span style="font-size:28px;font-weight:700;color:var(--accent);line-height:1">&#182; 02</span>
+          <span class="sk-mono" style="font-size:11px;letter-spacing:2px">WHAT &middot; TO &middot; WATCH</span>
+        </div>
+        <p style="font-size:17px;line-height:1.65;margin:0">Check the Ising GitHub repository and run the error correction benchmark against pyMatching on a publicly available quantum circuit dataset to verify the 3&times; accuracy claim independently. Watch whether IBM Quantum, Google Quantum AI, and IonQ adopt Ising models in their calibration pipelines&mdash;adoption by any of the three major hardware vendors would validate the approach at production scale and signal a broader shift toward AI-assisted quantum operations.</p>
+      </div>
+    </div>
+
+    <aside class="col gap-3">
+      <div class="sk-box" style="background:var(--card);padding:14px">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0">BY &middot; THE &middot; NUMBERS</p>
+        <hr class="sk-rule-thin" style="margin:8px 0 12px" />
+        <div class="col gap-3">
+          <div>
+            <div style="font-size:44px;font-weight:700;line-height:0.95;color:var(--accent)">2.5&times;</div>
+            <p class="sk-mono" style="font-size:10px;margin:4px 0 0;letter-spacing:1px">FASTER THAN PYMATCHING</p>
+          </div>
+          <hr class="sk-rule-thin" />
+          <div>
+            <div style="font-size:44px;font-weight:700;line-height:0.95">3&times;</div>
+            <p class="sk-mono" style="font-size:10px;margin:4px 0 0;letter-spacing:1px">HIGHER ERROR CORRECTION ACCURACY</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="sk-box-soft" style="padding:12px">
+        <p class="sk-mono" style="font-size:10px;letter-spacing:2px;margin:0 0 10px">FILED &middot; UNDER</p>
+        <div class="row gap-2" style="flex-wrap:wrap">
+          <span class="sk-stamp sk-stamp--red">QUANTUM</span>
+          <span class="sk-stamp sk-stamp--navy">NVIDIA</span>
+          <span class="sk-stamp sk-stamp--teal">OPEN SOURCE</span>
+        </div>
+      </div>
+
+      <div class="sk-box-soft" style="padding:12px;background:var(--card)">
+        <p class="sk-mono" style="font-size:10px;letter-spacing:2px;margin:0 0 8px">SOURCE</p>
+        <a href="https://nvidianews.nvidia.com/news/nvidia-launches-ising-the-worlds-first-open-ai-models-to-accelerate-the-path-to-useful-quantum-computers" class="sk-mono" style="font-size:11px;letter-spacing:1px;color:var(--teal);text-decoration:underline;text-underline-offset:2px">NVIDIA NEWSROOM &#8599;</a>
+        <p class="sk-mono" style="font-size:9px;color:var(--ink-2);margin:6px 0 0">APR 2026 &middot; GITHUB + HUGGINGFACE</p>
+      </div>
+    </aside>
+  </section>
+
+  <footer class="sk-box-soft" style="padding:14px 18px;margin-top:12px">
+    <div class="row" style="justify-content:space-between;align-items:center">
+      <a href="03-2-talkie-lm.html" class="col">
+        <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--ink-2)">&#8592; PREV</span>
+        <span style="font-size:14px;font-weight:700">03.2 &middot; Talkie LM</span>
+      </a>
+      <span class="sk-mono" style="font-size:10px;letter-spacing:2px">&middot; BRIEF &middot; 03.3 &middot;</span>
+      <a href="03-4-google-employee-protest.html" class="col" style="align-items:flex-end">
+        <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--accent)">NEXT &rarr;</span>
+        <span style="font-size:14px;font-weight:700">03.4 &middot; Google protest letter</span>
+      </a>
+    </div>
+  </footer>
+</div>
+</body>
+</html>

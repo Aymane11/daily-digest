@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Daily Digest — NVIDIA Ising Tool — Issue 003</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{background:#f5f0e8;color:#111;font-family:'Lora',serif;font-size:18px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:root{--paper:#f5f0e8;--card:#fffdf7;--ink:#111111;--ink-2:#5a5a5a;--accent:#d62828;--hi:#f5c842;--teal:#0d7377;--navy:#14213d;--ochre:#e07b39;--slate:#3d5a80;--sage:#2d6a4f;--purple:#7b2d8b;--rule:#111111}
+.sk-mono{font-family:'IBM Plex Serif','Georgia',serif;font-weight:500}
+.sk-script{font-family:'Lora',serif;font-style:italic}
+.sk-box{border:1.5px solid var(--ink);background:transparent;position:relative}
+.sk-box-soft{border:1.25px solid #2a2a2a;background:transparent}
+.sk-rule-thin{height:0;border:0;border-top:1px solid var(--ink);margin:0}
+.sk-stamp{display:inline-block;font-family:'IBM Plex Serif',serif;font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:3px 8px;border:1.5px solid currentColor;line-height:1.4;transform:rotate(-1deg);white-space:nowrap}
+.sk-stamp--red{color:var(--accent);border-color:var(--accent)}
+.sk-stamp--navy{color:var(--navy);border-color:var(--navy)}
+.sk-stamp--teal{color:var(--teal);border-color:var(--teal)}
+.sk-stamp--hi{color:#9a7200;border-color:#9a7200}
+.sk-stamp--ochre{color:var(--ochre);border-color:var(--ochre)}
+.row{display:flex}.col{display:flex;flex-direction:column}.grow{flex:1}
+.gap-2{gap:8px}.gap-3{gap:12px}
+.dd-page{max-width:1200px;margin:0 auto;padding:32px}
+@media(max-width:900px){.sk-grid-tool{grid-template-columns:1fr 260px!important}}
+@media(max-width:640px){body{font-size:17px}.dd-page{padding:16px 14px}.sk-grid-tool{grid-template-columns:1fr!important}.sk-dossier-hl{font-size:28px!important}}
+</style>
+</head>
+<body>
+<div class="dd-page">
+  <nav class="row" style="justify-content:space-between;align-items:baseline;margin-bottom:8px">
+    <a href="../index.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px">&#8592; DIGEST &middot; &numero; 003</a>
+    <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">TOOL &middot; 04.3 &middot; QUANTUM</span>
+    <a href="../../../archive.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--teal)">ARCHIVE &#8599;</a>
+  </nav>
+
+  <section class="sk-box" style="background:var(--ink);color:var(--card);padding:20px 22px">
+    <div class="row" style="justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px">
+      <span class="sk-mono" style="font-size:10px;letter-spacing:3px;color:var(--hi)">TOOL / 04.3</span>
+      <div class="row gap-2">
+        <span class="sk-stamp sk-stamp--hi">QUANTUM</span>
+        <span class="sk-stamp" style="color:var(--card);border-color:var(--card)">OPEN SOURCE</span>
+      </div>
+      <a href="https://github.com/NVIDIA/Ising" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--sage)">VISIT TOOL &#8599;</a>
+    </div>
+    <h1 class="sk-dossier-hl" style="font-size:44px;font-weight:700;line-height:1.06;letter-spacing:-0.5px;text-wrap:balance;margin:14px 0 0">
+      NVIDIA Ising
+    </h1>
+    <p style="font-size:20px;font-weight:700;line-height:1.3;color:var(--card);margin:10px 0 0">Open-source AI models that accelerate quantum processor calibration and error correction</p>
+    <p class="sk-script" style="font-size:20px;color:var(--hi);margin:8px 0 0">A vision-language model for calibration plus two 3D-CNN error decoders. 2.5&times; faster and 3&times; more accurate than pyMatching. Apache 2.0. Available on GitHub, Hugging Face, and build.nvidia.com.</p>
+    <div class="row gap-3" style="margin-top:14px">
+      <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">TUE 28 APR 2026 &middot; BY EDITORIAL TEAM</span>
+    </div>
+  </section>
+
+  <main class="sk-grid-tool" style="display:grid;grid-template-columns:1fr 320px;gap:14px;margin-top:12px">
+
+    <div class="col gap-3">
+
+      <div class="sk-box" style="background:var(--hi);padding:18px">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0">&#9733; WHAT IT IS</p>
+        <hr class="sk-rule-thin" style="margin:8px 0 10px" />
+        <p style="font-size:19px;line-height:1.65;margin:0">NVIDIA Ising is a family of three open-source AI models that address the two primary operational bottlenecks in running quantum processors: calibration and error correction. The calibration model is a vision-language model that interprets quantum processor measurement outputs and drives automated tuning, reducing what currently takes days of manual work to hours of automated operation. The error correction suite offers two 3D convolutional neural network variants: one optimized for maximum accuracy and one for real-time speed. Both outperform pyMatching&mdash;the current industry standard error decoder&mdash;by 2.5&times; on speed and 3&times; on accuracy. All models are Apache 2.0 licensed and available on GitHub, Hugging Face as pretrained weights, and as NIM microservices on build.nvidia.com for cloud deployment without local GPU setup.</p>
+      </div>
+
+      <div class="sk-box" style="background:var(--card);padding:16px">
+        <div class="row gap-3" style="align-items:baseline;margin-bottom:10px">
+          <span style="font-size:28px;font-weight:700;color:var(--accent);line-height:1">&#182; 01</span>
+          <span class="sk-mono" style="font-size:11px;letter-spacing:2px">WHY &middot; IT &middot; MATTERS</span>
+        </div>
+        <p style="font-size:18px;line-height:1.65;margin:0">Calibration and error correction are not research curiosities&mdash;they are recurring operational costs that every quantum computing lab pays continuously. A quantum processor cannot run experiments while it is being recalibrated; reducing that window from days to hours directly increases the number of useful experiment cycles per week. Error correction is even more fundamental: the rate of undetected errors is the primary variable that determines whether a quantum circuit can run long enough to produce a result that matters. A 3&times; improvement in error correction accuracy means substantially longer coherent circuits are feasible on existing hardware, without requiring better physical qubits. NVIDIA open-sourcing both models rather than keeping them proprietary accelerates the entire ecosystem and signals that AI-assisted quantum operations is a domain they intend to dominate by seeding the community.</p>
+      </div>
+
+      <div class="sk-box" style="background:var(--card);padding:16px">
+        <div class="row gap-3" style="align-items:baseline;margin-bottom:12px">
+          <span style="font-size:28px;font-weight:700;color:var(--teal);line-height:1">&#182; 02</span>
+          <span class="sk-mono" style="font-size:11px;letter-spacing:2px;color:var(--teal)">HOW &middot; TO &middot; TRY &middot; IT</span>
+          <span class="sk-mono" style="font-size:9px;color:var(--ink-2);margin-left:auto">~20 MIN</span>
+        </div>
+        <div class="col gap-3">
+          <div class="row gap-3" style="align-items:flex-start">
+            <span class="sk-mono" style="font-size:14px;font-weight:700;color:var(--teal);line-height:1;width:28px;flex-shrink:0">01</span>
+            <p style="font-size:17px;line-height:1.6;margin:0">Clone the repository: <code style="font-family:'IBM Plex Serif',serif;font-size:15px">git clone https://github.com/NVIDIA/Ising</code>. Review the README for hardware requirements&mdash;the 3D-CNN inference runs on CPU for evaluation but benefits significantly from a GPU.</p>
+          </div>
+          <div class="row gap-3" style="align-items:flex-start">
+            <span class="sk-mono" style="font-size:14px;font-weight:700;color:var(--teal);line-height:1;width:28px;flex-shrink:0">02</span>
+            <p style="font-size:17px;line-height:1.6;margin:0">Install dependencies: <code style="font-family:'IBM Plex Serif',serif;font-size:15px">pip install -r requirements.txt</code>. Download pretrained weights from Hugging Face: <code style="font-family:'IBM Plex Serif',serif;font-size:15px">huggingface-cli download nvidia/ising-decoder</code>.</p>
+          </div>
+          <div class="row gap-3" style="align-items:flex-start">
+            <span class="sk-mono" style="font-size:14px;font-weight:700;color:var(--teal);line-height:1;width:28px;flex-shrink:0">03</span>
+            <p style="font-size:17px;line-height:1.6;margin:0">Run the benchmark against pyMatching on a publicly available quantum circuit dataset (the repo includes sample syndrome data). Record accuracy and latency for both Ising variants and pyMatching baseline.</p>
+          </div>
+          <div class="row gap-3" style="align-items:flex-start">
+            <span class="sk-mono" style="font-size:14px;font-weight:700;color:var(--teal);line-height:1;width:28px;flex-shrink:0">04</span>
+            <p style="font-size:17px;line-height:1.6;margin:0">Alternatively, use the NIM microservice on build.nvidia.com for zero-install cloud inference: create an account, navigate to the Ising NIM, and submit a syndrome string via the REST API to get a decoded error correction output.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="sk-box" style="background:var(--card);padding:16px">
+        <div class="row gap-3" style="align-items:baseline;margin-bottom:10px">
+          <span style="font-size:28px;font-weight:700;color:var(--accent);line-height:1">&#182; 03</span>
+          <span class="sk-mono" style="font-size:11px;letter-spacing:2px">WHAT &middot; TO &middot; OBSERVE</span>
+        </div>
+        <p style="font-size:18px;line-height:1.65;margin:0">Verify the 3&times; accuracy claim independently on the sample syndrome data before drawing conclusions&mdash;benchmark numbers from vendors deserve independent replication. Note whether the accuracy advantage is consistent across different error rates (low, medium, high physical qubit error rates), since real quantum processors operate across this spectrum depending on hardware quality. Watch for adoption signals from the major hardware vendors: if IBM Quantum, Google Quantum AI, or IonQ incorporate Ising into their calibration or error correction pipelines, the 2.5&times; speed claim becomes production-validated at scale. Also check whether the NIM API latency (network + inference) actually outperforms a local pyMatching call&mdash;for real-time error correction in a quantum control loop, end-to-end latency is what matters, not just model inference speed.</p>
+      </div>
+    </div>
+
+    <aside class="col gap-3">
+
+      <div class="sk-box" style="background:var(--card);padding:14px">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0">QUICK &middot; FACTS</p>
+        <hr class="sk-rule-thin" style="margin:8px 0 12px" />
+        <div class="col gap-2">
+          <div class="row gap-2" style="align-items:baseline">
+            <span class="sk-mono" style="font-size:9px;color:var(--ink-2);min-width:60px">MADE BY</span>
+            <span style="font-size:14px;font-weight:700">NVIDIA</span>
+          </div>
+          <div class="row gap-2" style="align-items:baseline">
+            <span class="sk-mono" style="font-size:9px;color:var(--ink-2);min-width:60px">LICENSE</span>
+            <span style="font-size:14px;font-weight:700">Apache 2.0</span>
+          </div>
+          <div class="row gap-2" style="align-items:baseline">
+            <span class="sk-mono" style="font-size:9px;color:var(--ink-2);min-width:60px">MODELS</span>
+            <span style="font-size:13px;line-height:1.4">VLM calibration + 2 3D-CNN decoders</span>
+          </div>
+          <div class="row gap-2" style="align-items:baseline">
+            <span class="sk-mono" style="font-size:9px;color:var(--ink-2);min-width:60px">NEEDS</span>
+            <span style="font-size:13px;line-height:1.4">Python 3.10+, GPU recommended</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sk-box" style="background:var(--card);padding:14px">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0">VS &middot; PYMATCHING</p>
+        <hr class="sk-rule-thin" style="margin:8px 0 12px" />
+        <div class="col gap-3">
+          <div>
+            <div style="font-size:36px;font-weight:700;line-height:0.95;color:var(--accent)">2.5&times;</div>
+            <p class="sk-mono" style="font-size:10px;margin:4px 0 0;letter-spacing:1px">FASTER</p>
+          </div>
+          <hr class="sk-rule-thin" />
+          <div>
+            <div style="font-size:36px;font-weight:700;line-height:0.95">3&times;</div>
+            <p class="sk-mono" style="font-size:10px;margin:4px 0 0;letter-spacing:1px">MORE ACCURATE</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="sk-box-soft" style="padding:12px">
+        <p class="sk-mono" style="font-size:10px;letter-spacing:2px;margin:0 0 10px">FILED &middot; UNDER</p>
+        <div class="row gap-2" style="flex-wrap:wrap">
+          <span class="sk-stamp sk-stamp--teal">QUANTUM</span>
+          <span class="sk-stamp sk-stamp--navy">NVIDIA</span>
+          <span class="sk-stamp sk-stamp--ochre">OPEN SOURCE</span>
+        </div>
+      </div>
+
+      <div class="sk-box" style="background:var(--ink);color:var(--card);padding:14px">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;color:var(--hi);margin:0">GET &middot; THE &middot; TOOL</p>
+        <div style="border-top:1px solid var(--card);margin:8px 0 10px"></div>
+        <a href="https://github.com/NVIDIA/Ising" class="sk-mono" style="font-size:12px;color:var(--sage);text-decoration:underline;text-underline-offset:2px;display:block">GITHUB &#8599;</a>
+        <p class="sk-mono" style="font-size:9px;color:var(--card);opacity:0.7;margin:6px 0 0">RELEASED APR 2026 &middot; APACHE 2.0</p>
+        <a href="https://build.nvidia.com" class="sk-mono" style="font-size:11px;color:var(--hi);display:block;margin-top:10px">NIM CLOUD API &#8599;</a>
+      </div>
+
+      <div class="sk-box" style="background:var(--hi);padding:14px">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0">THE &middot; QUESTION</p>
+        <hr class="sk-rule-thin" style="margin:8px 0 10px" />
+        <p style="font-size:15px;font-weight:700;line-height:1.45;margin:0">Can you independently replicate the 3&times; accuracy claim on a publicly available quantum circuit syndrome dataset&mdash;and does the advantage hold at the physical error rates of your target hardware?</p>
+      </div>
+    </aside>
+  </main>
+
+  <footer class="sk-box-soft" style="padding:14px 18px;margin-top:12px">
+    <div class="row" style="justify-content:space-between;align-items:center">
+      <a href="04-2-claw-code-tool.html" class="col">
+        <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--ink-2)">&#8592; PREV</span>
+        <span style="font-size:14px;font-weight:700">04.2 &middot; Claw Code</span>
+      </a>
+      <span class="sk-mono" style="font-size:10px;letter-spacing:2px">&middot; TOOL &middot; 04.3 &middot;</span>
+      <a href="04-4-markitdown.html" class="col" style="align-items:flex-end">
+        <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--accent)">NEXT &rarr;</span>
+        <span style="font-size:14px;font-weight:700">04.4 &middot; MarkItDown</span>
+      </a>
+    </div>
+  </footer>
+</div>
+</body>
+</html>
