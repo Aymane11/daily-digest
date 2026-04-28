@@ -74,6 +74,9 @@ Prefer **RSS/Atom** where available. Keep items from the **last 24h only** unles
   what/why/prereqs/steps/what-to-observe/the-question.
 - Do **not** duplicate this on Tool pages (Template E already includes it).
 
+### General rules for content deduplication
+- For all slots, (especially slots that allow going beyond the 24h window), check the last **3 issues** via commits or filenames only (not prior issue body content) and drop any story already mentioned unless there is a meaningful update that must be explicitly acknowledged. Dont try to include content that has been covered in previous issues just to satisfy some layout or content rule.
+
 ---
 
 ## 3) Skimmability (non-negotiable)
