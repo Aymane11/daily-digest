@@ -8,35 +8,451 @@
     <atom:link href="https://aymane11.github.io/daily-digest/feed.xml" rel="self" type="application/rss+xml"/>
 
     <item>
-      <title>Daily Digest — Issue 004 — WED 29 APR 2026</title>
-      <link>https://aymane11.github.io/daily-digest/issues/004/</link>
-      <guid>https://aymane11.github.io/daily-digest/issues/004/</guid>
-      <pubDate>Wed, 29 Apr 2026 06:00:00 +0000</pubDate>
-      <description>AI · CLOUD · SECURITY · LEGAL · ENGINEERING</description>
+      <title>OpenAI lands on Amazon Bedrock</title>
+      <link>https://aymane11.github.io/daily-digest/issues/004/stories/01-lead-openai-aws-bedrock.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/004/stories/01-lead-openai-aws-bedrock.html</guid>
+      <pubDate>Wed, 29 Apr 2026 07:00:00 +0000</pubDate>
+      <description>OpenAI announced on April 28, 2026 that GPT-5.5, Codex, and a new Bedrock Managed Agents product are available in limited preview on AWS. The move comes one day after OpenAI and Microsoft restructured their exclusive deal, and fulfils OpenAI's obligation tied to its $50 billion AWS financing round. Enterprise customers can now access OpenAI models through existing AWS IAM credentials, PrivateLink, and CloudTrail without switching cloud providers.</description>
     </item>
 
     <item>
-      <title>Daily Digest — Issue 003 — TUE 28 APR 2026</title>
-      <link>https://aymane11.github.io/daily-digest/issues/003/</link>
-      <guid>https://aymane11.github.io/daily-digest/issues/003/</guid>
+      <title>Ghostty leaving GitHub</title>
+      <link>https://aymane11.github.io/daily-digest/issues/004/stories/02-1-ghostty-github.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/004/stories/02-1-ghostty-github.html</guid>
+      <pubDate>Wed, 29 Apr 2026 07:00:00 +0000</pubDate>
+      <description>Mitchell Hashimoto—GitHub user #1299, joined February 2008—announced on April 28 that his terminal emulator Ghostty will leave GitHub over chronic reliability failures. He describes marking his journal almost every day when outages block work. No new host is confirmed yet; a read-only mirror stays at the current GitHub URL.</description>
+    </item>
+
+    <item>
+      <title>GitHub RCE CVE-2026-3854</title>
+      <link>https://aymane11.github.io/daily-digest/issues/004/stories/02-2-github-rce.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/004/stories/02-2-github-rce.html</guid>
+      <pubDate>Wed, 29 Apr 2026 07:00:00 +0000</pubDate>
+      <description>Wiz Research publicly disclosed CVE-2026-3854 on April 28—a CVSS 8.7 flaw in GitHub's git push pipeline that lets any authenticated user execute arbitrary code on backend servers with a single command. GitHub.com was patched in six hours on March 4. GitHub Enterprise Server admins must upgrade to 3.19.3, 3.18.6, 3.17.12, 3.16.15, 3.15.19, or 3.14.24. At disclosure, 88% of GHES instances remained unpatched.</description>
+    </item>
+
+    <item>
+      <title>How ChatGPT serves ads</title>
+      <link>https://aymane11.github.io/daily-digest/issues/004/stories/02-3-chatgpt-ads.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/004/stories/02-3-chatgpt-ads.html</guid>
+      <pubDate>Wed, 29 Apr 2026 07:00:00 +0000</pubDate>
+      <description>A researcher reverse-engineered ChatGPT's ad attribution system and published a full technical breakdown. Ads arrive as single_advertiser_ad_unit objects injected into the response stream. Four encrypted Fernet tokens handle spam integrity, forward attribution (30-day cookie), impression tracking, and server-side reconciliation. Clicks open in ChatGPT's in-app webview, where OpenAI's OAIQ SDK reports product views back to bzr.openai.com.</description>
+    </item>
+
+    <item>
+      <title>Who owns AI-written code?</title>
+      <link>https://aymane11.github.io/daily-digest/issues/004/stories/02-4-ai-code-ownership.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/004/stories/02-4-ai-code-ownership.html</guid>
+      <pubDate>Wed, 29 Apr 2026 07:00:00 +0000</pubDate>
+      <description>A legal analysis published on HN (396 points, 374 comments) establishes three determinants of AI-generated code ownership: human authorship requirement (the DC Circuit's Thaler ruling makes predominantly AI-generated code uncopyrightable), work-for-hire doctrine (employers typically own code created using company tools), and GPL license contamination (models trained on copyleft code may reproduce obligations unknowingly). None is fully resolved in court.</description>
+    </item>
+
+    <item>
+      <title>Before GitHub</title>
+      <link>https://aymane11.github.io/daily-digest/issues/004/stories/03-1-before-github.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/004/stories/03-1-before-github.html</guid>
+      <pubDate>Wed, 29 Apr 2026 07:00:00 +0000</pubDate>
+      <description>Armin Ronacher (Flask, Jinja2, Click) published a personal history of open source before GitHub's 2008 arrival. He describes a &quot;much smaller world&quot; where projects lived on self-hosted Trac installations, Subversion repositories, and mailing lists—and where reputation mattered &quot;in a very direct way&quot; because you needed to know a maintainer's track record before depending on their code. Dependency selection was deliberate; vendoring was common. GitHub eliminated the barriers to publishing and disco…</description>
+    </item>
+
+    <item>
+      <title>Bugs Rust won't catch</title>
+      <link>https://aymane11.github.io/daily-digest/issues/004/stories/03-2-rust-bugs.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/004/stories/03-2-rust-bugs.html</guid>
+      <pubDate>Wed, 29 Apr 2026 07:00:00 +0000</pubDate>
+      <description>An audit of 44 CVEs in uutils (a Rust reimplementation of GNU coreutils) identifies the bug classes that escape Rust's safety guarantees entirely. The largest cluster is TOCTOU (time-of-check-time-of-use) vulnerabilities: operations spread across multiple syscalls leave windows where symlinks can redirect paths. Permission race conditions arise when directories are created with default permissions then fixed afterward—the fix is to set permissions at creation time. Path comparison failures occur…</description>
+    </item>
+
+    <item>
+      <title>Wire replaces Signal in Bundestag</title>
+      <link>https://aymane11.github.io/daily-digest/issues/004/stories/03-3-wire-bundestag.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/004/stories/03-3-wire-bundestag.html</guid>
+      <pubDate>Wed, 29 Apr 2026 07:00:00 +0000</pubDate>
+      <description>Germany's parliament has mandated Wire as its official secure messaging platform, replacing Signal. The switch is driven by digital sovereignty concerns: Wire's servers can be self-hosted within German federal infrastructure, while Signal's backend runs on US-controlled services, creating a dependency the Bundestag considers incompatible with sensitive legislative communications. Wire uses the same Signal Protocol for end-to-end encryption but adds enterprise deployment options including on-prem…</description>
+    </item>
+
+    <item>
+      <title>Rocky SQL engine</title>
+      <link>https://aymane11.github.io/daily-digest/issues/004/stories/03-4-rocky-sql.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/004/stories/03-4-rocky-sql.html</guid>
+      <pubDate>Wed, 29 Apr 2026 07:00:00 +0000</pubDate>
+      <description>Rocky is an open-source (Apache 2.0) Rust-based control plane for data warehouse pipelines. It sits above existing warehouses—Databricks, Snowflake, BigQuery, DuckDB—rather than replacing them, handling DAG orchestration, governance, and safety guarantees. The headline features are named branches (isolated pipeline testing with blast-radius analysis before merging), compiler-time column lineage (traces individual columns from downstream facts back to source seeds with no runtime overhead), and c…</description>
+    </item>
+
+    <item>
+      <title>Auto-Architecture: Karpathy's loop on CPU design</title>
+      <link>https://aymane11.github.io/daily-digest/issues/004/stories/03-5-auto-architecture.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/004/stories/03-5-auto-architecture.html</guid>
+      <pubDate>Wed, 29 Apr 2026 07:00:00 +0000</pubDate>
+      <description>A project by Felipe Sens applies Karpathy's iterative development methodology—the &quot;generate, evaluate, generate better&quot; loop from nanoGPT and similar projects—to CPU architecture design rather than neural network design. The system runs automated tournaments where candidate CPU architectures compete on benchmark performance, and the winning characteristics seed the next generation of candidates. The project is documented as a GitHub-hosted blog post and has generated 144 HN points and 29 comment…</description>
+    </item>
+
+    <item>
+      <title>Claude Code malware regression</title>
+      <link>https://aymane11.github.io/daily-digest/issues/004/stories/03-6-claude-code-regression.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/004/stories/03-6-claude-code-regression.html</guid>
+      <pubDate>Wed, 29 Apr 2026 07:00:00 +0000</pubDate>
+      <description>A tracked regression in Claude Managed Agents (GitHub issue #49363, 213 HN points, 109 comments) describes a system prompt that appends a malware-scanning directive to every file read operation. The agent spends tokens and billing charges performing the analysis on each read, then incorrectly refuses to write any code—even after confirming no malware exists. Users are charged for each failed session. The bug is a false positive loop: the malware reminder context bleeds into the agent's safety ev…</description>
+    </item>
+
+    <item>
+      <title>Tool: OpenAI on AWS Bedrock</title>
+      <link>https://aymane11.github.io/daily-digest/issues/004/stories/04-1-openai-bedrock-tool.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/004/stories/04-1-openai-bedrock-tool.html</guid>
+      <pubDate>Wed, 29 Apr 2026 07:00:00 +0000</pubDate>
+      <description>GPT-5.5, Codex, and Bedrock Managed Agents — now accessible via your existing AWS credentials without switching cloud providers</description>
+    </item>
+
+    <item>
+      <title>Tool: Rocky SQL Engine</title>
+      <link>https://aymane11.github.io/daily-digest/issues/004/stories/04-2-rocky-tool.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/004/stories/04-2-rocky-tool.html</guid>
+      <pubDate>Wed, 29 Apr 2026 07:00:00 +0000</pubDate>
+      <description>A Rust-written SQL control plane that adds Git-style branching, compile-time contracts, and column lineage to your existing data warehouse</description>
+    </item>
+
+    <item>
+      <title>Tool: LLaDA2.0-Uni</title>
+      <link>https://aymane11.github.io/daily-digest/issues/004/stories/04-3-llada2-tool.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/004/stories/04-3-llada2-tool.html</guid>
+      <pubDate>Wed, 29 Apr 2026 07:00:00 +0000</pubDate>
+      <description>A diffusion large language model that unifies multimodal understanding and generation — text, vision, and image editing in one architecture (234 HF upvotes, #1 trending)</description>
+    </item>
+
+    <item>
+      <title>Tool: VibeVoice</title>
+      <link>https://aymane11.github.io/daily-digest/issues/004/stories/04-4-vibevoice-tool.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/004/stories/04-4-vibevoice-tool.html</guid>
+      <pubDate>Wed, 29 Apr 2026 07:00:00 +0000</pubDate>
+      <description>Microsoft Research's long-form multi-speaker speech synthesis model using next-token diffusion and a continuous speech tokenizer (166 HF upvotes, #3 trending)</description>
+    </item>
+
+    <item>
+      <title>Engineering Read: Before GitHub</title>
+      <link>https://aymane11.github.io/daily-digest/issues/004/stories/eng-1-before-github.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/004/stories/eng-1-before-github.html</guid>
+      <pubDate>Wed, 29 Apr 2026 07:00:00 +0000</pubDate>
+      <description>Armin Ronacher's &quot;Before GitHub&quot; and Mitchell Hashimoto's Ghostty departure, read together, describe the same arc: friction as a feature, centralisation as a trade-off, and the moment a platform's reliability costs exceed its convenience benefits.</description>
+    </item>
+
+    <item>
+      <title>Paper: Agentic World Modeling</title>
+      <link>https://aymane11.github.io/daily-digest/issues/004/stories/paper-agentic-world-modeling.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/004/stories/paper-agentic-world-modeling.html</guid>
+      <pubDate>Wed, 29 Apr 2026 07:00:00 +0000</pubDate>
+      <description>As AI systems shift from generating text to accomplishing goals through sustained interaction, the ability to model environment dynamics becomes the central bottleneck. This paper proposes a &quot;levels × laws&quot; taxonomy: three capability levels (L1 Predictor, L2 Simulator, L3 Evolver) crossed with four governing-law regimes (physical, digital, social, scientific). The framework unifies 400+ previously isolated works and gives practitioners a concrete decision rule for selecting and evaluating world-…</description>
+    </item>
+
+    <item>
+      <title>Microsoft and OpenAI end exclusive deal</title>
+      <link>https://aymane11.github.io/daily-digest/issues/003/stories/01-lead-msft-openai-split.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/003/stories/01-lead-msft-openai-split.html</guid>
       <pubDate>Tue, 28 Apr 2026 07:00:00 +0000</pubDate>
-      <description>AI · INDUSTRY · SECURITY · POLICY · ENGINEERING</description>
+      <description>A $13B investment, 27% ownership, and six years of exclusivity just gave way to a multi-cloud future. OpenAI drops AGI trigger clause; Microsoft loses revenue share but keeps the IP license through 2032.</description>
     </item>
 
     <item>
-      <title>Daily Digest — Issue 002 — MON 27 APR 2026</title>
-      <link>https://aymane11.github.io/daily-digest/issues/002/</link>
-      <guid>https://aymane11.github.io/daily-digest/issues/002/</guid>
+      <title>GPT-5.5 launches</title>
+      <link>https://aymane11.github.io/daily-digest/issues/003/stories/02-1-gpt-5-5-launch.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/003/stories/02-1-gpt-5-5-launch.html</guid>
+      <pubDate>Tue, 28 Apr 2026 07:00:00 +0000</pubDate>
+      <description>OpenAI’s first fully end-to-end multimodal model processes text, images, audio, and video in one architecture. API went live April 24. Effective cost increase is ~20% once token efficiency is factored in.</description>
+    </item>
+
+    <item>
+      <title>Mercor data breach</title>
+      <link>https://aymane11.github.io/daily-digest/issues/003/stories/02-2-mercor-breach.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/003/stories/02-2-mercor-breach.html</guid>
+      <pubDate>Tue, 28 Apr 2026 07:00:00 +0000</pubDate>
+      <description>Lapsus$ exploited a malicious LiteLLM release (95M monthly downloads) to harvest credentials and pivot into Mercor’s systems. Five lawsuits filed in ten days. Organizations pinning dependencies with cryptographic hashes were fully protected.</description>
+    </item>
+
+    <item>
+      <title>Rural data center backlash</title>
+      <link>https://aymane11.github.io/daily-digest/issues/003/stories/02-3-datacenter-backlash.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/003/stories/02-3-datacenter-backlash.html</guid>
+      <pubDate>Tue, 28 Apr 2026 07:00:00 +0000</pubDate>
+      <description>67% of planned AI data centers target rural land. Residents near facilities face 267% electricity bill increases. Data center cancellations due to local opposition quadrupled year-over-year. A federal moratorium bill from Sanders and AOC is pending.</description>
+    </item>
+
+    <item>
+      <title>Google Pentagon AI deal</title>
+      <link>https://aymane11.github.io/daily-digest/issues/003/stories/02-4-google-dod.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/003/stories/02-4-google-dod.html</guid>
+      <pubDate>Tue, 28 Apr 2026 07:00:00 +0000</pubDate>
+      <description>Google proposes guardrails against domestic surveillance and autonomous weapons without human control—the same conditions that got Anthropic dropped from DoD contracts in March. Internal opposition echoes Project Maven in 2018.</description>
+    </item>
+
+    <item>
+      <title>macOS 27 networking changes</title>
+      <link>https://aymane11.github.io/daily-digest/issues/003/stories/03-1-macos-27-networking.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/003/stories/03-1-macos-27-networking.html</guid>
+      <pubDate>Tue, 28 Apr 2026 07:00:00 +0000</pubDate>
+      <description>Apple finally removes the protocol it deprecated in Mavericks (2013). MDM, device enrolment, app distribution, and software update connections must meet ATS standards or break.</description>
+    </item>
+
+    <item>
+      <title>Talkie: vintage language model</title>
+      <link>https://aymane11.github.io/daily-digest/issues/003/stories/03-2-talkie-lm.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/003/stories/03-2-talkie-lm.html</guid>
+      <pubDate>Tue, 28 Apr 2026 07:00:00 +0000</pubDate>
+      <description>Books, newspapers, patents, and legal documents from before 1931. Anachronism classifiers filter out post-1930 leakage. The result: a contamination-free testbed for in-context learning, future anticipation, and out-of-distribution generalization research.</description>
+    </item>
+
+    <item>
+      <title>NVIDIA Ising quantum AI models</title>
+      <link>https://aymane11.github.io/daily-digest/issues/003/stories/03-3-nvidia-ising.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/003/stories/03-3-nvidia-ising.html</guid>
+      <pubDate>Tue, 28 Apr 2026 07:00:00 +0000</pubDate>
+      <description>A vision-language model for automated calibration plus two 3D-CNN variants for real-time error decoding. Available on GitHub, Hugging Face, and build.nvidia.com. 2.5&amp;times; faster and 3&amp;times; more accurate than pyMatching, the current standard.</description>
+    </item>
+
+    <item>
+      <title>Google employee protest Pentagon AI</title>
+      <link>https://aymane11.github.io/daily-digest/issues/003/stories/03-4-google-employee-protest.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/003/stories/03-4-google-employee-protest.html</guid>
+      <pubDate>Tue, 28 Apr 2026 07:00:00 +0000</pubDate>
+      <description>The letter demands Google refuse classified military AI contracts that lack guardrails against autonomous weapons and domestic surveillance. In 2018, a similar protest forced Google to exit the DoD drone imagery project.</description>
+    </item>
+
+    <item>
+      <title>Claw Code open-source coding agent</title>
+      <link>https://aymane11.github.io/daily-digest/issues/003/stories/03-5-claw-code.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/003/stories/03-5-claw-code.html</guid>
+      <pubDate>Tue, 28 Apr 2026 07:00:00 +0000</pubDate>
+      <description>Built by Sigrid Jin after the March 2026 Claude Code source leak. Six core tools: Bash, Read, Write, Edit, Glob, Grep. Multi-agent orchestration and tool-calling. Works with any Anthropic API key.</description>
+    </item>
+
+    <item>
+      <title>LiteLLM supply chain attack</title>
+      <link>https://aymane11.github.io/daily-digest/issues/003/stories/03-6-litellm-supply-chain.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/003/stories/03-6-litellm-supply-chain.html</guid>
+      <pubDate>Tue, 28 Apr 2026 07:00:00 +0000</pubDate>
+      <description>Attackers poisoned two PyPI versions in 13 minutes via a compromised Trivy maintainer account. LiteLLM holds AI provider API keys for every company that uses it—making it uniquely attractive. A compliance firm certifying it was simultaneously exposed as fabricating SOC 2 reports.</description>
+    </item>
+
+    <item>
+      <title>GPT-5.5 API</title>
+      <link>https://aymane11.github.io/daily-digest/issues/003/stories/04-1-gpt-5-5-api.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/003/stories/04-1-gpt-5-5-api.html</guid>
+      <pubDate>Tue, 28 Apr 2026 07:00:00 +0000</pubDate>
+      <description>OpenAI’s most capable agentic model, now at API pricing you can run in production</description>
+    </item>
+
+    <item>
+      <title>Claw Code Tool</title>
+      <link>https://aymane11.github.io/daily-digest/issues/003/stories/04-2-claw-code-tool.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/003/stories/04-2-claw-code-tool.html</guid>
+      <pubDate>Tue, 28 Apr 2026 07:00:00 +0000</pubDate>
+      <description>Rust core, Python workspace. Six tools: Bash, Read, Write, Edit, Glob, Grep. Multi-agent orchestration. Requires only an Anthropic API key. MIT license. 172,000+ GitHub stars in weeks.</description>
+    </item>
+
+    <item>
+      <title>NVIDIA Ising Tool</title>
+      <link>https://aymane11.github.io/daily-digest/issues/003/stories/04-3-nvidia-ising-tool.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/003/stories/04-3-nvidia-ising-tool.html</guid>
+      <pubDate>Tue, 28 Apr 2026 07:00:00 +0000</pubDate>
+      <description>Open-source AI models that accelerate quantum processor calibration and error correction</description>
+    </item>
+
+    <item>
+      <title>MarkItDown Tool</title>
+      <link>https://aymane11.github.io/daily-digest/issues/003/stories/04-4-markitdown.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/003/stories/04-4-markitdown.html</guid>
+      <pubDate>Tue, 28 Apr 2026 07:00:00 +0000</pubDate>
+      <description>One command converts PDF, DOCX, XLSX, PPTX, HTML, images, audio, and ZIP archives to clean Markdown. MIT license. Python 3.10+. v0.1.5 released Feb 20, 2026.</description>
+    </item>
+
+    <item>
+      <title>The Next Two Years of Software Engineering</title>
+      <link>https://aymane11.github.io/daily-digest/issues/003/stories/eng-1-next-two-years.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/003/stories/eng-1-next-two-years.html</guid>
+      <pubDate>Tue, 28 Apr 2026 07:00:00 +0000</pubDate>
+      <description>Addy Osmani maps the five questions that will determine which engineers thrive when AI writes the majority of code: junior pipeline collapse, skills atrophy, role evolution from coder to auditor, specialist versus T-shaped identity, and what education needs to become.</description>
+    </item>
+
+    <item>
+      <title>AI agent wipes production database in 9 seconds — Daily Digest 002</title>
+      <link>https://aymane11.github.io/daily-digest/issues/002/stories/01-lead-ai-agent-deletes-db.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/002/stories/01-lead-ai-agent-deletes-db.html</guid>
       <pubDate>Mon, 27 Apr 2026 07:00:00 +0000</pubDate>
-      <description>AI · AGENTS · MODELS · ENGINEERING</description>
+      <description>Jer Crane, founder of PocketOS, was using Cursor—an AI-powered code editor—with Anthropic’s Claude Opus 4.6 as the underlying model. The agent was given routine infrastructure tasks alongside access to Railway, a deployment platform Crane used to host his production database.</description>
     </item>
 
     <item>
-      <title>Daily Digest — Issue 001 — SUN 26 APR 2026</title>
-      <link>https://aymane11.github.io/daily-digest/issues/001/</link>
-      <guid>https://aymane11.github.io/daily-digest/issues/001/</guid>
+      <title>DeepSeek V4 — Daily Digest 002</title>
+      <link>https://aymane11.github.io/daily-digest/issues/002/stories/02-1-deepseek-v4.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/002/stories/02-1-deepseek-v4.html</guid>
+      <pubDate>Mon, 27 Apr 2026 07:00:00 +0000</pubDate>
+      <description>On April 24, 2026, DeepSeek released a two-model family under the MIT License. V4-Pro is a 1.6 trillion-parameter Mixture-of-Experts model that activates only 49 billion parameters per token—comparable compute per call to a 50B dense model, but with the capacity of a much larger system. V4-Flash is the lighter variant: 284B total, 13B active, intended for latency-sensitive applications.</description>
+    </item>
+
+    <item>
+      <title>OpenAI retires SWE-bench Verified — Daily Digest 002</title>
+      <link>https://aymane11.github.io/daily-digest/issues/002/stories/02-2-swe-bench-retired.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/002/stories/02-2-swe-bench-retired.html</guid>
+      <pubDate>Mon, 27 Apr 2026 07:00:00 +0000</pubDate>
+      <description>On February 23, 2026, OpenAI published a research post explaining why it is no longer reporting SWE-bench Verified scores for its frontier models. The post identified two fundamental problems with the benchmark at the current performance level of frontier systems.</description>
+    </item>
+
+    <item>
+      <title>Chrome Prompt API — Daily Digest 002</title>
+      <link>https://aymane11.github.io/daily-digest/issues/002/stories/02-3-chrome-prompt-api.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/002/stories/02-3-chrome-prompt-api.html</guid>
+      <pubDate>Mon, 27 Apr 2026 07:00:00 +0000</pubDate>
+      <description>Google shipped the Prompt API for Chrome 138+, allowing web developers to send natural-language requests directly to Gemini Nano running on the user’s device. No API key, no server round-trip, no data leaves the machine. The API is available today on localhost with a flag, and via origin trial for production deployments.</description>
+    </item>
+
+    <item>
+      <title>TurboQuant — Daily Digest 002</title>
+      <link>https://aymane11.github.io/daily-digest/issues/002/stories/02-4-turboquant.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/002/stories/02-4-turboquant.html</guid>
+      <pubDate>Mon, 27 Apr 2026 07:00:00 +0000</pubDate>
+      <description>TurboQuant is a vector quantization method that compresses high-dimensional vectors—KV caches, embeddings, attention keys—to 2–4 bits per coordinate while maintaining near-optimal reconstruction fidelity. It appeared as an interactive walkthrough on Hacker News and gathered 158 points.</description>
+    </item>
+
+    <item>
+      <title>MCP hits 97M installs — Daily Digest 002</title>
+      <link>https://aymane11.github.io/daily-digest/issues/002/stories/03-1-mcp-97m.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/002/stories/03-1-mcp-97m.html</guid>
+      <pubDate>Mon, 27 Apr 2026 07:00:00 +0000</pubDate>
+      <description>The Model Context Protocol, Anthropic’s open standard for connecting AI agents to external tools and data sources, crossed 97 million monthly SDK downloads in March 2026. Over 10,000 active public MCP servers are now registered. Every major AI provider—OpenAI, Google DeepMind, Cohere, Mistral—ships MCP-compatible tooling as a default, not an option.</description>
+    </item>
+
+    <item>
+      <title>DeepSeek V4 API live — Daily Digest 002</title>
+      <link>https://aymane11.github.io/daily-digest/issues/002/stories/03-2-deepseek-api-live.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/002/stories/03-2-deepseek-api-live.html</guid>
+      <pubDate>Mon, 27 Apr 2026 07:00:00 +0000</pubDate>
+      <description>The DeepSeek V4 API launched alongside the model release on April 24, 2026. V4-Pro (1.6T params, 49B active) and V4-Flash (284B params, 13B active) are both available. The API accepts requests in the OpenAI ChatCompletions format and the Anthropic Messages format interchangeably—switching from either provider is a base URL change and an API key swap.</description>
+    </item>
+
+    <item>
+      <title>Block Goose donated to Linux Foundation — Daily Digest 002</title>
+      <link>https://aymane11.github.io/daily-digest/issues/002/stories/03-3-goose-linux-foundation.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/002/stories/03-3-goose-linux-foundation.html</guid>
+      <pubDate>Mon, 27 Apr 2026 07:00:00 +0000</pubDate>
+      <description>Block donated Goose to the Linux Foundation’s Agentic AI Foundation, placing it under the same neutral governance umbrella as MCP. Goose is a local-first AI agent framework written in Rust: it runs entirely on your machine, connects to external tools through MCP, and supports any LLM backend that exposes an OpenAI-compatible or Anthropic-compatible API.</description>
+    </item>
+
+    <item>
+      <title>Google Agent Development Kit — Daily Digest 002</title>
+      <link>https://aymane11.github.io/daily-digest/issues/002/stories/03-4-google-adk.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/002/stories/03-4-google-adk.html</guid>
+      <pubDate>Mon, 27 Apr 2026 07:00:00 +0000</pubDate>
+      <description>Google open-sourced the Agent Development Kit (ADK) on April 9, 2026. The Python library provides multi-agent orchestration with a declarative API: define agents, tools, and the routing logic between them; ADK handles execution, state management, and structured output validation. It ships with built-in connectors for Vertex AI, Gemini, and any OpenAI-compatible API endpoint—including DeepSeek V4 and self-hosted models.</description>
+    </item>
+
+    <item>
+      <title>EvanFlow — Daily Digest 002</title>
+      <link>https://aymane11.github.io/daily-digest/issues/002/stories/03-5-evanflow.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/002/stories/03-5-evanflow.html</guid>
+      <pubDate>Mon, 27 Apr 2026 07:00:00 +0000</pubDate>
+      <description>EvanFlow is a TDD (test-driven development) harness for Claude Code that structures the agent’s loop around test execution: you write a failing test, EvanFlow runs it, feeds the result back to Claude Code, and lets the agent iterate until the test passes. The cycle repeats for the next failing test. This constrains the agent to work toward concrete, verifiable outcomes rather than generating code in an unconstrained direction.</description>
+    </item>
+
+    <item>
+      <title>SWE-bench Pro launches — Daily Digest 002</title>
+      <link>https://aymane11.github.io/daily-digest/issues/002/stories/03-6-swe-bench-pro.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/002/stories/03-6-swe-bench-pro.html</guid>
+      <pubDate>Mon, 27 Apr 2026 07:00:00 +0000</pubDate>
+      <description>Scale AI launched SWE-bench Pro to replace SWE-bench Verified as the standard coding benchmark for frontier AI models. The new benchmark uses harder, verified, uncontaminated problems specifically designed for the performance level of 2026 models. OpenAI recommended SWE-bench Pro in its February 2026 post announcing the retirement of SWE-bench Verified.</description>
+    </item>
+
+    <item>
+      <title>DeepSeek V4 API — Tool — Daily Digest 002</title>
+      <link>https://aymane11.github.io/daily-digest/issues/002/stories/04-1-deepseek-v4-api.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/002/stories/04-1-deepseek-v4-api.html</guid>
+      <pubDate>Mon, 27 Apr 2026 07:00:00 +0000</pubDate>
+      <description>What it is: REST API for DeepSeek-V4-Pro and V4-Flash—MoE models with 1M-token context that match Claude Opus 4.6 SWE-bench scores at ~10&amp;times; lower cost.</description>
+    </item>
+
+    <item>
+      <title>Google Agent Development Kit — Tool — Daily Digest 002</title>
+      <link>https://aymane11.github.io/daily-digest/issues/002/stories/04-2-google-adk.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/002/stories/04-2-google-adk.html</guid>
+      <pubDate>Mon, 27 Apr 2026 07:00:00 +0000</pubDate>
+      <description>What it is: An open-source Python framework for building production multi-agent systems with declarative orchestration, built-in tool calling, memory persistence, and structured output.</description>
+    </item>
+
+    <item>
+      <title>Block Goose — Tool — Daily Digest 002</title>
+      <link>https://aymane11.github.io/daily-digest/issues/002/stories/04-3-goose.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/002/stories/04-3-goose.html</guid>
+      <pubDate>Mon, 27 Apr 2026 07:00:00 +0000</pubDate>
+      <description>What it is: A local-first AI coding agent written in Rust, donated to the Linux Foundation. Supports MCP tools and any LLM backend. Runs entirely on your machine—no cloud dependency.</description>
+    </item>
+
+    <item>
+      <title>Chrome Prompt API — Tool — Daily Digest 002</title>
+      <link>https://aymane11.github.io/daily-digest/issues/002/stories/04-4-chrome-prompt-api.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/002/stories/04-4-chrome-prompt-api.html</guid>
+      <pubDate>Mon, 27 Apr 2026 07:00:00 +0000</pubDate>
+      <description>What it is: A JavaScript API in Chrome 138+ that runs Gemini Nano on-device. No server, no API key, no data leaves the machine. Supports text, image, and audio input with streaming output.</description>
+    </item>
+
+    <item>
+      <title>AI should elevate your thinking, not replace it — Daily Digest 002</title>
+      <link>https://aymane11.github.io/daily-digest/issues/002/stories/eng-1-ai-elevate-thinking.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/002/stories/eng-1-ai-elevate-thinking.html</guid>
+      <pubDate>Mon, 27 Apr 2026 07:00:00 +0000</pubDate>
+      <description>John opens with an observation that AI has created a surface-level productivity that is impossible to distinguish from genuine capability unless you probe it. Engineers can present AI-generated design decisions, architecture diagrams, and code reviews that look polished and authoritative. The problem: they cannot reproduce the reasoning, defend the tradeoffs, or spot when the AI was wrong.</description>
+    </item>
+
+    <item>
+      <title>Daily Digest 001 — Claude Mythos Preview</title>
+      <link>https://aymane11.github.io/daily-digest/issues/001/stories/01-lead-claude-mythos-preview.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/001/stories/01-lead-claude-mythos-preview.html</guid>
       <pubDate>Sun, 26 Apr 2026 07:00:00 +0000</pubDate>
-      <description>AI · SECURITY · MODELS</description>
+      <description>A model too capable for public release — and what that means for the AI security era</description>
+    </item>
+
+    <item>
+      <title>Daily Digest 001 — DeepSeek V4</title>
+      <link>https://aymane11.github.io/daily-digest/issues/001/stories/02-1-deepseek-v4-million-context.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/001/stories/02-1-deepseek-v4-million-context.html</guid>
+      <pubDate>Sun, 26 Apr 2026 07:00:00 +0000</pubDate>
+      <description>Open weights, a 10x KV cache reduction, and pricing at $0.14/M tokens resets expectations for what open-source models can do</description>
+    </item>
+
+    <item>
+      <title>Daily Digest 001 — Amateur solves Erdos problem with ChatGPT</title>
+      <link>https://aymane11.github.io/daily-digest/issues/001/stories/02-2-erdos-problem-chatgpt.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/001/stories/02-2-erdos-problem-chatgpt.html</guid>
+      <pubDate>Sun, 26 Apr 2026 07:00:00 +0000</pubDate>
+      <description>GPT-5.4 found a path through a formula that professional mathematicians had collectively missed for six decades</description>
+    </item>
+
+    <item>
+      <title>Daily Digest 001 — OpenAI retires SWE-bench Verified</title>
+      <link>https://aymane11.github.io/daily-digest/issues/001/stories/02-3-swe-bench-retired.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/001/stories/02-3-swe-bench-retired.html</guid>
+      <pubDate>Sun, 26 Apr 2026 07:00:00 +0000</pubDate>
+      <description>Top models now score above 80% on tasks designed to be hard — the benchmark saturated faster than any evaluation infrastructure could keep pace</description>
+    </item>
+
+    <item>
+      <title>Daily Digest 001 — DeepMind Decoupled DiLoCo</title>
+      <link>https://aymane11.github.io/daily-digest/issues/001/stories/02-4-deepmind-decoupled-diloco.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/001/stories/02-4-deepmind-decoupled-diloco.html</guid>
+      <pubDate>Sun, 26 Apr 2026 07:00:00 +0000</pubDate>
+      <description>Asynchronous distributed training reaches 88% goodput in high-failure environments where synchronous methods collapse to 27%</description>
+    </item>
+
+    <item>
+      <title>Daily Digest 001 — Thoughtworks Tech Radar: AI Forces Return to Fundamentals</title>
+      <link>https://aymane11.github.io/daily-digest/issues/001/stories/eng-1-thoughtworks-radar-ai-fundamentals.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/001/stories/eng-1-thoughtworks-radar-ai-fundamentals.html</guid>
+      <pubDate>Sun, 26 Apr 2026 07:00:00 +0000</pubDate>
+      <description>Martin Fowler's Fragments post from April 21 distills the headline finding from the 34th Technology Radar: amid the AI goldrush, Thoughtworks' engineering advisory council is moving toward the practices teams abandoned in the sprint to ship — pair programming, rigorous mutation testing, DORA metrics, zero-trust architecture. The implication is uncomfortable: AI-assisted development accelerates output, but it also accelerates the accumulation of every bad habit your team already had.</description>
+    </item>
+
+    <item>
+      <title>Daily Digest 001 — Paper: Thinking with Reasoning Skills</title>
+      <link>https://aymane11.github.io/daily-digest/issues/001/stories/paper-1-thinking-with-reasoning-skills.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/001/stories/paper-1-thinking-with-reasoning-skills.html</guid>
+      <pubDate>Sun, 26 Apr 2026 07:00:00 +0000</pubDate>
+      <description>Researchers from the ACL 2026 industry track present a method for training language models to selectively engage extended chain-of-thought reasoning only for problems that genuinely require it. The result: fewer tokens on easy tasks, no accuracy regression on hard tasks, and a practical training recipe that can be applied to any instruction-tuned base model. The paper lands at exactly the moment practitioners are asking whether reasoning models' verbosity is a cost problem or a quality problem. …</description>
     </item>
 
   </channel>
