@@ -21,7 +21,18 @@
 .dd-module-h .num{font-size:64px;font-weight:700;line-height:0.9;color:var(--accent)}
 .dd-module-h .title{font-family:'IBM Plex Serif',serif;font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase}
 .dd-module-h .right{font-family:'IBM Plex Serif',serif;font-size:11px;letter-spacing:1.5px}
-@media(max-width:640px){.dd-page{padding:14px 12px}.row{flex-wrap:wrap;gap:8px !important}}
+@media(max-width:640px){
+  .dd-page{padding:14px 12px}
+  .row{flex-wrap:wrap;gap:8px !important}
+  .archive-entry{flex-direction:column !important;gap:8px !important;align-items:flex-start !important}
+  .archive-entry .archive-date{min-width:unset !important}
+  .archive-entry .archive-tags{justify-content:flex-start !important;margin-top:6px}
+  .dd-module-h{flex-direction:column;gap:6px}
+  .dd-module-h .right{align-self:flex-start}
+  header .row{flex-direction:column;gap:8px !important}
+  header .row a{align-self:flex-start}
+  footer .row{flex-direction:column;gap:6px !important}
+}
 </style>
 </head>
 <body>
@@ -55,11 +66,11 @@
       <hr class="sk-rule-thin" style="margin-bottom:14px" />
 
       <!-- issue 003 -->
-      <a href="issues/003/index.html" style="display:flex;align-items:baseline;gap:16px;padding:16px 0;border-bottom:1px dashed var(--ink);text-decoration:none;color:inherit">
+      <a href="issues/003/index.html" class="archive-entry" style="display:flex;align-items:baseline;gap:16px;padding:16px 0;border-bottom:1px dashed var(--ink);text-decoration:none;color:inherit">
         <span class="sk-mono" style="font-size:28px;font-weight:700;color:var(--accent);line-height:1;flex-shrink:0">003</span>
-        <span class="sk-mono" style="font-size:12px;letter-spacing:1.5px;color:var(--ink-2);flex-shrink:0;min-width:160px">TUE 28 APR 2026</span>
+        <span class="sk-mono archive-date" style="font-size:12px;letter-spacing:1.5px;color:var(--ink-2);flex-shrink:0;min-width:160px">TUE 28 APR 2026</span>
         <span style="font-size:17px;line-height:1.55;flex:1">Microsoft &amp; OpenAI end exclusive deal, GPT-5.5 launches, LiteLLM supply chain attack exposes 95M downloads, Claw Code open-source agent hits 172K stars, rural data center backlash, Addy Osmani on the next two years of engineering</span>
-        <div class="row gap-3" style="flex-shrink:0;flex-wrap:wrap;justify-content:flex-end;align-items:center">
+        <div class="row gap-3 archive-tags" style="flex-shrink:0;flex-wrap:wrap;justify-content:flex-end;align-items:center">
           <span class="sk-stamp sk-stamp--red">AI</span>
           <span class="sk-stamp sk-stamp--ochre">SECURITY</span>
           <span class="sk-stamp sk-stamp--navy">INDUSTRY</span>
@@ -68,11 +79,11 @@
       </a>
 
       <!-- issue 002 -->
-      <a href="issues/002/index.html" style="display:flex;align-items:baseline;gap:16px;padding:16px 0;border-bottom:1px dashed var(--ink);text-decoration:none;color:inherit">
+      <a href="issues/002/index.html" class="archive-entry" style="display:flex;align-items:baseline;gap:16px;padding:16px 0;border-bottom:1px dashed var(--ink);text-decoration:none;color:inherit">
         <span class="sk-mono" style="font-size:28px;font-weight:700;color:var(--accent);line-height:1;flex-shrink:0">002</span>
-        <span class="sk-mono" style="font-size:12px;letter-spacing:1.5px;color:var(--ink-2);flex-shrink:0;min-width:160px">MON 27 APR 2026</span>
+        <span class="sk-mono archive-date" style="font-size:12px;letter-spacing:1.5px;color:var(--ink-2);flex-shrink:0;min-width:160px">MON 27 APR 2026</span>
         <span style="font-size:17px;line-height:1.55;flex:1">AI agent deletes production database, DeepSeek V4 API live, SWE-bench Pro replaces Verified, Chrome Prompt API on-device inference, Block Goose open-sourced</span>
-        <div class="row gap-3" style="flex-shrink:0;flex-wrap:wrap;justify-content:flex-end;align-items:center">
+        <div class="row gap-3 archive-tags" style="flex-shrink:0;flex-wrap:wrap;justify-content:flex-end;align-items:center">
           <span class="sk-stamp sk-stamp--red">AI</span>
           <span class="sk-stamp sk-stamp--sage">AGENTS</span>
           <span class="sk-stamp sk-stamp--navy">MODELS</span>
@@ -81,11 +92,11 @@
       </a>
 
       <!-- issue 001 -->
-      <a href="issues/001/index.html" style="display:flex;align-items:baseline;gap:16px;padding:16px 0;border-bottom:1px dashed var(--ink);text-decoration:none;color:inherit">
+      <a href="issues/001/index.html" class="archive-entry" style="display:flex;align-items:baseline;gap:16px;padding:16px 0;border-bottom:1px dashed var(--ink);text-decoration:none;color:inherit">
         <span class="sk-mono" style="font-size:28px;font-weight:700;color:var(--accent);line-height:1;flex-shrink:0">001</span>
-        <span class="sk-mono" style="font-size:12px;letter-spacing:1.5px;color:var(--ink-2);flex-shrink:0;min-width:160px">SUN 26 APR 2026</span>
+        <span class="sk-mono archive-date" style="font-size:12px;letter-spacing:1.5px;color:var(--ink-2);flex-shrink:0;min-width:160px">SUN 26 APR 2026</span>
         <span style="font-size:17px;line-height:1.55;flex:1">Claude Mythos preview, DeepSeek V4 1M context, Erdos conjecture solved with GPT-5.4, SWE-bench retired, DeepMind DiLoCo, Thoughtworks 34th Radar</span>
-        <div class="row gap-3" style="flex-shrink:0;flex-wrap:wrap;justify-content:flex-end;align-items:center">
+        <div class="row gap-3 archive-tags" style="flex-shrink:0;flex-wrap:wrap;justify-content:flex-end;align-items:center">
           <span class="sk-stamp sk-stamp--red">AI</span>
           <span class="sk-stamp sk-stamp--ochre">SECURITY</span>
           <span class="sk-stamp sk-stamp--navy">MODELS</span>

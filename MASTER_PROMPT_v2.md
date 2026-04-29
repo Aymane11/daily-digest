@@ -145,7 +145,7 @@ Other rules:
 ---
 
 ## 9) Immutability + repo rules
-- Branch: **main**. Never force-push. Never rewrite history.
+- Branch: **main**. Never force-push. Never rewrite history. No need to create new branch
 - **Never modify past issues** under `issues/{OLD}/`.
 - **Never modify** `templates/` or `daily-digest.css` mid-run.
 - Only write:
