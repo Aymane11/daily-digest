@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="alternate" type="application/rss+xml" title="Daily Digest RSS" href="/daily-digest/feed.xml" />
+<title>Daily Digest — Before GitHub — Issue 004</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{background:#f5f0e8;color:#111;font-family:'Lora',serif;font-size:18px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:root{--paper:#f5f0e8;--card:#fffdf7;--ink:#111111;--ink-2:#5a5a5a;--accent:#d62828;--hi:#f5c842;--teal:#0d7377;--navy:#14213d;--ochre:#e07b39;--slate:#3d5a80;--sage:#2d6a4f;--purple:#7b2d8b;--rule:#111111}
+.sk-mono{font-family:'IBM Plex Serif','Georgia',serif;font-weight:500}
+.sk-box{border:1.5px solid var(--ink);background:transparent;position:relative}
+.sk-box-soft{border:1.25px solid #2a2a2a;background:transparent}
+.sk-rule-thin{height:0;border:0;border-top:1px solid var(--ink);margin:0}
+.sk-stamp{display:inline-block;font-family:'IBM Plex Serif',serif;font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:3px 8px;border:1.5px solid currentColor;line-height:1.4;transform:rotate(-1deg);white-space:nowrap}
+.sk-stamp--navy{color:var(--navy);border-color:var(--navy)}
+.sk-stamp--slate{color:var(--slate);border-color:var(--slate)}
+.row{display:flex}.col{display:flex;flex-direction:column}.grow{flex:1}
+.gap-2{gap:8px}.gap-3{gap:12px}.gap-4{gap:16px}.gap-5{gap:20px}
+.dd-page{max-width:1200px;margin:0 auto;padding:32px}
+.sk-grid-brief{display:grid;grid-template-columns:1fr 280px;gap:28px}
+@media(max-width:900px){.sk-grid-brief{grid-template-columns:1fr 240px!important}}
+@media(max-width:640px){body{font-size:17px}.dd-page{padding:16px 14px}.sk-grid-brief{grid-template-columns:1fr!important}}
+</style>
+</head>
+<body>
+<div class="dd-page">
+
+  <nav class="row" style="justify-content:space-between;align-items:baseline;margin-bottom:8px">
+    <a href="../index.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px">&#8592; DIGEST &middot; &numero; 004</a>
+    <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">BRIEF &middot; 03.1 &middot; HISTORY</span>
+    <a href="../../../archive.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--teal)">ARCHIVE &#8599;</a>
+  </nav>
+  <div style="height:3px;background:var(--navy);margin-bottom:20px"></div>
+
+  <div class="sk-grid-brief">
+    <div class="col gap-4">
+      <div class="row gap-2" style="flex-wrap:wrap">
+        <span class="sk-stamp sk-stamp--navy">HISTORY</span>
+        <span class="sk-stamp sk-stamp--slate">OPEN SOURCE</span>
+      </div>
+      <h1 style="font-size:32px;font-weight:700;line-height:1.1;margin:0;text-wrap:balance">
+        Before GitHub: what open-source development looked like when developers owned their own infrastructure
+      </h1>
+      <p style="font-size:17px;line-height:1.6;margin:0">Armin Ronacher (Flask, Jinja2, Click) published a personal history of open source before GitHub's 2008 arrival. He describes a "much smaller world" where projects lived on self-hosted Trac installations, Subversion repositories, and mailing lists&mdash;and where reputation mattered "in a very direct way" because you needed to know a maintainer's track record before depending on their code. Dependency selection was deliberate; vendoring was common. GitHub eliminated the barriers to publishing and discovering code&mdash;democratizing participation while also concentrating open source around a single company and triggering the micro-dependency explosion. The post collected 460 HN points and 134 comments in the context of Ghostty's announced GitHub departure.</p>
+      <div>
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;color:var(--accent);margin-bottom:8px">WHAT TO WATCH</p>
+        <p style="font-size:16px;line-height:1.55;margin:0"><strong>Ask:</strong> if GitHub disappeared tomorrow, could your team recover all code, CI history, and issue context in under 48 hours? Evaluate your backup posture against your actual blast radius: git remote mirrors are not the same as issue and Actions data. Check whether your GitHub dependency has grown past what a reasonable backup strategy can cover.</p>
+      </div>
+      <div style="padding:14px 0;border-top:1.5px solid var(--ink)">
+        <a href="https://lucumr.pocoo.org/2026/4/28/before-github/" class="sk-mono" style="font-size:11px;color:var(--teal);text-decoration:underline;text-underline-offset:3px;display:block;margin-bottom:6px">SOURCE &middot; LUCUMR.POCOO.ORG &#8599;</a>
+        <a href="https://news.ycombinator.com/item?id=47940921" class="sk-mono" style="font-size:11px;color:var(--teal);text-decoration:underline;text-underline-offset:3px;display:block">HN DISCUSSION &middot; 460 PTS &#8599;</a>
+      </div>
+    </div>
+
+    <aside class="col gap-4">
+      <div class="sk-box" style="padding:16px;background:var(--card)">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0 0 12px">PRE-GITHUB STACK</p>
+        <div class="col gap-2" style="font-size:14px;line-height:1.5">
+          <div style="padding:6px 0;border-bottom:1px dashed var(--ink)">Subversion / CVS repos</div>
+          <div style="padding:6px 0;border-bottom:1px dashed var(--ink)">Self-hosted Trac for tickets</div>
+          <div style="padding:6px 0;border-bottom:1px dashed var(--ink)">Mailing lists for PRs</div>
+          <div style="padding:6px 0;border-bottom:1px dashed var(--ink)">SourceForge hosting</div>
+          <div style="padding:6px 0">Vendored dependencies</div>
+        </div>
+      </div>
+      <div class="sk-box" style="padding:16px;background:var(--navy);color:var(--card)">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0 0 10px;color:var(--hi)">RONACHER</p>
+        <!-- [EDITORIAL QUOTE] -->
+        <p style="font-size:15px;font-style:italic;line-height:1.5;margin:0">"If you wanted to publish software, you often also became a small-time system administrator."</p>
+      </div>
+    </aside>
+  </div>
+
+  <div style="border-top:1.5px solid var(--ink);margin-top:40px;padding-top:16px" class="row" style="justify-content:space-between">
+    <a href="../index.html" class="sk-mono" style="font-size:11px;letter-spacing:1.5px">&#8592; BACK TO ISSUE 004</a>
+    <a href="../../../archive.html" class="sk-mono" style="font-size:11px;letter-spacing:1.5px;color:var(--teal)">ARCHIVE &#8599;</a>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="alternate" type="application/rss+xml" title="Daily Digest RSS" href="/daily-digest/feed.xml" />
+<title>Daily Digest — Ghostty leaving GitHub — Issue 004</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{background:#f5f0e8;color:#111;font-family:'Lora',serif;font-size:18px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:root{--paper:#f5f0e8;--card:#fffdf7;--ink:#111111;--ink-2:#5a5a5a;--accent:#d62828;--hi:#f5c842;--teal:#0d7377;--navy:#14213d;--ochre:#e07b39;--slate:#3d5a80;--sage:#2d6a4f;--purple:#7b2d8b;--rule:#111111}
+.sk-mono{font-family:'IBM Plex Serif','Georgia',serif;font-weight:500}
+.sk-box{border:1.5px solid var(--ink);background:transparent;position:relative}
+.sk-box-soft{border:1.25px solid #2a2a2a;background:transparent}
+.sk-rule-thin{height:0;border:0;border-top:1px solid var(--ink);margin:0}
+.sk-stamp{display:inline-block;font-family:'IBM Plex Serif',serif;font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:3px 8px;border:1.5px solid currentColor;line-height:1.4;transform:rotate(-1deg);white-space:nowrap}
+.sk-stamp--red{color:var(--accent);border-color:var(--accent)}
+.sk-stamp--navy{color:var(--navy);border-color:var(--navy)}
+.sk-stamp--teal{color:var(--teal);border-color:var(--teal)}
+.sk-stamp--ochre{color:var(--ochre);border-color:var(--ochre)}
+.sk-stamp--slate{color:var(--slate);border-color:var(--slate)}
+.sk-stamp--hi{color:#9a7200;border-color:#9a7200}
+.row{display:flex}.col{display:flex;flex-direction:column}.grow{flex:1}
+.gap-2{gap:8px}.gap-3{gap:12px}.gap-4{gap:16px}.gap-5{gap:20px}
+.dd-page{max-width:1200px;margin:0 auto;padding:32px}
+.sk-hl{font-size:38px}
+.meta-grid{display:grid;grid-template-columns:2fr 1fr;gap:28px}
+@media(max-width:900px){.meta-grid{grid-template-columns:1fr!important}}
+@media(max-width:640px){body{font-size:17px}.dd-page{padding:16px 14px}.sk-hl{font-size:26px!important}}
+</style>
+</head>
+<body>
+<div class="dd-page">
+
+  <nav class="row" style="justify-content:space-between;align-items:baseline;margin-bottom:8px">
+    <a href="../index.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px">&#8592; DIGEST &middot; &numero; 004</a>
+    <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">HEADLINE &middot; 02.1 &middot; DEV TOOLS</span>
+    <a href="../../../archive.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--teal)">ARCHIVE &#8599;</a>
+  </nav>
+  <div style="height:4px;background:var(--navy);margin-bottom:20px"></div>
+
+  <div class="col gap-4" style="margin-bottom:24px">
+    <div class="row gap-2" style="flex-wrap:wrap">
+      <span class="sk-stamp sk-stamp--navy">DEV TOOLS</span>
+      <span class="sk-stamp sk-stamp--slate">OPEN SOURCE</span>
+    </div>
+    <h1 class="sk-hl" style="font-weight:700;line-height:1.05;margin:0;text-wrap:balance">
+      Ghostty leaves GitHub after 18 years of near-daily outages blocking serious development work
+    </h1>
+    <p class="sk-mono" style="font-size:14px;margin:0;color:var(--ink-2)">WED 29 APR 2026 &middot; 3 MIN READ</p>
+  </div>
+
+  <div class="sk-box" style="background:var(--hi);padding:18px 22px;margin-bottom:28px">
+    <span class="sk-mono" style="font-size:11px;letter-spacing:2px;display:block;margin-bottom:8px">TL;DR</span>
+    <p style="font-size:18px;line-height:1.55;margin:0;font-weight:600">Mitchell Hashimoto&mdash;GitHub user #1299, joined February 2008&mdash;announced on April 28 that his terminal emulator Ghostty will leave GitHub over chronic reliability failures. He describes marking his journal almost every day when outages block work. No new host is confirmed yet; a read-only mirror stays at the current GitHub URL.</p>
+  </div>
+
+  <div class="meta-grid">
+    <div class="col gap-5">
+      <section>
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;color:var(--accent);margin-bottom:8px">&para;01 &middot; WHAT HAPPENED</p>
+        <p style="margin:0 0 16px">Hashimoto posted on April 28 that GitHub "is no longer a place for serious work." He logs outages in a daily journal; almost every entry carries a mark for GitHub being unavailable. The triggering event was a large outage on April 27, but his reasoning is cumulative: GitHub Actions disruptions, web UI failures, and API instability have compounded to the point where he cannot rely on the platform.</p>
+        <p style="margin:0">He describes the decision as "super sad"&mdash;he is GitHub user #1299 and has visited the site almost every day for 18 years. Vagrant, his breakthrough open-source project, was partly created to impress GitHub. His other personal projects stay on GitHub for now; only Ghostty moves. Discussions with "multiple providers (both commercial and FOSS)" are ongoing. A read-only GitHub mirror will remain at the current URL.</p>
+      </section>
+      <section>
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;color:var(--accent);margin-bottom:8px">&para;02 &middot; WHY IT MATTERS</p>
+        <p style="margin:0 0 16px">Hashimoto is not a casual user making a protest move. He is the creator of Vagrant, Packer, Terraform, and Vault&mdash;tools that shaped how millions of engineers build infrastructure. His testimony that GitHub outages block him "almost every day" carries weight precisely because he has the engineering context to distinguish genuine platform degradation from user error.</p>
+        <p style="margin:0">The announcement collected 2,517 points on HN and 734 comments in 24 hours, suggesting the experience is broadly shared. GitHub's reliability problems have been reported episodically for years; this is the highest-profile departure to date and frames platform reliability as a first-order concern for open-source maintainers, not an inconvenience.</p>
+      </section>
+      <section>
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;color:var(--accent);margin-bottom:8px">&para;03 &middot; WHAT TO WATCH</p>
+        <p style="margin:0 0 12px"><strong>Check your own GitHub dependency.</strong> If GitHub Actions is in your critical path, evaluate whether you have a fallback. Run a postmortem: how many times in the last 90 days did a GitHub outage cost you measurable time? Quantifying this is the first step to deciding whether mitigation is worth the cost.</p>
+        <p style="margin:0"><strong>Watch where Ghostty lands.</strong> The destination will signal which alternative host has the features (Actions-equivalent CI, issue tracking, PR workflow) mature enough to attract high-profile migrations. Codeberg, GitLab, and self-hosted Forgejo are the most cited candidates in the HN thread.</p>
+      </section>
+    </div>
+
+    <aside class="col gap-4">
+      <div class="sk-box" style="padding:18px;background:var(--card)">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0 0 14px">SIGNAL</p>
+        <div class="col gap-3">
+          <div>
+            <span style="font-size:32px;font-weight:700;line-height:1;display:block">#1299</span>
+            <span class="sk-mono" style="font-size:10px">HASHIMOTO'S GITHUB USER NUMBER</span>
+          </div>
+          <hr class="sk-rule-thin" />
+          <div>
+            <span style="font-size:32px;font-weight:700;line-height:1;display:block">18 yrs</span>
+            <span class="sk-mono" style="font-size:10px">ON THE PLATFORM SINCE FEB 2008</span>
+          </div>
+          <hr class="sk-rule-thin" />
+          <div>
+            <span style="font-size:32px;font-weight:700;line-height:1;display:block">2,517</span>
+            <span class="sk-mono" style="font-size:10px">HN POINTS IN 24H</span>
+          </div>
+        </div>
+      </div>
+      <div style="padding:14px 0;border-top:1.5px solid var(--ink)">
+        <p class="sk-mono" style="font-size:10px;letter-spacing:2px;margin:0 0 8px">SOURCES</p>
+        <a href="https://mitchellh.com/writing/ghostty-leaving-github" class="sk-mono" style="font-size:11px;color:var(--teal);text-decoration:underline;text-underline-offset:3px;display:block;margin-bottom:6px">SOURCE &middot; MITCHELLH.COM &#8599;</a>
+        <a href="https://news.ycombinator.com/item?id=47939579" class="sk-mono" style="font-size:11px;color:var(--teal);text-decoration:underline;text-underline-offset:3px;display:block">HN DISCUSSION &middot; 2,517 PTS &#8599;</a>
+      </div>
+    </aside>
+  </div>
+
+  <div style="border-top:1.5px solid var(--ink);margin-top:40px;padding-top:16px" class="row" style="justify-content:space-between">
+    <a href="../index.html" class="sk-mono" style="font-size:11px;letter-spacing:1.5px">&#8592; BACK TO ISSUE 004</a>
+    <a href="../../../archive.html" class="sk-mono" style="font-size:11px;letter-spacing:1.5px;color:var(--teal)">ARCHIVE &#8599;</a>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="alternate" type="application/rss+xml" title="Daily Digest RSS" href="/daily-digest/feed.xml" />
+<title>Daily Digest — Engineering Read: Before GitHub — Issue 004</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{background:#f5f0e8;color:#111;font-family:'Lora',serif;font-size:18px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:root{--paper:#f5f0e8;--card:#fffdf7;--ink:#111111;--ink-2:#5a5a5a;--accent:#d62828;--hi:#f5c842;--teal:#0d7377;--navy:#14213d;--ochre:#e07b39;--slate:#3d5a80;--sage:#2d6a4f;--purple:#7b2d8b;--rule:#111111}
+.sk-mono{font-family:'IBM Plex Serif','Georgia',serif;font-weight:500}
+.sk-box{border:1.5px solid var(--ink);background:transparent;position:relative}
+.sk-box-soft{border:1.25px solid #2a2a2a;background:transparent}
+.sk-rule-thin{height:0;border:0;border-top:1px solid var(--ink);margin:0}
+.sk-stamp{display:inline-block;font-family:'IBM Plex Serif',serif;font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:3px 8px;border:1.5px solid currentColor;line-height:1.4;transform:rotate(-1deg);white-space:nowrap}
+.sk-stamp--purple{color:var(--purple);border-color:var(--purple)}
+.sk-stamp--slate{color:var(--slate);border-color:var(--slate)}
+.sk-stamp--navy{color:var(--navy);border-color:var(--navy)}
+.row{display:flex}.col{display:flex;flex-direction:column}.grow{flex:1}
+.gap-2{gap:8px}.gap-3{gap:12px}.gap-4{gap:16px}.gap-5{gap:20px}
+.dd-page{max-width:1200px;margin:0 auto;padding:32px}
+.sk-grid-modules{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.eng-hl{font-size:40px}
+.body-grid{display:grid;grid-template-columns:2fr 1fr;gap:28px}
+@media(max-width:900px){.sk-grid-modules{grid-template-columns:repeat(2,1fr)!important}.body-grid{grid-template-columns:1fr!important}}
+@media(max-width:640px){body{font-size:17px}.dd-page{padding:16px 14px}.sk-grid-modules{grid-template-columns:1fr!important}.eng-hl{font-size:26px!important}}
+</style>
+</head>
+<body>
+<div class="dd-page">
+
+  <nav class="row" style="justify-content:space-between;align-items:baseline;margin-bottom:8px">
+    <a href="../index.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px">&#8592; DIGEST &middot; &numero; 004</a>
+    <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">ENGINEERING &amp; CAREER &middot; 05</span>
+    <a href="../../../archive.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--teal)">ARCHIVE &#8599;</a>
+  </nav>
+  <div style="height:4px;background:var(--purple);margin-bottom:20px"></div>
+
+  <!-- header -->
+  <div class="col gap-4" style="margin-bottom:28px">
+    <div class="row gap-2" style="flex-wrap:wrap">
+      <span class="sk-stamp sk-stamp--purple">ENGINEERING</span>
+      <span class="sk-stamp sk-stamp--slate">PLATFORM RISK</span>
+      <span class="sk-stamp sk-stamp--navy">CAREER</span>
+    </div>
+    <h1 class="eng-hl" style="font-weight:700;line-height:1.05;margin:0;text-wrap:balance">
+      Before GitHub: what 18 years of platform centralisation cost open source&mdash;and what Ghostty's departure signals for your infrastructure decisions
+    </h1>
+    <p style="font-size:19px;font-style:italic;line-height:1.55;margin:0">Armin Ronacher's "Before GitHub" and Mitchell Hashimoto's Ghostty departure, read together, describe the same arc: friction as a feature, centralisation as a trade-off, and the moment a platform's reliability costs exceed its convenience benefits.</p>
+    <p class="sk-mono" style="font-size:12px;margin:0;color:var(--ink-2)">BY EDITORIAL TEAM &middot; 8 MIN READ &middot; WED 29 APR 2026</p>
+  </div>
+
+  <!-- quick start -->
+  <div class="sk-box" style="background:var(--hi);padding:20px 24px;margin-bottom:28px">
+    <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0 0 10px">QUICK START &mdash; DO THIS TODAY (&lt;30 MINUTES)</p>
+    <p style="font-size:17px;font-weight:600;line-height:1.5;margin:0">Run a platform dependency audit on your team's GitHub usage. List every GitHub feature you depend on beyond <code>git push</code>: Actions workflows, issue tracking, PR reviews, Packages, Pages, Dependabot. For each, ask: "If this was unavailable for 8 hours today, what breaks?" The answer tells you your actual blast radius — not the theoretical one.</p>
+  </div>
+
+  <!-- body -->
+  <div class="body-grid" style="margin-bottom:28px">
+    <div class="col gap-5">
+
+      <section>
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;color:var(--accent);margin-bottom:10px">&para;01 &middot; THE PRE-GITHUB WORLD</p>
+        <p style="margin:0 0 16px">Armin Ronacher describes open source before GitHub as a "much smaller world" — not worse, just different in its constraints. Projects lived on infrastructure developers controlled: self-hosted Trac installations, Subversion repositories, mailing lists. "If you wanted to publish software, you often also became a small-time system administrator."</p>
+        <p style="margin:0 0 16px">The key property of that world was that reputation was legible. You could not depend on a library without knowing something about its maintainer, its release process, its stability. Vendoring was common because it was the only way to guarantee your dependency would be there tomorrow. The friction of establishing and consuming dependencies was high, but it was a forcing function: it made developers think carefully about what they relied on.</p>
+        <p style="margin:0">GitHub eliminated that friction. It democratised publishing, discovering, and contributing to open source. In doing so, it also concentrated the entire ecosystem around a single company's infrastructure&mdash;and triggered the micro-dependency explosion that has produced supply chain attacks as a predictable consequence.</p>
+      </section>
+
+      <section>
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;color:var(--accent);margin-bottom:10px">&para;02 &middot; THE MOMENT THE COST FLIPS</p>
+        <p style="margin:0 0 16px">Mitchell Hashimoto is GitHub user #1299. He has logged near-daily GitHub outages in a personal journal for years. On April 28, he announced that Ghostty — his terminal emulator — would leave GitHub over chronic reliability failures that make "serious development work" impossible.</p>
+        <p style="margin:0 0 16px">This is the moment Ronacher's essay and Hashimoto's announcement converge: the convenience-to-friction ratio has flipped. For Hashimoto, the cost of GitHub's unreliability now exceeds the cost of managing his own infrastructure. The platform that reduced friction for 18 years is now producing more friction than the alternative.</p>
+        <p style="margin:0">This is a structural signal, not a personal one. GitHub's reliability problems have been episodically reported for years; this is the highest-profile departure to date. The question for engineering teams is not whether Hashimoto is right to leave. It is whether your organisation would notice the moment the same flip happened to you&mdash;and whether you have a measured answer rather than an assumption.</p>
+      </section>
+
+      <section>
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;color:var(--accent);margin-bottom:10px">&para;03 &middot; WHAT FRICTION PROTECTS</p>
+        <p style="margin:0 0 16px">Ronacher's essay makes a subtler point worth preserving: the friction of the pre-GitHub world was not purely overhead. The effort required to publish and consume dependencies created a selection pressure. Projects that survived the friction were, on average, more maintained, more stable, and more thoughtfully designed. The reduction in friction that GitHub produced also reduced the signal-to-noise ratio in the ecosystem.</p>
+        <p style="margin:0">The lesson is not that friction is good. It is that when you remove friction, you need to replace the selection pressure it provided with something else — code review, dependency auditing, supply chain scanning, reputation signals. The teams that did not do this in the GitHub era are the ones running <code>npm install</code> chains with 2,000 transitive dependencies and no understanding of what any of them do.</p>
+      </section>
+
+    </div>
+
+    <aside class="col gap-4">
+
+      <!-- voices -->
+      <div class="sk-box" style="padding:18px;background:var(--card)">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0 0 14px">PERSPECTIVES</p>
+        <!-- [EDITORIAL QUOTE] -->
+        <p style="font-size:15px;font-style:italic;line-height:1.55;margin:0 0 10px;padding-bottom:10px;border-bottom:1px dashed var(--ink)">"Reputation mattered in a very direct way. Dependencies weren't casual — understanding a project's history, maintainer, and release process was necessary before depending on it."<br/><span class="sk-mono" style="font-size:10px;margin-top:6px;display:block">&mdash; ARMIN RONACHER</span></p>
+        <!-- [EDITORIAL QUOTE] -->
+        <p style="font-size:15px;font-style:italic;line-height:1.55;margin:0 0 10px;padding-bottom:10px;border-bottom:1px dashed var(--ink)">"GitHub is no longer a place for serious work if it just blocks you out for hours per day, every day."<br/><span class="sk-mono" style="font-size:10px;margin-top:6px;display:block">&mdash; MITCHELL HASHIMOTO</span></p>
+        <p style="font-size:15px;font-style:italic;line-height:1.55;margin:0">"The distributed nature of Git itself suggests alternatives are possible — and perhaps necessary."<br/><span class="sk-mono" style="font-size:10px;margin-top:6px;display:block">&mdash; RONACHER (PARAPHRASE)</span></p>
+      </div>
+
+      <!-- audit checklist -->
+      <div class="sk-box" style="padding:18px;background:var(--card)">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0 0 12px">PLATFORM AUDIT CHECKLIST</p>
+        <div class="col gap-2" style="font-size:14px;line-height:1.5">
+          <label style="display:flex;gap:8px;align-items:flex-start"><input type="checkbox" style="margin-top:3px;flex-shrink:0" /><span>Can your team recover all code, CI history, and issue context in &lt;48h if GitHub disappeared?</span></label>
+          <label style="display:flex;gap:8px;align-items:flex-start"><input type="checkbox" style="margin-top:3px;flex-shrink:0" /><span>Do you have git remote mirrors on a separate host (not just GitHub backups)?</span></label>
+          <label style="display:flex;gap:8px;align-items:flex-start"><input type="checkbox" style="margin-top:3px;flex-shrink:0" /><span>Have you measured how many hours of outage you've absorbed in the last 90 days?</span></label>
+          <label style="display:flex;gap:8px;align-items:flex-start"><input type="checkbox" style="margin-top:3px;flex-shrink:0" /><span>Does your CI pipeline have a fallback if GitHub Actions is unavailable?</span></label>
+          <label style="display:flex;gap:8px;align-items:flex-start"><input type="checkbox" style="margin-top:3px;flex-shrink:0" /><span>Are your critical dependencies vendored or pinned with hash verification?</span></label>
+          <label style="display:flex;gap:8px;align-items:flex-start"><input type="checkbox" style="margin-top:3px;flex-shrink:0" /><span>Could you switch to a self-hosted Forgejo or Codeberg for new projects without losing velocity?</span></label>
+        </div>
+      </div>
+
+    </aside>
+  </div>
+
+  <!-- recommendations -->
+  <section style="margin-bottom:28px">
+    <p class="sk-mono" style="font-size:11px;letter-spacing:2px;color:var(--accent);margin-bottom:16px">CONCRETE RECOMMENDATIONS</p>
+    <div class="sk-grid-modules">
+      <div class="sk-box-soft" style="padding:16px;background:var(--card)">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:1.5px;margin:0 0 8px">01</p>
+        <p style="font-size:15px;font-weight:700;margin:0 0 8px">Measure your actual GitHub outage cost</p>
+        <p style="font-size:14px;line-height:1.5;margin:0">Pull the last 90 days of GitHub status incidents. Cross-reference with your team's git push and Actions timestamps. Quantify the hours lost to actual outages — not estimates.</p>
+      </div>
+      <div class="sk-box-soft" style="padding:16px;background:var(--card)">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:1.5px;margin:0 0 8px">02</p>
+        <p style="font-size:15px;font-weight:700;margin:0 0 8px">Mirror critical repos to a second host</p>
+        <p style="font-size:14px;line-height:1.5;margin:0">Set up a git remote mirror to Codeberg, a self-hosted Gitea, or an S3-backed bare clone. Automate it with a post-push hook. This costs less than two hours to set up and eliminates total loss risk.</p>
+      </div>
+      <div class="sk-box-soft" style="padding:16px;background:var(--card)">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:1.5px;margin:0 0 8px">03</p>
+        <p style="font-size:15px;font-weight:700;margin:0 0 8px">Pin dependencies with hash verification</p>
+        <p style="font-size:14px;line-height:1.5;margin:0">Replace floating version ranges with pinned hashes in your lockfiles. Use <code>pip-compile</code>, <code>cargo lock</code>, or equivalent. This is the selection pressure GitHub removed — restore it manually.</p>
+      </div>
+      <div class="sk-box-soft" style="padding:16px;background:var(--card)">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:1.5px;margin:0 0 8px">04</p>
+        <p style="font-size:15px;font-weight:700;margin:0 0 8px">Define a CI fallback before you need it</p>
+        <p style="font-size:14px;line-height:1.5;margin:0">Document which GitHub Actions workflows are blocking (can't ship without them) vs advisory. For blocking workflows, identify a manual or alternative CI path that can run during a GitHub Actions outage.</p>
+      </div>
+      <div class="sk-box-soft" style="padding:16px;background:var(--card)">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:1.5px;margin:0 0 8px">05</p>
+        <p style="font-size:15px;font-weight:700;margin:0 0 8px">Audit your dependency reputation signals</p>
+        <p style="font-size:14px;line-height:1.5;margin:0">For your ten most critical dependencies, confirm: last release date, number of active maintainers, whether the maintainer has a track record you can verify. Ronacher's pre-GitHub world had this by default; you need to reconstruct it.</p>
+      </div>
+      <div class="sk-box-soft" style="padding:16px;background:var(--card)">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:1.5px;margin:0 0 8px">06</p>
+        <p style="font-size:15px;font-weight:700;margin:0 0 8px">Evaluate one self-hosted alternative</p>
+        <p style="font-size:14px;line-height:1.5;margin:0">Spin up Forgejo on a cheap VPS for an internal project. This is not a commitment to migrate — it is building the muscle memory so that if you ever need to move, you know what it costs.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- module 06 -->
+  <section class="sk-box" style="padding:22px;background:var(--card);margin-bottom:28px">
+    <p class="sk-mono" style="font-size:11px;letter-spacing:2px;color:var(--accent);margin-bottom:16px">MODULE 06 &middot; WHY THIS MATTERS FOR YOUR CAREER</p>
+    <div class="body-grid">
+      <div class="col gap-4">
+        <div>
+          <p style="font-size:16px;font-weight:700;margin:0 0 8px">Mental model: platform risk is operational risk</p>
+          <p style="font-size:15px;line-height:1.55;margin:0">Engineers trained entirely in the GitHub era often treat GitHub as infrastructure rather than a vendor. The distinction matters: infrastructure is something you own and control; a vendor is someone who can raise prices, degrade quality, or go offline. Ghostty's departure is a reminder that every platform convenience has a corresponding dependency. Senior engineers make this trade-off consciously; junior engineers often don't know they're making it.</p>
+        </div>
+        <div>
+          <p style="font-size:16px;font-weight:700;margin:0 0 8px">Bring it to your team</p>
+          <p style="font-size:15px;line-height:1.55;margin:0">Run a 30-minute exercise: draw your team's dependency graph not on code, but on platforms and services. GitHub, Slack, Linear, AWS, Datadog, Stripe. For each: what is your fallback? Which ones have no fallback? The ones with no fallback are your unacknowledged single points of failure. Deciding to accept that risk is fine; not knowing you've accepted it is not.</p>
+        </div>
+        <div>
+          <p style="font-size:16px;font-weight:700;margin:0 0 8px">30-day experiment</p>
+          <p style="font-size:15px;line-height:1.55;margin:0"><strong>Measure:</strong> Track the number of times in the next 30 days that a GitHub outage delays your work by more than 15 minutes. At the end of the month, convert that to an hourly cost at your fully-loaded rate. If the number exceeds the cost of a redundant VPS running Forgejo, you have a quantified business case for diversification.</p>
+        </div>
+      </div>
+      <div class="col gap-3">
+        <div class="sk-box" style="padding:16px;background:var(--paper)">
+          <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0 0 10px">PLATFORM RISK TIERS</p>
+          <div class="col gap-2" style="font-size:14px;line-height:1.5">
+            <div style="padding:6px 0;border-bottom:1px dashed var(--ink)"><strong>Critical:</strong> outage stops all shipping</div>
+            <div style="padding:6px 0;border-bottom:1px dashed var(--ink)"><strong>High:</strong> outage delays deploys by hours</div>
+            <div style="padding:6px 0;border-bottom:1px dashed var(--ink)"><strong>Medium:</strong> outage is annoying, work continues</div>
+            <div style="padding:6px 0"><strong>Low:</strong> outage is unnoticed for hours</div>
+          </div>
+        </div>
+        <div class="sk-box" style="padding:16px;background:var(--navy);color:var(--card)">
+          <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0 0 10px;color:var(--hi)">KEY INSIGHT</p>
+          <p style="font-size:14px;line-height:1.5;margin:0">The engineers who will be most resilient to the next GitHub-scale platform disruption are those who understood the trade-offs they made when centralising on it — and built fallbacks proportional to the risk.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- sources -->
+  <div style="padding:14px 0;border-top:1.5px solid var(--ink);margin-bottom:16px">
+    <p class="sk-mono" style="font-size:10px;letter-spacing:2px;margin:0 0 8px">SOURCES</p>
+    <a href="https://lucumr.pocoo.org/2026/4/28/before-github/" class="sk-mono" style="font-size:11px;color:var(--teal);text-decoration:underline;text-underline-offset:3px;display:inline-block;margin-right:20px;margin-bottom:6px">BEFORE GITHUB &middot; LUCUMR.POCOO.ORG &#8599;</a>
+    <a href="https://mitchellh.com/writing/ghostty-leaving-github" class="sk-mono" style="font-size:11px;color:var(--teal);text-decoration:underline;text-underline-offset:3px;display:inline-block;margin-right:20px;margin-bottom:6px">GHOSTTY LEAVING GITHUB &middot; MITCHELLH.COM &#8599;</a>
+    <a href="https://news.ycombinator.com/item?id=47940921" class="sk-mono" style="font-size:11px;color:var(--teal);text-decoration:underline;text-underline-offset:3px;display:inline-block;margin-bottom:6px">HN: BEFORE GITHUB &middot; 460 PTS &#8599;</a>
+  </div>
+
+  <div style="border-top:1.5px solid var(--ink);padding-top:16px" class="row" style="justify-content:space-between">
+    <a href="../index.html" class="sk-mono" style="font-size:11px;letter-spacing:1.5px">&#8592; BACK TO ISSUE 004</a>
+    <a href="../../../archive.html" class="sk-mono" style="font-size:11px;letter-spacing:1.5px;color:var(--teal)">ARCHIVE &#8599;</a>
+  </div>
+</div>
+</body>
+</html>

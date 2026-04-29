@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="alternate" type="application/rss+xml" title="Daily Digest RSS" href="/daily-digest/feed.xml" />
+<title>Daily Digest — Paper: Agentic World Modeling — Issue 004</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{background:#f5f0e8;color:#111;font-family:'Lora',serif;font-size:18px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:root{--paper:#f5f0e8;--card:#fffdf7;--ink:#111111;--ink-2:#5a5a5a;--accent:#d62828;--hi:#f5c842;--teal:#0d7377;--navy:#14213d;--ochre:#e07b39;--slate:#3d5a80;--sage:#2d6a4f;--purple:#7b2d8b;--rule:#111111}
+.sk-mono{font-family:'IBM Plex Serif','Georgia',serif;font-weight:500}
+.sk-box{border:1.5px solid var(--ink);background:transparent;position:relative}
+.sk-box-soft{border:1.25px solid #2a2a2a;background:transparent}
+.sk-rule-thin{height:0;border:0;border-top:1px solid var(--ink);margin:0}
+.sk-stamp{display:inline-block;font-family:'IBM Plex Serif',serif;font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:3px 8px;border:1.5px solid currentColor;line-height:1.4;transform:rotate(-1deg);white-space:nowrap}
+.sk-stamp--purple{color:var(--purple);border-color:var(--purple)}
+.sk-stamp--slate{color:var(--slate);border-color:var(--slate)}
+.sk-stamp--teal{color:var(--teal);border-color:var(--teal)}
+.row{display:flex}.col{display:flex;flex-direction:column}.grow{flex:1}
+.gap-2{gap:8px}.gap-3{gap:12px}.gap-4{gap:16px}.gap-5{gap:20px}
+.dd-page{max-width:1200px;margin:0 auto;padding:32px}
+.sk-grid-modules{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.paper-hl{font-size:38px}
+.body-grid{display:grid;grid-template-columns:2fr 1fr;gap:28px}
+@media(max-width:900px){.sk-grid-modules{grid-template-columns:repeat(2,1fr)!important}.body-grid{grid-template-columns:1fr!important}}
+@media(max-width:640px){body{font-size:17px}.dd-page{padding:16px 14px}.sk-grid-modules{grid-template-columns:1fr!important}.paper-hl{font-size:26px!important}}
+</style>
+</head>
+<body>
+<div class="dd-page">
+
+  <nav class="row" style="justify-content:space-between;align-items:baseline;margin-bottom:8px">
+    <a href="../index.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px">&#8592; DIGEST &middot; &numero; 004</a>
+    <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">PAPER OF THE DAY &middot; 06</span>
+    <a href="../../../archive.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--teal)">ARCHIVE &#8599;</a>
+  </nav>
+  <div style="height:4px;background:var(--slate);margin-bottom:20px"></div>
+
+  <!-- header -->
+  <div class="col gap-4" style="margin-bottom:28px">
+    <div class="row gap-2" style="flex-wrap:wrap">
+      <span class="sk-stamp sk-stamp--purple">PAPER OF THE DAY</span>
+      <span class="sk-stamp sk-stamp--slate">AI AGENTS</span>
+      <span class="sk-stamp sk-stamp--teal">SURVEY</span>
+    </div>
+    <h1 class="paper-hl" style="font-weight:700;line-height:1.05;margin:0;text-wrap:balance">
+      Agentic World Modeling: a taxonomy of how AI systems learn to predict environments&mdash;and why that bottleneck determines what agents can actually do
+    </h1>
+    <p style="font-size:19px;font-style:italic;line-height:1.55;margin:0">42 authors synthesise 400+ papers into a "levels &times; laws" framework that maps every world-modeling approach to a capability tier and a governing-law regime&mdash;producing the clearest decision guide available for choosing the right world model for your agent.</p>
+    <p class="sk-mono" style="font-size:12px;margin:0;color:var(--ink-2)">ARXIV: 2604.22748 &middot; SUBMITTED APR 24, 2026 &middot; MENG CHU ET AL. (42 AUTHORS)</p>
+  </div>
+
+  <!-- TL;DR -->
+  <div class="sk-box" style="background:var(--hi);padding:18px 22px;margin-bottom:28px">
+    <span class="sk-mono" style="font-size:11px;letter-spacing:2px;display:block;margin-bottom:8px">TL;DR</span>
+    <p style="font-size:18px;line-height:1.55;margin:0;font-weight:600">As AI systems shift from generating text to accomplishing goals through sustained interaction, the ability to model environment dynamics becomes the central bottleneck. This paper proposes a "levels &times; laws" taxonomy: three capability levels (L1 Predictor, L2 Simulator, L3 Evolver) crossed with four governing-law regimes (physical, digital, social, scientific). The framework unifies 400+ previously isolated works and gives practitioners a concrete decision rule for selecting and evaluating world-modeling approaches.</p>
+  </div>
+
+  <!-- body -->
+  <div class="body-grid" style="margin-bottom:28px">
+    <div class="col gap-5">
+
+      <section>
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;color:var(--accent);margin-bottom:10px">&para;01 &middot; THE PROBLEM</p>
+        <p style="margin:0 0 16px">Current AI agents fail in predictable ways when they encounter environments their training did not cover. The failure mode is not intelligence — it is the absence of a reliable environment model. An agent that cannot predict what its action will produce cannot plan effectively beyond a single step.</p>
+        <p style="margin:0">World models — learned predictive representations of environment dynamics — are the proposed solution. But the research on world models has fragmented across reinforcement learning, video generation, GUI agents, multi-agent simulation, and scientific discovery, with no shared vocabulary for comparing approaches. This paper builds that vocabulary.</p>
+      </section>
+
+      <section>
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;color:var(--accent);margin-bottom:10px">&para;02 &middot; THE FRAMEWORK</p>
+        <p style="margin:0 0 12px"><strong>Three capability levels:</strong></p>
+        <ul style="margin:0 0 16px;padding-left:20px;line-height:1.8">
+          <li><strong>L1 Predictor:</strong> Learns single-step local transitions. Given state S and action A, predicts S'. Cannot compose multi-step rollouts reliably. Most current model-based RL systems operate here.</li>
+          <li><strong>L2 Simulator:</strong> Chains multi-step, action-conditioned predictions that respect domain laws. Can plan across horizons. Video generation models trained on physics data approach this tier.</li>
+          <li><strong>L3 Evolver:</strong> Autonomously updates its own model when predictions fail against new evidence. Self-correcting world models. Currently a research frontier with limited deployed examples.</li>
+        </ul>
+        <p style="margin:0 0 12px"><strong>Four governing-law regimes:</strong></p>
+        <p style="margin:0">Physical (Newtonian/quantum constraints), digital (deterministic execution within software systems), social (probabilistic human behaviour), and scientific (hypothetico-deductive reasoning). Each regime imposes different accuracy requirements and failure modes on world models operating within it.</p>
+      </section>
+
+      <section>
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;color:var(--accent);margin-bottom:10px">&para;03 &middot; KEY INSIGHTS</p>
+        <ul style="margin:0;padding-left:20px;line-height:1.8">
+          <li>Most deployed agent systems are L1 operating in digital-law regimes — this combination is the easiest to make reliable but severely limits planning horizon</li>
+          <li>The gap between L1 and L2 is not parameter count — it is whether the model respects domain constraints during rollout composition</li>
+          <li>L3 capability (self-correction) requires an explicit failure-detection mechanism; LLMs do not naturally provide this without scaffolding</li>
+          <li>Cross-regime failures (e.g., a digital agent encountering social dynamics) are the most common source of agent brittleness in production</li>
+          <li>"Decision-centric evaluation" — judging world models by the quality of decisions they enable, not prediction accuracy alone — is proposed as the correct evaluation paradigm</li>
+        </ul>
+      </section>
+
+      <section>
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;color:var(--accent);margin-bottom:10px">&para;04 &middot; WHAT YOU CAN APPLY</p>
+        <p style="margin:0 0 16px"><strong>Classify your agent's world model before building:</strong> Is it L1 (predicts one step), L2 (composes multi-step rollouts respecting domain rules), or L3 (self-corrects on failure)? If you are building an L1 system and expecting L2 planning behaviour, you will be debugging the gap between those expectations and reality for months.</p>
+        <p style="margin:0 0 16px"><strong>Identify your governing-law regime:</strong> Is your agent operating in a digital system (code execution, API calls), a physical environment (robotics, simulation), a social context (customer interactions, team workflows), or a scientific domain (hypothesis testing, experiment design)? The regime determines which failure modes to anticipate and which evaluation metrics matter.</p>
+        <p style="margin:0"><strong>Evaluate by decision quality, not prediction accuracy:</strong> A world model that predicts state transitions accurately but produces poor decisions is not useful. Define a decision-centric benchmark before you start training or integrating a world model into your agent pipeline.</p>
+      </section>
+
+    </div>
+
+    <aside class="col gap-4">
+
+      <div class="sk-box" style="padding:16px;background:var(--card)">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0 0 12px">THE TAXONOMY</p>
+        <div style="display:grid;grid-template-columns:auto 1fr;gap:8px 12px;font-size:13px;line-height:1.5">
+          <strong style="color:var(--accent)">L1</strong><span>Predictor — single-step transitions</span>
+          <strong style="color:var(--accent)">L2</strong><span>Simulator — multi-step, law-respecting rollouts</span>
+          <strong style="color:var(--accent)">L3</strong><span>Evolver — self-corrects on prediction failure</span>
+          <span style="border-top:1px dashed var(--ink);grid-column:span 2;margin:4px 0"></span>
+          <strong style="color:var(--slate)">Phys</strong><span>Physical laws</span>
+          <strong style="color:var(--slate)">Dig</strong><span>Digital / deterministic</span>
+          <strong style="color:var(--slate)">Soc</strong><span>Social / probabilistic</span>
+          <strong style="color:var(--slate)">Sci</strong><span>Scientific / hypothesis</span>
+        </div>
+      </div>
+
+      <div class="sk-box" style="padding:16px;background:var(--card)">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0 0 12px">PAPER SCOPE</p>
+        <div class="col gap-2" style="font-size:14px;line-height:1.5">
+          <div style="padding:4px 0;border-bottom:1px dashed var(--ink)"><strong>Authors:</strong> 42</div>
+          <div style="padding:4px 0;border-bottom:1px dashed var(--ink)"><strong>Works synthesised:</strong> 400+</div>
+          <div style="padding:4px 0;border-bottom:1px dashed var(--ink)"><strong>Representative systems:</strong> 100+</div>
+          <div style="padding:4px 0;border-bottom:1px dashed var(--ink)"><strong>Submitted:</strong> Apr 24, 2026</div>
+          <div style="padding:4px 0"><strong>HF upvotes:</strong> 207 (#2 trending)</div>
+        </div>
+      </div>
+
+      <div class="sk-box" style="padding:16px;background:var(--navy);color:var(--card)">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0 0 10px;color:var(--hi)">DECISION RULE</p>
+        <p style="font-size:14px;line-height:1.5;margin:0">Before integrating a world model into an agent: (1) assign it a level (L1/L2/L3), (2) identify your regime (physical/digital/social/scientific), (3) define a decision-centric benchmark. Only proceed when all three are explicit.</p>
+      </div>
+
+      <div style="padding:14px 0;border-top:1.5px solid var(--ink)">
+        <p class="sk-mono" style="font-size:10px;letter-spacing:2px;margin:0 0 8px">CITATION</p>
+        <p class="sk-mono" style="font-size:11px;line-height:1.5;margin:0 0 8px">Meng Chu et al. "Agentic World Modeling: Foundations, Capabilities, Laws, and Beyond." arXiv:2604.22748. Apr 24, 2026.</p>
+        <a href="https://arxiv.org/abs/2604.22748" class="sk-mono" style="font-size:11px;color:var(--teal);text-decoration:underline;text-underline-offset:3px;display:block;margin-bottom:6px">ARXIV: 2604.22748 &#8599;</a>
+        <a href="https://huggingface.co/papers/2604.22748" class="sk-mono" style="font-size:11px;color:var(--teal);text-decoration:underline;text-underline-offset:3px;display:block">HUGGING FACE PAPER PAGE &#8599;</a>
+      </div>
+    </aside>
+  </div>
+
+  <!-- module 06 implementation -->
+  <section class="sk-box" style="padding:22px;background:var(--card);margin-bottom:28px">
+    <p class="sk-mono" style="font-size:11px;letter-spacing:2px;color:var(--accent);margin-bottom:16px">MODULE 06 &middot; IMPLEMENTATION OVERVIEW</p>
+    <div class="sk-grid-modules">
+      <div class="sk-box-soft" style="padding:16px;background:var(--paper)">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:1.5px;margin:0 0 8px">STEP 1</p>
+        <p style="font-size:15px;font-weight:700;margin:0 0 8px">Audit your current agent's world model tier</p>
+        <p style="font-size:14px;line-height:1.5;margin:0">Map every prediction your agent makes. If it only predicts one step ahead and reacts, it is L1. If it can compose multi-step plans respecting system constraints, it is approaching L2. Document this explicitly in your architecture docs.</p>
+      </div>
+      <div class="sk-box-soft" style="padding:16px;background:var(--paper)">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:1.5px;margin:0 0 8px">STEP 2</p>
+        <p style="font-size:15px;font-weight:700;margin:0 0 8px">Define your failure boundary by regime</p>
+        <p style="font-size:14px;line-height:1.5;margin:0">List the top three ways your agent fails. Cross-reference with the four regimes. If failures cluster in social-regime interactions (user intent, team dynamics), your world model may be trained on digital-regime data and generalising poorly to human behaviour.</p>
+      </div>
+      <div class="sk-box-soft" style="padding:16px;background:var(--paper)">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:1.5px;margin:0 0 8px">STEP 3</p>
+        <p style="font-size:15px;font-weight:700;margin:0 0 8px">Build a decision-centric benchmark</p>
+        <p style="font-size:14px;line-height:1.5;margin:0">Replace prediction-accuracy metrics (RMSE, perplexity) with decision-quality metrics (task completion rate, planning horizon achieved, rollback rate). These tell you whether the world model helps the agent accomplish goals, not just whether it predicts state transitions accurately.</p>
+      </div>
+    </div>
+  </section>
+
+  <div style="border-top:1.5px solid var(--ink);padding-top:16px" class="row" style="justify-content:space-between">
+    <a href="../index.html" class="sk-mono" style="font-size:11px;letter-spacing:1.5px">&#8592; BACK TO ISSUE 004</a>
+    <a href="../../../archive.html" class="sk-mono" style="font-size:11px;letter-spacing:1.5px;color:var(--teal)">ARCHIVE &#8599;</a>
+  </div>
+</div>
+</body>
+</html>

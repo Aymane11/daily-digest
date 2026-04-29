@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="alternate" type="application/rss+xml" title="Daily Digest RSS" href="/daily-digest/feed.xml" />
+<title>Daily Digest — Tool: Rocky SQL Engine — Issue 004</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{background:#f5f0e8;color:#111;font-family:'Lora',serif;font-size:18px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:root{--paper:#f5f0e8;--card:#fffdf7;--ink:#111111;--ink-2:#5a5a5a;--accent:#d62828;--hi:#f5c842;--teal:#0d7377;--navy:#14213d;--ochre:#e07b39;--slate:#3d5a80;--sage:#2d6a4f;--purple:#7b2d8b;--rule:#111111}
+.sk-mono{font-family:'IBM Plex Serif','Georgia',serif;font-weight:500}
+.sk-box{border:1.5px solid var(--ink);background:transparent;position:relative}
+.sk-rule-thin{height:0;border:0;border-top:1px solid var(--ink);margin:0}
+.sk-stamp{display:inline-block;font-family:'IBM Plex Serif',serif;font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:3px 8px;border:1.5px solid currentColor;line-height:1.4;transform:rotate(-1deg);white-space:nowrap}
+.sk-stamp--sage{color:var(--sage);border-color:var(--sage)}
+.sk-stamp--slate{color:var(--slate);border-color:var(--slate)}
+.sk-stamp--hi{color:#9a7200;border-color:#9a7200}
+.row{display:flex}.col{display:flex;flex-direction:column}.grow{flex:1}
+.gap-2{gap:8px}.gap-3{gap:12px}.gap-4{gap:16px}.gap-5{gap:20px}
+.dd-page{max-width:1200px;margin:0 auto;padding:32px}
+.sk-grid-tool{display:grid;grid-template-columns:1fr 300px;gap:28px}
+code{font-family:'IBM Plex Serif',monospace;font-size:14px;background:#e8e3d8;padding:2px 6px}
+pre{background:var(--ink);color:var(--card);padding:16px;font-family:'IBM Plex Serif',monospace;font-size:13px;line-height:1.6;overflow-x:auto;margin:0}
+@media(max-width:900px){.sk-grid-tool{grid-template-columns:1fr 260px!important}}
+@media(max-width:640px){body{font-size:17px}.dd-page{padding:16px 14px}.sk-grid-tool{grid-template-columns:1fr!important}}
+</style>
+</head>
+<body>
+<div class="dd-page">
+
+  <nav class="row" style="justify-content:space-between;align-items:baseline;margin-bottom:8px">
+    <a href="../index.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px">&#8592; DIGEST &middot; &numero; 004</a>
+    <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">TOOL &middot; 04.2</span>
+    <a href="../../../archive.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--teal)">ARCHIVE &#8599;</a>
+  </nav>
+  <div style="height:4px;background:var(--sage);margin-bottom:20px"></div>
+
+  <div class="sk-grid-tool">
+    <div class="col gap-5">
+
+      <div class="col gap-3">
+        <div class="row gap-2" style="flex-wrap:wrap">
+          <span class="sk-stamp sk-stamp--hi">OSS TOOL</span>
+          <span class="sk-stamp sk-stamp--sage">DATA</span>
+          <span class="sk-stamp sk-stamp--slate">RUST</span>
+        </div>
+        <h1 style="font-size:36px;font-weight:700;line-height:1.05;margin:0">Rocky</h1>
+        <p style="font-size:18px;line-height:1.55;margin:0;font-style:italic">A Rust-written SQL control plane that adds Git-style branching, compile-time contracts, and column lineage to your existing data warehouse</p>
+      </div>
+
+      <section>
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;color:var(--accent);margin-bottom:10px">WHY IT'S WORTH TRYING</p>
+        <p style="margin:0 0 14px">Rocky solves the governance gap that dbt and Airflow leave open: schema drift that only surfaces at runtime, lineage that stops at the table level, and pipeline changes that are risky to test in production. It works alongside your existing warehouse rather than replacing it.</p>
+        <p style="margin:0">The column lineage feature is the most technically distinct element: Rocky traces individual columns from downstream fact tables back to source seeds at compile time, with zero runtime overhead. If you have ever spent hours debugging a broken metric because an upstream column was silently renamed, this is the tool that would have caught it before the job ran.</p>
+      </section>
+
+      <section>
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;color:var(--accent);margin-bottom:10px">GETTING STARTED (ZERO SETUP)</p>
+        <p style="margin:0 0 12px">The local playground runs on DuckDB — no warehouse credentials, no cloud account:</p>
+        <pre>curl -fsSL https://raw.githubusercontent.com/rocky-data/rocky/main/engine/install.sh | bash
+rocky playground my-first-project
+cd my-first-project
+rocky compile   # validates contracts, checks lineage
+rocky test      # runs data quality assertions
+rocky run       # executes the pipeline on DuckDB</pre>
+        <p style="margin:12px 0 0">The compile step is where Rocky's value shows: it catches type mismatches, missing required columns, and broken lineage references before any data moves.</p>
+      </section>
+
+      <section>
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;color:var(--accent);margin-bottom:10px">CONNECTING TO YOUR WAREHOUSE</p>
+        <p style="margin:0 0 12px">Add a profile to <code>rocky.toml</code>:</p>
+        <pre>[profile.production]
+warehouse = "snowflake"
+account   = "your-account.snowflakecomputing.com"
+database  = "analytics"
+schema    = "core"
+role      = "transformer"</pre>
+        <p style="margin:12px 0 0">Then run <code>rocky compile --profile production</code>. Databricks is GA; Snowflake and BigQuery are in beta.</p>
+      </section>
+
+      <section>
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;color:var(--accent);margin-bottom:10px">WHAT TO OBSERVE</p>
+        <ul style="margin:0;padding-left:20px;line-height:1.8">
+          <li>Compile output should list every column's lineage path from source to destination — verify it matches your mental model</li>
+          <li>Introduce a deliberate type mismatch in a model and confirm Rocky catches it at compile time, not runtime</li>
+          <li>Create a branch (<code>rocky branch create experiment</code>), modify a model, and check the blast-radius report before merging</li>
+          <li>Check per-model cost attribution after a production run — compare against your warehouse's native cost reporting</li>
+        </ul>
+      </section>
+
+    </div>
+
+    <aside class="col gap-4">
+      <div class="sk-box" style="padding:16px;background:var(--card)">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0 0 12px">AT A GLANCE</p>
+        <div class="col gap-2" style="font-size:14px;line-height:1.6">
+          <div style="padding:6px 0;border-bottom:1px dashed var(--ink)"><strong>License:</strong> Apache 2.0 (free, commercial use ok)</div>
+          <div style="padding:6px 0;border-bottom:1px dashed var(--ink)"><strong>Language:</strong> Rust</div>
+          <div style="padding:6px 0;border-bottom:1px dashed var(--ink)"><strong>Local dev:</strong> DuckDB, no credentials</div>
+          <div style="padding:6px 0;border-bottom:1px dashed var(--ink)"><strong>Databricks:</strong> GA</div>
+          <div style="padding:6px 0;border-bottom:1px dashed var(--ink)"><strong>Snowflake / BigQuery:</strong> Beta</div>
+          <div style="padding:6px 0"><strong>Cost:</strong> Free (open source)</div>
+        </div>
+      </div>
+
+      <div class="sk-box" style="padding:16px;background:var(--hi)">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0 0 10px">NOT A REPLACEMENT FOR</p>
+        <p style="font-size:14px;line-height:1.5;margin:0">Rocky complements dbt and Airflow — it is not a data warehouse, a Fivetran alternative, or a dbt Cloud competitor. It adds a governance and safety layer on top of your existing stack.</p>
+      </div>
+
+      <div style="padding:14px 0;border-top:1.5px solid var(--ink)">
+        <p class="sk-mono" style="font-size:10px;letter-spacing:2px;margin:0 0 8px">LINKS</p>
+        <a href="https://github.com/rocky-data/rocky" class="sk-mono" style="font-size:11px;color:var(--teal);text-decoration:underline;text-underline-offset:3px;display:block;margin-bottom:6px">GITHUB.COM/ROCKY-DATA &#8599;</a>
+        <a href="https://news.ycombinator.com/item?id=47935246" class="sk-mono" style="font-size:11px;color:var(--teal);text-decoration:underline;text-underline-offset:3px;display:block">HN DISCUSSION &middot; 50 PTS &#8599;</a>
+      </div>
+    </aside>
+  </div>
+
+  <div style="border-top:1.5px solid var(--ink);margin-top:40px;padding-top:16px" class="row" style="justify-content:space-between">
+    <a href="../index.html" class="sk-mono" style="font-size:11px;letter-spacing:1.5px">&#8592; BACK TO ISSUE 004</a>
+    <a href="../../../archive.html" class="sk-mono" style="font-size:11px;letter-spacing:1.5px;color:var(--teal)">ARCHIVE &#8599;</a>
+  </div>
+</div>
+</body>
+</html>

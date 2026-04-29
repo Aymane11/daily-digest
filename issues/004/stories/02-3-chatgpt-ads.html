@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="alternate" type="application/rss+xml" title="Daily Digest RSS" href="/daily-digest/feed.xml" />
+<title>Daily Digest — How ChatGPT serves ads — Issue 004</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{background:#f5f0e8;color:#111;font-family:'Lora',serif;font-size:18px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:root{--paper:#f5f0e8;--card:#fffdf7;--ink:#111111;--ink-2:#5a5a5a;--accent:#d62828;--hi:#f5c842;--teal:#0d7377;--navy:#14213d;--ochre:#e07b39;--slate:#3d5a80;--sage:#2d6a4f;--purple:#7b2d8b;--rule:#111111}
+.sk-mono{font-family:'IBM Plex Serif','Georgia',serif;font-weight:500}
+.sk-box{border:1.5px solid var(--ink);background:transparent;position:relative}
+.sk-rule-thin{height:0;border:0;border-top:1px solid var(--ink);margin:0}
+.sk-stamp{display:inline-block;font-family:'IBM Plex Serif',serif;font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:3px 8px;border:1.5px solid currentColor;line-height:1.4;transform:rotate(-1deg);white-space:nowrap}
+.sk-stamp--red{color:var(--accent);border-color:var(--accent)}
+.sk-stamp--navy{color:var(--navy);border-color:var(--navy)}
+.sk-stamp--teal{color:var(--teal);border-color:var(--teal)}
+.sk-stamp--ochre{color:var(--ochre);border-color:var(--ochre)}
+.sk-stamp--slate{color:var(--slate);border-color:var(--slate)}
+.row{display:flex}.col{display:flex;flex-direction:column}.grow{flex:1}
+.gap-2{gap:8px}.gap-3{gap:12px}.gap-4{gap:16px}.gap-5{gap:20px}
+.dd-page{max-width:1200px;margin:0 auto;padding:32px}
+.sk-hl{font-size:38px}
+.meta-grid{display:grid;grid-template-columns:2fr 1fr;gap:28px}
+@media(max-width:900px){.meta-grid{grid-template-columns:1fr!important}}
+@media(max-width:640px){body{font-size:17px}.dd-page{padding:16px 14px}.sk-hl{font-size:26px!important}}
+</style>
+</head>
+<body>
+<div class="dd-page">
+
+  <nav class="row" style="justify-content:space-between;align-items:baseline;margin-bottom:8px">
+    <a href="../index.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px">&#8592; DIGEST &middot; &numero; 004</a>
+    <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">HEADLINE &middot; 02.3 &middot; AI BUSINESS</span>
+    <a href="../../../archive.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--teal)">ARCHIVE &#8599;</a>
+  </nav>
+  <div style="height:4px;background:var(--ochre);margin-bottom:20px"></div>
+
+  <div class="col gap-4" style="margin-bottom:24px">
+    <div class="row gap-2" style="flex-wrap:wrap">
+      <span class="sk-stamp sk-stamp--ochre">AI BUSINESS</span>
+      <span class="sk-stamp sk-stamp--navy">ADVERTISING</span>
+    </div>
+    <h1 class="sk-hl" style="font-weight:700;line-height:1.05;margin:0;text-wrap:balance">
+      ChatGPT's ad system decoded: a four-token Fernet attribution chain and in-app webview tracking
+    </h1>
+    <p class="sk-mono" style="font-size:14px;margin:0;color:var(--ink-2)">WED 29 APR 2026 &middot; 3 MIN READ</p>
+  </div>
+
+  <div class="sk-box" style="background:var(--hi);padding:18px 22px;margin-bottom:28px">
+    <span class="sk-mono" style="font-size:11px;letter-spacing:2px;display:block;margin-bottom:8px">TL;DR</span>
+    <p style="font-size:18px;line-height:1.55;margin:0;font-weight:600">A researcher reverse-engineered ChatGPT's ad attribution system and published a full technical breakdown. Ads arrive as <code>single_advertiser_ad_unit</code> objects injected into the response stream. Four encrypted Fernet tokens handle spam integrity, forward attribution (30-day cookie), impression tracking, and server-side reconciliation. Clicks open in ChatGPT's in-app webview, where OpenAI's OAIQ SDK reports product views back to <code>bzr.openai.com</code>.</p>
+  </div>
+
+  <div class="meta-grid">
+    <div class="col gap-5">
+      <section>
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;color:var(--accent);margin-bottom:8px">&para;01 &middot; WHAT HAPPENED</p>
+        <p style="margin:0 0 16px">A researcher with access to ChatGPT's ad-enabled experience intercepted and analysed the full ad delivery pipeline. The breakdown, published on buchodi.com, maps every component from ad selection through post-click merchant reporting.</p>
+        <p style="margin:0 0 16px">The system uses contextual targeting tied to conversation topics. One user in the research sample received six different ads across six unrelated conversations (travel, entertainment, productivity). Ads surface as carousel cards with advertiser branding and encrypted tracking tokens embedded in the payload.</p>
+        <p style="margin:0">Critically, ad clicks do not open in an external browser. They load in ChatGPT's in-app webview, keeping users inside the OpenAI surface and allowing OpenAI to observe post-click behaviour&mdash;page views, product interactions&mdash;before the session ends.</p>
+      </section>
+      <section>
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;color:var(--accent);margin-bottom:8px">&para;02 &middot; WHY IT MATTERS</p>
+        <p style="margin:0 0 16px">The four-token architecture gives OpenAI a closed attribution loop: it knows which conversation topic generated the ad impression, which user clicked, which product page they viewed, and whether the merchant's OAIQ SDK fired a conversion event. This is behaviorally similar to the cookie-based attribution systems that drove Google and Meta's ad businesses&mdash;except it is grounded in conversation context rather than browsing history.</p>
+        <p style="margin:0">The in-app webview is the key structural choice. By keeping clicks inside ChatGPT, OpenAI avoids losing the user to Safari or Chrome, retains attribution signal, and can gate ad-free access to paid subscribers. This mirrors the path Facebook took with its in-app browser, which became a significant privacy and regulatory flashpoint in 2022.</p>
+      </section>
+      <section>
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;color:var(--accent);margin-bottom:8px">&para;03 &middot; WHAT TO WATCH</p>
+        <p style="margin:0 0 12px"><strong>Check whether your ChatGPT plan serves ads.</strong> Free-tier and some Plus users see ads; Pro subscribers currently do not. If you use ChatGPT for research workflows, evaluate whether contextual ad injection affects the neutrality of responses adjacent to sponsored content.</p>
+        <p style="margin:0"><strong>Track regulatory attention.</strong> The Fernet token design means OpenAI holds a durable attribution graph linking conversation topics to purchase intent. EU regulators have already flagged AI-native advertising as a gap in current DSA and GDPR enforcement. Watch for guidance from the EDPB in Q3 2026.</p>
+      </section>
+    </div>
+
+    <aside class="col gap-4">
+      <div class="sk-box" style="padding:18px;background:var(--card)">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0 0 14px">THE FOUR TOKENS</p>
+        <div class="col gap-3" style="font-size:14px;line-height:1.5">
+          <div style="padding-bottom:10px;border-bottom:1px dashed var(--ink)">
+            <strong>ads_spam_integrity_payload</strong><br/>Server-side fraud detection
+          </div>
+          <div style="padding-bottom:10px;border-bottom:1px dashed var(--ink)">
+            <strong>oppref</strong><br/>Forward attribution stored in browser cookies for 30 days
+          </div>
+          <div style="padding-bottom:10px;border-bottom:1px dashed var(--ink)">
+            <strong>olref</strong><br/>Impression and outbound link tracking
+          </div>
+          <div>
+            <strong>ad_data_token</strong><br/>Server-side reconciliation at click time
+          </div>
+        </div>
+      </div>
+      <div style="padding:14px 0;border-top:1.5px solid var(--ink)">
+        <p class="sk-mono" style="font-size:10px;letter-spacing:2px;margin:0 0 8px">SOURCES</p>
+        <a href="https://www.buchodi.com/how-chatgpt-serves-ads-heres-the-full-attribution-loop/" class="sk-mono" style="font-size:11px;color:var(--teal);text-decoration:underline;text-underline-offset:3px;display:block;margin-bottom:6px">SOURCE &middot; BUCHODI.COM &#8599;</a>
+        <a href="https://news.ycombinator.com/item?id=47942437" class="sk-mono" style="font-size:11px;color:var(--teal);text-decoration:underline;text-underline-offset:3px;display:block">HN DISCUSSION &middot; 322 PTS &#8599;</a>
+      </div>
+    </aside>
+  </div>
+
+  <div style="border-top:1.5px solid var(--ink);margin-top:40px;padding-top:16px" class="row" style="justify-content:space-between">
+    <a href="../index.html" class="sk-mono" style="font-size:11px;letter-spacing:1.5px">&#8592; BACK TO ISSUE 004</a>
+    <a href="../../../archive.html" class="sk-mono" style="font-size:11px;letter-spacing:1.5px;color:var(--teal)">ARCHIVE &#8599;</a>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="alternate" type="application/rss+xml" title="Daily Digest RSS" href="/daily-digest/feed.xml" />
+<title>Daily Digest — Tool: VibeVoice — Issue 004</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{background:#f5f0e8;color:#111;font-family:'Lora',serif;font-size:18px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:root{--paper:#f5f0e8;--card:#fffdf7;--ink:#111111;--ink-2:#5a5a5a;--accent:#d62828;--hi:#f5c842;--teal:#0d7377;--navy:#14213d;--ochre:#e07b39;--slate:#3d5a80;--sage:#2d6a4f;--purple:#7b2d8b;--rule:#111111}
+.sk-mono{font-family:'IBM Plex Serif','Georgia',serif;font-weight:500}
+.sk-box{border:1.5px solid var(--ink);background:transparent;position:relative}
+.sk-rule-thin{height:0;border:0;border-top:1px solid var(--ink);margin:0}
+.sk-stamp{display:inline-block;font-family:'IBM Plex Serif',serif;font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:3px 8px;border:1.5px solid currentColor;line-height:1.4;transform:rotate(-1deg);white-space:nowrap}
+.sk-stamp--teal{color:var(--teal);border-color:var(--teal)}
+.sk-stamp--navy{color:var(--navy);border-color:var(--navy)}
+.sk-stamp--hi{color:#9a7200;border-color:#9a7200}
+.row{display:flex}.col{display:flex;flex-direction:column}.grow{flex:1}
+.gap-2{gap:8px}.gap-3{gap:12px}.gap-4{gap:16px}.gap-5{gap:20px}
+.dd-page{max-width:1200px;margin:0 auto;padding:32px}
+.sk-grid-tool{display:grid;grid-template-columns:1fr 300px;gap:28px}
+code{font-family:'IBM Plex Serif',monospace;font-size:14px;background:#e8e3d8;padding:2px 6px}
+pre{background:var(--ink);color:var(--card);padding:16px;font-family:'IBM Plex Serif',monospace;font-size:13px;line-height:1.6;overflow-x:auto;margin:0}
+@media(max-width:900px){.sk-grid-tool{grid-template-columns:1fr 260px!important}}
+@media(max-width:640px){body{font-size:17px}.dd-page{padding:16px 14px}.sk-grid-tool{grid-template-columns:1fr!important}}
+</style>
+</head>
+<body>
+<div class="dd-page">
+
+  <nav class="row" style="justify-content:space-between;align-items:baseline;margin-bottom:8px">
+    <a href="../index.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px">&#8592; DIGEST &middot; &numero; 004</a>
+    <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">TOOL &middot; 04.4</span>
+    <a href="../../../archive.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--teal)">ARCHIVE &#8599;</a>
+  </nav>
+  <div style="height:4px;background:var(--teal);margin-bottom:20px"></div>
+
+  <div class="sk-grid-tool">
+    <div class="col gap-5">
+
+      <div class="col gap-3">
+        <div class="row gap-2" style="flex-wrap:wrap">
+          <span class="sk-stamp sk-stamp--hi">MODEL</span>
+          <span class="sk-stamp sk-stamp--teal">SPEECH</span>
+          <span class="sk-stamp sk-stamp--navy">MICROSOFT RESEARCH</span>
+        </div>
+        <h1 style="font-size:36px;font-weight:700;line-height:1.05;margin:0">VibeVoice</h1>
+        <p style="font-size:18px;line-height:1.55;margin:0;font-style:italic">Microsoft Research's long-form multi-speaker speech synthesis model using next-token diffusion and a continuous speech tokenizer (166 HF upvotes, #3 trending)</p>
+      </div>
+
+      <section>
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;color:var(--accent);margin-bottom:10px">WHY IT'S WORTH TRYING</p>
+        <p style="margin:0 0 14px">Most TTS systems degrade over long-form content: speaker consistency drifts, prosody flattens, and multi-speaker conversations sound unnatural after a few minutes. VibeVoice is designed specifically for long-form synthesis&mdash;podcast-length content, multi-speaker dialogue, audiobook narration&mdash;using next-token diffusion on a highly efficient continuous speech tokenizer.</p>
+        <p style="margin:0">If you build voice interfaces, generate training data for speech models, or produce audio content at scale, VibeVoice represents the current state of the art for quality at length. It is a research model from Microsoft Research, not a production API, but the weights and paper are public.</p>
+      </section>
+
+      <section>
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;color:var(--accent);margin-bottom:10px">GETTING STARTED</p>
+        <p style="margin:0 0 12px">Access via the Hugging Face model card. The technical report provides implementation details; the model weights are available for research use:</p>
+        <pre>pip install transformers soundfile
+from transformers import AutoModel
+model = AutoModel.from_pretrained("microsoft/VibeVoice", trust_remote_code=True)
+
+# Generate speech for a multi-speaker script
+audio = model.synthesize(
+    text="Speaker 1: Hello. Speaker 2: Good morning.",
+    speakers=["speaker_a", "speaker_b"]
+)
+</pre>
+        <p style="margin:12px 0 0">Check the model card for the full API, speaker embedding format, and recommended sampling parameters. The continuous tokenizer reduces the token sequence length significantly vs. discrete tokenizers, which improves coherence over long contexts.</p>
+      </section>
+
+      <section>
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;color:var(--accent);margin-bottom:10px">WHAT TO OBSERVE</p>
+        <ul style="margin:0;padding-left:20px;line-height:1.8">
+          <li>Generate a five-minute multi-speaker dialogue and check whether speaker identity is consistent from minute one to minute five</li>
+          <li>Compare prosody naturalness against ElevenLabs or Coqui-TTS on your specific content type (technical narration vs conversational)</li>
+          <li>Measure real-time factor (generation time / audio duration) on your hardware — continuous tokenization should show efficiency gains over discrete models</li>
+          <li>Test with non-standard names and technical terminology; check whether the phoneme handling holds up without manual pronunciation corrections</li>
+        </ul>
+      </section>
+
+    </div>
+
+    <aside class="col gap-4">
+      <div class="sk-box" style="padding:16px;background:var(--card)">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0 0 12px">AT A GLANCE</p>
+        <div class="col gap-2" style="font-size:14px;line-height:1.6">
+          <div style="padding:6px 0;border-bottom:1px dashed var(--ink)"><strong>By:</strong> Microsoft Research</div>
+          <div style="padding:6px 0;border-bottom:1px dashed var(--ink)"><strong>Published:</strong> Aug 2025 (HF trending now)</div>
+          <div style="padding:6px 0;border-bottom:1px dashed var(--ink)"><strong>Use case:</strong> Long-form, multi-speaker TTS</div>
+          <div style="padding:6px 0;border-bottom:1px dashed var(--ink)"><strong>Architecture:</strong> Next-token diffusion</div>
+          <div style="padding:6px 0;border-bottom:1px dashed var(--ink)"><strong>HF upvotes:</strong> 166 (#3 trending)</div>
+          <div style="padding:6px 0"><strong>Access:</strong> Research weights on HF</div>
+        </div>
+      </div>
+
+      <div class="sk-box" style="padding:16px;background:var(--hi)">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0 0 10px">FREE ALTERNATIVE</p>
+        <p style="font-size:14px;line-height:1.5;margin:0">Coqui-TTS (XTTS-v2) is fully open-source (MIT-licensed), runs locally on CPU/GPU, and supports voice cloning. For shorter-form content it covers most use cases without needing VibeVoice's diffusion approach.</p>
+      </div>
+
+      <div style="padding:14px 0;border-top:1.5px solid var(--ink)">
+        <p class="sk-mono" style="font-size:10px;letter-spacing:2px;margin:0 0 8px">LINKS</p>
+        <a href="https://huggingface.co/papers/trending" class="sk-mono" style="font-size:11px;color:var(--teal);text-decoration:underline;text-underline-offset:3px;display:block;margin-bottom:6px">HUGGING FACE TRENDING &#8599;</a>
+      </div>
+    </aside>
+  </div>
+
+  <div style="border-top:1.5px solid var(--ink);margin-top:40px;padding-top:16px" class="row" style="justify-content:space-between">
+    <a href="../index.html" class="sk-mono" style="font-size:11px;letter-spacing:1.5px">&#8592; BACK TO ISSUE 004</a>
+    <a href="../../../archive.html" class="sk-mono" style="font-size:11px;letter-spacing:1.5px;color:var(--teal)">ARCHIVE &#8599;</a>
+  </div>
+</div>
+</body>
+</html>

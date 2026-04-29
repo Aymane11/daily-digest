@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="alternate" type="application/rss+xml" title="Daily Digest RSS" href="/daily-digest/feed.xml" />
+<title>Daily Digest — Rocky SQL engine — Issue 004</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{background:#f5f0e8;color:#111;font-family:'Lora',serif;font-size:18px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:root{--paper:#f5f0e8;--card:#fffdf7;--ink:#111111;--ink-2:#5a5a5a;--accent:#d62828;--hi:#f5c842;--teal:#0d7377;--navy:#14213d;--ochre:#e07b39;--slate:#3d5a80;--sage:#2d6a4f;--purple:#7b2d8b;--rule:#111111}
+.sk-mono{font-family:'IBM Plex Serif','Georgia',serif;font-weight:500}
+.sk-box{border:1.5px solid var(--ink);background:transparent;position:relative}
+.sk-rule-thin{height:0;border:0;border-top:1px solid var(--ink);margin:0}
+.sk-stamp{display:inline-block;font-family:'IBM Plex Serif',serif;font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:3px 8px;border:1.5px solid currentColor;line-height:1.4;transform:rotate(-1deg);white-space:nowrap}
+.sk-stamp--sage{color:var(--sage);border-color:var(--sage)}
+.sk-stamp--slate{color:var(--slate);border-color:var(--slate)}
+.row{display:flex}.col{display:flex;flex-direction:column}.grow{flex:1}
+.gap-2{gap:8px}.gap-3{gap:12px}.gap-4{gap:16px}
+.dd-page{max-width:1200px;margin:0 auto;padding:32px}
+.sk-grid-brief{display:grid;grid-template-columns:1fr 280px;gap:28px}
+@media(max-width:900px){.sk-grid-brief{grid-template-columns:1fr 240px!important}}
+@media(max-width:640px){body{font-size:17px}.dd-page{padding:16px 14px}.sk-grid-brief{grid-template-columns:1fr!important}}
+</style>
+</head>
+<body>
+<div class="dd-page">
+
+  <nav class="row" style="justify-content:space-between;align-items:baseline;margin-bottom:8px">
+    <a href="../index.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px">&#8592; DIGEST &middot; &numero; 004</a>
+    <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">BRIEF &middot; 03.4 &middot; DATA</span>
+    <a href="../../../archive.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--teal)">ARCHIVE &#8599;</a>
+  </nav>
+  <div style="height:3px;background:var(--sage);margin-bottom:20px"></div>
+
+  <div class="sk-grid-brief">
+    <div class="col gap-4">
+      <div class="row gap-2" style="flex-wrap:wrap">
+        <span class="sk-stamp sk-stamp--sage">DATA</span>
+        <span class="sk-stamp sk-stamp--slate">OSS</span>
+      </div>
+      <h1 style="font-size:32px;font-weight:700;line-height:1.1;margin:0;text-wrap:balance">
+        Rocky: Rust-written SQL control plane with Git-style branching, column lineage, and compile-time data contracts
+      </h1>
+      <p style="font-size:17px;line-height:1.6;margin:0">Rocky is an open-source (Apache 2.0) Rust-based control plane for data warehouse pipelines. It sits above existing warehouses&mdash;Databricks, Snowflake, BigQuery, DuckDB&mdash;rather than replacing them, handling DAG orchestration, governance, and safety guarantees. The headline features are named branches (isolated pipeline testing with blast-radius analysis before merging), compiler-time column lineage (traces individual columns from downstream facts back to source seeds with no runtime overhead), and compile-time data contracts (validates required columns and types before the job runs). It also ships schema drift detection, per-model cost attribution, and AI-assisted model generation that type-checks suggestions before deployment. A local playground runs on DuckDB with no credentials required. Built by Hugo Correia; adapters for Databricks (GA), Snowflake (Beta), BigQuery (Beta) are available.</p>
+      <div>
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;color:var(--accent);margin-bottom:8px">WHAT TO WATCH</p>
+        <p style="font-size:16px;line-height:1.55;margin:0"><strong>Try the playground in under five minutes:</strong> <code>curl -fsSL https://raw.githubusercontent.com/rocky-data/rocky/main/engine/install.sh | bash &amp;&amp; rocky playground my-first-project &amp;&amp; cd my-first-project &amp;&amp; rocky compile &amp;&amp; rocky test &amp;&amp; rocky run</code>. Evaluate whether compile-time contract enforcement catches the schema drift issues that currently reach you as runtime failures in production.</p>
+      </div>
+      <div style="padding:14px 0;border-top:1.5px solid var(--ink)">
+        <a href="https://github.com/rocky-data/rocky" class="sk-mono" style="font-size:11px;color:var(--teal);text-decoration:underline;text-underline-offset:3px;display:block;margin-bottom:6px">SOURCE &middot; GITHUB.COM/ROCKY-DATA &#8599;</a>
+        <a href="https://news.ycombinator.com/item?id=47935246" class="sk-mono" style="font-size:11px;color:var(--teal);text-decoration:underline;text-underline-offset:3px;display:block">HN DISCUSSION &middot; 50 PTS &#8599;</a>
+      </div>
+    </div>
+
+    <aside class="col gap-4">
+      <div class="sk-box" style="padding:16px;background:var(--card)">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0 0 12px">QUICK FACTS</p>
+        <div class="col gap-2" style="font-size:14px;line-height:1.5">
+          <div style="padding:6px 0;border-bottom:1px dashed var(--ink)"><strong>License:</strong> Apache 2.0</div>
+          <div style="padding:6px 0;border-bottom:1px dashed var(--ink)"><strong>Language:</strong> Rust</div>
+          <div style="padding:6px 0;border-bottom:1px dashed var(--ink)"><strong>Local dev:</strong> DuckDB (no credentials)</div>
+          <div style="padding:6px 0;border-bottom:1px dashed var(--ink)"><strong>Warehouses:</strong> Databricks GA, Snowflake Beta, BigQuery Beta</div>
+          <div style="padding:6px 0">Not a Fivetran or dbt Cloud replacement</div>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <div style="border-top:1.5px solid var(--ink);margin-top:40px;padding-top:16px" class="row" style="justify-content:space-between">
+    <a href="../index.html" class="sk-mono" style="font-size:11px;letter-spacing:1.5px">&#8592; BACK TO ISSUE 004</a>
+    <a href="../../../archive.html" class="sk-mono" style="font-size:11px;letter-spacing:1.5px;color:var(--teal)">ARCHIVE &#8599;</a>
+  </div>
+</div>
+</body>
+</html>

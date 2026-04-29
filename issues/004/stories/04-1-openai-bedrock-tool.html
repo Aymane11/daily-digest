@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="alternate" type="application/rss+xml" title="Daily Digest RSS" href="/daily-digest/feed.xml" />
+<title>Daily Digest — Tool: OpenAI on AWS Bedrock — Issue 004</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{background:#f5f0e8;color:#111;font-family:'Lora',serif;font-size:18px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:root{--paper:#f5f0e8;--card:#fffdf7;--ink:#111111;--ink-2:#5a5a5a;--accent:#d62828;--hi:#f5c842;--teal:#0d7377;--navy:#14213d;--ochre:#e07b39;--slate:#3d5a80;--sage:#2d6a4f;--purple:#7b2d8b;--rule:#111111}
+.sk-mono{font-family:'IBM Plex Serif','Georgia',serif;font-weight:500}
+.sk-box{border:1.5px solid var(--ink);background:transparent;position:relative}
+.sk-rule-thin{height:0;border:0;border-top:1px solid var(--ink);margin:0}
+.sk-stamp{display:inline-block;font-family:'IBM Plex Serif',serif;font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:3px 8px;border:1.5px solid currentColor;line-height:1.4;transform:rotate(-1deg);white-space:nowrap}
+.sk-stamp--red{color:var(--accent);border-color:var(--accent)}
+.sk-stamp--navy{color:var(--navy);border-color:var(--navy)}
+.sk-stamp--teal{color:var(--teal);border-color:var(--teal)}
+.sk-stamp--hi{color:#9a7200;border-color:#9a7200}
+.sk-stamp--sage{color:var(--sage);border-color:var(--sage)}
+.row{display:flex}.col{display:flex;flex-direction:column}.grow{flex:1}
+.gap-2{gap:8px}.gap-3{gap:12px}.gap-4{gap:16px}.gap-5{gap:20px}
+.dd-page{max-width:1200px;margin:0 auto;padding:32px}
+.sk-grid-tool{display:grid;grid-template-columns:1fr 300px;gap:28px}
+code{font-family:'IBM Plex Serif',monospace;font-size:14px;background:#e8e3d8;padding:2px 6px}
+pre{background:var(--ink);color:var(--card);padding:16px;font-family:'IBM Plex Serif',monospace;font-size:13px;line-height:1.6;overflow-x:auto;margin:0}
+@media(max-width:900px){.sk-grid-tool{grid-template-columns:1fr 260px!important}}
+@media(max-width:640px){body{font-size:17px}.dd-page{padding:16px 14px}.sk-grid-tool{grid-template-columns:1fr!important}}
+</style>
+</head>
+<body>
+<div class="dd-page">
+
+  <nav class="row" style="justify-content:space-between;align-items:baseline;margin-bottom:8px">
+    <a href="../index.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px">&#8592; DIGEST &middot; &numero; 004</a>
+    <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">TOOL &middot; 04.1</span>
+    <a href="../../../archive.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--teal)">ARCHIVE &#8599;</a>
+  </nav>
+  <div style="height:4px;background:var(--ink);margin-bottom:20px"></div>
+
+  <div class="sk-grid-tool">
+    <div class="col gap-5">
+
+      <!-- header -->
+      <div class="col gap-3">
+        <div class="row gap-2" style="flex-wrap:wrap">
+          <span class="sk-stamp sk-stamp--hi">MODEL</span>
+          <span class="sk-stamp sk-stamp--navy">CLOUD</span>
+          <span class="sk-stamp sk-stamp--teal">AGENT RUNTIME</span>
+        </div>
+        <h1 style="font-size:36px;font-weight:700;line-height:1.05;margin:0">OpenAI on AWS Bedrock</h1>
+        <p style="font-size:18px;line-height:1.55;margin:0;font-style:italic">GPT-5.5, Codex, and Bedrock Managed Agents — now accessible via your existing AWS credentials without switching cloud providers</p>
+      </div>
+
+      <!-- why try -->
+      <section>
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;color:var(--accent);margin-bottom:10px">WHY IT'S WORTH TRYING</p>
+        <p style="margin:0 0 14px">If your organisation runs workloads on AWS and has evaluated OpenAI models but avoided the complexity of managing a separate API key, billing relationship, and VPC configuration, Bedrock eliminates those barriers. You get GPT-5.5 through the same IAM roles, PrivateLink endpoints, and CloudTrail audit logs you already use for Anthropic Claude or Meta Llama models on Bedrock.</p>
+        <p style="margin:0">The Managed Agents product is the more interesting addition: it packages the OpenAI agent harness (model + runtime + tool-calling steering) as a fully managed AWS service, so you can deploy production agent workflows without building your own orchestration layer on top of raw API calls.</p>
+      </section>
+
+      <!-- problem solved -->
+      <section>
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;color:var(--accent);margin-bottom:10px">WHAT PROBLEM IT SOLVES</p>
+        <ul style="margin:0;padding-left:20px;line-height:1.8">
+          <li>Eliminates the need to split cloud infrastructure between Azure (OpenAI) and AWS (everything else)</li>
+          <li>Inherits enterprise controls — IAM, PrivateLink, data residency, CloudTrail — that teams have already configured</li>
+          <li>Removes a separate OpenAI billing relationship for teams standardised on AWS Cost Explorer</li>
+          <li>Provides a managed agent runtime that handles long-running tasks, tool-calling, and retries without custom scaffolding</li>
+        </ul>
+      </section>
+
+      <!-- steps -->
+      <section>
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;color:var(--accent);margin-bottom:10px">GETTING STARTED (LIMITED PREVIEW)</p>
+        <p style="margin:0 0 12px"><strong>Step 1:</strong> Request limited preview access via the AWS Bedrock console &rarr; Model access &rarr; OpenAI models. As of April 29, 2026, access is gated.</p>
+        <p style="margin:0 0 12px"><strong>Step 2:</strong> Once approved, authenticate with your existing AWS credentials. No OpenAI API key is required.</p>
+        <p style="margin:0 0 12px"><strong>Step 3:</strong> Call GPT-5.5 via the Bedrock Converse API using the model ID <code>openai.gpt-5-5-v1</code>:</p>
+        <pre>import boto3
+client = boto3.client("bedrock-runtime", region_name="us-east-1")
+
+response = client.converse(
+    modelId="openai.gpt-5-5-v1",
+    messages=[{"role": "user", "content": [{"text": "Explain KV cache compression"}]}]
+)
+print(response["output"]["message"]["content"][0]["text"])</pre>
+        <p style="margin:12px 0 0"><strong>Step 4 (Codex):</strong> Install the Codex CLI and point it at Bedrock. Authenticate via <code>aws sso login</code> — no separate API key needed. Run <code>codex --backend bedrock "refactor auth.py to use async/await"</code>.</p>
+      </section>
+
+      <!-- what to observe -->
+      <section>
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;color:var(--accent);margin-bottom:10px">WHAT TO OBSERVE</p>
+        <ul style="margin:0;padding-left:20px;line-height:1.8">
+          <li>Latency vs. direct OpenAI API — Trainium-backed inference may differ from GPU-hosted models; measure p50 and p99</li>
+          <li>CloudTrail logs should show <code>bedrock:InvokeModel</code> events with the OpenAI model ID — confirm your audit trail is intact</li>
+          <li>Pricing: confirm Bedrock's per-token rate matches or is within acceptable margin of OpenAI's direct $5/$30 per million tokens (input/output)</li>
+          <li>Data residency: verify requests stay within your configured AWS region by checking VPC flow logs</li>
+        </ul>
+      </section>
+
+    </div>
+
+    <!-- sidebar -->
+    <aside class="col gap-4">
+      <div class="sk-box" style="padding:16px;background:var(--card)">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0 0 12px">AT A GLANCE</p>
+        <div class="col gap-2" style="font-size:14px;line-height:1.6">
+          <div style="padding:6px 0;border-bottom:1px dashed var(--ink)"><strong>Status:</strong> Limited preview (request access)</div>
+          <div style="padding:6px 0;border-bottom:1px dashed var(--ink)"><strong>Models:</strong> GPT-5.5, Codex</div>
+          <div style="padding:6px 0;border-bottom:1px dashed var(--ink)"><strong>Auth:</strong> AWS IAM (no OpenAI key)</div>
+          <div style="padding:6px 0;border-bottom:1px dashed var(--ink)"><strong>Networking:</strong> PrivateLink supported</div>
+          <div style="padding:6px 0;border-bottom:1px dashed var(--ink)"><strong>Pricing:</strong> ~$5/$30 per 1M tokens</div>
+          <div style="padding:6px 0"><strong>Free tier:</strong> Standard Bedrock free tier applies during preview</div>
+        </div>
+      </div>
+
+      <div class="sk-box" style="padding:16px;background:var(--hi)">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0 0 10px">ACCESS LIMITS</p>
+        <p style="font-size:14px;line-height:1.5;margin:0">Limited preview only — not generally available as of April 29, 2026. Request access via Bedrock console. Managed Agents is a separate gated preview from model access.</p>
+      </div>
+
+      <div class="sk-box" style="padding:16px;background:var(--card)">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0 0 10px">FREE ALTERNATIVE</p>
+        <p style="font-size:14px;line-height:1.5;margin:0">Anthropic Claude 3.5 Haiku and Meta Llama 3.3 70B are available on Bedrock with no preview gate and lower per-token costs for latency-sensitive workloads.</p>
+      </div>
+
+      <div style="padding:14px 0;border-top:1.5px solid var(--ink)">
+        <p class="sk-mono" style="font-size:10px;letter-spacing:2px;margin:0 0 8px">LINKS</p>
+        <a href="https://aws.amazon.com/about-aws/whats-new/2026/04/bedrock-openai-models-codex-managed-agents/" class="sk-mono" style="font-size:11px;color:var(--teal);text-decoration:underline;text-underline-offset:3px;display:block;margin-bottom:6px">AWS ANNOUNCEMENT &#8599;</a>
+        <a href="https://openai.com/index/openai-on-aws/" class="sk-mono" style="font-size:11px;color:var(--teal);text-decoration:underline;text-underline-offset:3px;display:block">OPENAI ANNOUNCEMENT &#8599;</a>
+      </div>
+    </aside>
+  </div>
+
+  <div style="border-top:1.5px solid var(--ink);margin-top:40px;padding-top:16px" class="row" style="justify-content:space-between">
+    <a href="../index.html" class="sk-mono" style="font-size:11px;letter-spacing:1.5px">&#8592; BACK TO ISSUE 004</a>
+    <a href="../../../archive.html" class="sk-mono" style="font-size:11px;letter-spacing:1.5px;color:var(--teal)">ARCHIVE &#8599;</a>
+  </div>
+</div>
+</body>
+</html>

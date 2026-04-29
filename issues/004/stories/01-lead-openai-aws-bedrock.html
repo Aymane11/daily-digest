@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="alternate" type="application/rss+xml" title="Daily Digest RSS" href="/daily-digest/feed.xml" />
+<title>Daily Digest — OpenAI lands on Amazon Bedrock — Issue 004</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{background:#f5f0e8;color:#111;font-family:'Lora',serif;font-size:18px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:root{--paper:#f5f0e8;--card:#fffdf7;--ink:#111111;--ink-2:#5a5a5a;--accent:#d62828;--hi:#f5c842;--teal:#0d7377;--navy:#14213d;--ochre:#e07b39;--slate:#3d5a80;--sage:#2d6a4f;--purple:#7b2d8b;--rule:#111111}
+.sk-mono{font-family:'IBM Plex Serif','Georgia',serif;font-weight:500}
+.sk-script{font-family:'Lora',serif;font-style:italic}
+.sk-box{border:1.5px solid var(--ink);background:transparent;position:relative}
+.sk-box-soft{border:1.25px solid #2a2a2a;background:transparent}
+.sk-rule{height:0;border:0;border-top:1.5px solid var(--ink);margin:0}
+.sk-rule-thin{height:0;border:0;border-top:1px solid var(--ink);margin:0}
+.sk-stamp{display:inline-block;font-family:'IBM Plex Serif',serif;font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:3px 8px;border:1.5px solid currentColor;line-height:1.4;transform:rotate(-1deg);white-space:nowrap}
+.sk-stamp--red{color:var(--accent);border-color:var(--accent)}
+.sk-stamp--navy{color:var(--navy);border-color:var(--navy)}
+.sk-stamp--teal{color:var(--teal);border-color:var(--teal)}
+.sk-stamp--ochre{color:var(--ochre);border-color:var(--ochre)}
+.sk-stamp--slate{color:var(--slate);border-color:var(--slate)}
+.sk-stamp--hi{color:#9a7200;border-color:#9a7200}
+.sk-stamp--purple{color:var(--purple);border-color:var(--purple)}
+.sk-stamp--sage{color:var(--sage);border-color:var(--sage)}
+.row{display:flex}.col{display:flex;flex-direction:column}.grow{flex:1}
+.gap-2{gap:8px}.gap-3{gap:12px}.gap-4{gap:16px}.gap-5{gap:20px}
+.dd-page{max-width:1200px;margin:0 auto;padding:32px}
+.dd-module-h{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px}
+.dd-module-h .num{font-size:64px;font-weight:700;line-height:0.9;color:var(--accent)}
+.dd-module-h .title{font-family:'IBM Plex Serif',serif;font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase}
+.sk-grid-modules{display:grid}
+.sk-dossier-hl{font-size:44px}
+@media(max-width:900px){.sk-grid-modules{grid-template-columns:repeat(2,1fr)!important}.meta-grid{grid-template-columns:1fr!important}}
+@media(max-width:640px){body{font-size:17px}.dd-page{padding:16px 14px}.sk-grid-modules{grid-template-columns:1fr!important}.sk-dossier-hl{font-size:28px!important}.meta-grid{grid-template-columns:1fr!important}}
+</style>
+</head>
+<body>
+<div class="dd-page">
+
+  <!-- breadcrumb -->
+  <nav class="row" style="justify-content:space-between;align-items:baseline;margin-bottom:8px">
+    <a href="../index.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px">&#8592; DIGEST &middot; &numero; 004</a>
+    <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">LEAD &middot; 01 &middot; INDUSTRY</span>
+    <a href="../../../archive.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--teal)">ARCHIVE &#8599;</a>
+  </nav>
+
+  <!-- progress strip -->
+  <div style="height:4px;background:var(--accent);margin-bottom:20px"></div>
+
+  <!-- kicker + headline -->
+  <div class="col gap-4" style="margin-bottom:24px">
+    <div class="row gap-2" style="flex-wrap:wrap">
+      <span class="sk-stamp sk-stamp--red">INDUSTRY</span>
+      <span class="sk-stamp sk-stamp--navy">CLOUD</span>
+      <span class="sk-stamp sk-stamp--teal">PARTNERSHIPS</span>
+    </div>
+    <h1 class="sk-dossier-hl" style="font-weight:700;line-height:1.05;margin:0;text-wrap:balance">
+      OpenAI lands GPT-5.5, Codex, and Managed Agents on Amazon Bedrock one day after Microsoft exclusivity ends
+    </h1>
+    <p class="sk-mono" style="font-size:14px;margin:0;color:var(--ink-2)">WED 29 APR 2026 &middot; 5 MIN READ &middot; BY EDITORIAL TEAM</p>
+  </div>
+
+  <!-- TL;DR -->
+  <div class="sk-box" style="background:var(--hi);padding:18px 22px;margin-bottom:28px">
+    <span class="sk-mono" style="font-size:11px;letter-spacing:2px;display:block;margin-bottom:8px">TL;DR</span>
+    <p style="font-size:18px;line-height:1.55;margin:0;font-weight:600">OpenAI announced on April 28, 2026 that GPT-5.5, Codex, and a new Bedrock Managed Agents product are available in limited preview on AWS. The move comes one day after OpenAI and Microsoft restructured their exclusive deal, and fulfils OpenAI's obligation tied to its $50 billion AWS financing round. Enterprise customers can now access OpenAI models through existing AWS IAM credentials, PrivateLink, and CloudTrail without switching cloud providers.</p>
+  </div>
+
+  <!-- body -->
+  <div style="display:grid;grid-template-columns:2fr 1fr;gap:28px" class="meta-grid">
+    <div class="col gap-5">
+
+      <!-- ¶01 -->
+      <section>
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;color:var(--accent);margin-bottom:8px">&para;01 &middot; WHAT HAPPENED</p>
+        <p style="margin:0 0 16px">At an AWS event in San Francisco on April 28, OpenAI CEO Sam Altman and AWS CEO Matt Garman announced three integrated products launching in limited preview on Amazon Bedrock:</p>
+        <ul style="margin:0 0 16px;padding-left:22px;line-height:1.7">
+          <li><strong>GPT-5.5 on Bedrock</strong> — OpenAI's current frontier model, accessible via the same Bedrock API surface used for Anthropic and Meta models, inheriting IAM, PrivateLink, guardrails, encryption, and CloudTrail logging.</li>
+          <li><strong>Codex on Bedrock</strong> — OpenAI's coding agent authenticates via AWS credentials and runs through Bedrock via the Codex CLI, desktop app, and VS Code extension. No separate OpenAI account required.</li>
+          <li><strong>Bedrock Managed Agents powered by OpenAI</strong> — packages the OpenAI agent harness (model + runtime + steering) as a fully managed AWS service, targeting production agent deployments with minimal infrastructure overhead.</li>
+        </ul>
+        <p style="margin:0">The timing is deliberate: on April 27, OpenAI and Microsoft restructured their 2019 exclusive agreement into a non-exclusive preferred-provider arrangement. That change, combined with a $50 billion AWS financing commitment that required OpenAI to use up to two gigawatts of Amazon's Trainium accelerators, unblocked the Bedrock integration.</p>
+      </section>
+
+      <!-- ¶02 -->
+      <section>
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;color:var(--accent);margin-bottom:8px">&para;02 &middot; WHY IT MATTERS</p>
+        <p style="margin:0 0 16px">The primary effect is distribution, not capability. GPT-5.5's benchmark numbers haven't changed; what changed is that AWS's existing enterprise customer base&mdash;companies that have spent years building on Bedrock's IAM roles, VPC isolation, and compliance audit trails&mdash;can now access OpenAI models without migrating or splitting their infrastructure.</p>
+        <p style="margin:0 0 16px">Altman described pent-up demand as "astronomical." The deal reframes the AI platform competition from a two-sided battle (OpenAI via Azure vs. Anthropic via AWS) into a model-agnostic marketplace where AWS acts as a distribution layer rather than an exclusive partner. Anthropic's Claude models remain on Bedrock alongside OpenAI's, meaning enterprise buyers can evaluate both through the same interface.</p>
+        <p style="margin:0">The Managed Agents product is the more structurally significant piece. Rather than forcing customers to choose between OpenAI's hosted agent runtime and AWS infrastructure, it bundles both. This positions Bedrock Managed Agents as a production agent deployment surface that abstracts model provider selection.</p>
+      </section>
+
+      <!-- ¶03 -->
+      <section>
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;color:var(--accent);margin-bottom:8px">&para;03 &middot; WHAT TO WATCH</p>
+        <p style="margin:0 0 12px"><strong>Check if you qualify for limited preview.</strong> Bedrock Managed Agents powered by OpenAI is gated; request access at the AWS console and benchmark latency against your current Anthropic or Azure endpoint before committing. Trainium-backed inference may have different latency profiles than GPU-hosted OpenAI models.</p>
+        <p style="margin:0 0 12px"><strong>Track pricing parity.</strong> OpenAI's direct API prices GPT-5.5 at $5/$30 per million tokens (input/output). AWS typically adds a small margin for managed services; confirm the Bedrock price sheet before routing production workloads.</p>
+        <p style="margin:0"><strong>Watch the Google Cloud move.</strong> OpenAI and Microsoft's restructuring opens the door to a Google Cloud integration. If that closes, every major hyperscaler will offer OpenAI models, and the competitive question shifts to which cloud's enterprise integration layer is most complete.</p>
+      </section>
+
+    </div>
+
+    <!-- sidebar -->
+    <aside class="col gap-4">
+
+      <!-- numbers -->
+      <div class="sk-box" style="padding:18px;background:var(--card)">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0 0 14px">BY THE NUMBERS</p>
+        <div class="col gap-3">
+          <div>
+            <span style="font-size:32px;font-weight:700;line-height:1;display:block">$50B</span>
+            <span class="sk-mono" style="font-size:10px">AWS FINANCING COMMITMENT</span>
+          </div>
+          <hr class="sk-rule-thin" />
+          <div>
+            <span style="font-size:32px;font-weight:700;line-height:1;display:block">2 GW</span>
+            <span class="sk-mono" style="font-size:10px">TRAINIUM COMPUTE OBLIGATION</span>
+          </div>
+          <hr class="sk-rule-thin" />
+          <div>
+            <span style="font-size:32px;font-weight:700;line-height:1;display:block">3</span>
+            <span class="sk-mono" style="font-size:10px">PRODUCTS LAUNCHED IN PREVIEW</span>
+          </div>
+          <hr class="sk-rule-thin" />
+          <div>
+            <span style="font-size:32px;font-weight:700;line-height:1;display:block">$5/$30</span>
+            <span class="sk-mono" style="font-size:10px">GPT-5.5 PER 1M TOKENS (IN/OUT)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- context note -->
+      <div class="sk-box-soft" style="padding:16px;background:var(--card)">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0 0 10px">CONTEXT</p>
+        <p style="font-size:15px;line-height:1.55;margin:0 0 10px">Yesterday's lead (Issue 003): Microsoft&ndash;OpenAI exclusive restructured to preferred-provider arrangement expiring 2032. Microsoft retains perpetual rights to GPT-4-era weights and 49% revenue share.</p>
+        <p style="font-size:15px;line-height:1.55;margin:0">Anthropic and its Claude models remain available on Bedrock alongside OpenAI, making AWS a multi-model marketplace rather than a single-vendor platform.</p>
+      </div>
+
+      <!-- source -->
+      <div style="padding:14px 0;border-top:1.5px solid var(--ink)">
+        <p class="sk-mono" style="font-size:10px;letter-spacing:2px;margin:0 0 8px">SOURCES</p>
+        <a href="https://openai.com/index/openai-on-aws/" class="sk-mono" style="font-size:11px;color:var(--teal);text-decoration:underline;text-underline-offset:3px;display:block;margin-bottom:6px">SOURCE &middot; OPENAI.COM &#8599;</a>
+        <a href="https://aws.amazon.com/about-aws/whats-new/2026/04/bedrock-openai-models-codex-managed-agents/" class="sk-mono" style="font-size:11px;color:var(--teal);text-decoration:underline;text-underline-offset:3px;display:block;margin-bottom:6px">SOURCE &middot; AWS.AMAZON.COM &#8599;</a>
+        <a href="https://news.ycombinator.com/item?id=47939320" class="sk-mono" style="font-size:11px;color:var(--teal);text-decoration:underline;text-underline-offset:3px;display:block">HN DISCUSSION &middot; 271 PTS &#8599;</a>
+      </div>
+    </aside>
+  </div>
+
+  <!-- footer nav -->
+  <div style="border-top:1.5px solid var(--ink);margin-top:40px;padding-top:16px" class="row" style="justify-content:space-between">
+    <a href="../index.html" class="sk-mono" style="font-size:11px;letter-spacing:1.5px">&#8592; BACK TO ISSUE 004</a>
+    <a href="../../../archive.html" class="sk-mono" style="font-size:11px;letter-spacing:1.5px;color:var(--teal)">ARCHIVE &#8599;</a>
+  </div>
+
+</div>
+</body>
+</html>

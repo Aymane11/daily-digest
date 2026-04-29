@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="alternate" type="application/rss+xml" title="Daily Digest RSS" href="/daily-digest/feed.xml" />
+<title>Daily Digest — Who owns AI-written code? — Issue 004</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{background:#f5f0e8;color:#111;font-family:'Lora',serif;font-size:18px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:root{--paper:#f5f0e8;--card:#fffdf7;--ink:#111111;--ink-2:#5a5a5a;--accent:#d62828;--hi:#f5c842;--teal:#0d7377;--navy:#14213d;--ochre:#e07b39;--slate:#3d5a80;--sage:#2d6a4f;--purple:#7b2d8b;--rule:#111111}
+.sk-mono{font-family:'IBM Plex Serif','Georgia',serif;font-weight:500}
+.sk-box{border:1.5px solid var(--ink);background:transparent;position:relative}
+.sk-rule-thin{height:0;border:0;border-top:1px solid var(--ink);margin:0}
+.sk-stamp{display:inline-block;font-family:'IBM Plex Serif',serif;font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:3px 8px;border:1.5px solid currentColor;line-height:1.4;transform:rotate(-1deg);white-space:nowrap}
+.sk-stamp--red{color:var(--accent);border-color:var(--accent)}
+.sk-stamp--navy{color:var(--navy);border-color:var(--navy)}
+.sk-stamp--teal{color:var(--teal);border-color:var(--teal)}
+.sk-stamp--slate{color:var(--slate);border-color:var(--slate)}
+.sk-stamp--purple{color:var(--purple);border-color:var(--purple)}
+.row{display:flex}.col{display:flex;flex-direction:column}.grow{flex:1}
+.gap-2{gap:8px}.gap-3{gap:12px}.gap-4{gap:16px}.gap-5{gap:20px}
+.dd-page{max-width:1200px;margin:0 auto;padding:32px}
+.sk-hl{font-size:38px}
+.meta-grid{display:grid;grid-template-columns:2fr 1fr;gap:28px}
+@media(max-width:900px){.meta-grid{grid-template-columns:1fr!important}}
+@media(max-width:640px){body{font-size:17px}.dd-page{padding:16px 14px}.sk-hl{font-size:26px!important}}
+</style>
+</head>
+<body>
+<div class="dd-page">
+
+  <nav class="row" style="justify-content:space-between;align-items:baseline;margin-bottom:8px">
+    <a href="../index.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px">&#8592; DIGEST &middot; &numero; 004</a>
+    <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">HEADLINE &middot; 02.4 &middot; LEGAL</span>
+    <a href="../../../archive.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--teal)">ARCHIVE &#8599;</a>
+  </nav>
+  <div style="height:4px;background:var(--purple);margin-bottom:20px"></div>
+
+  <div class="col gap-4" style="margin-bottom:24px">
+    <div class="row gap-2" style="flex-wrap:wrap">
+      <span class="sk-stamp sk-stamp--purple">LEGAL</span>
+      <span class="sk-stamp sk-stamp--navy">IP</span>
+    </div>
+    <h1 class="sk-hl" style="font-weight:700;line-height:1.05;margin:0;text-wrap:balance">
+      Who owns the code Claude wrote? Three legal doctrines that determine the answer&mdash;and why none of them are settled
+    </h1>
+    <p class="sk-mono" style="font-size:14px;margin:0;color:var(--ink-2)">WED 29 APR 2026 &middot; 3 MIN READ</p>
+  </div>
+
+  <div class="sk-box" style="background:var(--hi);padding:18px 22px;margin-bottom:28px">
+    <span class="sk-mono" style="font-size:11px;letter-spacing:2px;display:block;margin-bottom:8px">TL;DR</span>
+    <p style="font-size:18px;line-height:1.55;margin:0;font-weight:600">A legal analysis published on HN (396 points, 374 comments) establishes three determinants of AI-generated code ownership: human authorship requirement (the DC Circuit's Thaler ruling makes predominantly AI-generated code uncopyrightable), work-for-hire doctrine (employers typically own code created using company tools), and GPL license contamination (models trained on copyleft code may reproduce obligations unknowingly). None is fully resolved in court.</p>
+  </div>
+
+  <div class="meta-grid">
+    <div class="col gap-5">
+      <section>
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;color:var(--accent);margin-bottom:8px">&para;01 &middot; WHAT HAPPENED</p>
+        <p style="margin:0 0 16px">Legal analyst Sena Evren published "Who owns the code Claude wrote?" on Substack, triggering the highest-engagement legal discussion about AI-generated code seen on HN this year. The piece synthesises three open legal questions into a decision framework developers can apply today.</p>
+        <p style="margin:0 0 16px">The article's context is the March 2026 Anthropic leak: 512,000 lines of Claude Code's source code were accidentally published. Before breakfast on the day of the leak, a developer had used an AI tool to rewrite the entire codebase in Python. The repository hit 100,000 GitHub stars in a single day. Anthropic's DMCA campaign could target direct copies but not AI rewrites&mdash;because if Claude Code was substantially written by Claude itself, its copyright status is ambiguous.</p>
+        <p style="margin:0">This is not hypothetical. Anthropic's own lead engineer acknowledged that Claude Code was predominantly written by Claude. The US Copyright Office confirmed in January 2025 that works lacking meaningful human authorship are uncopyrightable. The question of whether Anthropic can enforce copyright on code Claude largely wrote is now a live issue.</p>
+      </section>
+      <section>
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;color:var(--accent);margin-bottom:8px">&para;02 &middot; WHY IT MATTERS</p>
+        <p style="margin:0 0 16px"><strong>Human authorship:</strong> Copyright requires "meaningful human creative decisions." Specifying objectives to an AI does not qualify; directing architecture and structure may. The DC Circuit's Thaler decision is the current standard. If you cannot articulate the architectural choices you made beyond the AI's output, your copyright claim is weak.</p>
+        <p style="margin:0 0 16px"><strong>Work-for-hire:</strong> Employment IP clauses covering "work product created using company resources" or "company-licensed tools" typically assign AI-generated code to the employer, not the developer. Side projects built on company-licensed AI subscriptions may be subject to this clause.</p>
+        <p style="margin:0"><strong>GPL contamination:</strong> If a model was trained on GPL-licensed code and reproduces substantial verbatim portions, the GPL's copyleft obligations may apply to the output&mdash;even if the developer never knew the source. Running a license scanner on AI-generated code is no longer optional for commercial products.</p>
+      </section>
+      <section>
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;color:var(--accent);margin-bottom:8px">&para;03 &middot; WHAT TO WATCH</p>
+        <p style="margin:0 0 12px"><strong>Document your architectural decisions in commits.</strong> The difference between a defensible copyright claim and an unprotected work is evidence of human creative choices. "Accept AI suggestion" is not evidence. "Restructured the auth module to use a capability-token model instead of the AI's proposed role-based approach" is.</p>
+        <p style="margin:0 0 12px"><strong>Review your employment IP clause before shipping side projects.</strong> If your employer provides your AI subscription, the "company resources" clause may apply. Confirm in writing before commercializing anything built with employer-licensed tools.</p>
+        <p style="margin:0"><strong>Run a license scan before launching.</strong> Tools like FOSSA, Snyk, and licensee can flag potential GPL contamination in your output. On Anthropic's commercial terms, you have some indemnification coverage; on consumer terms, you do not.</p>
+      </section>
+    </div>
+
+    <aside class="col gap-4">
+      <div class="sk-box" style="padding:18px;background:var(--card)">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0 0 14px">ENGAGEMENT</p>
+        <div class="col gap-3">
+          <div>
+            <span style="font-size:32px;font-weight:700;line-height:1;display:block">396</span>
+            <span class="sk-mono" style="font-size:10px">HN POINTS</span>
+          </div>
+          <hr class="sk-rule-thin" />
+          <div>
+            <span style="font-size:32px;font-weight:700;line-height:1;display:block">374</span>
+            <span class="sk-mono" style="font-size:10px">COMMENTS</span>
+          </div>
+          <hr class="sk-rule-thin" />
+          <div>
+            <span style="font-size:32px;font-weight:700;line-height:1;display:block">512K</span>
+            <span class="sk-mono" style="font-size:10px">LINES IN THE ANTHROPIC CODE LEAK</span>
+          </div>
+        </div>
+      </div>
+      <div style="padding:14px 0;border-top:1.5px solid var(--ink)">
+        <p class="sk-mono" style="font-size:10px;letter-spacing:2px;margin:0 0 8px">SOURCES</p>
+        <a href="https://legallayer.substack.com/p/who-owns-the-claude-code-wrote" class="sk-mono" style="font-size:11px;color:var(--teal);text-decoration:underline;text-underline-offset:3px;display:block;margin-bottom:6px">SOURCE &middot; LEGALLAYER.SUBSTACK.COM &#8599;</a>
+        <a href="https://news.ycombinator.com/item?id=47932937" class="sk-mono" style="font-size:11px;color:var(--teal);text-decoration:underline;text-underline-offset:3px;display:block">HN DISCUSSION &middot; 396 PTS &#8599;</a>
+      </div>
+    </aside>
+  </div>
+
+  <div style="border-top:1.5px solid var(--ink);margin-top:40px;padding-top:16px" class="row" style="justify-content:space-between">
+    <a href="../index.html" class="sk-mono" style="font-size:11px;letter-spacing:1.5px">&#8592; BACK TO ISSUE 004</a>
+    <a href="../../../archive.html" class="sk-mono" style="font-size:11px;letter-spacing:1.5px;color:var(--teal)">ARCHIVE &#8599;</a>
+  </div>
+</div>
+</body>
+</html>
