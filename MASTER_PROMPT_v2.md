@@ -153,6 +153,7 @@ Other rules:
   - root `index.html`
   - `archive.html`
   - `issues/index.json` (append only)
+  - `feed.xml` (prepend new `<item>`, keep newest-first order)
 
 ---
 
@@ -162,6 +163,12 @@ Every generated HTML file must be self-contained:
 - Inline full `daily-digest.css` contents in `<style>` (do not `<link>` it).
 - **No JavaScript**.
 - **No external images** (use `.sk-img` placeholders).
+- Include RSS auto-discovery in `<head>`: `<link rel="alternate" type="application/rss+xml" title="Daily Digest RSS" href="/daily-digest/feed.xml" />`
+
+## 10b) RSS feed (`feed.xml`)
+- One `<item>` per issue, newest first.
+- Prepend a new `<item>` block each time you publish an issue.
+- Each item: `<title>` matches the issue `<title>`, `<link>` + `<guid>` point to the issue URL, `<pubDate>` in RFC 2822 format, `<description>` lists topics separated by ` · `.
 
 ---
 
