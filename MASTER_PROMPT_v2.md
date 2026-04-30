@@ -131,7 +131,7 @@ Other rules:
 - `issues/index.json`: append new issue entry (never reorder/remove)
 - New issue folder only: `issues/{NNN}/index.html` + `issues/{NNN}/stories/*`
 - Slugs: kebab-case, max 4 words.
-- Every homepage item links to an **internal** story page; story pages link to the **external source**.
+- **Every single story (lead, headlines, briefs, tools) MUST have its own dedicated internal story page**. Homepage links to internal story pages, never directly to external sources. Story pages link to external sources.
 
 ---
 
@@ -167,7 +167,7 @@ Every generated HTML file must be self-contained:
 
 ## 10b) RSS feed (`feed.xml`)
 - One `<item>` per story, newest issue first, lead story first within each issue.
-- After writing all story HTML files, run `python3 generate_feed.py` from the repo root to regenerate `feed.xml`.
+- **Must regenerate feed.xml after every issue publish or story update** by running `python3 generate_feed.py` from the repo root.
 - The script extracts title from `<title>`, description from the TL;DR box (or first substantial `<p>`), and pub date from `issues/index.json`.
 
 ---
