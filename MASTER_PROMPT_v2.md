@@ -182,7 +182,22 @@ Every generated HTML file must be self-contained:
 
 ---
 
-## 12) Execution model
+## 12) Acceptance Criteria (verify before push)
+Before pushing any issue, verify:
+- [ ] Every story (lead, headlines, briefs, tools) has a dedicated internal story page
+- [ ] Homepage links to internal story pages only, never directly to external sources
+- [ ] feed.xml has been regenerated via `python3 generate_feed.py`
+- [ ] All story pages include a WHAT TO WATCH section with at least one actionable item
+- [ ] All brief pages include at least one imperative verb (Try, Check, Ask...)
+- [ ] All tool pages include hands-on steps and WHAT TO OBSERVE
+- [ ] No duplicate content from the last 3 issues
+- [ ] Numbers are prominent (1-9 spelled, 10+ as numerals, currency like $2.4B)
+- [ ] No banned words used (revolutionary, game-changing, groundbreaking, etc.)
+- [ ] CSS uses variables only, no hardcoded hex colors
+
+---
+
+## 13) Execution model
 Default to parallel work when independent:
 - Source scout(s), deep readers, tools scout, engineering/career scout, QA checker.
 Main agent synthesizes, dedupes, selects, enforces actionability, generates HTML, wires navigation, and commits all issue content **once** in a single commit after the full issue is ready.
