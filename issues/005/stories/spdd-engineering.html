@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial=1" />
+<title>Daily Digest — SPDD Engineering</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{background:#f5f0e8;color:#111;font-family:'Lora',serif;font-size:18px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:root{--paper:#f5f0e8;--card:#fffdf7;--ink:#111111;--ink-2:#5a5a5a;--accent:#d62828;--hi:#f5c842;--teal:#0d7377;--navy:#14213d;--ochre:#e07b39;--slate:#3d5a80;--sage:#2d6a4f;--purple:#7b2d8b}
+.sk-mono{font-family:'IBM Plex Serif','Georgia',serif;font-weight:500}
+.sk-script{font-family:'Lora',serif;font-style:italic}
+.sk-box{border:1.5px solid var(--ink);background:transparent;position:relative}
+.sk-box-soft{border:1.25px solid #2a2a2a;background:transparent}
+.sk-rule-thin{height:0;border:0;border-top:1px solid var(--ink);margin:0}
+.sk-stamp{display:inline-block;font-family:'IBM Plex Serif',serif;font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:3px 8px;border:1.5px solid currentColor;line-height:1.4;transform:rotate(-1deg);white-space:nowrap}
+.sk-stamp--red{color:var(--accent);border-color:var(--accent)}
+.sk-stamp--navy{color:var(--navy);border-color:var(--navy)}
+.sk-stamp--ochre{color:var(--ochre);border-color:var(--ochre)}
+.sk-stamp--sage{color:var(--sage);border-color:var(--sage)}
+.row{display:flex}.col{display:flex;flex-direction:column}.gap-2{gap:8px}.gap-3{gap:12px}.gap-4{gap:16px}
+.dd-page{max-width:1200px;margin:0 auto;padding:32px}
+.dd-module-h{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px}
+.dd-module-h .num{font-size:48px;font-weight:700;line-height:0.9;color:var(--accent)}
+.dd-module-h .title{font-family:'IBM Plex Serif',serif;font-size:12px;letter-spacing:2px;text-transform:uppercase}
+@media(max-width:640px){.dd-page{padding:16px}}
+</style>
+</head>
+<body>
+<div class="dd-page">
+  <nav class="row" style="justify-content:space-between;align-items:baseline;margin-bottom:10px">
+    <a href="../index.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px">&larr; DIGEST &middot; № 005</a>
+    <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">ENGINEERING &middot; 05</span>
+    <a href="../../../archive.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--teal)">ARCHIVE ↗</a>
+  </nav>
+
+  <section class="sk-box" style="background:var(--ink);color:var(--card);padding:20px">
+    <div class="row" style="justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px">
+      <span class="sk-mono" style="font-size:10px;letter-spacing:3px;color:var(--hi)">ENGINEERING / 05</span>
+      <span class="sk-mono" style="font-size:10px">THU 30 APR 2026</span>
+      <a href="https://martinfowler.com/articles/structured-prompt-driven/" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--sage)">SOURCE &middot; MARTINFOWLER.COM ↗</a>
+    </div>
+    <div class="row gap-2" style="margin-top:12px;flex-wrap:wrap">
+      <span class="sk-stamp sk-stamp--sage">METHODOLOGY</span>
+      <span class="sk-stamp" style="color:var(--card);border-color:var(--card)">THOUGHTWORKS</span>
+    </div>
+    <h1 style="font-size:40px;font-weight:700;line-height:1.08;letter-spacing:-0.5px;text-wrap:balance;margin:14px 0 0">
+      Structured-Prompt-Driven Development (SPDD)
+    </h1>
+    <p class="sk-script" style="font-size:20px;color:var(--hi);margin:12px 0 0">How to make AI-assisted changes governable, reviewable, and reusable</p>
+    <div class="row gap-3" style="margin-top:14px">
+      <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">BY &middot; WEI ZHANG & JESSIE XIA</span>
+      <span class="sk-mono" style="font-size:10px;color:var(--hi)">&middot; 15 MIN READ</span>
+    </div>
+  </section>
+
+  <section style="margin-top:14px">
+    <div class="sk-box" style="background:var(--hi);padding:16px">
+      <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0">★ TL;DR</p>
+      <hr class="sk-rule-thin" style="margin:8px 0 10px" />
+      <p style="font-size:18px;line-height:1.65;margin:0">Thoughtworks developed SPDD to turn AI coding assistance from personal efficiency into an organization-level capability. Treat prompts as first-class delivery artifacts—version controlled, reviewed, and reusable—using the REASONS Canvas to capture requirements, design intent, and constraints before code generation.</p>
+    </div>
+  </section>
+
+  <section style="display:grid;grid-template-columns:1fr 300px;gap:14px;margin-top:14px">
+    <div class="col gap-3">
+      <div class="sk-box" style="background:var(--card);padding:16px">
+        <div class="row gap-3" style="align-items:baseline;margin-bottom:10px">
+          <span style="font-size:24px;font-weight:700;color:var(--accent);line-height:1">¶ 01</span>
+          <span class="sk-mono" style="font-size:11px;letter-spacing:2px">WHY &middot; IT &middot; MATTERS</span>
+        </div>
+        <p style="font-size:17px;line-height:1.65;margin:0">Individual developer speed doesn't translate to team throughput. SPDD addresses the friction that appears at team level: ambiguous requirements become code quickly, reviews have more change to process, and production risk is harder to reason about. The method treats prompts as governed artifacts, enabling AI-First Software Delivery at scale.</p>
+      </div>
+
+      <div class="sk-box" style="background:var(--card);padding:16px">
+        <div class="row gap-3" style="align-items:baseline;margin-bottom:10px">
+          <span style="font-size:24px;font-weight:700;color:var(--accent);line-height:1">¶ 02</span>
+          <span class="sk-mono" style="font-size:11px;letter-spacing:2px">THE &middot; REASONS &middot; CANVAS</span>
+        </div>
+        <p style="font-size:17px;line-height:1.65;margin:0">Seven-part structure for generating prompts: Requirements (what/DoD), Entities (domain), Approach (strategy), Structure (components), Operations (steps), Norms (standards), Safeguards (boundaries). Forces clarity before code generation, moving uncertainty left.</p>
+      </div>
+
+      <div class="sk-box" style="background:var(--card);padding:16px">
+        <div class="row gap-3" style="align-items:baseline;margin-bottom:10px">
+          <span style="font-size:24px;font-weight:700;color:var(--accent);line-height:1">¶ 03</span>
+          <span class="sk-mono" style="font-size:11px;letter-spacing:2px">THREE &middot; CORE &middot; SKILLS</span>
+        </div>
+        <p style="font-size:17px;line-height:1.65;margin:0">1. Abstraction first: design before generate. 2. Alignment: lock intent before code. 3. Iterative review: turn output into a controlled loop. Developers need these skills to be effective with AI assistance.</p>
+      </div>
+    </div>
+
+    <aside class="col gap-3">
+      <div class="sk-box" style="background:var(--card);padding:14px">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0">RECOMMENDED &middot; ACTIONS</p>
+        <hr class="sk-rule-thin" style="margin:8px 0 12px" />
+        <div class="col gap-2" style="font-size:15px">
+          <p>1. <strong>Try the REASONS Canvas</strong> on your next feature. Document requirements, entities, approach, structure, operations, norms, safeguards before prompting.</p>
+          <p>2. <strong>Audit your current prompt usage:</strong> Are prompts version-controlled? Reviewed? Reusable?</p>
+          <p>3. <strong>Add three skills to team retros:</strong> abstraction-first, alignment, iterative review.</p>
+        </div>
+      </div>
+
+      <div class="sk-box" style="background:var(--card);padding:14px">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0">QUICK &middot; START</p>
+        <hr class="sk-rule-thin" style="margin:8px 0 12px" />
+        <p style="font-size:14px;margin:0"><strong>&lt;30 min:</strong> Pick one user story. Apply the REASONS Canvas structure. Generate code. Compare output to ad-hoc prompting.</p>
+      </div>
+    </aside>
+  </section>
+
+  <section style="margin-top:14px">
+    <div class="sk-box" style="background:var(--ochre);padding:16px">
+      <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0">★ CAREER &middot; APPLICATION</p>
+      <hr class="sk-rule-thin" style="margin:8px 0 10px" />
+      <p style="font-size:16px;line-height:1.65;margin:0"><strong>Mental model:</strong> Your value is shifting from writing code to directing intent. <strong>Experiment:</strong> Track one sprint using SPDD vs. ad-hoc prompting—measure review cycles, rework rate, and code quality. <strong>Team exercise:</strong> Run a prompt review session using the REASONS Canvas as a checklist.</p>
+    </div>
+  </section>
+</div>
+</body>
+</html>

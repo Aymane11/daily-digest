@@ -24,6 +24,14 @@
     </item>
 
     <item>
+      <title>Claude Code Copyright</title>
+      <link>https://aymane11.github.io/daily-digest/issues/005/stories/claude-code-copyright.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/005/stories/claude-code-copyright.html</guid>
+      <pubDate>Thu, 30 Apr 2026 07:00:00 +0000</pubDate>
+      <description>Legal analysis examining who owns code written by AI coding assistants like Claude Code. The article explores how recent rulings (Bartz v. Anthropic, Thaler) affect AI-generated code copyright. 543 points on Hacker News.</description>
+    </item>
+
+    <item>
       <title>Claude Outage</title>
       <link>https://aymane11.github.io/daily-digest/issues/005/stories/claude-outage.html</link>
       <guid>https://aymane11.github.io/daily-digest/issues/005/stories/claude-outage.html</guid>
@@ -85,6 +93,14 @@
       <guid>https://aymane11.github.io/daily-digest/issues/005/stories/openai-10gw.html</guid>
       <pubDate>Thu, 30 Apr 2026 07:00:00 +0000</pubDate>
       <description>OpenAI has secured contracts for 10 gigawatts of AI computing capacity in the United States, achieving a goal it originally targeted for 2029. The company announced the milestone Wednesday, saying it added over 3GW in the past 90 days alone. Stargate, the joint venture with Oracle and SoftBank, has evolved from a $500B initiative into the umbrella brand for all of OpenAI's data center expansion plans.</description>
+    </item>
+
+    <item>
+      <title>SPDD Engineering</title>
+      <link>https://aymane11.github.io/daily-digest/issues/005/stories/spdd-engineering.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/005/stories/spdd-engineering.html</guid>
+      <pubDate>Thu, 30 Apr 2026 07:00:00 +0000</pubDate>
+      <description>Thoughtworks developed SPDD to turn AI coding assistance from personal efficiency into an organization-level capability. Treat prompts as first-class delivery artifacts—version controlled, reviewed, and reusable—using the REASONS Canvas to capture requirements, design intent, and constraints before code generation.</description>
     </item>
 
     <item>
