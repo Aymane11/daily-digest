@@ -8,6 +8,118 @@
     <atom:link href="https://aymane11.github.io/daily-digest/feed.xml" rel="self" type="application/rss+xml"/>
 
     <item>
+      <title>Anthropic $50B Round</title>
+      <link>https://aymane11.github.io/daily-digest/issues/005/stories/anthropic-50b-round.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/005/stories/anthropic-50b-round.html</guid>
+      <pubDate>Thu, 30 Apr 2026 07:00:00 +0000</pubDate>
+      <description>Anthropic is in discussions to raise a $40-50B funding round at an $850-900B valuation, more than doubling its $380B valuation from February. Sources say the company received multiple preemptive offers from investors eager to participate. The round could be its final private funding before a potential IPO. A board decision is expected in May.</description>
+    </item>
+
+    <item>
+      <title>AWS OpenAI Partnership</title>
+      <link>https://aymane11.github.io/daily-digest/issues/005/stories/aws-openai-partnership.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/005/stories/aws-openai-partnership.html</guid>
+      <pubDate>Thu, 30 Apr 2026 07:00:00 +0000</pubDate>
+      <description>AWS announced a major expansion of its partnership with OpenAI, bringing the latest OpenAI models and Codex coding agent to Amazon Bedrock in limited preview. The partnership also includes Amazon Bedrock Managed Agents, enabling enterprises to build production-ready OpenAI-powered agents on AWS infrastructure. This comes one day after OpenAI and Microsoft revised their exclusivity terms.</description>
+    </item>
+
+    <item>
+      <title>Claude Outage</title>
+      <link>https://aymane11.github.io/daily-digest/issues/005/stories/claude-outage.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/005/stories/claude-outage.html</guid>
+      <pubDate>Thu, 30 Apr 2026 07:00:00 +0000</pubDate>
+      <description>Claude.ai and the Anthropic API experienced a significant outage, leaving users unable to access the AI assistant. The incident garnered 110+ points on Hacker News with users reporting issues. The service has since been fixed.</description>
+    </item>
+
+    <item>
+      <title>Cursor Camp</title>
+      <link>https://aymane11.github.io/daily-digest/issues/005/stories/cursor-camp.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/005/stories/cursor-camp.html</guid>
+      <pubDate>Thu, 30 Apr 2026 07:00:00 +0000</pubDate>
+      <description>Cursor Camp is a free interactive course that teaches developers how to effectively use Cursor, the AI-powered code editor. Created by Neal Agarwal (creator of Neal.fun and Popcorn), the course garnered 850+ points on Hacker News.</description>
+    </item>
+
+    <item>
+      <title>Google Pentagon Access</title>
+      <link>https://aymane11.github.io/daily-digest/issues/005/stories/google-pentagon-anthropic.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/005/stories/google-pentagon-anthropic.html</guid>
+      <pubDate>Thu, 30 Apr 2026 07:00:00 +0000</pubDate>
+      <description>Google has granted the U.S. Department of Defense access to its AI for classified networks, allowing essentially all lawful uses. The deal follows Anthropic's public refusal to grant similar terms, after which the DoD branded Anthropic a &quot;supply-chain risk.&quot; OpenAI and xAI signed deals immediately after Anthropic's refusal. 950 Google employees have signed an open letter asking the company to follow Anthropic's lead.</description>
+    </item>
+
+    <item>
+      <title>HERMES.md Bug</title>
+      <link>https://aymane11.github.io/daily-digest/issues/005/stories/hermes-bug.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/005/stories/hermes-bug.html</guid>
+      <pubDate>Thu, 30 Apr 2026 07:00:00 +0000</pubDate>
+      <description>A bug in Claude Code causes API requests to route to metered endpoints when a file named HERMES.md exists in the project. The issue garnered 1,000+ points on Hacker News. Anthropic has acknowledged the bug and is working on a fix.</description>
+    </item>
+
+    <item>
+      <title>LocalSend</title>
+      <link>https://aymane11.github.io/daily-digest/issues/005/stories/localsend.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/005/stories/localsend.html</guid>
+      <pubDate>Thu, 30 Apr 2026 07:00:00 +0000</pubDate>
+      <description>LocalSend is an open-source app that lets you send files between devices on the same network without internet. It works across platforms (Windows, macOS, Linux, iOS, Android), making it a true cross-platform AirDrop alternative. The app garnered 900+ points on Hacker News.</description>
+    </item>
+
+    <item>
+      <title>Meta AI Spending</title>
+      <link>https://aymane11.github.io/daily-digest/issues/005/stories/meta-ai-spending.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/005/stories/meta-ai-spending.html</guid>
+      <pubDate>Thu, 30 Apr 2026 07:00:00 +0000</pubDate>
+      <description>Meta has raised its full-year capital expenditure guidance to $125-145B, up from $115-135B, citing higher memory pricing and additional data center capacity needs. The company acknowledged it has &quot;consistently underestimated&quot; its compute needs. More than 8M advertisers now use at least one of Meta's AI creative tools, with video generation tool users seeing 3%+ higher conversion rates.</description>
+    </item>
+
+    <item>
+      <title>Mistral Medium 3.5</title>
+      <link>https://aymane11.github.io/daily-digest/issues/005/stories/mistral-medium.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/005/stories/mistral-medium.html</guid>
+      <pubDate>Thu, 30 Apr 2026 07:00:00 +0000</pubDate>
+      <description>Mistral Medium 3.5 is an updated version of Mistral's medium-sized language model, featuring improved coding capabilities and reasoning. The model garnered 450+ points on Hacker News.</description>
+    </item>
+
+    <item>
+      <title>Nvidia Nemotron</title>
+      <link>https://aymane11.github.io/daily-digest/issues/005/stories/nvidia-nemotron.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/005/stories/nvidia-nemotron.html</guid>
+      <pubDate>Thu, 30 Apr 2026 07:00:00 +0000</pubDate>
+      <description>Nemotron 3 Nano Omni is an open multimodal AI model that combines vision, audio, and language capabilities into a single framework. Designed to simplify development of agent-based systems, it was introduced at Nvidia GTC 2026 on April 28.</description>
+    </item>
+
+    <item>
+      <title>ToolMesh</title>
+      <link>https://aymane11.github.io/daily-digest/issues/005/stories/toolmesh.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/005/stories/toolmesh.html</guid>
+      <pubDate>Thu, 30 Apr 2026 07:00:00 +0000</pubDate>
+      <description>ToolMesh converts any REST API into an MCP (Model Context Protocol) tool using simple YAML configuration. Instead of writing code to wrap APIs, you describe them declaratively and ToolMesh handles the rest.</description>
+    </item>
+
+    <item>
+      <title>Zed 1.0</title>
+      <link>https://aymane11.github.io/daily-digest/issues/005/stories/zed-editor.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/005/stories/zed-editor.html</guid>
+      <pubDate>Thu, 30 Apr 2026 07:00:00 +0000</pubDate>
+      <description>Zed, the high-performance code editor built in Rust with a native UI, has reached version 1.0. The editor gained significant attention on Hacker News with over 1,700 points. It aims to provide the speed of vim with modern features and a native feel.</description>
+    </item>
+
+    <item>
+      <title>Zig AI Policy</title>
+      <link>https://aymane11.github.io/daily-digest/issues/005/stories/zig-ai-policy.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/005/stories/zig-ai-policy.html</guid>
+      <pubDate>Thu, 30 Apr 2026 07:00:00 +0000</pubDate>
+      <description>The Zig programming language project has published its rationale for maintaining a firm anti-AI contribution policy. The project does not accept AI-generated code, even with human review. The policy has sparked discussion on Hacker News with 220+ points.</description>
+    </item>
+
+    <item>
+      <title>Zulip 12.0</title>
+      <link>https://aymane11.github.io/daily-digest/issues/005/stories/zulip-release.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/005/stories/zulip-release.html</guid>
+      <pubDate>Thu, 30 Apr 2026 07:00:00 +0000</pubDate>
+      <description>Zulip 12.0 has been released, bringing a major visual redesign and performance improvements to the team chat platform. The release garnered 47 points on Hacker News.</description>
+    </item>
+
+    <item>
       <title>OpenAI lands on Amazon Bedrock</title>
       <link>https://aymane11.github.io/daily-digest/issues/004/stories/01-lead-openai-aws-bedrock.html</link>
       <guid>https://aymane11.github.io/daily-digest/issues/004/stories/01-lead-openai-aws-bedrock.html</guid>
