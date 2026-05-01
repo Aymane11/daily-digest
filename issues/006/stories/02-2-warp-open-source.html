@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="alternate" type="application/rss+xml" title="Daily Digest RSS" href="/daily-digest/feed.xml" />
+<title>Daily Digest — Warp terminal goes open source — Issue 006</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{background:#f5f0e8;color:#111;font-family:'Lora',serif;font-size:18px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:root{--paper:#f5f0e8;--card:#fffdf7;--ink:#111111;--ink-2:#5a5a5a;--accent:#d62828;--hi:#f5c842;--teal:#0d7377;--navy:#14213d;--ochre:#e07b39;--slate:#3d5a80;--sage:#2d6a4f;--purple:#7b2d8b;--rule:#111111;}
+.sk-mono{font-family:'IBM Plex Serif','Georgia',serif;font-weight:500}
+.sk-script{font-family:'Lora',serif;font-style:italic}
+.sk-box{border:1.5px solid var(--ink);background:transparent;position:relative}
+.sk-box-soft{border:1.25px solid #2a2a2a;background:transparent}
+.sk-rule{height:0;border:0;border-top:1.5px solid var(--ink);margin:0}
+.sk-rule-thin{height:0;border:0;border-top:1px solid var(--ink);margin:0}
+.sk-stamp{display:inline-block;font-family:'IBM Plex Serif',serif;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:3px 9px;border:1.5px solid currentColor;line-height:1.4;transform:rotate(-1deg);white-space:nowrap}
+.sk-stamp--red{color:var(--accent);border-color:var(--accent)}.sk-stamp--navy{color:var(--navy);border-color:var(--navy)}.sk-stamp--teal{color:var(--teal);border-color:var(--teal)}.sk-stamp--ochre{color:var(--ochre);border-color:var(--ochre)}.sk-stamp--slate{color:var(--slate);border-color:var(--slate)}.sk-stamp--hi{color:#9a7200;border-color:#9a7200}.sk-stamp--sage{color:var(--sage);border-color:var(--sage)}
+.row{display:flex}.col{display:flex;flex-direction:column}.grow{flex:1}
+.gap-2{gap:8px}.gap-3{gap:12px}.gap-4{gap:16px}
+.dd-page{max-width:1200px;margin:0 auto;padding:32px}
+.sk-grid-dossier{display:grid;grid-template-columns:380px 1fr;gap:14px}
+@media(max-width:900px){.sk-grid-dossier{grid-template-columns:1fr 1fr!important}}
+@media(max-width:640px){.dd-page{padding:16px 14px}.sk-grid-dossier{grid-template-columns:1fr!important}.sk-dossier-hl{font-size:30px!important}}
+</style>
+</head>
+<body>
+<div class="dd-page">
+
+  <nav class="row" style="justify-content:space-between;align-items:baseline;margin-bottom:10px">
+    <a href="../index.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px">&larr; DIGEST &middot; &numero; 006</a>
+    <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">HEADLINE &middot; 02.2 &middot; DEV TOOLS</span>
+    <a href="../../../archive.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--teal)">ARCHIVE &#8599;</a>
+  </nav>
+
+  <header class="sk-box" style="background:var(--ink);color:var(--card);padding:22px 24px">
+    <div class="row" style="justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px">
+      <span class="sk-mono" style="font-size:11px;letter-spacing:3px;color:var(--hi)">HEADLINE / 02.2</span>
+      <span class="sk-mono" style="font-size:10px;letter-spacing:2px">3 MIN READ</span>
+      <a href="https://www.warp.dev/blog/warp-is-now-open-source" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--sage)">SOURCE &middot; WARP.DEV &#8599;</a>
+    </div>
+    <div class="row gap-2" style="margin-top:14px;flex-wrap:wrap">
+      <span class="sk-stamp sk-stamp--hi">OPEN SOURCE</span>
+      <span class="sk-stamp" style="color:var(--card);border-color:var(--card)">DEV TOOLS</span>
+    </div>
+    <h1 class="sk-dossier-hl" style="font-size:48px;font-weight:700;line-height:1.04;letter-spacing:-0.5px;text-wrap:balance;margin:16px 0 0">
+      Warp terminal releases client source under AGPL with OpenAI as founding sponsor
+    </h1>
+    <p class="sk-script" style="font-size:21px;color:var(--hi);margin:14px 0 0">The AI-first terminal, used by close to a million developers, opens its client code and adds support for Kimi, Qwen, and MiniMax alongside its existing model roster.</p>
+    <div class="row gap-3" style="margin-top:16px">
+      <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">BY &middot; WARP TEAM</span>
+      <span class="sk-mono" style="font-size:10px;color:var(--hi)">&middot; WED 30 APR 2026</span>
+    </div>
+  </header>
+
+  <main class="sk-grid-dossier" style="margin-top:14px">
+    <aside class="col gap-3">
+      <div class="sk-box" style="background:var(--hi);padding:16px">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0">&#9733; TL;DR</p>
+        <hr class="sk-rule-thin" style="margin:8px 0 10px" />
+        <ul style="font-size:15px;line-height:1.6;margin:0;padding-left:18px">
+          <li>Warp client is now open source at github.com/warpdotdev/warp under the AGPL license.</li>
+          <li>Cloud backend and Oz orchestration platform remain proprietary; this is client-only.</li>
+          <li>Supports Kimi K2.6, MiniMax, Qwen3 via "auto (open)" routing; OpenAI is the founding sponsor powering the contributor workflow.</li>
+        </ul>
+      </div>
+
+      <div class="sk-box" style="padding:16px;background:var(--card)">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0">BY &middot; THE &middot; NUMBERS</p>
+        <hr class="sk-rule-thin" style="margin:8px 0 14px" />
+        <div class="col gap-4">
+          <div>
+            <div style="font-size:60px;font-weight:700;line-height:0.95;color:var(--accent)">~1M</div>
+            <p class="sk-mono" style="font-size:10px;margin:4px 0 0;letter-spacing:1px">DEVELOPERS USING WARP</p>
+          </div>
+          <hr class="sk-rule-thin" />
+          <div>
+            <div style="font-size:60px;font-weight:700;line-height:0.95">AGPL</div>
+            <p class="sk-mono" style="font-size:10px;margin:4px 0 0;letter-spacing:1px">LICENSE FOR CLIENT CODE</p>
+          </div>
+          <hr class="sk-rule-thin" />
+          <div>
+            <div style="font-size:60px;font-weight:700;line-height:0.95">2011</div>
+            <p class="sk-mono" style="font-size:10px;margin:4px 0 0;letter-spacing:1px">YEAR ITERM2 WAS RELEASED (WARP PREDECESSOR ERA)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="sk-box" style="padding:16px;background:var(--card)">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0">WHAT &middot; IS &middot; OZ</p>
+        <hr class="sk-rule-thin" style="margin:8px 0 10px" />
+        <p style="font-size:14px;line-height:1.55;margin:0">Oz is Warp's proprietary cloud agent orchestration system. Contributors propose features and verify results; AI agents handle the implementation work. Oz is <em>not</em> open source. The model is: open client for community input, proprietary cloud for AI-assisted development at scale.</p>
+      </div>
+
+      <div class="sk-box-soft" style="padding:14px">
+        <p class="sk-mono" style="font-size:10px;letter-spacing:2px;margin:0 0 10px">FILED &middot; UNDER</p>
+        <div class="row" style="flex-wrap:wrap;gap:8px">
+          <span class="sk-stamp sk-stamp--teal">OPEN SOURCE</span>
+          <span class="sk-stamp sk-stamp--navy">TERMINAL</span>
+          <span class="sk-stamp sk-stamp--ochre">DEV TOOLS</span>
+        </div>
+      </div>
+    </aside>
+
+    <article class="col gap-3">
+      <p class="sk-box-soft" style="padding:18px;background:var(--card);border-left:4px solid var(--accent);font-size:21px;font-weight:700;line-height:1.25;margin:0">
+        Warp has open-sourced its terminal client under AGPL, with OpenAI signing on as the founding sponsor and the company's own agent platform, Oz, powering community contributions through AI-assisted code review and implementation.
+      </p>
+
+      <div class="row gap-3" style="align-items:baseline;margin-top:6px">
+        <span style="font-size:28px;font-weight:700;color:var(--accent);line-height:1">¶ 01</span>
+        <span class="sk-mono" style="font-size:11px;letter-spacing:2px">WHAT &middot; HAPPENED</span>
+        <span class="grow" style="border-top:1px dashed var(--ink);height:1px"></span>
+      </div>
+      <p style="font-size:18px;line-height:1.65;margin:0">Warp Labs published the Warp terminal client to GitHub on 28 April 2026 under an AGPL license. The release covers the client application only — the cloud backend, Warp Drive (shared workflows), and Oz (the agent orchestration system) remain proprietary. The announcement introduced support for three additional open-weight models: Kimi K2.6, MiniMax, and Qwen, plus an "auto (open)" routing mode that selects the best available open model for a given task. OpenAI signed on as the founding sponsor, providing GPT models that power the Oz contributor workflow — meaning contributors submit ideas and verify agent-generated code rather than writing the implementation themselves.</p>
+
+      <div class="sk-box" style="background:var(--ink);color:var(--card);padding:20px 22px;display:flex;align-items:baseline;gap:22px">
+        <span style="font-size:78px;font-weight:700;line-height:0.9;color:var(--hi)">AGPL</span>
+        <span style="font-size:18px;font-weight:700;line-height:1.2">Any software that distributes a modified Warp must also release its source — ensuring changes flow back to the community</span>
+      </div>
+
+      <div class="row gap-3" style="align-items:baseline;margin-top:8px">
+        <span style="font-size:28px;font-weight:700;color:var(--accent);line-height:1">¶ 02</span>
+        <span class="sk-mono" style="font-size:11px;letter-spacing:2px">WHY &middot; IT &middot; MATTERS</span>
+        <span class="grow" style="border-top:1px dashed var(--ink);height:1px"></span>
+      </div>
+      <p style="font-size:18px;line-height:1.65;margin:0">Terminal tooling has historically been dominated by open-source projects (iTerm2, tmux, Fish). Warp entered as a VC-backed proprietary product competing on AI integration. Opening the client addresses the adoption barrier among privacy-conscious developers and enterprises that require auditability. The OpenAI sponsorship is structurally significant: a major AI lab is directly funding an open-source developer tool to accelerate its own model adoption — a new kind of ecosystem investment. The AGPL licence rather than MIT or Apache means commercial entities that ship Warp forks must open-source their changes, which limits one common route of proprietary capture.</p>
+
+      <!-- [EDITORIAL QUOTE] -->
+      <blockquote class="sk-box-soft" style="padding:20px 24px;background:var(--hi);margin:6px 0 0">
+        <p style="font-size:23px;font-weight:700;line-height:1.2;margin:0">"Opening development with agent assistance enables faster shipping by offloading coding to agents while humans focus on product direction and verification."</p>
+        <p class="sk-mono" style="font-size:10px;margin:12px 0 0;letter-spacing:1px">— WARP BLOG ANNOUNCEMENT</p>
+      </blockquote>
+
+      <div class="row gap-3" style="align-items:baseline;margin-top:8px">
+        <span style="font-size:28px;font-weight:700;color:var(--accent);line-height:1">¶ 03</span>
+        <span class="sk-mono" style="font-size:11px;letter-spacing:2px">WHAT &middot; TO &middot; WATCH</span>
+        <span class="grow" style="border-top:1px dashed var(--ink);height:1px"></span>
+      </div>
+      <p style="font-size:18px;line-height:1.65;margin:0">Evaluate the AGPL terms before deploying Warp in an enterprise context — if your team ships internal tooling that incorporates Warp, AGPL may require disclosure of those modifications. Try the "auto (open)" model routing if you work with Kimi or Qwen: run a benchmark task on your own codebase and compare latency and output quality against the GPT-backed default. Watch Warp's GitHub contribution velocity over the next 30 days to see whether agent-assisted contributions actually close issues faster than a traditional open-source model.</p>
+
+      <div class="sk-box-soft" style="padding:12px 16px;background:var(--card);margin-top:4px">
+        <div class="row gap-3" style="align-items:baseline;flex-wrap:wrap">
+          <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">SOURCES</span>
+          <a href="https://www.warp.dev/blog/warp-is-now-open-source" class="sk-mono" style="font-size:11px;color:var(--teal);text-decoration:underline;text-underline-offset:2px">WARP BLOG &#8599;</a>
+          <a href="https://github.com/warpdotdev/warp" class="sk-mono" style="font-size:11px;color:var(--teal);text-decoration:underline;text-underline-offset:2px">GITHUB REPO &#8599;</a>
+          <a href="https://news.ycombinator.com/item?id=47937349" class="sk-mono" style="font-size:11px;color:var(--teal);text-decoration:underline;text-underline-offset:2px">HN DISCUSSION &#8599;</a>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <hr class="sk-rule" style="margin-top:18px" />
+  <footer class="row" style="justify-content:space-between;padding:10px 4px;align-items:baseline">
+    <a href="02-1-pytorch-lightning.html" class="sk-mono" style="font-size:10px">&larr; PREV &middot; 02.1</a>
+    <span class="sk-mono" style="font-size:10px;letter-spacing:2px">&middot; END OF FILE 02.2 &middot;</span>
+    <a href="02-3-agent-365.html" class="sk-mono" style="font-size:10px">NEXT &middot; 02.3 &rarr;</a>
+  </footer>
+</div>
+</body>
+</html>

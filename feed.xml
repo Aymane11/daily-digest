@@ -8,6 +8,134 @@
     <atom:link href="https://aymane11.github.io/daily-digest/feed.xml" rel="self" type="application/rss+xml"/>
 
     <item>
+      <title>Claude Code flags commits that mention OpenClaw</title>
+      <link>https://aymane11.github.io/daily-digest/issues/006/stories/01-lead-claude-openclaw.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/006/stories/01-lead-claude-openclaw.html</guid>
+      <pubDate>Fri, 01 May 2026 07:00:00 +0000</pubDate>
+      <description>BY · THE · NUMBERS</description>
+    </item>
+
+    <item>
+      <title>PyTorch Lightning supply chain attack</title>
+      <link>https://aymane11.github.io/daily-digest/issues/006/stories/02-1-pytorch-lightning.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/006/stories/02-1-pytorch-lightning.html</guid>
+      <pubDate>Fri, 01 May 2026 07:00:00 +0000</pubDate>
+      <description>BY · THE · NUMBERS</description>
+    </item>
+
+    <item>
+      <title>Warp terminal goes open source</title>
+      <link>https://aymane11.github.io/daily-digest/issues/006/stories/02-2-warp-open-source.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/006/stories/02-2-warp-open-source.html</guid>
+      <pubDate>Fri, 01 May 2026 07:00:00 +0000</pubDate>
+      <description>BY · THE · NUMBERS</description>
+    </item>
+
+    <item>
+      <title>Microsoft Agent 365 generally available</title>
+      <link>https://aymane11.github.io/daily-digest/issues/006/stories/02-3-agent-365.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/006/stories/02-3-agent-365.html</guid>
+      <pubDate>Fri, 01 May 2026 07:00:00 +0000</pubDate>
+      <description>BY · THE · NUMBERS</description>
+    </item>
+
+    <item>
+      <title>Claude Opus 4.7 identifies writers from 125 words</title>
+      <link>https://aymane11.github.io/daily-digest/issues/006/stories/02-4-opus-identifies-writers.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/006/stories/02-4-opus-identifies-writers.html</guid>
+      <pubDate>Fri, 01 May 2026 07:00:00 +0000</pubDate>
+      <description>BY · THE · NUMBERS</description>
+    </item>
+
+    <item>
+      <title>Linux kernel skips distro heads-up on CVE</title>
+      <link>https://aymane11.github.io/daily-digest/issues/006/stories/03-1-linux-kernel-disclosure.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/006/stories/03-1-linux-kernel-disclosure.html</guid>
+      <pubDate>Fri, 01 May 2026 07:00:00 +0000</pubDate>
+      <description>Sam James flagged on oss-security that the kernel team patched a memory corruption flaw affecting 4.14+ and published the CVE before distros had time to prepare stable releases.</description>
+    </item>
+
+    <item>
+      <title>Grok 4.3 released with price cuts</title>
+      <link>https://aymane11.github.io/daily-digest/issues/006/stories/03-2-grok-4-3.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/006/stories/03-2-grok-4-3.html</guid>
+      <pubDate>Fri, 01 May 2026 07:00:00 +0000</pubDate>
+      <description>Input drops to $1.25 per million tokens and output to $2.50 — pricing the model below GPT-4o and well inside Gemini Flash territory on a capability-per-dollar basis.</description>
+    </item>
+
+    <item>
+      <title>cPanel auth bypass CVE-2026-41940</title>
+      <link>https://aymane11.github.io/daily-digest/issues/006/stories/03-3-cpanel-auth-bypass.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/006/stories/03-3-cpanel-auth-bypass.html</guid>
+      <pubDate>Fri, 01 May 2026 07:00:00 +0000</pubDate>
+      <description>All supported cPanel and WHM versions are affected. Attackers are using CRLF injection to bypass session validation and gain unauthenticated administrative access to hosting control panels.</description>
+    </item>
+
+    <item>
+      <title>Kimi K2.6 general availability</title>
+      <link>https://aymane11.github.io/daily-digest/issues/006/stories/03-4-kimi-k2-6.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/006/stories/03-4-kimi-k2-6.html</guid>
+      <pubDate>Fri, 01 May 2026 07:00:00 +0000</pubDate>
+      <description>Moonshot AI's mixture-of-experts model activates 32B parameters per forward pass, supports a 262K context window, and ties GPT-5.5 on coding benchmarks at a fraction of the inference cost.</description>
+    </item>
+
+    <item>
+      <title>Rivian data collection cannot be fully disabled</title>
+      <link>https://aymane11.github.io/daily-digest/issues/006/stories/03-5-rivian-data.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/006/stories/03-5-rivian-data.html</guid>
+      <pubDate>Fri, 01 May 2026 07:00:00 +0000</pubDate>
+      <description>Rivian confirms that core vehicle telemetry continues regardless of privacy settings, and that the embedded SIM — the hardware path for data transmission — can only be removed at an authorised service centre.</description>
+    </item>
+
+    <item>
+      <title>If I Could Make My Own GitHub</title>
+      <link>https://aymane11.github.io/daily-digest/issues/006/stories/03-6-github-alternatives.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/006/stories/03-6-github-alternatives.html</guid>
+      <pubDate>Fri, 01 May 2026 07:00:00 +0000</pubDate>
+      <description>Mat Duggan argues for JJ as the VCS layer, Gerrit-style code review, stacked PRs as first-class primitives, and a lightweight forge that runs on a Raspberry Pi — and names the alternatives that already do parts of this today.</description>
+    </item>
+
+    <item>
+      <title>Tool: Kimi K2.6</title>
+      <link>https://aymane11.github.io/daily-digest/issues/006/stories/04-1-kimi-k2-6-tool.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/006/stories/04-1-kimi-k2-6-tool.html</guid>
+      <pubDate>Fri, 01 May 2026 07:00:00 +0000</pubDate>
+      <description>A mixture-of-experts model from Moonshot AI that matches GPT-5.5 on SWE-bench while being self-hostable on two A100s.</description>
+    </item>
+
+    <item>
+      <title>Tool: Grok 4.3</title>
+      <link>https://aymane11.github.io/daily-digest/issues/006/stories/04-2-grok-4-3-tool.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/006/stories/04-2-grok-4-3-tool.html</guid>
+      <pubDate>Fri, 01 May 2026 07:00:00 +0000</pubDate>
+      <description>xAI's latest model cuts output pricing 58% below the previous version and sits at rank 53 on the Intelligence Index — the cheapest frontier-adjacent API available today.</description>
+    </item>
+
+    <item>
+      <title>Tool: Warp Terminal (Open Source)</title>
+      <link>https://aymane11.github.io/daily-digest/issues/006/stories/04-3-warp-tool.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/006/stories/04-3-warp-tool.html</guid>
+      <pubDate>Fri, 01 May 2026 07:00:00 +0000</pubDate>
+      <description>The AI-first terminal used by close to a million developers released its client source on April 28. You can now audit it, fork it, and contribute — with AI agents handling implementation via the Oz platform.</description>
+    </item>
+
+    <item>
+      <title>Tool: Microsoft Agent 365</title>
+      <link>https://aymane11.github.io/daily-digest/issues/006/stories/04-4-agent-365-tool.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/006/stories/04-4-agent-365-tool.html</guid>
+      <pubDate>Fri, 01 May 2026 07:00:00 +0000</pubDate>
+      <description>Microsoft's enterprise agentic platform goes generally available today, bundled into the new M365 E7 tier — the first new enterprise tier since E5 launched in 2015.</description>
+    </item>
+
+    <item>
+      <title>Engineering Read: If I Could Make My Own GitHub</title>
+      <link>https://aymane11.github.io/daily-digest/issues/006/stories/eng-1-github-forge.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/006/stories/eng-1-github-forge.html</guid>
+      <pubDate>Fri, 01 May 2026 07:00:00 +0000</pubDate>
+      <description>Mat Duggan diagnoses the pull-request model as the root structural problem in modern software development — and names the VCS, review, and forge alternatives that already exist to fix it.</description>
+    </item>
+
+    <item>
       <title>Anthropic $50B Round</title>
       <link>https://aymane11.github.io/daily-digest/issues/005/stories/anthropic-50b-round.html</link>
       <guid>https://aymane11.github.io/daily-digest/issues/005/stories/anthropic-50b-round.html</guid>

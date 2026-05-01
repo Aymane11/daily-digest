@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="alternate" type="application/rss+xml" title="Daily Digest RSS" href="/daily-digest/feed.xml" />
+<title>Daily Digest — Engineering Read: If I Could Make My Own GitHub — Issue 006</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{background:#f5f0e8;color:#111;font-family:'Lora',serif;font-size:18px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:root{--paper:#f5f0e8;--card:#fffdf7;--ink:#111111;--ink-2:#5a5a5a;--accent:#d62828;--hi:#f5c842;--teal:#0d7377;--navy:#14213d;--ochre:#e07b39;--slate:#3d5a80;--sage:#2d6a4f;--purple:#7b2d8b;--rule:#111111;}
+.sk-mono{font-family:'IBM Plex Serif','Georgia',serif;font-weight:500}
+.sk-script{font-family:'Lora',serif;font-style:italic}
+.sk-box{border:1.5px solid var(--ink);background:transparent;position:relative}
+.sk-box-soft{border:1.25px solid #2a2a2a;background:transparent}
+.sk-rule{height:0;border:0;border-top:1.5px solid var(--ink);margin:0}
+.sk-rule-thin{height:0;border:0;border-top:1px solid var(--ink);margin:0}
+.sk-stamp{display:inline-block;font-family:'IBM Plex Serif',serif;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:3px 9px;border:1.5px solid currentColor;line-height:1.4;transform:rotate(-1deg);white-space:nowrap}
+.sk-stamp--red{color:var(--accent);border-color:var(--accent)}.sk-stamp--navy{color:var(--navy);border-color:var(--navy)}.sk-stamp--teal{color:var(--teal);border-color:var(--teal)}.sk-stamp--ochre{color:var(--ochre);border-color:var(--ochre)}.sk-stamp--slate{color:var(--slate);border-color:var(--slate)}.sk-stamp--hi{color:#9a7200;border-color:#9a7200}.sk-stamp--sage{color:var(--sage);border-color:var(--sage)}
+.row{display:flex}.col{display:flex;flex-direction:column}.grow{flex:1}
+.gap-2{gap:8px}.gap-3{gap:12px}.gap-4{gap:16px}
+.dd-page{max-width:1200px;margin:0 auto;padding:32px}
+.num{font-family:'IBM Plex Serif',serif;font-size:36px;font-weight:700;color:var(--accent);line-height:1}
+.title{font-family:'IBM Plex Serif',serif;font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase}
+.dd-module-h{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:16px}
+.right{font-family:'IBM Plex Serif',serif;font-size:10px;letter-spacing:2px;color:var(--ink-2)}
+@media(max-width:900px){.sk-grid-modules{grid-template-columns:1fr!important}}
+@media(max-width:640px){.dd-page{padding:16px 14px}.sk-dossier-hl{font-size:30px!important}}
+</style>
+</head>
+<body>
+<div class="dd-page">
+
+  <nav class="row" style="justify-content:space-between;align-items:baseline;margin-bottom:8px">
+    <a href="../index.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px">&larr; DIGEST &middot; &numero; 006</a>
+    <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">ENGINEERING READ &middot; ENG.1</span>
+    <a href="../../../archive.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--teal)">ARCHIVE &#8599;</a>
+  </nav>
+
+  <!-- Progress strip -->
+  <div class="row gap-2" style="margin-bottom:12px">
+    <div class="row gap-2 grow" style="align-items:center">
+      <span class="sk-mono" style="font-size:10px;font-weight:700;color:var(--accent)">01</span>
+      <div style="flex:1;height:3px;background:var(--accent)"></div>
+    </div>
+    <div class="row gap-2 grow" style="align-items:center">
+      <span class="sk-mono" style="font-size:10px;font-weight:700;color:#888">02</span>
+      <div style="flex:1;height:3px;background:#888;opacity:0.3"></div>
+    </div>
+    <div class="row gap-2 grow" style="align-items:center">
+      <span class="sk-mono" style="font-size:10px;font-weight:700;color:#888">03</span>
+      <div style="flex:1;height:3px;background:#888;opacity:0.3"></div>
+    </div>
+    <div class="row gap-2 grow" style="align-items:center">
+      <span class="sk-mono" style="font-size:10px;font-weight:700;color:#888">04</span>
+      <div style="flex:1;height:3px;background:#888;opacity:0.3"></div>
+    </div>
+    <div class="row gap-2 grow" style="align-items:center">
+      <span class="sk-mono" style="font-size:10px;font-weight:700;color:#888">05</span>
+      <div style="flex:1;height:3px;background:#888;opacity:0.3"></div>
+    </div>
+    <div class="row gap-2 grow" style="align-items:center">
+      <span class="sk-mono" style="font-size:10px;font-weight:700;color:#888">06</span>
+      <div style="flex:1;height:3px;background:#888;opacity:0.3"></div>
+    </div>
+  </div>
+
+  <!-- 01 OPENER -->
+  <section class="sk-box" style="background:var(--ink);color:var(--card);padding:20px 22px">
+    <div class="row" style="justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px">
+      <span class="sk-mono" style="font-size:10px;letter-spacing:3px;color:var(--hi)">01 / OPENER</span>
+      <span class="sk-mono" style="font-size:10px">APR 2026</span>
+      <a href="https://matduggan.com/if-i-could-make-my-own-github/" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--sage)">SOURCE &middot; MATDUGGAN.COM &#8599;</a>
+    </div>
+    <div class="row gap-2" style="margin-top:12px;flex-wrap:wrap">
+      <span class="sk-stamp sk-stamp--hi">ENGINEERING</span>
+      <span class="sk-stamp" style="color:var(--card);border-color:var(--card)">DEV TOOLS</span>
+    </div>
+    <h1 class="sk-dossier-hl" style="font-size:48px;font-weight:700;line-height:1.04;letter-spacing:-0.5px;text-wrap:balance;margin:14px 0 0">
+      If I Could Make My Own GitHub
+    </h1>
+    <p class="sk-script" style="font-size:22px;color:var(--hi);margin:12px 0 0">Mat Duggan diagnoses the pull-request model as the root structural problem in modern software development — and names the VCS, review, and forge alternatives that already exist to fix it.</p>
+    <div class="row gap-3" style="margin-top:14px;flex-wrap:wrap">
+      <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">BY &middot; MAT DUGGAN &middot; MATDUGGAN.COM</span>
+      <span class="sk-mono" style="font-size:10px;color:var(--hi)">&middot; 15 MIN READ &middot; ENGINEERING</span>
+    </div>
+  </section>
+
+  <!-- 02 NUMBERS -->
+  <section class="sk-box" style="background:var(--hi);padding:20px 22px;margin-top:12px">
+    <div class="dd-module-h">
+      <div class="row gap-3" style="align-items:baseline">
+        <span class="num">02</span>
+        <span class="title">THE NUMBERS &middot; AT A GLANCE</span>
+      </div>
+      <span class="right">4 STATS</span>
+    </div>
+    <div class="sk-grid-modules" style="display:grid;grid-template-columns:repeat(4,1fr);gap:0">
+      <div class="col" style="padding:4px 16px">
+        <div style="font-size:72px;font-weight:700;line-height:0.95;letter-spacing:-1px">4</div>
+        <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;margin:6px 0 0">FORGE ALTERNATIVES EVALUATED</p>
+        <p style="font-size:13px;line-height:1.45;margin:6px 0 0">Forgejo, Gitea, Phabricator, Radicle — each rated on Duggan's 5 design criteria</p>
+      </div>
+      <div class="col" style="padding:4px 16px;border-left:1.5px solid var(--ink)">
+        <div style="font-size:72px;font-weight:700;line-height:0.95;letter-spacing:-1px">100M+</div>
+        <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;margin:6px 0 0">GITHUB REPOS</p>
+        <p style="font-size:13px;line-height:1.45;margin:6px 0 0">Scale of platform lock-in; migrating is a coordination problem, not just a technical one</p>
+      </div>
+      <div class="col" style="padding:4px 16px;border-left:1.5px solid var(--ink)">
+        <div style="font-size:72px;font-weight:700;line-height:0.95;letter-spacing:-1px">2008</div>
+        <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;margin:6px 0 0">GITHUB LAUNCH YEAR</p>
+        <p style="font-size:13px;line-height:1.45;margin:6px 0 0">The PR model is nearly 20 years old — designed for a world without AI-generated code volume</p>
+      </div>
+      <div class="col" style="padding:4px 16px;border-left:1.5px solid var(--ink)">
+        <div style="font-size:72px;font-weight:700;line-height:0.95;letter-spacing:-1px">5</div>
+        <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;margin:6px 0 0">DESIGN REQUIREMENTS</p>
+        <p style="font-size:13px;line-height:1.45;margin:6px 0 0">JJ VCS, change-based review, stacked PRs, self-hostable on commodity hardware, open governance</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 RECOMMENDATIONS -->
+  <section class="sk-box" style="background:var(--card);padding:20px 22px;margin-top:12px">
+    <div class="dd-module-h">
+      <div class="row gap-3" style="align-items:baseline">
+        <span class="num">03</span>
+        <span class="title">DUGGAN'S RECOMMENDATIONS</span>
+      </div>
+      <span class="right">5 CHANGES</span>
+    </div>
+    <div class="col gap-3">
+      <div class="row gap-3" style="align-items:flex-start;border-left:4px solid var(--accent);padding-left:14px">
+        <span class="sk-mono" style="font-size:20px;font-weight:700;color:var(--accent);line-height:1.1;min-width:36px">01</span>
+        <div class="col gap-1">
+          <p style="font-size:18px;font-weight:700;line-height:1.25;margin:0">Replace Git with Jujutsu (JJ) as the VCS layer</p>
+          <p style="font-size:16px;line-height:1.6;margin:0">JJ presents changes as the primary unit rather than commits, making rebasing and stack manipulation first-class operations instead of fragile workflows. It is Git-compatible at the data layer, so migration is incremental rather than all-or-nothing. Duggan argues this single change would remove most of the pain in collaborative rebasing workflows.</p>
+        </div>
+      </div>
+      <div class="row gap-3" style="align-items:flex-start;border-left:4px solid var(--teal);padding-left:14px">
+        <span class="sk-mono" style="font-size:20px;font-weight:700;color:var(--teal);line-height:1.1;min-width:36px">02</span>
+        <div class="col gap-1">
+          <p style="font-size:18px;font-weight:700;line-height:1.25;margin:0">Adopt Gerrit-style change-based review instead of PR-based review</p>
+          <p style="font-size:16px;line-height:1.6;margin:0">Gerrit reviews individual changes (commits) rather than batched pull requests. This encourages small, reviewable increments and makes it impossible to hide a complex change inside a "refactor" PR. Google's internal Critique tool uses a similar model and is cited as the productivity baseline Duggan wants to reach externally.</p>
+        </div>
+      </div>
+      <div class="row gap-3" style="align-items:flex-start;border-left:4px solid var(--ochre);padding-left:14px">
+        <span class="sk-mono" style="font-size:20px;font-weight:700;color:var(--ochre);line-height:1.1;min-width:36px">03</span>
+        <div class="col gap-1">
+          <p style="font-size:18px;font-weight:700;line-height:1.25;margin:0">Make stacked PRs a first-class primitive, not a workaround</p>
+          <p style="font-size:16px;line-height:1.6;margin:0">Stacked pull requests — where PR B depends on PR A, which depends on PR C — are currently handled via third-party tools like Graphite or manual branch management. A forge built for high-volume AI-assisted development needs stacking built into the data model, not bolted on, so that dependency graphs are visible and automatically re-ordered when a base branch lands.</p>
+        </div>
+      </div>
+      <div class="row gap-3" style="align-items:flex-start;border-left:4px solid var(--slate);padding-left:14px">
+        <span class="sk-mono" style="font-size:20px;font-weight:700;color:var(--slate);line-height:1.1;min-width:36px">04</span>
+        <div class="col gap-1">
+          <p style="font-size:18px;font-weight:700;line-height:1.25;margin:0">Self-hostable on commodity hardware — a Raspberry Pi is the target</p>
+          <p style="font-size:16px;line-height:1.6;margin:0">Duggan's reference point is that a forge serving a 10-person team should run comfortably on a $75 device. This is both a literal resource constraint argument (Forgejo already approaches this) and a philosophical one: if the forge requires cloud infrastructure to function, it has imported the same lock-in problem it was meant to solve.</p>
+        </div>
+      </div>
+      <div class="row gap-3" style="align-items:flex-start;border-left:4px solid var(--sage);padding-left:14px">
+        <span class="sk-mono" style="font-size:20px;font-weight:700;color:var(--sage);line-height:1.1;min-width:36px">05</span>
+        <div class="col gap-1">
+          <p style="font-size:18px;font-weight:700;line-height:1.25;margin:0">Open governance — no single company controls the forge roadmap</p>
+          <p style="font-size:16px;line-height:1.6;margin:0">GitHub's roadmap is determined by Microsoft's enterprise sales priorities. Duggan wants a forge governed by its users in the way Forgejo is governed by the Codeberg community. Open governance is the structural guarantee that the forge remains a tool for engineers rather than a platform for extracting enterprise subscription revenue.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 AUDIT CHECKLIST -->
+  <section class="sk-box" style="background:var(--card);padding:20px 22px;margin-top:12px">
+    <div class="dd-module-h">
+      <div class="row gap-3" style="align-items:baseline">
+        <span class="num">04</span>
+        <span class="title">YOUR FORGE &middot; AUDIT CHECKLIST</span>
+      </div>
+      <span class="right">5 QUESTIONS</span>
+    </div>
+    <div class="col gap-3">
+      <div class="sk-box" style="background:var(--hi);padding:14px 18px">
+        <div class="row gap-3" style="align-items:baseline">
+          <span class="sk-mono" style="font-size:18px;font-weight:700;color:var(--accent);min-width:30px">Q1</span>
+          <p style="font-size:17px;font-weight:700;line-height:1.3;margin:0">What is the average PR size (in lines changed) on your team over the last 90 days?</p>
+        </div>
+        <p style="font-size:15px;line-height:1.55;margin:8px 0 0 42px">If the median is above 400 lines, your review process is almost certainly batching changes that should be reviewed incrementally. This is the key diagnostic for whether a Gerrit-style model would help your team specifically.</p>
+      </div>
+      <div class="sk-box-soft" style="padding:14px 18px;background:var(--card)">
+        <div class="row gap-3" style="align-items:baseline">
+          <span class="sk-mono" style="font-size:18px;font-weight:700;color:var(--teal);min-width:30px">Q2</span>
+          <p style="font-size:17px;font-weight:700;line-height:1.3;margin:0">How often do engineers on your team rebase rather than merge — and how long does a contested rebase take?</p>
+        </div>
+        <p style="font-size:15px;line-height:1.55;margin:8px 0 0 42px">High rebase friction is the primary quality-of-life problem JJ is designed to solve. If your team avoids rebasing because it's painful, that's a direct productivity cost Duggan's recommendation addresses.</p>
+      </div>
+      <div class="sk-box-soft" style="padding:14px 18px;background:var(--card)">
+        <div class="row gap-3" style="align-items:baseline">
+          <span class="sk-mono" style="font-size:18px;font-weight:700;color:var(--ochre);min-width:30px">Q3</span>
+          <p style="font-size:17px;font-weight:700;line-height:1.3;margin:0">Do you have a GitHub outage runbook — and have you needed it in the last 12 months?</p>
+        </div>
+        <p style="font-size:15px;line-height:1.55;margin:8px 0 0 42px">GitHub had several significant outages in 2024–2025. If you lack a runbook and your CI/CD is tightly coupled to GitHub Actions, a self-hosted forge backup — even a partial one — reduces your platform risk meaningfully.</p>
+      </div>
+      <div class="sk-box-soft" style="padding:14px 18px;background:var(--card)">
+        <div class="row gap-3" style="align-items:baseline">
+          <span class="sk-mono" style="font-size:18px;font-weight:700;color:var(--slate);min-width:30px">Q4</span>
+          <p style="font-size:17px;font-weight:700;line-height:1.3;margin:0">Are you currently paying for a stacked-PR tool (Graphite, gh stack) — and is that a line item you could eliminate with a forge that handled stacking natively?</p>
+        </div>
+        <p style="font-size:15px;line-height:1.55;margin:8px 0 0 42px">Third-party stacking tools work reasonably well but represent a band-aid on a structural problem. Native stacking removes a category of edge cases and simplifies your tooling surface.</p>
+      </div>
+      <div class="sk-box-soft" style="padding:14px 18px;background:var(--card)">
+        <div class="row gap-3" style="align-items:baseline">
+          <span class="sk-mono" style="font-size:18px;font-weight:700;color:var(--sage);min-width:30px">Q5</span>
+          <p style="font-size:17px;font-weight:700;line-height:1.3;margin:0">Has your PR review throughput kept pace with your code generation throughput since you introduced AI coding tools?</p>
+        </div>
+        <p style="font-size:15px;line-height:1.55;margin:8px 0 0 42px">This is the core diagnostic. If AI tools are producing code faster than humans can review it, your bottleneck is now the review model — and a change-based system that makes reviewing smaller increments easier is the structural fix.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 QUICK START -->
+  <section class="sk-box" style="background:var(--card);padding:20px 22px;margin-top:12px">
+    <div class="dd-module-h">
+      <div class="row gap-3" style="align-items:baseline">
+        <span class="num">05</span>
+        <span class="title">QUICK START &middot; TRY IT IN 30 MINUTES</span>
+      </div>
+      <span class="right">3 STEPS</span>
+    </div>
+    <div class="col gap-3">
+      <div class="row gap-3" style="align-items:flex-start">
+        <span class="sk-mono" style="font-size:22px;font-weight:700;color:var(--teal);line-height:1;min-width:40px">01</span>
+        <div>
+          <p style="font-size:17px;font-weight:700;line-height:1.3;margin:0">Install Jujutsu and colocate it with an existing Git repo</p>
+          <p style="font-size:16px;line-height:1.6;margin:4px 0 0">Run <code style="font-family:monospace;font-size:15px">brew install jj</code> (macOS) or follow the JJ install guide at <strong>martinvonz.github.io/jj</strong>. In any existing Git repo, run <code style="font-family:monospace;font-size:15px">jj git init --colocate</code>. This makes JJ and Git interoperate on the same repo — you can switch back to pure Git at any time. Spend 15 minutes navigating your commit history with <code style="font-family:monospace;font-size:15px">jj log</code> and editing a commit mid-stack with <code style="font-family:monospace;font-size:15px">jj edit</code>.</p>
+        </div>
+      </div>
+      <hr class="sk-rule-thin" />
+      <div class="row gap-3" style="align-items:flex-start">
+        <span class="sk-mono" style="font-size:22px;font-weight:700;color:var(--teal);line-height:1;min-width:40px">02</span>
+        <div>
+          <p style="font-size:17px;font-weight:700;line-height:1.3;margin:0">Spin up a Forgejo instance locally using Docker</p>
+          <p style="font-size:16px;line-height:1.6;margin:4px 0 0">Run <code style="font-family:monospace;font-size:15px">docker run -d -p 3000:3000 codeberg.org/forgejo/forgejo:latest</code> and visit <code style="font-family:monospace;font-size:15px">localhost:3000</code>. Create a test repo, push a branch from your JJ-managed repo, and open a pull request. Note the UI differences from GitHub and observe how much of your muscle memory transfers.</p>
+        </div>
+      </div>
+      <hr class="sk-rule-thin" />
+      <div class="row gap-3" style="align-items:flex-start">
+        <span class="sk-mono" style="font-size:22px;font-weight:700;color:var(--teal);line-height:1;min-width:40px">03</span>
+        <div>
+          <p style="font-size:17px;font-weight:700;line-height:1.3;margin:0">Time a three-level stack: create, review, and land it</p>
+          <p style="font-size:16px;line-height:1.6;margin:4px 0 0">Using JJ's stacking semantics (<code style="font-family:monospace;font-size:15px">jj new</code> to create a child change), create three dependent changes in your test repo. Push them to Forgejo as three separate PRs with explicit dependency notes. Time how long it takes from creation to "all three merged in order." Compare that against how long the equivalent workflow takes in your current GitHub setup.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 MENTAL MODEL -->
+  <section class="sk-box" style="background:var(--navy);color:var(--card);padding:20px 22px;margin-top:12px">
+    <div class="dd-module-h" style="margin-bottom:18px">
+      <div class="row gap-3" style="align-items:baseline">
+        <span style="font-family:'IBM Plex Serif',serif;font-size:36px;font-weight:700;color:var(--hi);line-height:1">06</span>
+        <span style="font-family:'IBM Plex Serif',serif;font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--card)">MENTAL MODEL &middot; TEAM EXERCISE &middot; 30-DAY EXPERIMENT</span>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px">
+      <div class="sk-box" style="border-color:var(--hi);padding:16px">
+        <p class="sk-mono" style="font-size:10px;letter-spacing:2px;color:var(--hi);margin:0 0 10px">MENTAL MODEL</p>
+        <p style="font-size:16px;font-weight:700;line-height:1.3;margin:0 0 10px">The forge is the bottleneck, not the codebase</p>
+        <p style="font-size:14px;line-height:1.6;margin:0;color:var(--card)">When AI tools generate code faster than humans review it, the constraint shifts from "can we write it?" to "can we evaluate it?" The pull-request model was designed for the first constraint. It is poorly suited to the second. Duggan's redesign addresses the second constraint directly by making the review unit smaller (individual changes) and the dependency structure visible (native stacking). The mental model shift: your forge is now part of your review pipeline, not just your code storage layer.</p>
+      </div>
+
+      <div class="sk-box" style="border-color:var(--card);padding:16px">
+        <p class="sk-mono" style="font-size:10px;letter-spacing:2px;color:var(--hi);margin:0 0 10px">TEAM EXERCISE</p>
+        <p style="font-size:16px;font-weight:700;line-height:1.3;margin:0 0 10px">The PR size retrospective</p>
+        <p style="font-size:14px;line-height:1.6;margin:0;color:var(--card)">Pull your team's last 30 merged PRs from the GitHub API. Plot the distribution of lines-changed per PR. Identify the ten largest. For each: could this have been reviewed more effectively if submitted as three or four smaller changes? Count how many times "this PR is too large to review effectively" appeared as a comment. If the answer is more than twice, you have measurable evidence that your review model is costing you quality — and a concrete argument for trialling stacked or change-based review.</p>
+      </div>
+
+      <div class="sk-box" style="border-color:var(--card);padding:16px">
+        <p class="sk-mono" style="font-size:10px;letter-spacing:2px;color:var(--hi);margin:0 0 10px">30-DAY EXPERIMENT</p>
+        <p style="font-size:16px;font-weight:700;line-height:1.3;margin:0 0 10px">Run JJ on one project for a month</p>
+        <p style="font-size:14px;line-height:1.6;margin:0;color:var(--card)">Pick a single non-critical project and commit to using JJ as the VCS interface for 30 days. Keep Git as the backend (colocated mode). At the end of the month, run the PR size analysis again on that project versus a comparable project using standard Git. Measure: did average PR size decrease? Did rebase conflicts decrease? Did the time from "PR opened" to "PR merged" change? These three metrics will tell you whether the JJ model produces the workflow improvement Duggan claims.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:16px;border-top:1px solid rgba(255,255,255,0.2);padding-top:14px">
+      <p class="sk-mono" style="font-size:10px;letter-spacing:2px;color:var(--hi);margin:0 0 8px">FURTHER READING</p>
+      <div class="row gap-4" style="flex-wrap:wrap">
+        <a href="https://matduggan.com/if-i-could-make-my-own-github/" class="sk-mono" style="font-size:11px;color:var(--card);text-decoration:underline;text-underline-offset:2px">ORIGINAL ESSAY &#8599;</a>
+        <a href="https://martinvonz.github.io/jj/latest/tutorial/" class="sk-mono" style="font-size:11px;color:var(--card);text-decoration:underline;text-underline-offset:2px">JJ TUTORIAL &#8599;</a>
+        <a href="https://forgejo.org/docs/latest/admin/installation/" class="sk-mono" style="font-size:11px;color:var(--card);text-decoration:underline;text-underline-offset:2px">FORGEJO INSTALL GUIDE &#8599;</a>
+      </div>
+    </div>
+  </section>
+
+  <hr class="sk-rule" style="margin-top:18px" />
+  <footer class="row" style="justify-content:space-between;padding:10px 4px;align-items:baseline">
+    <a href="04-4-agent-365-tool.html" class="sk-mono" style="font-size:10px">&larr; PREV &middot; 04.4</a>
+    <span class="sk-mono" style="font-size:10px;letter-spacing:2px">&middot; END OF FILE ENG.1 &middot;</span>
+    <a href="../index.html" class="sk-mono" style="font-size:10px">ISSUE HOME &#8599;</a>
+  </footer>
+</div>
+</body>
+</html>

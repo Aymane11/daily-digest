@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="alternate" type="application/rss+xml" title="Daily Digest RSS" href="/daily-digest/feed.xml" />
+<title>Daily Digest — Tool: Warp Terminal (Open Source) — Issue 006</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{background:#f5f0e8;color:#111;font-family:'Lora',serif;font-size:18px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:root{--paper:#f5f0e8;--card:#fffdf7;--ink:#111111;--ink-2:#5a5a5a;--accent:#d62828;--hi:#f5c842;--teal:#0d7377;--navy:#14213d;--ochre:#e07b39;--slate:#3d5a80;--sage:#2d6a4f;--purple:#7b2d8b;--rule:#111111;}
+.sk-mono{font-family:'IBM Plex Serif','Georgia',serif;font-weight:500}
+.sk-script{font-family:'Lora',serif;font-style:italic}
+.sk-box{border:1.5px solid var(--ink);background:transparent;position:relative}
+.sk-box-soft{border:1.25px solid #2a2a2a;background:transparent}
+.sk-rule{height:0;border:0;border-top:1.5px solid var(--ink);margin:0}
+.sk-rule-thin{height:0;border:0;border-top:1px solid var(--ink);margin:0}
+.sk-stamp{display:inline-block;font-family:'IBM Plex Serif',serif;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:3px 9px;border:1.5px solid currentColor;line-height:1.4;transform:rotate(-1deg);white-space:nowrap}
+.sk-stamp--red{color:var(--accent);border-color:var(--accent)}.sk-stamp--navy{color:var(--navy);border-color:var(--navy)}.sk-stamp--teal{color:var(--teal);border-color:var(--teal)}.sk-stamp--ochre{color:var(--ochre);border-color:var(--ochre)}.sk-stamp--slate{color:var(--slate);border-color:var(--slate)}.sk-stamp--hi{color:#9a7200;border-color:#9a7200}.sk-stamp--sage{color:var(--sage);border-color:var(--sage)}
+.row{display:flex}.col{display:flex;flex-direction:column}.grow{flex:1}
+.gap-2{gap:8px}.gap-3{gap:12px}.gap-4{gap:16px}
+.dd-page{max-width:1200px;margin:0 auto;padding:32px}
+@media(max-width:640px){.dd-page{padding:16px 14px}.sk-dossier-hl{font-size:30px!important}}
+</style>
+</head>
+<body>
+<div class="dd-page">
+
+  <nav class="row" style="justify-content:space-between;align-items:baseline;margin-bottom:8px">
+    <a href="../index.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px">&larr; DIGEST &middot; &numero; 006</a>
+    <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">TOOL &middot; 04.3 &middot; TERMINAL</span>
+    <a href="../../../archive.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--teal)">ARCHIVE &#8599;</a>
+  </nav>
+
+  <section class="sk-box" style="background:var(--ink);color:var(--card);padding:20px 22px">
+    <div class="row" style="justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px">
+      <span class="sk-mono" style="font-size:10px;letter-spacing:3px;color:var(--hi)">TOOL / 04.3</span>
+      <div class="row gap-2">
+        <span class="sk-stamp sk-stamp--hi">TERMINAL</span>
+      </div>
+      <a href="https://github.com/warpdotdev/warp" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--sage)">VISIT TOOL &#8599;</a>
+    </div>
+    <h1 class="sk-dossier-hl" style="font-size:48px;font-weight:700;line-height:1.04;letter-spacing:-0.5px;text-wrap:balance;margin:14px 0 0">
+      Warp Terminal — now open source
+    </h1>
+    <p style="font-size:20px;font-weight:700;line-height:1.3;color:var(--card);margin:10px 0 0">AGPL client on GitHub. Kimi K2.6, Qwen3, MiniMax via "auto (open)" routing.</p>
+    <p class="sk-script" style="font-size:20px;color:var(--hi);margin:8px 0 0">The AI-first terminal used by close to a million developers released its client source on April 28. You can now audit it, fork it, and contribute — with AI agents handling implementation via the Oz platform.</p>
+    <div class="row gap-3" style="margin-top:14px">
+      <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">OPEN SOURCE &middot; APR 28 2026 &middot; WARP LABS</span>
+    </div>
+  </section>
+
+  <main style="display:grid;grid-template-columns:1fr 320px;gap:14px;margin-top:12px">
+    <div class="col gap-3">
+
+      <div class="sk-box" style="background:var(--hi);padding:18px">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0">&#9733; WHAT IT IS</p>
+        <hr class="sk-rule-thin" style="margin:8px 0 10px" />
+        <p style="font-size:19px;line-height:1.65;margin:0">Warp is an AI-integrated terminal emulator built in Rust with a block-based command history, inline AI completions, and a multi-model routing layer. As of April 28, the client is open source under AGPL at github.com/warpdotdev/warp. The cloud backend (Warp Drive, shared workflows) and the Oz agent orchestration platform remain proprietary. The new release adds support for Kimi K2.6, MiniMax, and Qwen3 alongside existing GPT and Claude model options, routable via an "auto (open)" mode that picks the best available open model for a given task. OpenAI is the founding sponsor of the open-source release.</p>
+      </div>
+
+      <div class="sk-box" style="background:var(--card);padding:16px">
+        <div class="row gap-3" style="align-items:baseline;margin-bottom:10px">
+          <span style="font-size:28px;font-weight:700;color:var(--accent);line-height:1">¶ 01</span>
+          <span class="sk-mono" style="font-size:11px;letter-spacing:2px">WHY &middot; IT &middot; MATTERS</span>
+        </div>
+        <p style="font-size:18px;line-height:1.65;margin:0">The AGPL release unlocks Warp for privacy-conscious developers and enterprises that require source auditability — the single biggest barrier to adoption among security teams. The "auto (open)" routing means you can now use K2.6 or Qwen3 for AI completions inside the terminal without routing prompts through OpenAI, which removes a data-residency concern for many teams. The AGPL licence specifically prevents proprietary forks: any organisation that ships a modified Warp must open-source those modifications, protecting the community investment.</p>
+      </div>
+
+      <div class="sk-box" style="background:var(--card);padding:16px">
+        <div class="row gap-3" style="align-items:baseline;margin-bottom:12px">
+          <span style="font-size:28px;font-weight:700;color:var(--teal);line-height:1">¶ 02</span>
+          <span class="sk-mono" style="font-size:11px;letter-spacing:2px;color:var(--teal)">HOW &middot; TO &middot; TRY &middot; IT</span>
+          <span class="sk-mono" style="font-size:9px;color:var(--ink-2);margin-left:auto">~15 MIN</span>
+        </div>
+        <div class="col gap-3">
+          <div class="row gap-3" style="align-items:flex-start">
+            <span class="sk-mono" style="font-size:14px;font-weight:700;color:var(--teal);line-height:1;width:28px;flex-shrink:0">01</span>
+            <p style="font-size:17px;line-height:1.6;margin:0">Download Warp from <strong>warp.dev</strong> or build from source at <strong>github.com/warpdotdev/warp</strong>. If building from source, you'll need a Rust toolchain and the README build instructions.</p>
+          </div>
+          <div class="row gap-3" style="align-items:flex-start">
+            <span class="sk-mono" style="font-size:14px;font-weight:700;color:var(--teal);line-height:1;width:28px;flex-shrink:0">02</span>
+            <p style="font-size:17px;line-height:1.6;margin:0">Open Settings → AI → Model and switch routing to "auto (open)". This routes your AI completions through K2.6, Qwen3, or MiniMax rather than GPT or Claude. Run a few completions and observe latency and quality differences.</p>
+          </div>
+          <div class="row gap-3" style="align-items:flex-start">
+            <span class="sk-mono" style="font-size:14px;font-weight:700;color:var(--teal);line-height:1;width:28px;flex-shrink:0">03</span>
+            <p style="font-size:17px;line-height:1.6;margin:0">Open a complex debugging session — a multi-step build failure with logs — and ask the AI assistant to diagnose it. Evaluate whether the model selected by "auto (open)" produces a root-cause explanation that would let you fix the issue, or whether it hedges around the problem.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="sk-box" style="background:var(--card);padding:16px">
+        <div class="row gap-3" style="align-items:baseline;margin-bottom:10px">
+          <span style="font-size:28px;font-weight:700;color:var(--accent);line-height:1">¶ 03</span>
+          <span class="sk-mono" style="font-size:11px;letter-spacing:2px">WHAT &middot; TO &middot; OBSERVE</span>
+        </div>
+        <p style="font-size:18px;line-height:1.65;margin:0">Note that the cloud backend — where Warp Drive shared workflows live — is still proprietary and still sends data to Warp's servers. If your concern is data residency, verify which specific features route through cloud versus local model. Check the AGPL terms before deploying Warp in a product your organisation ships: if your internal tooling bundles or distributes Warp, you may be required to open-source those modifications. Review the Oz contributor model if you're considering contributing — it's AI-agent-mediated, not a traditional patch workflow.</p>
+      </div>
+    </div>
+
+    <aside class="col gap-3">
+      <div class="sk-box" style="background:var(--card);padding:14px">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0">QUICK &middot; FACTS</p>
+        <hr class="sk-rule-thin" style="margin:8px 0 12px" />
+        <div class="col gap-2">
+          <div class="row gap-2" style="align-items:baseline">
+            <span class="sk-mono" style="font-size:9px;color:var(--ink-2);min-width:60px">MADE BY</span>
+            <span style="font-size:14px;font-weight:700">Warp Labs</span>
+          </div>
+          <div class="row gap-2" style="align-items:baseline">
+            <span class="sk-mono" style="font-size:9px;color:var(--ink-2);min-width:60px">LICENSE</span>
+            <span style="font-size:14px;font-weight:700">AGPL (client)</span>
+          </div>
+          <div class="row gap-2" style="align-items:baseline">
+            <span class="sk-mono" style="font-size:9px;color:var(--ink-2);min-width:60px">PLATFORM</span>
+            <span style="font-size:14px;font-weight:700">macOS, Linux</span>
+          </div>
+          <div class="row gap-2" style="align-items:baseline">
+            <span class="sk-mono" style="font-size:9px;color:var(--ink-2);min-width:60px">NEEDS</span>
+            <span style="font-size:13px;line-height:1.4">Free Warp account for cloud features</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sk-box-soft" style="padding:12px">
+        <p class="sk-mono" style="font-size:10px;letter-spacing:2px;margin:0 0 10px">FILED &middot; UNDER</p>
+        <div class="row gap-2" style="flex-wrap:wrap">
+          <span class="sk-stamp sk-stamp--teal">TERMINAL</span>
+          <span class="sk-stamp sk-stamp--navy">OPEN SOURCE</span>
+          <span class="sk-stamp sk-stamp--ochre">DEV TOOLS</span>
+        </div>
+      </div>
+
+      <div class="sk-box" style="background:var(--ink);color:var(--card);padding:14px">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;color:var(--hi);margin:0">GET &middot; THE &middot; TOOL</p>
+        <div style="border-top:1px solid var(--card);margin:8px 0 10px"></div>
+        <a href="https://github.com/warpdotdev/warp" class="sk-mono" style="font-size:12px;color:var(--sage);text-decoration:underline;text-underline-offset:2px;display:block">GITHUB.COM/WARPDOTDEV &#8599;</a>
+        <p class="sk-mono" style="font-size:9px;color:var(--card);opacity:0.7;margin:6px 0 0">OPEN SOURCE &middot; APR 28 2026</p>
+        <a href="https://warp.dev" class="sk-mono" style="font-size:11px;color:var(--hi);display:block;margin-top:10px">WARP.DEV &#8599;</a>
+      </div>
+
+      <div class="sk-box" style="background:var(--hi);padding:14px">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0">THE &middot; QUESTION</p>
+        <hr class="sk-rule-thin" style="margin:8px 0 10px" />
+        <p style="font-size:15px;font-weight:700;line-height:1.45;margin:0">Does switching to "auto (open)" model routing in Warp produce AI completions good enough to replace your current GPT or Claude routing — and if so, is the data residency benefit worth the quality trade-off?</p>
+      </div>
+    </aside>
+  </main>
+
+  <hr class="sk-rule" style="margin-top:18px" />
+  <footer class="row" style="justify-content:space-between;padding:10px 4px;align-items:baseline">
+    <a href="04-2-grok-4-3-tool.html" class="sk-mono" style="font-size:10px">&larr; PREV &middot; 04.2</a>
+    <span class="sk-mono" style="font-size:10px;letter-spacing:2px">&middot; END OF FILE 04.3 &middot;</span>
+    <a href="04-4-agent-365-tool.html" class="sk-mono" style="font-size:10px">NEXT &middot; 04.4 &rarr;</a>
+  </footer>
+</div>
+</body>
+</html>

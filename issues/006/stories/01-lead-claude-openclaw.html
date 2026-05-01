@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="alternate" type="application/rss+xml" title="Daily Digest RSS" href="/daily-digest/feed.xml" />
+<title>Daily Digest — Claude Code flags commits that mention OpenClaw — Issue 006</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{background:#f5f0e8;color:#111;font-family:'Lora',serif;font-size:18px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:root{
+  --paper:#f5f0e8;--card:#fffdf7;--ink:#111111;--ink-2:#5a5a5a;
+  --accent:#d62828;--hi:#f5c842;--teal:#0d7377;--navy:#14213d;
+  --ochre:#e07b39;--slate:#3d5a80;--sage:#2d6a4f;--purple:#7b2d8b;--rule:#111111;
+}
+.sk-mono{font-family:'IBM Plex Serif','Georgia',serif;font-weight:500}
+.sk-script{font-family:'Lora',serif;font-style:italic}
+.sk-box{border:1.5px solid var(--ink);background:transparent;position:relative}
+.sk-box-soft{border:1.25px solid #2a2a2a;background:transparent}
+.sk-rule{height:0;border:0;border-top:1.5px solid var(--ink);margin:0}
+.sk-rule-thin{height:0;border:0;border-top:1px solid var(--ink);margin:0}
+.sk-stamp{display:inline-block;font-family:'IBM Plex Serif',serif;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:3px 9px;border:1.5px solid currentColor;line-height:1.4;transform:rotate(-1deg);white-space:nowrap}
+.sk-stamp--red{color:var(--accent);border-color:var(--accent)}
+.sk-stamp--navy{color:var(--navy);border-color:var(--navy)}
+.sk-stamp--teal{color:var(--teal);border-color:var(--teal)}
+.sk-stamp--ochre{color:var(--ochre);border-color:var(--ochre)}
+.sk-stamp--slate{color:var(--slate);border-color:var(--slate)}
+.sk-stamp--hi{color:#9a7200;border-color:#9a7200}
+.sk-stamp--purple{color:var(--purple);border-color:var(--purple)}
+.sk-stamp--sage{color:var(--sage);border-color:var(--sage)}
+.row{display:flex}.col{display:flex;flex-direction:column}.grow{flex:1}
+.gap-2{gap:8px}.gap-3{gap:12px}.gap-4{gap:16px}
+.dd-page{max-width:1200px;margin:0 auto;padding:32px}
+.dd-module-h{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px}
+.dd-module-h .num{font-size:64px;font-weight:700;line-height:0.9;color:var(--accent)}
+.dd-module-h .title{font-family:'IBM Plex Serif',serif;font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase}
+.sk-grid-dossier{display:grid;grid-template-columns:380px 1fr;gap:14px}
+@media(max-width:900px){.sk-grid-dossier{grid-template-columns:1fr 1fr!important}}
+@media(max-width:640px){.dd-page{padding:16px 14px}.sk-grid-dossier{grid-template-columns:1fr!important}.sk-dossier-hl{font-size:30px!important}}
+</style>
+</head>
+<body>
+<div class="dd-page">
+
+  <!-- breadcrumb -->
+  <nav class="row" style="justify-content:space-between;align-items:baseline;margin-bottom:10px">
+    <a href="../index.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px">&larr; DIGEST &middot; &numero; 006</a>
+    <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">LEAD &middot; 01 &middot; AI POLICY</span>
+    <a href="../../../archive.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--teal)">ARCHIVE &#8599;</a>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="sk-box" style="background:var(--ink);color:var(--card);padding:22px 24px">
+    <div class="row" style="justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px">
+      <span class="sk-mono" style="font-size:11px;letter-spacing:3px;color:var(--hi)">FEATURE / 01</span>
+      <span class="sk-mono" style="font-size:10px;letter-spacing:2px">4 MIN READ</span>
+      <a href="https://news.ycombinator.com/item?id=47963204" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--sage)">SOURCE &middot; HACKER NEWS &#8599;</a>
+    </div>
+    <div class="row gap-2" style="margin-top:14px;flex-wrap:wrap">
+      <span class="sk-stamp sk-stamp--hi">AI TOOLS</span>
+      <span class="sk-stamp" style="color:var(--card);border-color:var(--card)">POLICY</span>
+    </div>
+    <h1 class="sk-dossier-hl" style="font-size:50px;font-weight:700;line-height:1.03;letter-spacing:-0.5px;text-wrap:balance;margin:16px 0 0">
+      Claude Code silently throttles sessions when commit history mentions a competitor
+    </h1>
+    <p class="sk-script" style="font-size:22px;color:var(--hi);margin:14px 0 0">Users discover that referencing "OpenClaw" in a git commit drains your Anthropic usage quota — opening a denial-of-service vector for any hostile project.</p>
+    <div class="row gap-3" style="margin-top:16px;flex-wrap:wrap">
+      <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">BY &middot; THEO (VIA X/TWITTER)</span>
+      <span class="sk-mono" style="font-size:10px;color:var(--hi)">&middot; FRI 1 MAY 2026 &middot; AI TOOLS</span>
+    </div>
+  </header>
+
+  <!-- TWO-COL -->
+  <main class="sk-grid-dossier" style="margin-top:14px">
+
+    <!-- LEFT RAIL -->
+    <aside class="col gap-3">
+
+      <!-- TL;DR -->
+      <div class="sk-box" style="background:var(--hi);padding:16px">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0">&#9733; TL;DR</p>
+        <hr class="sk-rule-thin" style="margin:8px 0 10px" />
+        <ul style="font-size:15px;line-height:1.6;margin:0;padding-left:18px">
+          <li>Claude Code disconnects or reports 100% quota exhaustion when a session reads git commits containing "openclaw".</li>
+          <li>1,172 HN upvotes and 643 comments; Anthropic gave no official response.</li>
+          <li>Any project can plant the trigger string to silently sabotage a developer's Claude Code session.</li>
+        </ul>
+      </div>
+
+      <!-- Numbers -->
+      <div class="sk-box" style="padding:16px;background:var(--card)">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0">BY &middot; THE &middot; NUMBERS</p>
+        <hr class="sk-rule-thin" style="margin:8px 0 14px" />
+        <div class="col gap-4">
+          <div>
+            <div style="font-size:64px;font-weight:700;line-height:0.95;color:var(--accent)">1,172</div>
+            <p class="sk-mono" style="font-size:10px;margin:4px 0 0;letter-spacing:1px">HN POINTS IN 24 H</p>
+          </div>
+          <hr class="sk-rule-thin" />
+          <div>
+            <div style="font-size:64px;font-weight:700;line-height:0.95">643</div>
+            <p class="sk-mono" style="font-size:10px;margin:4px 0 0;letter-spacing:1px">DISCUSSION COMMENTS</p>
+          </div>
+          <hr class="sk-rule-thin" />
+          <div>
+            <div style="font-size:64px;font-weight:700;line-height:0.95">125</div>
+            <p class="sk-mono" style="font-size:10px;margin:4px 0 0;letter-spacing:1px">WORDS TO IDENTIFY A WRITER (OPUS 4.7)</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Key Players -->
+      <div class="sk-box" style="padding:16px;background:var(--card)">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0">KEY &middot; PLAYERS</p>
+        <hr class="sk-rule-thin" style="margin:8px 0 10px" />
+        <div class="col gap-3">
+          <div>
+            <p class="sk-mono" style="font-size:11px;font-weight:700;letter-spacing:1px;margin:0">ANTHROPIC / CLAUDE CODE</p>
+            <p style="font-size:13px;line-height:1.4;margin:4px 0 0">Developer of the AI coding assistant; did not publicly respond to the discovery.</p>
+          </div>
+          <div>
+            <p class="sk-mono" style="font-size:11px;font-weight:700;letter-spacing:1px;margin:0">OPENCLAW</p>
+            <p style="font-size:13px;line-height:1.4;margin:4px 0 0">Open-source Claude CLI alternative; previously banned from OAuth subscriptions; now apparently a quota trigger.</p>
+          </div>
+          <div>
+            <p class="sk-mono" style="font-size:11px;font-weight:700;letter-spacing:1px;margin:0">THEO (T3.GG)</p>
+            <p style="font-size:13px;line-height:1.4;margin:4px 0 0">Developer who first documented and publicised the behaviour on X.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tags -->
+      <div class="sk-box-soft" style="padding:14px">
+        <p class="sk-mono" style="font-size:10px;letter-spacing:2px;margin:0 0 10px">FILED &middot; UNDER</p>
+        <div class="row" style="flex-wrap:wrap;gap:8px">
+          <span class="sk-stamp sk-stamp--red">AI POLICY</span>
+          <span class="sk-stamp sk-stamp--navy">OPEN SOURCE</span>
+          <span class="sk-stamp sk-stamp--teal">SECURITY</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- RIGHT BODY -->
+    <article class="col gap-3">
+
+      <!-- standfirst -->
+      <p class="sk-box-soft" style="padding:18px;background:var(--card);border-left:4px solid var(--accent);font-size:22px;font-weight:700;line-height:1.25;margin:0">
+        Anthropic has built a keyword trigger into Claude Code that exhausts a user's session quota when the tool reads git commit messages referencing "OpenClaw" — the open-source CLI alternative that Anthropic restricted from OAuth access in April 2026.
+      </p>
+
+      <!-- ¶ 01 -->
+      <div class="row gap-3" style="align-items:baseline;margin-top:6px">
+        <span style="font-size:28px;font-weight:700;color:var(--accent);line-height:1">¶ 01</span>
+        <span class="sk-mono" style="font-size:11px;letter-spacing:2px">WHAT &middot; HAPPENED</span>
+        <span class="grow" style="border-top:1px dashed var(--ink);height:1px"></span>
+      </div>
+      <p style="font-size:18px;line-height:1.65;margin:0">Developer Theo documented the behaviour on 30 April 2026: when Claude Code processes a repository whose git history contains the string "openclaw" — even in JSON blobs or variable names — the session disconnects and reports 100% usage exhausted. Affected users saw charges appear despite minimal actual compute work. Reproductions confirmed the pattern is consistent. Whether the detection is regex-based or LLM-driven remains unclear from available evidence; community testing found no obvious way to spoof or suppress the trigger short of rewriting commit history.</p>
+
+      <!-- inline stat -->
+      <div class="sk-box" style="background:var(--ink);color:var(--card);padding:20px 22px;display:flex;align-items:baseline;gap:22px">
+        <span style="font-size:78px;font-weight:700;line-height:0.9;color:var(--hi)">1,172</span>
+        <span style="font-size:18px;font-weight:700;line-height:1.2">HN points in under 24 hours — the highest-scoring AI story of the week</span>
+      </div>
+
+      <!-- ¶ 02 -->
+      <div class="row gap-3" style="align-items:baseline;margin-top:8px">
+        <span style="font-size:28px;font-weight:700;color:var(--accent);line-height:1">¶ 02</span>
+        <span class="sk-mono" style="font-size:11px;letter-spacing:2px">WHY &middot; IT &middot; MATTERS</span>
+        <span class="grow" style="border-top:1px dashed var(--ink);height:1px"></span>
+      </div>
+      <p style="font-size:18px;line-height:1.65;margin:0">The incident surfaces two distinct problems. First, it is a competition-enforcement mechanism embedded in a developer tool. Anthropic banned third-party OAuth usage of its subscription tokens in April 2026, but a quota-drain triggered by a competitor's name in a commit message goes further — it penalises developers for having worked with or documented an alternative tool. Second, it creates a denial-of-service vector: any hostile open-source project could embed the trigger string in its commit messages, README, or configuration, silently wrecking a Claude Code user's session. Multiple HN commenters immediately noted this attack surface. The implementation was widely criticised as "vibe coded" — implemented without considering obvious false-positive scenarios such as a developer documenting migration away from OpenClaw.</p>
+
+      <!-- pull quote -->
+      <!-- [EDITORIAL QUOTE] -->
+      <blockquote class="sk-box-soft" style="padding:20px 24px;background:var(--hi);margin:6px 0 0">
+        <p style="font-size:24px;font-weight:700;line-height:1.2;margin:0">"This creates a DoS vector — hostile projects could embed the trigger string to sabotage Claude users or drain quotas."</p>
+        <p class="sk-mono" style="font-size:10px;margin:12px 0 0;letter-spacing:1px">— HN COMMENTER ON THE THREAD</p>
+      </blockquote>
+
+      <!-- ¶ 03 -->
+      <div class="row gap-3" style="align-items:baseline;margin-top:8px">
+        <span style="font-size:28px;font-weight:700;color:var(--accent);line-height:1">¶ 03</span>
+        <span class="sk-mono" style="font-size:11px;letter-spacing:2px">WHAT &middot; TO &middot; WATCH</span>
+        <span class="grow" style="border-top:1px dashed var(--ink);height:1px"></span>
+      </div>
+      <p style="font-size:18px;line-height:1.65;margin:0">Check your own repositories for the trigger before starting a Claude Code session on any project with external contributors: run <code style="background:#eee;padding:2px 5px;font-family:monospace">git log --all --oneline | grep -i openclaw</code> to see if any commit mentions the string. Watch for an official Anthropic statement — the company said nothing publicly within 24 hours of the report going viral. If Anthropic removes or limits the trigger, expect a policy announcement clarifying what keyword-based enforcement is still active. Evaluate whether your organisation's AI tool policy should include testing AI coding assistants against adversarial repository content before wider deployment.</p>
+
+      <!-- Sources -->
+      <div class="sk-box-soft" style="padding:12px 16px;background:var(--card);margin-top:4px">
+        <div class="row gap-3" style="align-items:baseline;flex-wrap:wrap">
+          <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">SOURCE</span>
+          <a href="https://news.ycombinator.com/item?id=47963204" class="sk-mono" style="font-size:11px;letter-spacing:1px;color:var(--teal);text-decoration:underline;text-underline-offset:2px">HN DISCUSSION &middot; 1,172 PTS &#8599;</a>
+          <span class="sk-mono" style="font-size:10px;color:var(--ink-2)">&middot;</span>
+          <a href="https://x.com/theo/status/2049645973350363168" class="sk-mono" style="font-size:11px;letter-spacing:1px;color:var(--teal);text-decoration:underline;text-underline-offset:2px">ORIGINAL POST &middot; X.COM &#8599;</a>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <hr class="sk-rule" style="margin-top:18px" />
+  <footer class="row" style="justify-content:space-between;padding:10px 4px;align-items:baseline">
+    <span class="sk-mono" style="font-size:10px;color:var(--ink-2)">&larr; START</span>
+    <span class="sk-mono" style="font-size:10px;letter-spacing:2px">&middot; END OF FILE 01 &middot;</span>
+    <a href="02-1-pytorch-lightning.html" class="sk-mono" style="font-size:10px">NEXT &middot; 02.1 &rarr;</a>
+  </footer>
+</div>
+</body>
+</html>

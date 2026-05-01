@@ -28,5 +28,11 @@
     "date": "2026-04-30",
     "path": "issues/005/index.html",
     "topics": ["AI", "INFRASTRUCTURE", "TOOLS", "SECURITY"]
+  },
+  {
+    "issue": "006",
+    "date": "2026-05-01",
+    "path": "issues/006/index.html",
+    "topics": ["AI", "SECURITY", "DEV TOOLS", "ENTERPRISE", "PRIVACY"]
   }
 ]

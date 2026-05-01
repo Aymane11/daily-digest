@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="alternate" type="application/rss+xml" title="Daily Digest RSS" href="/daily-digest/feed.xml" />
+<title>Daily Digest — cPanel auth bypass CVE-2026-41940 — Issue 006</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{background:#f5f0e8;color:#111;font-family:'Lora',serif;font-size:18px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:root{--paper:#f5f0e8;--card:#fffdf7;--ink:#111111;--ink-2:#5a5a5a;--accent:#d62828;--hi:#f5c842;--teal:#0d7377;--navy:#14213d;--ochre:#e07b39;--slate:#3d5a80;--sage:#2d6a4f;--purple:#7b2d8b;--rule:#111111;}
+.sk-mono{font-family:'IBM Plex Serif','Georgia',serif;font-weight:500}
+.sk-script{font-family:'Lora',serif;font-style:italic}
+.sk-box{border:1.5px solid var(--ink);background:transparent;position:relative}
+.sk-box-soft{border:1.25px solid #2a2a2a;background:transparent}
+.sk-rule{height:0;border:0;border-top:1.5px solid var(--ink);margin:0}
+.sk-rule-thin{height:0;border:0;border-top:1px solid var(--ink);margin:0}
+.sk-stamp{display:inline-block;font-family:'IBM Plex Serif',serif;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:3px 9px;border:1.5px solid currentColor;line-height:1.4;transform:rotate(-1deg);white-space:nowrap}
+.sk-stamp--red{color:var(--accent);border-color:var(--accent)}.sk-stamp--navy{color:var(--navy);border-color:var(--navy)}.sk-stamp--teal{color:var(--teal);border-color:var(--teal)}.sk-stamp--ochre{color:var(--ochre);border-color:var(--ochre)}.sk-stamp--slate{color:var(--slate);border-color:var(--slate)}.sk-stamp--hi{color:#9a7200;border-color:#9a7200}.sk-stamp--sage{color:var(--sage);border-color:var(--sage)}
+.row{display:flex}.col{display:flex;flex-direction:column}.grow{flex:1}
+.gap-2{gap:8px}.gap-3{gap:12px}.gap-4{gap:16px}
+.dd-page{max-width:1200px;margin:0 auto;padding:32px}
+@media(max-width:640px){.dd-page{padding:16px 14px}.sk-grid-brief{grid-template-columns:1fr!important}.sk-dossier-hl{font-size:30px!important}}
+</style>
+</head>
+<body>
+<div class="dd-page">
+
+  <nav class="row" style="justify-content:space-between;align-items:baseline;margin-bottom:8px">
+    <a href="../index.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px">&larr; DIGEST &middot; &numero; 006</a>
+    <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">BRIEF &middot; 03.3 &middot; SECURITY</span>
+    <a href="../../../archive.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--teal)">ARCHIVE &#8599;</a>
+  </nav>
+
+  <section class="sk-box" style="background:var(--ink);color:var(--card);padding:20px 22px">
+    <div class="row" style="justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px">
+      <span class="sk-mono" style="font-size:10px;letter-spacing:3px;color:var(--hi)">BRIEF / 03.3</span>
+      <span class="sk-mono" style="font-size:10px">APR 2026</span>
+      <a href="https://support.cpanel.net/hc/en-us/articles/CVE-2026-41940" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--sage)">SOURCE &middot; CPANEL &#8599;</a>
+    </div>
+    <div class="row gap-2" style="margin-top:12px;flex-wrap:wrap">
+      <span class="sk-stamp sk-stamp--hi">SECURITY</span>
+      <span class="sk-stamp" style="color:var(--card);border-color:var(--card)">WEB HOSTING</span>
+    </div>
+    <h1 class="sk-dossier-hl" style="font-size:46px;font-weight:700;line-height:1.08;letter-spacing:-0.5px;text-wrap:balance;margin:14px 0 0">
+      cPanel/WHM auth bypass CVE-2026-41940 exploited in the wild via CRLF injection
+    </h1>
+    <p class="sk-script" style="font-size:22px;color:var(--hi);margin:12px 0 0">All supported cPanel and WHM versions are affected. Attackers are using CRLF injection to bypass session validation and gain unauthenticated administrative access to hosting control panels.</p>
+    <div class="row gap-3" style="margin-top:14px">
+      <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">VIA &middot; CPANEL SECURITY</span>
+      <span class="sk-mono" style="font-size:10px;color:var(--hi)">&middot; 2 MIN READ</span>
+    </div>
+  </section>
+
+  <section class="sk-grid-brief" style="display:grid;grid-template-columns:1fr 300px;gap:14px;margin-top:12px">
+    <div class="col gap-3">
+      <div class="sk-box" style="background:var(--hi);padding:16px">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0">&#9733; WHAT HAPPENED</p>
+        <hr class="sk-rule-thin" style="margin:8px 0 10px" />
+        <p style="font-size:19px;line-height:1.65;margin:0">CVE-2026-41940 is a CRLF injection vulnerability in the cPanel and WHM session authentication layer. By injecting carriage-return/line-feed characters into specific HTTP header fields, an unauthenticated attacker can manipulate the session token validation logic and obtain WHM root-level access without valid credentials. cPanel confirmed active exploitation in the wild in their advisory published April 28. The flaw affects every version in the supported release track, and a patch was pushed via the automatic update mechanism on the same day. Servers with auto-updates disabled are still vulnerable.</p>
+      </div>
+
+      <div class="sk-box" style="background:var(--card);padding:16px">
+        <div class="row gap-3" style="align-items:baseline;margin-bottom:10px">
+          <span style="font-size:28px;font-weight:700;color:var(--accent);line-height:1">¶ 01</span>
+          <span class="sk-mono" style="font-size:11px;letter-spacing:2px">WHY &middot; IT &middot; MATTERS</span>
+        </div>
+        <p style="font-size:18px;line-height:1.65;margin:0">cPanel/WHM runs on a substantial share of shared and reseller hosting infrastructure — estimates put it at over 70 million domains globally. A WHM authentication bypass gives an attacker root equivalent access: they can read all hosted emails, dump databases, plant webshells, and pivot to any site on the server. The attack surface is the WHM port (2087), which many hosts expose directly to the internet. Because cPanel is typically the management layer for many downstream customers, a single compromised server can expose hundreds of independent businesses.</p>
+      </div>
+
+      <div class="sk-box" style="background:var(--card);padding:16px">
+        <div class="row gap-3" style="align-items:baseline;margin-bottom:10px">
+          <span style="font-size:28px;font-weight:700;color:var(--accent);line-height:1">¶ 02</span>
+          <span class="sk-mono" style="font-size:11px;letter-spacing:2px">WHAT &middot; TO &middot; WATCH</span>
+        </div>
+        <p style="font-size:18px;line-height:1.65;margin:0">Confirm your cPanel/WHM version immediately — run <code style="font-family:monospace;font-size:16px">cat /usr/local/cpanel/version</code> and compare against cPanel's advisory. If auto-updates are disabled, apply the patch manually before doing anything else. Restrict WHM port 2087 to known management IPs at the firewall level if you haven't already — this is the simplest mitigation for internet-facing panels. Review WHM access logs for the past 72 hours for unauthenticated session creation events. If you're a customer of a shared host, contact your provider to confirm their patch status.</p>
+      </div>
+    </div>
+
+    <aside class="col gap-3">
+      <div class="sk-box" style="background:var(--card);padding:14px">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0">BY &middot; THE &middot; NUMBERS</p>
+        <hr class="sk-rule-thin" style="margin:8px 0 12px" />
+        <div class="col gap-3">
+          <div>
+            <div style="font-size:48px;font-weight:700;line-height:0.95;color:var(--accent)">70M+</div>
+            <p class="sk-mono" style="font-size:10px;margin:4px 0 0;letter-spacing:1px">DOMAINS ON CPANEL GLOBALLY</p>
+          </div>
+          <hr class="sk-rule-thin" />
+          <div>
+            <div style="font-size:48px;font-weight:700;line-height:0.95">9.8</div>
+            <p class="sk-mono" style="font-size:10px;margin:4px 0 0;letter-spacing:1px">CVSS SCORE (CRITICAL)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="sk-box-soft" style="padding:12px">
+        <p class="sk-mono" style="font-size:10px;letter-spacing:2px;margin:0 0 10px">FILED &middot; UNDER</p>
+        <div class="row gap-2" style="flex-wrap:wrap">
+          <span class="sk-stamp sk-stamp--red">SECURITY</span>
+          <span class="sk-stamp sk-stamp--navy">CVE</span>
+          <span class="sk-stamp sk-stamp--teal">HOSTING</span>
+        </div>
+      </div>
+
+      <div class="sk-box-soft" style="padding:12px;background:var(--card)">
+        <p class="sk-mono" style="font-size:10px;letter-spacing:2px;margin:0 0 8px">SOURCE</p>
+        <a href="https://support.cpanel.net/hc/en-us/articles/CVE-2026-41940" class="sk-mono" style="font-size:11px;letter-spacing:1px;color:var(--teal);text-decoration:underline;text-underline-offset:2px">CPANEL ADVISORY &#8599;</a>
+        <p class="sk-mono" style="font-size:9px;color:var(--ink-2);margin:6px 0 0">PUBLISHED APR 28 2026 · IN-WILD EXPLOITATION CONFIRMED</p>
+      </div>
+    </aside>
+  </section>
+
+  <hr class="sk-rule" style="margin-top:18px" />
+  <footer class="row" style="justify-content:space-between;padding:10px 4px;align-items:baseline">
+    <a href="03-2-grok-4-3.html" class="sk-mono" style="font-size:10px">&larr; PREV &middot; 03.2</a>
+    <span class="sk-mono" style="font-size:10px;letter-spacing:2px">&middot; END OF FILE 03.3 &middot;</span>
+    <a href="03-4-kimi-k2-6.html" class="sk-mono" style="font-size:10px">NEXT &middot; 03.4 &rarr;</a>
+  </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="alternate" type="application/rss+xml" title="Daily Digest RSS" href="/daily-digest/feed.xml" />
+<title>Daily Digest — If I Could Make My Own GitHub — Issue 006</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{background:#f5f0e8;color:#111;font-family:'Lora',serif;font-size:18px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:root{--paper:#f5f0e8;--card:#fffdf7;--ink:#111111;--ink-2:#5a5a5a;--accent:#d62828;--hi:#f5c842;--teal:#0d7377;--navy:#14213d;--ochre:#e07b39;--slate:#3d5a80;--sage:#2d6a4f;--purple:#7b2d8b;--rule:#111111;}
+.sk-mono{font-family:'IBM Plex Serif','Georgia',serif;font-weight:500}
+.sk-script{font-family:'Lora',serif;font-style:italic}
+.sk-box{border:1.5px solid var(--ink);background:transparent;position:relative}
+.sk-box-soft{border:1.25px solid #2a2a2a;background:transparent}
+.sk-rule{height:0;border:0;border-top:1.5px solid var(--ink);margin:0}
+.sk-rule-thin{height:0;border:0;border-top:1px solid var(--ink);margin:0}
+.sk-stamp{display:inline-block;font-family:'IBM Plex Serif',serif;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:3px 9px;border:1.5px solid currentColor;line-height:1.4;transform:rotate(-1deg);white-space:nowrap}
+.sk-stamp--red{color:var(--accent);border-color:var(--accent)}.sk-stamp--navy{color:var(--navy);border-color:var(--navy)}.sk-stamp--teal{color:var(--teal);border-color:var(--teal)}.sk-stamp--ochre{color:var(--ochre);border-color:var(--ochre)}.sk-stamp--slate{color:var(--slate);border-color:var(--slate)}.sk-stamp--hi{color:#9a7200;border-color:#9a7200}.sk-stamp--sage{color:var(--sage);border-color:var(--sage)}
+.row{display:flex}.col{display:flex;flex-direction:column}.grow{flex:1}
+.gap-2{gap:8px}.gap-3{gap:12px}.gap-4{gap:16px}
+.dd-page{max-width:1200px;margin:0 auto;padding:32px}
+@media(max-width:640px){.dd-page{padding:16px 14px}.sk-grid-brief{grid-template-columns:1fr!important}.sk-dossier-hl{font-size:30px!important}}
+</style>
+</head>
+<body>
+<div class="dd-page">
+
+  <nav class="row" style="justify-content:space-between;align-items:baseline;margin-bottom:8px">
+    <a href="../index.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px">&larr; DIGEST &middot; &numero; 006</a>
+    <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">BRIEF &middot; 03.6 &middot; ENGINEERING</span>
+    <a href="../../../archive.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--teal)">ARCHIVE &#8599;</a>
+  </nav>
+
+  <section class="sk-box" style="background:var(--ink);color:var(--card);padding:20px 22px">
+    <div class="row" style="justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px">
+      <span class="sk-mono" style="font-size:10px;letter-spacing:3px;color:var(--hi)">BRIEF / 03.6</span>
+      <span class="sk-mono" style="font-size:10px">APR 2026</span>
+      <a href="https://matduggan.com/if-i-could-make-my-own-github/" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--sage)">SOURCE &middot; MATDUGGAN.COM &#8599;</a>
+    </div>
+    <div class="row gap-2" style="margin-top:12px;flex-wrap:wrap">
+      <span class="sk-stamp sk-stamp--hi">ENGINEERING</span>
+      <span class="sk-stamp" style="color:var(--card);border-color:var(--card)">DEV TOOLS</span>
+    </div>
+    <h1 class="sk-dossier-hl" style="font-size:46px;font-weight:700;line-height:1.08;letter-spacing:-0.5px;text-wrap:balance;margin:14px 0 0">
+      "If I could make my own GitHub" — a practitioner's critique of the modern code forge
+    </h1>
+    <p class="sk-script" style="font-size:22px;color:var(--hi);margin:12px 0 0">Mat Duggan argues for JJ as the VCS layer, Gerrit-style code review, stacked PRs as first-class primitives, and a lightweight forge that runs on a Raspberry Pi — and names the alternatives that already do parts of this today.</p>
+    <div class="row gap-3" style="margin-top:14px">
+      <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">BY &middot; MAT DUGGAN</span>
+      <span class="sk-mono" style="font-size:10px;color:var(--hi)">&middot; 3 MIN READ</span>
+    </div>
+  </section>
+
+  <section class="sk-grid-brief" style="display:grid;grid-template-columns:1fr 300px;gap:14px;margin-top:12px">
+    <div class="col gap-3">
+      <div class="sk-box" style="background:var(--hi);padding:16px">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0">&#9733; WHAT HAPPENED</p>
+        <hr class="sk-rule-thin" style="margin:8px 0 10px" />
+        <p style="font-size:19px;line-height:1.65;margin:0">Mat Duggan published a detailed essay critiquing GitHub's accumulated design debt and outlining what a better code forge would look like in 2026. The piece is concrete rather than abstract: it names Jujutsu (JJ) as a better VCS alternative to Git for the underlying operations layer, argues for Gerrit's change-based review model over GitHub's PR model, calls for stacked pull requests as a first-class feature rather than a workaround, and asks for a forge light enough to self-host on commodity hardware. The essay also evaluates existing alternatives — Forgejo, Gitea, Phabricator, Radicle — on each dimension.</p>
+      </div>
+
+      <div class="sk-box" style="background:var(--card);padding:16px">
+        <div class="row gap-3" style="align-items:baseline;margin-bottom:10px">
+          <span style="font-size:28px;font-weight:700;color:var(--accent);line-height:1">¶ 01</span>
+          <span class="sk-mono" style="font-size:11px;letter-spacing:2px">WHY &middot; IT &middot; MATTERS</span>
+        </div>
+        <p style="font-size:18px;line-height:1.65;margin:0">The pull-request model shapes how teams structure work: because GitHub PRs are atomic "done or not done" units, engineers avoid small incremental commits and instead batch large changes — the opposite of what continuous integration requires. The critique has real operational weight as AI-assisted development produces higher code volume: review processes designed for human-paced output are visibly buckling. Duggan's point about self-hostability is also newly urgent given that GitHub outages and Microsoft policy decisions are now operational risks for the organisations that host critical infrastructure there.</p>
+      </div>
+
+      <div class="sk-box" style="background:var(--card);padding:16px">
+        <div class="row gap-3" style="align-items:baseline;margin-bottom:10px">
+          <span style="font-size:28px;font-weight:700;color:var(--accent);line-height:1">¶ 02</span>
+          <span class="sk-mono" style="font-size:11px;letter-spacing:2px">WHAT &middot; TO &middot; WATCH</span>
+        </div>
+        <p style="font-size:18px;line-height:1.65;margin:0">Read the full engineering deep-dive at the link below — it includes a practical comparison table of current forges against each stated requirement. Try Jujutsu for a week on a personal project before adopting it at team scale; the mental model shift from Git branches to JJ's change-centric model is non-trivial. Evaluate whether stacked PRs via <code style="font-family:monospace;font-size:16px">gh stack</code> or Graphite would address your team's specific bottleneck before committing to a full forge migration.</p>
+      </div>
+    </div>
+
+    <aside class="col gap-3">
+      <div class="sk-box" style="background:var(--card);padding:14px">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0">BY &middot; THE &middot; NUMBERS</p>
+        <hr class="sk-rule-thin" style="margin:8px 0 12px" />
+        <div class="col gap-3">
+          <div>
+            <div style="font-size:48px;font-weight:700;line-height:0.95;color:var(--accent)">4</div>
+            <p class="sk-mono" style="font-size:10px;margin:4px 0 0;letter-spacing:1px">ALTERNATIVE FORGES EVALUATED</p>
+          </div>
+          <hr class="sk-rule-thin" />
+          <div>
+            <div style="font-size:48px;font-weight:700;line-height:0.95">100M+</div>
+            <p class="sk-mono" style="font-size:10px;margin:4px 0 0;letter-spacing:1px">GITHUB REPOSITORIES — PLATFORM LOCK-IN SCALE</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="sk-box-soft" style="padding:12px">
+        <p class="sk-mono" style="font-size:10px;letter-spacing:2px;margin:0 0 10px">FILED &middot; UNDER</p>
+        <div class="row gap-2" style="flex-wrap:wrap">
+          <span class="sk-stamp sk-stamp--red">ENGINEERING</span>
+          <span class="sk-stamp sk-stamp--navy">GIT</span>
+          <span class="sk-stamp sk-stamp--teal">DEV TOOLS</span>
+        </div>
+      </div>
+
+      <div class="sk-box-soft" style="padding:12px;background:var(--card)">
+        <p class="sk-mono" style="font-size:10px;letter-spacing:2px;margin:0 0 8px">SOURCE</p>
+        <a href="https://matduggan.com/if-i-could-make-my-own-github/" class="sk-mono" style="font-size:11px;letter-spacing:1px;color:var(--teal);text-decoration:underline;text-underline-offset:2px">MATDUGGAN.COM &#8599;</a>
+        <p class="sk-mono" style="font-size:9px;color:var(--ink-2);margin:6px 0 0">BY MAT DUGGAN · APR 2026</p>
+      </div>
+    </aside>
+  </section>
+
+  <hr class="sk-rule" style="margin-top:18px" />
+  <footer class="row" style="justify-content:space-between;padding:10px 4px;align-items:baseline">
+    <a href="03-5-rivian-data.html" class="sk-mono" style="font-size:10px">&larr; PREV &middot; 03.5</a>
+    <span class="sk-mono" style="font-size:10px;letter-spacing:2px">&middot; END OF FILE 03.6 &middot;</span>
+    <a href="04-1-kimi-k2-6-tool.html" class="sk-mono" style="font-size:10px">NEXT &middot; 04.1 &rarr;</a>
+  </footer>
+</div>
+</body>
+</html>
