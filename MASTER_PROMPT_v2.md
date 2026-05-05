@@ -194,6 +194,7 @@ Before pushing any issue, verify:
 - [ ] Numbers are prominent (1-9 spelled, 10+ as numerals, currency like $2.4B)
 - [ ] No banned words used (revolutionary, game-changing, groundbreaking, etc.)
 - [ ] CSS uses variables only, no hardcoded hex colors
+- [ ] Root `index.html` updated: `<meta http-equiv="refresh">` URL, `<title>`, issue number, date, topics line, headline teasers, and `OPEN ISSUE {NNN}` link all point to the new issue
 
 ---
 
