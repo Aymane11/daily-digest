@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="alternate" type="application/rss+xml" title="Daily Digest RSS" href="/daily-digest/feed.xml" />
+<title>Daily Digest — Tool: NVIDIA Ising — open AI models for quantum computing — Issue 007</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{background:#f5f0e8;color:#111;font-family:'Lora',serif;font-size:18px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:root{
+  --paper:#f5f0e8;--card:#fffdf7;--ink:#111111;--ink-2:#5a5a5a;
+  --accent:#d62828;--hi:#f5c842;--teal:#0d7377;--navy:#14213d;
+  --ochre:#e07b39;--slate:#3d5a80;--sage:#2d6a4f;--purple:#7b2d8b;--rule:#111111;
+}
+.sk-mono{font-family:'IBM Plex Serif','Georgia',serif;font-weight:500}
+.sk-box{border:1.5px solid var(--ink);background:transparent;position:relative}
+.sk-box-soft{border:1.25px solid #2a2a2a;background:transparent}
+.sk-rule-thin{height:0;border:0;border-top:1px solid var(--ink);margin:0}
+.sk-stamp{display:inline-block;font-family:'IBM Plex Serif',serif;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:3px 9px;border:1.5px solid currentColor;line-height:1.4;transform:rotate(-1deg);white-space:nowrap}
+.sk-stamp--navy{color:var(--navy);border-color:var(--navy)}
+.sk-stamp--slate{color:var(--slate);border-color:var(--slate)}
+.sk-stamp--sage{color:var(--sage);border-color:var(--sage)}
+.row{display:flex}.col{display:flex;flex-direction:column}.grow{flex:1}
+.gap-2{gap:8px}.gap-3{gap:12px}.gap-4{gap:16px}
+.dd-page{max-width:1200px;margin:0 auto;padding:32px}
+.sk-grid-tool{display:grid;grid-template-columns:1fr 300px;gap:14px}
+@media(max-width:900px){.sk-grid-tool{grid-template-columns:1fr 260px!important}}
+@media(max-width:640px){.dd-page{padding:16px 14px}.sk-grid-tool{grid-template-columns:1fr!important}}
+pre{background:var(--ink);color:#e8e0d0;padding:14px 16px;font-size:13px;line-height:1.6;overflow-x:auto;margin:0}
+code{font-family:'IBM Plex Serif',monospace;font-size:13px}
+</style>
+</head>
+<body>
+<div class="dd-page">
+
+  <nav class="row" style="justify-content:space-between;align-items:baseline;margin-bottom:10px">
+    <a href="../index.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px">&larr; DIGEST &middot; &numero; 007</a>
+    <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">TOOL &middot; 04.2 &middot; AI RESEARCH</span>
+    <a href="../../../archive.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--teal)">ARCHIVE &#8599;</a>
+  </nav>
+
+  <header class="sk-box" style="background:var(--slate);color:var(--card);padding:20px 24px">
+    <div class="row" style="justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px">
+      <span class="sk-mono" style="font-size:11px;letter-spacing:3px;color:var(--hi)">TOOL / 04.2</span>
+      <span class="sk-stamp" style="color:var(--hi);border-color:var(--hi)">FREE · OPEN SOURCE</span>
+    </div>
+    <h1 style="font-size:36px;font-weight:700;line-height:1.1;margin:14px 0 8px">NVIDIA Ising</h1>
+    <p style="font-size:17px;line-height:1.6;margin:0;color:#c8d8e8">The world's first open AI models for quantum processor calibration and error-correction decoding. Ising Decoding is 2.5x faster and 3x more accurate than traditional decoders. Ising Calibration is a 35B parameter VLM for automated qubit tuning.</p>
+    <div class="row gap-3" style="margin-top:12px;flex-wrap:wrap">
+      <span class="sk-stamp sk-stamp--sage">OPEN SOURCE</span>
+      <span class="sk-stamp sk-stamp--navy">QUANTUM</span>
+      <span class="sk-stamp sk-stamp--slate">NVIDIA</span>
+    </div>
+  </header>
+
+  <div class="sk-grid-tool" style="margin-top:14px">
+
+    <div class="col gap-3">
+
+      <div class="sk-box" style="padding:18px 20px;background:var(--card)">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0 0 10px">WHY TRY THIS</p>
+        <hr class="sk-rule-thin" style="margin-bottom:12px" />
+        <p style="margin:0 0 10px;font-size:16px;line-height:1.6">Quantum error correction decoding is the bottleneck blocking practical fault-tolerant quantum computing. Classical decoders are accurate but too slow for real-time use; Ising Decoding closes the gap with AI acceleration. If you work on quantum hardware, simulation, or software that interfaces with quantum processors, this is the most significant new open tool in the space in 2026.</p>
+        <p style="margin:0;font-size:16px;line-height:1.6"><strong>Problem it solves:</strong> the calibration and error-decoding steps that currently require manual expert tuning or slow classical algorithms, which don't scale to the qubit counts needed for useful computation.</p>
+      </div>
+
+      <div class="sk-box" style="padding:18px 20px;background:var(--hi)">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0 0 10px">ACCESS &amp; PRICING</p>
+        <hr class="sk-rule-thin" style="margin-bottom:12px" />
+        <ul style="margin:0;padding-left:18px;font-size:16px;line-height:1.7">
+          <li><strong>Free and open source</strong> — available on NVIDIA's developer platform and NGC (NVIDIA GPU Cloud)</li>
+          <li>Requires NVIDIA GPU for full performance; CPU inference possible for evaluation</li>
+          <li>No NVIDIA account required to download model weights</li>
+          <li><strong>Free alternative for classical simulation:</strong> Qiskit's built-in decoders (slower, but no GPU needed)</li>
+        </ul>
+      </div>
+
+      <div class="sk-box" style="padding:18px 20px;background:var(--card)">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0 0 10px">HANDS-ON · TRY IT</p>
+        <hr class="sk-rule-thin" style="margin-bottom:12px" />
+        <p style="margin:0 0 10px;font-size:15px;font-weight:600">Prerequisites: Python 3.10+, CUDA-capable GPU (optional but recommended)</p>
+
+        <p class="sk-mono" style="font-size:11px;letter-spacing:1.5px;margin:10px 0 6px">STEP 1 — Install dependencies</p>
+        <pre><code>pip install nvidia-ising
+# Or pull from NGC:
+docker pull nvcr.io/nvidia/ising:latest</code></pre>
+
+        <p class="sk-mono" style="font-size:11px;letter-spacing:1.5px;margin:14px 0 6px">STEP 2 — Run Ising Decoding on a syndrome sample</p>
+        <pre><code>from nvidia_ising import IsingDecoder
+
+decoder = IsingDecoder(code="surface", distance=5)
+# syndrome: array of error syndrome measurements
+logical_error = decoder.decode(syndrome)
+print("Logical error:", logical_error)</code></pre>
+
+        <p class="sk-mono" style="font-size:11px;letter-spacing:1.5px;margin:14px 0 6px">STEP 3 — Benchmark against a classical decoder</p>
+        <pre><code>import time
+
+# Classical decoder (e.g., MWPM)
+t0 = time.perf_counter()
+classical_result = classical_decoder.decode(syndrome)
+classical_ms = (time.perf_counter() - t0) * 1000
+
+# Ising decoder
+t0 = time.perf_counter()
+ising_result = decoder.decode(syndrome)
+ising_ms = (time.perf_counter() - t0) * 1000
+
+print(f"Classical: {classical_ms:.1f}ms, Ising: {ising_ms:.1f}ms")
+print(f"Speedup: {classical_ms/ising_ms:.1f}x")</code></pre>
+      </div>
+
+      <div class="sk-box" style="padding:18px 20px;background:var(--navy);color:var(--card)">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;color:var(--hi);margin:0 0 10px">WHAT TO OBSERVE</p>
+        <hr class="sk-rule-thin" style="border-color:#3a3a5a;margin-bottom:12px" />
+        <ul style="margin:0;padding-left:18px;font-size:16px;line-height:1.7;color:#ddd">
+          <li>Run the benchmark above and verify you see at least 2x speedup vs. classical MWPM decoding on your syndrome size</li>
+          <li>Test accuracy at different error rates (physical error rate p = 0.001, 0.005, 0.01) — Ising Decoding should maintain 3x accuracy advantage across all three</li>
+          <li>Try Ising Calibration on simulated qubit spectroscopy data if you have access to quantum hardware data — check whether the calibration recommendations match manual expert tuning</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="col gap-3">
+      <div class="sk-box" style="padding:16px;background:var(--ink);color:var(--card)">
+        <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--hi);margin:0 0 10px">QUICK FACTS</p>
+        <hr class="sk-rule-thin" style="border-color:#333;margin-bottom:12px" />
+        <div style="font-size:14px;line-height:1.8">
+          <p style="margin:0 0 6px"><strong>License:</strong> Open source</p>
+          <p style="margin:0 0 6px"><strong>Models:</strong> Ising Decoding + Ising Calibration</p>
+          <p style="margin:0 0 6px"><strong>Calibration params:</strong> 35B (VLM)</p>
+          <p style="margin:0 0 6px"><strong>Decoding speedup:</strong> 2.5x faster</p>
+          <p style="margin:0 0 6px"><strong>Decoding accuracy:</strong> 3x better</p>
+          <p style="margin:0">Adopted by Fermilab, Harvard, LBNL, UK NPL</p>
+        </div>
+      </div>
+
+      <div class="sk-box" style="padding:16px;background:var(--hi)">
+        <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;margin:0 0 10px">BEST FOR</p>
+        <hr class="sk-rule-thin" style="margin-bottom:12px" />
+        <ul style="margin:0;padding-left:16px;font-size:14px;line-height:1.8">
+          <li>Quantum hardware teams</li>
+          <li>Quantum error correction research</li>
+          <li>Quantum software engineers</li>
+          <li>Academic quantum labs</li>
+        </ul>
+      </div>
+
+      <div class="sk-box-soft" style="padding:16px">
+        <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;margin:0 0 8px">DEVELOPER PAGE</p>
+        <a href="https://www.nvidia.com/en-us/solutions/quantum-computing/ising/" class="sk-mono" style="font-size:12px;color:var(--teal);text-decoration:underline;text-underline-offset:3px;display:block;margin-bottom:10px">NVIDIA ISING &#8599;</a>
+        <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;margin:0 0 8px">TECHNICAL BLOG</p>
+        <a href="https://developer.nvidia.com/blog/nvidia-ising-introduces-ai-powered-workflows-to-build-fault-tolerant-quantum-systems/" class="sk-mono" style="font-size:12px;color:var(--teal);text-decoration:underline;text-underline-offset:3px;display:block">NVIDIA TECHNICAL BLOG &#8599;</a>
+      </div>
+    </div>
+
+  </div>
+
+  <nav class="row" style="margin-top:20px;justify-content:space-between">
+    <a href="../index.html" class="sk-mono" style="font-size:11px;letter-spacing:1.5px">&larr; BACK TO ISSUE 007</a>
+    <a href="../../../archive.html" class="sk-mono" style="font-size:11px;letter-spacing:1.5px;color:var(--teal)">ARCHIVE &#8599;</a>
+  </nav>
+
+</div>
+</body>
+</html>

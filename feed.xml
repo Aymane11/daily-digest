@@ -8,6 +8,134 @@
     <atom:link href="https://aymane11.github.io/daily-digest/feed.xml" rel="self" type="application/rss+xml"/>
 
     <item>
+      <title>How OpenAI delivers low-latency voice AI at scale</title>
+      <link>https://aymane11.github.io/daily-digest/issues/007/stories/01-lead-openai-voice-infra.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/007/stories/01-lead-openai-voice-infra.html</guid>
+      <pubDate>Tue, 05 May 2026 07:00:00 +0000</pubDate>
+      <description>OpenAI published its first in-depth engineering post on the real-time voice infrastructure powering ChatGPT Voice and the Realtime API. End-to-end latency sits at 250–500 ms — inside the 500 ms threshold where conversation feels natural. The core redesign tackles three hard constraints: one-port-per-session WebRTC limits, stateful session ownership, and global first-hop routing. A new model snapshot improved instruction-following accuracy by 18.6 percentage points and tool-calling accuracy by 12…</description>
+    </item>
+
+    <item>
+      <title>Cerebras targets $3.5B IPO at $26.6B valuation</title>
+      <link>https://aymane11.github.io/daily-digest/issues/007/stories/02-1-cerebras-ipo.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/007/stories/02-1-cerebras-ipo.html</guid>
+      <pubDate>Tue, 05 May 2026 07:00:00 +0000</pubDate>
+      <description>Cerebras Systems plans to sell 28 million shares at $115–$125 each, targeting a $3.5B raise and $26.6B market cap — the largest tech IPO of 2026 so far. Revenue hit $510M in 2025 (up 76% year-over-year) with $237.8M net income. Its WSE-3 chip has 900,000 cores and 21 petabytes of memory bandwidth. The company has a $10B+ compute deal with OpenAI and is entering AWS data centers.</description>
+    </item>
+
+    <item>
+      <title>GameStop makes $55.5B unsolicited offer for eBay</title>
+      <link>https://aymane11.github.io/daily-digest/issues/007/stories/02-2-gamestop-ebay.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/007/stories/02-2-gamestop-ebay.html</guid>
+      <pubDate>Tue, 05 May 2026 07:00:00 +0000</pubDate>
+      <description>GameStop offered $125 per share for eBay — a 20% premium to eBay's last close ($104.07) and 46% above where eBay traded in February when GameStop began accumulating its 5% stake. The deal is half cash, half GameStop stock, requiring $20B in bank debt plus GameStop's $9.4B cash reserve. eBay's market reacted with a muted 5% gain to ~$109 — far below the offer price — suggesting investors doubt the deal closes. Ryan Cohen plans to cut $2B in annual costs within 12 months.</description>
+    </item>
+
+    <item>
+      <title>Microsoft Edge stores all passwords in memory as cleartext by design</title>
+      <link>https://aymane11.github.io/daily-digest/issues/007/stories/02-3-edge-passwords-cleartext.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/007/stories/02-3-edge-passwords-cleartext.html</guid>
+      <pubDate>Tue, 05 May 2026 07:00:00 +0000</pubDate>
+      <description>Microsoft Edge decrypts every credential in your saved password manager and keeps them resident in process memory from the moment the browser launches — regardless of whether you visit those sites. Chrome does not do this. An attacker with any local access (remote admin, shared terminal server session, or co-located process) can read all passwords without elevation. Microsoft's official response: this behavior is &quot;by design.&quot;</description>
+    </item>
+
+    <item>
+      <title>Agent Skills: enforcing senior engineering discipline in AI workflows</title>
+      <link>https://aymane11.github.io/daily-digest/issues/007/stories/02-4-agent-skills.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/007/stories/02-4-agent-skills.html</guid>
+      <pubDate>Tue, 05 May 2026 07:00:00 +0000</pubDate>
+      <description>Addy Osmani (Chrome team, Google) published a post and MIT-licensed GitHub repository with 20 &quot;skills&quot; — markdown workflow files injected into agent context — covering six software lifecycle phases: Define, Plan, Build, Verify, Review, Ship. The project has 26K GitHub stars. The key design principle: skills encode checkpoint-based workflows with anti-rationalization tables (pre-written rebuttals to the excuses agents give for skipping steps). No step is advisory; all terminate with concrete evid…</description>
+    </item>
+
+    <item>
+      <title>Developers worry Bun's Anthropic acquisition will erode its quality</title>
+      <link>https://aymane11.github.io/daily-digest/issues/007/stories/03-1-bun-anthropic-concerns.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/007/stories/03-1-bun-anthropic-concerns.html</guid>
+      <pubDate>Tue, 05 May 2026 07:00:00 +0000</pubDate>
+      <description>Anthropic acquired Bun in December 2025 and kept it MIT-licensed, but a widely-read post argues that as Bun's team integrates further into Anthropic, the product-layer decisions shaping Claude Code — reduced reasoning defaults, billing confusion, unusual content restrictions — may eventually affect Bun's developer experience too. The author is switching personal projects to pnpm and plans to reassess in a year.</description>
+    </item>
+
+    <item>
+      <title>YC's undisclosed $5B+ stake in OpenAI is a conflict of interest</title>
+      <link>https://aymane11.github.io/daily-digest/issues/007/stories/03-2-yc-openai-stake.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/007/stories/03-2-yc-openai-stake.html</guid>
+      <pubDate>Tue, 05 May 2026 07:00:00 +0000</pubDate>
+      <description>Y Combinator owns approximately 0.6% of OpenAI — seeded through YC Research in 2016 when Sam Altman was running YC before becoming OpenAI's CEO. At OpenAI's $852B valuation, that stake is worth over $5B. John Gruber's analysis argues this financial interest was not disclosed in the New Yorker piece that quoted Paul Graham defending Altman's trustworthiness — making Graham's defense structurally less credible than it appeared.</description>
+    </item>
+
+    <item>
+      <title>Stripe formats 25M-line Ruby codebase overnight with rubyfmt</title>
+      <link>https://aymane11.github.io/daily-digest/issues/007/stories/03-3-stripe-rubyfmt.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/007/stories/03-3-stripe-rubyfmt.html</guid>
+      <pubDate>Tue, 05 May 2026 07:00:00 +0000</pubDate>
+      <description>Stripe's Developer Productivity team extended rubyfmt — a Rust-based, zero-config Ruby autoformatter — and rolled it out across the world's largest Ruby codebase in a single overnight run. The mass-format touched 62,213 files and 25 million lines. Today 100% of Stripe's Ruby code is formatted with rubyfmt, and engineers report near-invisible, frictionless enforcement with no style debates.</description>
+    </item>
+
+    <item>
+      <title>NVIDIA releases Ising, open AI models for quantum error correction</title>
+      <link>https://aymane11.github.io/daily-digest/issues/007/stories/03-4-nvidia-ising.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/007/stories/03-4-nvidia-ising.html</guid>
+      <pubDate>Tue, 05 May 2026 07:00:00 +0000</pubDate>
+      <description>NVIDIA released Ising — a family of open AI models designed to accelerate quantum computing by solving two hard problems: processor calibration (automatically tuning qubits) and real-time error-correction decoding. Ising Decoding runs 2.5x faster and is 3x more accurate than traditional decoders. Ising Calibration is a 35B parameter vision-language model trained on multi-modality qubit data. Both are open-source and available on NVIDIA's developer platform.</description>
+    </item>
+
+    <item>
+      <title>Cognitive debt: AI coding tools erode developer comprehension</title>
+      <link>https://aymane11.github.io/daily-digest/issues/007/stories/03-5-cognitive-debt.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/007/stories/03-5-cognitive-debt.html</guid>
+      <pubDate>Tue, 05 May 2026 07:00:00 +0000</pubDate>
+      <description>A body of 2026 research on &quot;cognitive debt&quot; — the accumulated gap between what AI builds and what developers understand — finds a stark split. Developers who use AI for pure delegation (accept output, move on) score below 40% on comprehension tests of the code they shipped. Developers who use AI for conceptual inquiry — arguing back, exploring tradeoffs, rejecting the first answer — score above 65%. The 2025 MIT writing study found exclusively AI-assisted writers showed weaker brain connectivity…</description>
+    </item>
+
+    <item>
+      <title>Pentagon signs AI agreements with 8 big tech companies</title>
+      <link>https://aymane11.github.io/daily-digest/issues/007/stories/03-6-dod-ai-deals.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/007/stories/03-6-dod-ai-deals.html</guid>
+      <pubDate>Tue, 05 May 2026 07:00:00 +0000</pubDate>
+      <description>The Department of Defense announced agreements with eight major technology companies — SpaceX, OpenAI, Google, Microsoft, Nvidia, Amazon Web Services, Oracle, and Reflection — to use their AI tools in classified networks. The deals cover AI models, inference infrastructure, and agentic capabilities deployed within DoD's classified computing environments. Anthropic was notably absent from the list despite earlier Pentagon interest.</description>
+    </item>
+
+    <item>
+      <title>Tool: OpenAI Realtime API (gpt-realtime-mini)</title>
+      <link>https://aymane11.github.io/daily-digest/issues/007/stories/04-1-openai-realtime-api.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/007/stories/04-1-openai-realtime-api.html</guid>
+      <pubDate>Tue, 05 May 2026 07:00:00 +0000</pubDate>
+      <description>Real-time speech-to-speech AI with 250–500 ms end-to-end latency. The new gpt-realtime-mini snapshot adds +18.6 pp instruction-following and +12.9 pp tool-calling accuracy. Handles streaming audio in/out, interruptions, and function calling mid-speech.</description>
+    </item>
+
+    <item>
+      <title>Tool: NVIDIA Ising — open AI models for quantum computing</title>
+      <link>https://aymane11.github.io/daily-digest/issues/007/stories/04-2-nvidia-ising-tool.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/007/stories/04-2-nvidia-ising-tool.html</guid>
+      <pubDate>Tue, 05 May 2026 07:00:00 +0000</pubDate>
+      <description>The world's first open AI models for quantum processor calibration and error-correction decoding. Ising Decoding is 2.5x faster and 3x more accurate than traditional decoders. Ising Calibration is a 35B parameter VLM for automated qubit tuning.</description>
+    </item>
+
+    <item>
+      <title>Tool: Agent Skills (Addy Osmani)</title>
+      <link>https://aymane11.github.io/daily-digest/issues/007/stories/04-3-agent-skills-tool.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/007/stories/04-3-agent-skills-tool.html</guid>
+      <pubDate>Tue, 05 May 2026 07:00:00 +0000</pubDate>
+      <description>20 markdown workflow files for AI coding agents covering the full software lifecycle — Define, Plan, Build, Verify, Review, Ship. Makes spec writing, testing, and code review impossible to skip. 26K GitHub stars. MIT licensed.</description>
+    </item>
+
+    <item>
+      <title>Tool: rubyfmt — zero-config Rust-based Ruby autoformatter</title>
+      <link>https://aymane11.github.io/daily-digest/issues/007/stories/04-4-rubyfmt-tool.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/007/stories/04-4-rubyfmt-tool.html</guid>
+      <pubDate>Tue, 05 May 2026 07:00:00 +0000</pubDate>
+      <description>Zero-config, Rust-based Ruby autoformatter — the tool Stripe used to format 25 million lines of Ruby in a single Saturday morning. Opinionated like gofmt or Prettier, with an AST-diffing correctness check that makes large-scale rollouts safe.</description>
+    </item>
+
+    <item>
+      <title>Engineering Read: Managing Cognitive Debt in AI-Assisted Development</title>
+      <link>https://aymane11.github.io/daily-digest/issues/007/stories/eng-1-cognitive-debt.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/007/stories/eng-1-cognitive-debt.html</guid>
+      <pubDate>Tue, 05 May 2026 07:00:00 +0000</pubDate>
+      <description>Cognitive debt is the accumulated erosion of shared developer understanding caused by shipping code faster than the team can internalize it. A 2026 body of research finds developers who use AI for pure delegation score below 40% on comprehension tests; those who use AI as a tutor score above 65%. The fix is not using AI less — it's using it differently: argue back, edit, reject the first answer, and treat every merged AI-generated function as something you are personally responsible for understa…</description>
+    </item>
+
+    <item>
       <title>Claude Code flags commits that mention OpenClaw</title>
       <link>https://aymane11.github.io/daily-digest/issues/006/stories/01-lead-claude-openclaw.html</link>
       <guid>https://aymane11.github.io/daily-digest/issues/006/stories/01-lead-claude-openclaw.html</guid>

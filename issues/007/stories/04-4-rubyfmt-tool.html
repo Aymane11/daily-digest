@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="alternate" type="application/rss+xml" title="Daily Digest RSS" href="/daily-digest/feed.xml" />
+<title>Daily Digest — Tool: rubyfmt — zero-config Rust-based Ruby autoformatter — Issue 007</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{background:#f5f0e8;color:#111;font-family:'Lora',serif;font-size:18px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:root{
+  --paper:#f5f0e8;--card:#fffdf7;--ink:#111111;--ink-2:#5a5a5a;
+  --accent:#d62828;--hi:#f5c842;--teal:#0d7377;--navy:#14213d;
+  --ochre:#e07b39;--slate:#3d5a80;--sage:#2d6a4f;--purple:#7b2d8b;--rule:#111111;
+}
+.sk-mono{font-family:'IBM Plex Serif','Georgia',serif;font-weight:500}
+.sk-box{border:1.5px solid var(--ink);background:transparent;position:relative}
+.sk-box-soft{border:1.25px solid #2a2a2a;background:transparent}
+.sk-rule-thin{height:0;border:0;border-top:1px solid var(--ink);margin:0}
+.sk-stamp{display:inline-block;font-family:'IBM Plex Serif',serif;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:3px 9px;border:1.5px solid currentColor;line-height:1.4;transform:rotate(-1deg);white-space:nowrap}
+.sk-stamp--teal{color:var(--teal);border-color:var(--teal)}
+.sk-stamp--navy{color:var(--navy);border-color:var(--navy)}
+.sk-stamp--sage{color:var(--sage);border-color:var(--sage)}
+.sk-stamp--ochre{color:var(--ochre);border-color:var(--ochre)}
+.row{display:flex}.col{display:flex;flex-direction:column}.grow{flex:1}
+.gap-2{gap:8px}.gap-3{gap:12px}.gap-4{gap:16px}
+.dd-page{max-width:1200px;margin:0 auto;padding:32px}
+.sk-grid-tool{display:grid;grid-template-columns:1fr 300px;gap:14px}
+@media(max-width:900px){.sk-grid-tool{grid-template-columns:1fr 260px!important}}
+@media(max-width:640px){.dd-page{padding:16px 14px}.sk-grid-tool{grid-template-columns:1fr!important}}
+pre{background:var(--ink);color:#e8e0d0;padding:14px 16px;font-size:13px;line-height:1.6;overflow-x:auto;margin:0}
+code{font-family:'IBM Plex Serif',monospace;font-size:13px}
+</style>
+</head>
+<body>
+<div class="dd-page">
+
+  <nav class="row" style="justify-content:space-between;align-items:baseline;margin-bottom:10px">
+    <a href="../index.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px">&larr; DIGEST &middot; &numero; 007</a>
+    <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">TOOL &middot; 04.4 &middot; DEV TOOLS</span>
+    <a href="../../../archive.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--teal)">ARCHIVE &#8599;</a>
+  </nav>
+
+  <header class="sk-box" style="background:var(--ochre);color:var(--card);padding:20px 24px">
+    <div class="row" style="justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px">
+      <span class="sk-mono" style="font-size:11px;letter-spacing:3px;color:var(--ink)">TOOL / 04.4</span>
+      <span class="sk-stamp" style="color:var(--ink);border-color:var(--ink)">FREE · OPEN SOURCE</span>
+    </div>
+    <h1 style="font-size:36px;font-weight:700;line-height:1.1;margin:14px 0 8px;color:var(--ink)">rubyfmt</h1>
+    <p style="font-size:17px;line-height:1.6;margin:0;color:#3a2010">Zero-config, Rust-based Ruby autoformatter — the tool Stripe used to format 25 million lines of Ruby in a single Saturday morning. Opinionated like gofmt or Prettier, with an AST-diffing correctness check that makes large-scale rollouts safe.</p>
+    <div class="row gap-3" style="margin-top:12px;flex-wrap:wrap">
+      <span class="sk-stamp sk-stamp--sage">OPEN SOURCE</span>
+      <span class="sk-stamp sk-stamp--navy">RUBY</span>
+      <span class="sk-stamp sk-stamp--teal">DEVELOPER TOOLS</span>
+    </div>
+  </header>
+
+  <div class="sk-grid-tool" style="margin-top:14px">
+
+    <div class="col gap-3">
+
+      <div class="sk-box" style="padding:18px 20px;background:var(--card)">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0 0 10px">WHY TRY THIS</p>
+        <hr class="sk-rule-thin" style="margin-bottom:12px" />
+        <p style="margin:0 0 10px;font-size:16px;line-height:1.6">Ruby has historically lacked a canonical formatter — teams either ran RuboCop (configurable, slow) or had ongoing style debates. rubyfmt is the gofmt answer for Ruby: zero config, one right way, fast. Stripe's rollout proves it scales to the largest Ruby codebase in the world without breaking semantics.</p>
+        <p style="margin:0;font-size:16px;line-height:1.6"><strong>Problem it solves:</strong> style debates in PR reviews, inconsistent formatting across a codebase, and the organizational friction of adopting a formatter when teams worry it might break behavior (rubyfmt's AST diffing eliminates that worry).</p>
+      </div>
+
+      <div class="sk-box" style="padding:18px 20px;background:var(--hi)">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0 0 10px">ACCESS &amp; PRICING</p>
+        <hr class="sk-rule-thin" style="margin-bottom:12px" />
+        <ul style="margin:0;padding-left:18px;font-size:16px;line-height:1.7">
+          <li><strong>Completely free</strong> — open source, available on GitHub</li>
+          <li>Pre-built binaries for macOS, Linux, Windows</li>
+          <li>Gem install available: <code>gem install rubyfmt</code></li>
+          <li><strong>Free alternative:</strong> RuboCop with <code>--autocorrect</code> (more configurable, slower, requires a config file)</li>
+        </ul>
+      </div>
+
+      <div class="sk-box" style="padding:18px 20px;background:var(--card)">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0 0 10px">HANDS-ON · TRY IT</p>
+        <hr class="sk-rule-thin" style="margin-bottom:12px" />
+        <p style="margin:0 0 10px;font-size:15px;font-weight:600">Prerequisites: Ruby project, macOS/Linux/Windows</p>
+
+        <p class="sk-mono" style="font-size:11px;letter-spacing:1.5px;margin:10px 0 6px">STEP 1 — Install rubyfmt</p>
+        <pre><code># Via gem:
+gem install rubyfmt
+
+# Or download binary from GitHub releases:
+# github.com/fables-tales/rubyfmt/releases</code></pre>
+
+        <p class="sk-mono" style="font-size:11px;letter-spacing:1.5px;margin:14px 0 6px">STEP 2 — Format a single file (dry run first)</p>
+        <pre><code># Preview what would change:
+rubyfmt --check app/models/user.rb
+
+# Apply formatting:
+rubyfmt -i app/models/user.rb</code></pre>
+
+        <p class="sk-mono" style="font-size:11px;letter-spacing:1.5px;margin:14px 0 6px">STEP 3 — Format an entire directory</p>
+        <pre><code># Format all Ruby files in app/:
+find app/ -name "*.rb" | xargs rubyfmt -i
+
+# Or with git: format only changed files
+git diff --name-only --diff-filter=d HEAD | \
+  grep "\.rb$" | xargs rubyfmt -i</code></pre>
+
+        <p class="sk-mono" style="font-size:11px;letter-spacing:1.5px;margin:14px 0 6px">STEP 4 — Add to CI (enforce on PRs)</p>
+        <pre><code># .github/workflows/format.yml
+- name: Check Ruby formatting
+  run: |
+    find app/ lib/ -name "*.rb" | \
+      xargs rubyfmt --check
+    # Exits non-zero if any file needs formatting</code></pre>
+      </div>
+
+      <div class="sk-box" style="padding:18px 20px;background:var(--navy);color:var(--card)">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;color:var(--hi);margin:0 0 10px">WHAT TO OBSERVE</p>
+        <hr class="sk-rule-thin" style="border-color:#3a3a5a;margin-bottom:12px" />
+        <ul style="margin:0;padding-left:18px;font-size:16px;line-height:1.7;color:#ddd">
+          <li>Run on a single 200-line Ruby file and review the diff — check whether any of the formatting changes feel wrong or would trigger a style debate on your team</li>
+          <li>Measure the execution time: rubyfmt should format 1,000 files in under 10 seconds on a modern machine</li>
+          <li>Run your test suite immediately after a mass-format to confirm no semantic changes — rubyfmt's AST diffing should make this redundant, but verify once for confidence</li>
+          <li>Add <code>--check</code> to your CI pipeline and count how many existing files fail — that's your formatting debt number</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="col gap-3">
+      <div class="sk-box" style="padding:16px;background:var(--ink);color:var(--card)">
+        <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--hi);margin:0 0 10px">QUICK FACTS</p>
+        <hr class="sk-rule-thin" style="border-color:#333;margin-bottom:12px" />
+        <div style="font-size:14px;line-height:1.8">
+          <p style="margin:0 0 6px"><strong>Language:</strong> Written in Rust</p>
+          <p style="margin:0 0 6px"><strong>Config:</strong> Zero — no config file needed</p>
+          <p style="margin:0 0 6px"><strong>Correctness:</strong> AST diffing validation</p>
+          <p style="margin:0 0 6px"><strong>Used by:</strong> Stripe (25M lines)</p>
+          <p style="margin:0 0 6px"><strong>License:</strong> MIT</p>
+          <p style="margin:0">Install: <code>gem install rubyfmt</code></p>
+        </div>
+      </div>
+
+      <div class="sk-box" style="padding:16px;background:var(--hi)">
+        <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;margin:0 0 10px">STRIPE'S ROLLOUT STATS</p>
+        <hr class="sk-rule-thin" style="margin-bottom:12px" />
+        <div style="font-size:14px;line-height:1.8">
+          <p style="margin:0 0 4px"><strong>25M</strong> lines formatted</p>
+          <p style="margin:0 0 4px"><strong>62,213</strong> files in one run</p>
+          <p style="margin:0 0 4px">Single Saturday morning execution</p>
+          <p style="margin:0">100% of Stripe Ruby now enforced</p>
+        </div>
+      </div>
+
+      <div class="sk-box-soft" style="padding:16px">
+        <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;margin:0 0 8px">GITHUB</p>
+        <a href="https://github.com/fables-tales/rubyfmt" class="sk-mono" style="font-size:12px;color:var(--teal);text-decoration:underline;text-underline-offset:3px;display:block;margin-bottom:10px">RUBYFMT REPO &#8599;</a>
+        <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;margin:0 0 8px">STRIPE CASE STUDY</p>
+        <a href="https://stripe.dev/blog/formatting-an-entire-25-million-line-codebase-overnight-the-rubyfmt-story" class="sk-mono" style="font-size:12px;color:var(--teal);text-decoration:underline;text-underline-offset:3px;display:block">STRIPE.DEV &#8599;</a>
+      </div>
+    </div>
+
+  </div>
+
+  <nav class="row" style="margin-top:20px;justify-content:space-between">
+    <a href="../index.html" class="sk-mono" style="font-size:11px;letter-spacing:1.5px">&larr; BACK TO ISSUE 007</a>
+    <a href="../../../archive.html" class="sk-mono" style="font-size:11px;letter-spacing:1.5px;color:var(--teal)">ARCHIVE &#8599;</a>
+  </nav>
+
+</div>
+</body>
+</html>

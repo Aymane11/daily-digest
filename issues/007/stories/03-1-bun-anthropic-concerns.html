@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="alternate" type="application/rss+xml" title="Daily Digest RSS" href="/daily-digest/feed.xml" />
+<title>Daily Digest — Developers worry Bun's Anthropic acquisition will erode its quality — Issue 007</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{background:#f5f0e8;color:#111;font-family:'Lora',serif;font-size:18px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:root{
+  --paper:#f5f0e8;--card:#fffdf7;--ink:#111111;--ink-2:#5a5a5a;
+  --accent:#d62828;--hi:#f5c842;--teal:#0d7377;--navy:#14213d;
+  --ochre:#e07b39;--slate:#3d5a80;--sage:#2d6a4f;--purple:#7b2d8b;--rule:#111111;
+}
+.sk-mono{font-family:'IBM Plex Serif','Georgia',serif;font-weight:500}
+.sk-box{border:1.5px solid var(--ink);background:transparent;position:relative}
+.sk-box-soft{border:1.25px solid #2a2a2a;background:transparent}
+.sk-rule-thin{height:0;border:0;border-top:1px solid var(--ink);margin:0}
+.sk-stamp{display:inline-block;font-family:'IBM Plex Serif',serif;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:3px 9px;border:1.5px solid currentColor;line-height:1.4;transform:rotate(-1deg);white-space:nowrap}
+.sk-stamp--red{color:var(--accent);border-color:var(--accent)}
+.sk-stamp--navy{color:var(--navy);border-color:var(--navy)}
+.sk-stamp--teal{color:var(--teal);border-color:var(--teal)}
+.sk-stamp--ochre{color:var(--ochre);border-color:var(--ochre)}
+.row{display:flex}.col{display:flex;flex-direction:column}.grow{flex:1}
+.gap-2{gap:8px}.gap-3{gap:12px}.gap-4{gap:16px}
+.dd-page{max-width:1200px;margin:0 auto;padding:32px}
+.sk-grid-brief{display:grid;grid-template-columns:1fr 300px;gap:14px}
+@media(max-width:900px){.sk-grid-brief{grid-template-columns:1fr 260px!important}}
+@media(max-width:640px){.dd-page{padding:16px 14px}.sk-grid-brief{grid-template-columns:1fr!important}}
+</style>
+</head>
+<body>
+<div class="dd-page">
+
+  <nav class="row" style="justify-content:space-between;align-items:baseline;margin-bottom:10px">
+    <a href="../index.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px">&larr; DIGEST &middot; &numero; 007</a>
+    <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">BRIEF &middot; 03.1 &middot; OPEN SOURCE</span>
+    <a href="../../../archive.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--teal)">ARCHIVE &#8599;</a>
+  </nav>
+
+  <header class="sk-box" style="background:var(--ink);color:var(--card);padding:20px 24px">
+    <div class="row" style="justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px">
+      <span class="sk-mono" style="font-size:11px;letter-spacing:3px;color:var(--hi)">BRIEF / 03.1</span>
+      <span class="sk-mono" style="font-size:10px;letter-spacing:2px">2 MIN READ</span>
+    </div>
+    <h1 style="font-size:34px;font-weight:700;line-height:1.1;margin:14px 0 10px;text-wrap:balance">
+      Developers worry Bun's Anthropic acquisition will erode the runtime's engineering quality
+    </h1>
+    <div class="row gap-3" style="margin-top:12px;flex-wrap:wrap">
+      <span class="sk-stamp sk-stamp--ochre">OPEN SOURCE</span>
+      <span class="sk-stamp sk-stamp--navy">BUN</span>
+      <span class="sk-stamp sk-stamp--red">ANTHROPIC</span>
+    </div>
+  </header>
+
+  <div class="sk-grid-brief" style="margin-top:14px">
+
+    <div class="col gap-3">
+      <div class="sk-box" style="padding:18px 20px;background:var(--hi)">
+        <span class="sk-mono" style="font-size:11px;letter-spacing:2px;font-weight:600">THE BRIEF</span>
+        <p style="margin:8px 0 0;font-size:17px;line-height:1.6">Anthropic acquired Bun in December 2025 and kept it MIT-licensed, but a widely-read post argues that as Bun's team integrates further into Anthropic, the product-layer decisions shaping Claude Code — reduced reasoning defaults, billing confusion, unusual content restrictions — may eventually affect Bun's developer experience too. The author is switching personal projects to pnpm and plans to reassess in a year.</p>
+      </div>
+
+      <div class="sk-box" style="padding:18px 20px;background:var(--card)">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0 0 10px">CONTEXT</p>
+        <hr class="sk-rule-thin" style="margin-bottom:12px" />
+        <p style="margin:0 0 10px;font-size:16px;line-height:1.6">The concern is not about Bun's code quality today — the post explicitly praises the team — but about the trajectory. Claude Code's April 2026 issues (postmortem published, reports of commit-history-based content filtering) gave the author a concrete data point: Anthropic's product decisions have already visibly degraded one developer tool it controls.</p>
+        <p style="margin:0;font-size:16px;line-height:1.6">The HN thread reached 460 points, suggesting the concern resonates broadly. Bun's team has not publicly responded.</p>
+      </div>
+
+      <div class="sk-box" style="padding:18px 20px;background:var(--hi)">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0 0 10px">WHAT TO WATCH</p>
+        <hr class="sk-rule-thin" style="margin-bottom:12px" />
+        <ul style="margin:0;padding-left:18px;font-size:16px;line-height:1.7">
+          <li><strong>Watch Bun's release cadence and changelog</strong> over the next six months — frequency and depth of changes are the clearest signal of whether the team's focus has shifted.</li>
+          <li>Check whether any Bun features begin requiring Anthropic account sign-in or cloud connectivity — that would be the clearest enshittification signal.</li>
+          <li>Evaluate pnpm or alternative runtimes now if Bun is a single point of failure in your build pipeline — optionality is cheap, dependency on any one corporate-acquired tool carries non-zero risk.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col gap-3">
+      <div class="sk-box" style="padding:16px;background:var(--navy);color:var(--card)">
+        <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--hi);margin:0 0 10px">KEY FACTS</p>
+        <hr class="sk-rule-thin" style="border-color:#3a3a5a;margin-bottom:12px" />
+        <div style="font-size:15px;line-height:1.7">
+          <p style="margin:0 0 8px"><strong>Dec 2025</strong> — Anthropic acquires Bun</p>
+          <p style="margin:0 0 8px"><strong>MIT</strong> — license retained post-acquisition</p>
+          <p style="margin:0 0 8px"><strong>Apr 2026</strong> — Claude Code quality postmortem</p>
+          <p style="margin:0 0 8px"><strong>460</strong> — HN points on "I am worried about Bun"</p>
+          <p style="margin:0">Claude Code runs on Bun internally</p>
+        </div>
+      </div>
+
+      <div class="sk-box-soft" style="padding:16px">
+        <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;margin:0 0 8px">SOURCE</p>
+        <a href="https://wwj.dev/posts/i-am-worried-about-bun/" class="sk-mono" style="font-size:12px;color:var(--teal);text-decoration:underline;text-underline-offset:3px;display:block;margin-bottom:10px">WWJ.DEV &#8599;</a>
+        <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;margin:0 0 8px">HN DISCUSSION</p>
+        <a href="https://news.ycombinator.com/item?id=48011184" class="sk-mono" style="font-size:12px;color:var(--teal);text-decoration:underline;text-underline-offset:3px;display:block">HN &middot; 460 PTS &#8599;</a>
+      </div>
+    </div>
+
+  </div>
+
+  <nav class="row" style="margin-top:20px;justify-content:space-between">
+    <a href="../index.html" class="sk-mono" style="font-size:11px;letter-spacing:1.5px">&larr; BACK TO ISSUE 007</a>
+    <a href="../../../archive.html" class="sk-mono" style="font-size:11px;letter-spacing:1.5px;color:var(--teal)">ARCHIVE &#8599;</a>
+  </nav>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="alternate" type="application/rss+xml" title="Daily Digest RSS" href="/daily-digest/feed.xml" />
+<title>Daily Digest — How OpenAI delivers low-latency voice AI at scale — Issue 007</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{background:#f5f0e8;color:#111;font-family:'Lora',serif;font-size:18px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:root{
+  --paper:#f5f0e8;--card:#fffdf7;--ink:#111111;--ink-2:#5a5a5a;
+  --accent:#d62828;--hi:#f5c842;--teal:#0d7377;--navy:#14213d;
+  --ochre:#e07b39;--slate:#3d5a80;--sage:#2d6a4f;--purple:#7b2d8b;--rule:#111111;
+}
+.sk-mono{font-family:'IBM Plex Serif','Georgia',serif;font-weight:500}
+.sk-script{font-family:'Lora',serif;font-style:italic}
+.sk-box{border:1.5px solid var(--ink);background:transparent;position:relative}
+.sk-box-soft{border:1.25px solid #2a2a2a;background:transparent}
+.sk-rule{height:0;border:0;border-top:1.5px solid var(--ink);margin:0}
+.sk-rule-thin{height:0;border:0;border-top:1px solid var(--ink);margin:0}
+.sk-stamp{display:inline-block;font-family:'IBM Plex Serif',serif;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:3px 9px;border:1.5px solid currentColor;line-height:1.4;transform:rotate(-1deg);white-space:nowrap}
+.sk-stamp--red{color:var(--accent);border-color:var(--accent)}
+.sk-stamp--navy{color:var(--navy);border-color:var(--navy)}
+.sk-stamp--teal{color:var(--teal);border-color:var(--teal)}
+.sk-stamp--ochre{color:var(--ochre);border-color:var(--ochre)}
+.sk-stamp--slate{color:var(--slate);border-color:var(--slate)}
+.sk-stamp--hi{color:#9a7200;border-color:#9a7200}
+.sk-stamp--purple{color:var(--purple);border-color:var(--purple)}
+.sk-stamp--sage{color:var(--sage);border-color:var(--sage)}
+.row{display:flex}.col{display:flex;flex-direction:column}.grow{flex:1}
+.gap-2{gap:8px}.gap-3{gap:12px}.gap-4{gap:16px}
+.dd-page{max-width:1200px;margin:0 auto;padding:32px}
+.dd-module-h{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px}
+.dd-module-h .num{font-size:64px;font-weight:700;line-height:0.9;color:var(--accent)}
+.dd-module-h .title{font-family:'IBM Plex Serif',serif;font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase}
+.sk-grid-modules{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media(max-width:900px){.sk-grid-modules{grid-template-columns:repeat(2,1fr)!important}}
+@media(max-width:640px){.dd-page{padding:16px 14px}.sk-grid-modules{grid-template-columns:1fr!important}.sk-dossier-hl{font-size:30px!important}}
+</style>
+</head>
+<body>
+<div class="dd-page">
+
+  <!-- breadcrumb -->
+  <nav class="row" style="justify-content:space-between;align-items:baseline;margin-bottom:10px">
+    <a href="../index.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px">&larr; DIGEST &middot; &numero; 007</a>
+    <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">LEAD &middot; 01 &middot; AI INFRASTRUCTURE</span>
+    <a href="../../../archive.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--teal)">ARCHIVE &#8599;</a>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="sk-box" style="background:var(--ink);color:var(--card);padding:22px 24px">
+    <div class="row" style="justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px">
+      <span class="sk-mono" style="font-size:11px;letter-spacing:3px;color:var(--hi)">FEATURE / 01</span>
+      <span class="sk-mono" style="font-size:10px;letter-spacing:2px">5 MIN READ</span>
+      <a href="https://openai.com/index/delivering-low-latency-voice-ai-at-scale/" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--sage)">SOURCE &middot; OPENAI.COM &#8599;</a>
+    </div>
+    <h1 class="sk-dossier-hl" style="font-size:44px;font-weight:700;line-height:1.08;margin:16px 0 10px;text-wrap:balance">
+      OpenAI rebuilt its WebRTC stack to deliver voice AI under 500 ms, globally
+    </h1>
+    <p style="font-size:19px;line-height:1.6;margin:0;color:#e8e0d0">
+      A detailed infrastructure post reveals how OpenAI rearchitected its media layer — decoupling one-port-per-session limits, redesigning stateful ICE/DTLS ownership, and routing traffic to the nearest low-latency edge — to make conversational voice AI feel instant at scale.
+    </p>
+    <div class="row gap-3" style="margin-top:14px;flex-wrap:wrap">
+      <span class="sk-stamp sk-stamp--teal">AI INFRASTRUCTURE</span>
+      <span class="sk-stamp" style="color:var(--hi);border-color:var(--hi)">VOICE AI</span>
+      <span class="sk-stamp sk-stamp--slate">WEBRTC</span>
+    </div>
+  </header>
+
+  <!-- TL;DR -->
+  <div class="sk-box" style="background:var(--hi);padding:18px 20px;margin-top:14px">
+    <span class="sk-mono" style="font-size:11px;letter-spacing:2px;font-weight:600">TL;DR</span>
+    <p style="margin:8px 0 0;font-size:18px;line-height:1.55;font-weight:600">
+      OpenAI published its first in-depth engineering post on the real-time voice infrastructure powering ChatGPT Voice and the Realtime API. End-to-end latency sits at 250–500 ms — inside the 500 ms threshold where conversation feels natural. The core redesign tackles three hard constraints: one-port-per-session WebRTC limits, stateful session ownership, and global first-hop routing. A new model snapshot improved instruction-following accuracy by 18.6 percentage points and tool-calling accuracy by 12.9 percentage points.
+    </p>
+  </div>
+
+  <!-- STAT ROW -->
+  <div class="row gap-3" style="margin-top:14px;flex-wrap:wrap">
+    <div class="sk-box" style="padding:14px 20px;flex:1;min-width:140px">
+      <span style="font-size:40px;font-weight:700;line-height:1;display:block">250</span>
+      <span class="sk-mono" style="font-size:11px">– 500 ms end-to-end latency</span>
+    </div>
+    <div class="sk-box" style="padding:14px 20px;flex:1;min-width:140px">
+      <span style="font-size:40px;font-weight:700;line-height:1;display:block">+18.6</span>
+      <span class="sk-mono" style="font-size:11px">pp instruction-following gain</span>
+    </div>
+    <div class="sk-box" style="padding:14px 20px;flex:1;min-width:140px">
+      <span style="font-size:40px;font-weight:700;line-height:1;display:block">+12.9</span>
+      <span class="sk-mono" style="font-size:11px">pp tool-calling accuracy gain</span>
+    </div>
+    <div class="sk-box" style="padding:14px 20px;flex:1;min-width:140px;background:var(--accent);color:var(--card)">
+      <span style="font-size:40px;font-weight:700;line-height:1;display:block">500</span>
+      <span class="sk-mono" style="font-size:11px">ms — natural conversation threshold</span>
+    </div>
+  </div>
+
+  <!-- MODULES GRID -->
+  <div class="sk-grid-modules" style="margin-top:14px">
+
+    <!-- ¶01 WHAT HAPPENED -->
+    <div class="sk-box" style="padding:18px;grid-column:span 2;background:var(--card)">
+      <div class="row gap-2" style="margin-bottom:10px;align-items:baseline">
+        <span class="sk-mono" style="font-size:28px;font-weight:700;color:var(--accent);line-height:1">¶01</span>
+        <span class="sk-mono" style="font-size:11px;letter-spacing:2px">WHAT HAPPENED</span>
+      </div>
+      <hr class="sk-rule-thin" style="margin-bottom:14px" />
+      <p style="margin:0 0 12px">OpenAI published a detailed technical post on 4 May 2026 explaining how it rebuilt its WebRTC infrastructure to support real-time, low-latency voice interactions at global scale. The post is the company's first public account of the engineering decisions behind ChatGPT Voice and the Realtime API.</p>
+      <p style="margin:0 0 12px">The core challenge was that WebRTC — the standard protocol for real-time audio/video in browsers — was designed with assumptions that break at cloud scale: each session binds a dedicated port, ICE (Interactive Connectivity Establishment) and DTLS (Datagram Transport Layer Security) sessions are stateful and need stable ownership across restarts, and routing must be globally distributed to keep the first hop short.</p>
+      <p style="margin:0 0 12px">OpenAI's solution changed the shape of its WebRTC deployment without changing what clients expect from the protocol. The team decoupled media termination from individual ports, redesigned session state so it can be owned and recovered across infrastructure events, and built a global routing layer that lands traffic at the nearest point of presence before handing off to inference.</p>
+      <p style="margin:0">Alongside the infrastructure post, OpenAI released a new snapshot of its <em>gpt-realtime-mini</em> model. The snapshot is smaller and faster than the full Realtime model and is optimized for latency-sensitive applications — phone bots, voice agents, live translation — where milliseconds matter more than peak capability.</p>
+    </div>
+
+    <!-- ¶02 WHY IT MATTERS -->
+    <div class="sk-box" style="padding:18px;grid-column:span 2;background:var(--card)">
+      <div class="row gap-2" style="margin-bottom:10px;align-items:baseline">
+        <span class="sk-mono" style="font-size:28px;font-weight:700;color:var(--accent);line-height:1">¶02</span>
+        <span class="sk-mono" style="font-size:11px;letter-spacing:2px">WHY IT MATTERS</span>
+      </div>
+      <hr class="sk-rule-thin" style="margin-bottom:14px" />
+      <p style="margin:0 0 12px">The 500 ms threshold is not arbitrary. Human conversation operates in a window where a response arriving in under half a second still feels synchronous; beyond that, the brain starts to register a gap. Getting voice AI inside that window — end to end, globally, for millions of concurrent sessions — is an infrastructure problem more than a modeling problem, and this post is the first time OpenAI has shown its hand on how it's solved.</p>
+      <p style="margin:0 0 12px">The architecture decisions here will become reference points for anyone building voice agents. The shift away from one-port-per-session removes a common scaling ceiling that teams hit when moving from prototype to production. The stateful session ownership model matters for fault tolerance — sessions can survive infrastructure restarts without dropping calls.</p>
+      <p style="margin:0">The accuracy gains on the new mini snapshot (+18.6 pp on instruction-following, +12.9 pp on tool-calling) close the gap between the small/fast model and the full model, which matters commercially: most deployed voice agents will use the cheaper, faster model for cost reasons, and better accuracy on those models raises the quality floor for the entire ecosystem.</p>
+    </div>
+
+    <!-- VOICES / PERSPECTIVES -->
+    <div class="sk-box" style="padding:18px;grid-column:span 4;background:var(--navy);color:var(--card)">
+      <div class="row gap-2" style="margin-bottom:10px;align-items:baseline">
+        <span class="sk-mono" style="font-size:11px;letter-spacing:2px;color:var(--hi)">PERSPECTIVES</span>
+      </div>
+      <hr class="sk-rule-thin" style="border-color:#3a3a5a;margin-bottom:14px" />
+      <div class="row gap-4" style="flex-wrap:wrap">
+        <div style="flex:1;min-width:240px">
+          <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--hi);margin:0 0 6px">INFRASTRUCTURE ENGINEERS</p>
+          <p style="margin:0;font-size:16px;line-height:1.6;color:#ddd">The port-per-session problem has been a known scaling cliff for WebRTC deployments for years. OpenAI's solution — decoupling media termination from port assignment — is the right approach, but implementing it without breaking standard WebRTC clients is non-trivial. Publishing the approach raises the baseline for everyone building media infrastructure.</p>
+        </div>
+        <div style="flex:1;min-width:240px">
+          <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--hi);margin:0 0 6px">VOICE AGENT BUILDERS</p>
+          <p style="margin:0;font-size:16px;line-height:1.6;color:#ddd">250–500 ms latency is real-time enough for most use cases but not all. Customer service bots can absorb that; live translation probably can't. The more significant news is the mini model accuracy gains: if tool-calling is reliable enough on the small model, the economics of production voice agents improve substantially.</p>
+        </div>
+        <div style="flex:1;min-width:240px">
+          <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--hi);margin:0 0 6px">ENTERPRISE BUYERS</p>
+          <p style="margin:0;font-size:16px;line-height:1.6;color:#ddd">Reliability matters as much as latency. The stateful session recovery architecture — sessions surviving infrastructure restarts — is the feature enterprise telephony buyers actually care about. A dropped call mid-session is far more damaging to user trust than 50 ms of extra latency.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ¶03 WHAT TO WATCH -->
+    <div class="sk-box" style="padding:18px;grid-column:span 4;background:var(--hi)">
+      <div class="row gap-2" style="margin-bottom:10px;align-items:baseline">
+        <span class="sk-mono" style="font-size:28px;font-weight:700;color:var(--ink);line-height:1">¶03</span>
+        <span class="sk-mono" style="font-size:11px;letter-spacing:2px;color:var(--ink)">WHAT TO WATCH</span>
+      </div>
+      <hr class="sk-rule-thin" style="margin-bottom:14px" />
+      <ul style="margin:0;padding-left:20px;font-size:17px;line-height:1.7">
+        <li><strong>Try the Realtime API with gpt-realtime-mini today</strong> — the accuracy gains mean tool-calling is now reliable enough for production evaluation. Run your existing voice agent prompt through the new snapshot and measure actual instruction-following on your test suite before committing to the old model.</li>
+        <li>Watch for competitors publishing equivalent latency figures. If 250–500 ms becomes the stated baseline, expect Google (Gemini Live) and Amazon (Alexa+) to respond with their own infrastructure posts or product updates within weeks.</li>
+        <li>Check whether OpenAI publishes latency broken down by region — global averages hide significant variance. Edge presence in Southeast Asia, South America, and Africa will determine whether "global scale" is real for your user base.</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- SOURCE ATTRIBUTION -->
+  <div class="sk-box-soft" style="padding:14px 18px;margin-top:14px">
+    <div class="row gap-4" style="flex-wrap:wrap;align-items:center">
+      <div>
+        <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px;display:block;margin-bottom:4px">SOURCE</span>
+        <a href="https://openai.com/index/delivering-low-latency-voice-ai-at-scale/" class="sk-mono" style="font-size:12px;color:var(--teal);text-decoration:underline;text-underline-offset:3px">SOURCE &middot; OPENAI.COM &#8599;</a>
+      </div>
+      <div>
+        <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px;display:block;margin-bottom:4px">HN DISCUSSION</span>
+        <a href="https://news.ycombinator.com/item?id=48013919" class="sk-mono" style="font-size:12px;color:var(--teal);text-decoration:underline;text-underline-offset:3px">HN DISCUSSION &middot; 363 PTS &#8599;</a>
+      </div>
+      <div>
+        <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px;display:block;margin-bottom:4px">PUBLISHED</span>
+        <span class="sk-mono" style="font-size:12px">4 MAY 2026 &middot; OPENAI ENGINEERING</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- back nav -->
+  <nav class="row" style="margin-top:20px;justify-content:space-between">
+    <a href="../index.html" class="sk-mono" style="font-size:11px;letter-spacing:1.5px">&larr; BACK TO ISSUE 007</a>
+    <a href="../../../archive.html" class="sk-mono" style="font-size:11px;letter-spacing:1.5px;color:var(--teal)">ARCHIVE &#8599;</a>
+  </nav>
+
+</div>
+</body>
+</html>

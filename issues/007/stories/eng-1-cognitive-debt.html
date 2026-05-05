@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="alternate" type="application/rss+xml" title="Daily Digest RSS" href="/daily-digest/feed.xml" />
+<title>Daily Digest — Engineering Read: Managing Cognitive Debt in AI-Assisted Development — Issue 007</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{background:#f5f0e8;color:#111;font-family:'Lora',serif;font-size:18px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:root{
+  --paper:#f5f0e8;--card:#fffdf7;--ink:#111111;--ink-2:#5a5a5a;
+  --accent:#d62828;--hi:#f5c842;--teal:#0d7377;--navy:#14213d;
+  --ochre:#e07b39;--slate:#3d5a80;--sage:#2d6a4f;--purple:#7b2d8b;--rule:#111111;
+}
+.sk-mono{font-family:'IBM Plex Serif','Georgia',serif;font-weight:500}
+.sk-box{border:1.5px solid var(--ink);background:transparent;position:relative}
+.sk-box-soft{border:1.25px solid #2a2a2a;background:transparent}
+.sk-rule{height:0;border:0;border-top:1.5px solid var(--ink);margin:0}
+.sk-rule-thin{height:0;border:0;border-top:1px solid var(--ink);margin:0}
+.sk-stamp{display:inline-block;font-family:'IBM Plex Serif',serif;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:3px 9px;border:1.5px solid currentColor;line-height:1.4;transform:rotate(-1deg);white-space:nowrap}
+.sk-stamp--red{color:var(--accent);border-color:var(--accent)}
+.sk-stamp--navy{color:var(--navy);border-color:var(--navy)}
+.sk-stamp--teal{color:var(--teal);border-color:var(--teal)}
+.sk-stamp--ochre{color:var(--ochre);border-color:var(--ochre)}
+.sk-stamp--sage{color:var(--sage);border-color:var(--sage)}
+.row{display:flex}.col{display:flex;flex-direction:column}.grow{flex:1}
+.gap-2{gap:8px}.gap-3{gap:12px}.gap-4{gap:16px}
+.dd-page{max-width:1200px;margin:0 auto;padding:32px}
+.sk-grid-modules{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media(max-width:900px){.sk-grid-modules{grid-template-columns:repeat(2,1fr)!important}}
+@media(max-width:640px){.dd-page{padding:16px 14px}.sk-grid-modules{grid-template-columns:1fr!important}}
+</style>
+</head>
+<body>
+<div class="dd-page">
+
+  <nav class="row" style="justify-content:space-between;align-items:baseline;margin-bottom:10px">
+    <a href="../index.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px">&larr; DIGEST &middot; &numero; 007</a>
+    <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">ENGINEERING &amp; CAREER READ</span>
+    <a href="../../../archive.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--teal)">ARCHIVE &#8599;</a>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="sk-box" style="background:var(--ink);color:var(--card);padding:24px 26px">
+    <div class="row" style="justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px">
+      <span class="sk-mono" style="font-size:11px;letter-spacing:3px;color:var(--hi)">ENGINEERING &amp; CAREER / 05</span>
+      <span class="sk-mono" style="font-size:10px;letter-spacing:2px">8 MIN READ</span>
+    </div>
+    <h1 style="font-size:42px;font-weight:700;line-height:1.05;margin:18px 0 12px;text-wrap:balance">
+      Managing cognitive debt: how to stay fluent in code you didn't fully write
+    </h1>
+    <p style="font-size:19px;line-height:1.6;margin:0;color:#e8e0d0">
+      AI coding tools accelerate production faster than teams can maintain shared understanding. Cognitive debt — the gap between what the system does and what anyone understands — compounds silently until something breaks and nobody knows why. Here's how to repay it systematically.
+    </p>
+    <div class="row gap-3" style="margin-top:16px;flex-wrap:wrap">
+      <span class="sk-stamp sk-stamp--teal">ENGINEERING CULTURE</span>
+      <span class="sk-stamp sk-stamp--ochre">AI-ASSISTED DEV</span>
+      <span class="sk-stamp sk-stamp--navy">DEVELOPER COGNITION</span>
+    </div>
+  </header>
+
+  <!-- TL;DR -->
+  <div class="sk-box" style="background:var(--hi);padding:18px 20px;margin-top:14px">
+    <span class="sk-mono" style="font-size:11px;letter-spacing:2px;font-weight:600">TL;DR — THE COMPLETE PICTURE</span>
+    <p style="margin:8px 0 0;font-size:18px;line-height:1.55;font-weight:600">
+      Cognitive debt is the accumulated erosion of shared developer understanding caused by shipping code faster than the team can internalize it. A 2026 body of research finds developers who use AI for pure delegation score below 40% on comprehension tests; those who use AI as a tutor score above 65%. The fix is not using AI less — it's using it differently: argue back, edit, reject the first answer, and treat every merged AI-generated function as something you are personally responsible for understanding.
+    </p>
+  </div>
+
+  <!-- STAT ROW -->
+  <div class="row gap-3" style="margin-top:14px;flex-wrap:wrap">
+    <div class="sk-box" style="padding:14px 18px;flex:1;min-width:130px">
+      <span style="font-size:38px;font-weight:700;line-height:1;display:block;color:var(--accent)">&lt;40%</span>
+      <span class="sk-mono" style="font-size:11px">comprehension score, delegation-style AI users</span>
+    </div>
+    <div class="sk-box" style="padding:14px 18px;flex:1;min-width:130px">
+      <span style="font-size:38px;font-weight:700;line-height:1;display:block">&gt;65%</span>
+      <span class="sk-mono" style="font-size:11px">comprehension score, tutor-style AI users</span>
+    </div>
+    <div class="sk-box" style="padding:14px 18px;flex:1;min-width:130px">
+      <span style="font-size:38px;font-weight:700;line-height:1;display:block">2025</span>
+      <span class="sk-mono" style="font-size:11px">MIT study: exclusive AI use → weaker brain connectivity</span>
+    </div>
+    <div class="sk-box" style="padding:14px 18px;flex:1;min-width:130px;background:var(--accent);color:var(--card)">
+      <span style="font-size:38px;font-weight:700;line-height:1;display:block">0</span>
+      <span class="sk-mono" style="font-size:11px">config files needed to prevent it — just habits</span>
+    </div>
+  </div>
+
+  <!-- ¶01 WHAT IS COGNITIVE DEBT -->
+  <div class="sk-box" style="padding:22px 24px;margin-top:14px;background:var(--card)">
+    <div class="row gap-2" style="margin-bottom:12px;align-items:baseline">
+      <span class="sk-mono" style="font-size:28px;font-weight:700;color:var(--accent);line-height:1">¶01</span>
+      <span class="sk-mono" style="font-size:11px;letter-spacing:2px">WHAT IS COGNITIVE DEBT</span>
+    </div>
+    <hr class="sk-rule-thin" style="margin-bottom:16px" />
+    <p style="margin:0 0 14px">Margaret-Anne Storey's definition is the most precise: cognitive debt is "the accumulated gap between a system's evolving structure and a team's shared understanding of how and why that system works and can be changed over time." Unlike technical debt — which lives in the codebase and is (in principle) auditable — cognitive debt lives in people. It's invisible until something breaks and nobody can explain it.</p>
+    <p style="margin:0 0 14px">AI accelerates this in a specific way. When a developer delegates code generation to an AI and merges the output without deeply engaging with it, they gain velocity but lose something harder to measure: fluency. The system's structure evolves faster than anyone's mental model of it. Under time pressure, teams make the same trade-off repeatedly. Velocity compounds; understanding erodes.</p>
+    <p style="margin:0">The research finding that makes this concrete: 2026 studies found that developers who use AI for conceptual inquiry — asking "why," exploring tradeoffs, rejecting the first answer — show comprehension scores above 65% on the code they ship. Those who use AI for pure delegation — accept output, move on — score below 40%. The usage pattern, not the tool, determines the outcome.</p>
+  </div>
+
+  <!-- ¶02 WHY IT MATTERS -->
+  <div class="sk-box" style="padding:22px 24px;margin-top:14px;background:var(--card)">
+    <div class="row gap-2" style="margin-bottom:12px;align-items:baseline">
+      <span class="sk-mono" style="font-size:28px;font-weight:700;color:var(--accent);line-height:1">¶02</span>
+      <span class="sk-mono" style="font-size:11px;letter-spacing:2px">WHY IT MATTERS FOR YOUR TEAM</span>
+    </div>
+    <hr class="sk-rule-thin" style="margin-bottom:16px" />
+    <p style="margin:0 0 14px">The slow-then-fast shape of cognitive debt is what makes it dangerous. Early in its accumulation, nothing obviously breaks. Velocity looks good on the sprint board. PRs merge quickly. Then, when something breaks in production — or when you need to extend a module that three people merged AI-generated code into — the team discovers it has nobody who can confidently explain why the system is the way it is.</p>
+    <p style="margin:0 0 14px">Onboarding is the first place cognitive debt becomes visible. A new engineer who asks "why is this structured this way?" and gets "I'm not sure, the AI wrote it" from three different teammates is in a system with advanced cognitive debt. Documentation doesn't help — you can't document what you don't understand.</p>
+    <p style="margin:0">The incentive misalignment is real: organizations reward velocity, not comprehension. Cognitive debt repayment — code review that checks understanding, not just correctness; tests that capture design intent, not just behavior; living design docs — all feel like overhead until the system breaks.</p>
+  </div>
+
+  <!-- CONCRETE RECOMMENDATIONS -->
+  <div class="sk-box" style="padding:22px 24px;margin-top:14px;background:var(--navy);color:var(--card)">
+    <div class="row gap-2" style="margin-bottom:12px;align-items:baseline">
+      <span class="sk-mono" style="font-size:11px;letter-spacing:2px;color:var(--hi)">CONCRETE RECOMMENDATIONS</span>
+    </div>
+    <hr class="sk-rule-thin" style="border-color:#3a3a5a;margin-bottom:16px" />
+    <ol style="margin:0;padding-left:22px;font-size:17px;line-height:1.8;color:#ddd">
+      <li style="margin-bottom:10px"><strong style="color:#fff">Argue back at AI output before merging.</strong> When the AI produces a function, ask it: "What are the tradeoffs of this approach? What would you do differently?" If you can't engage with that answer, you don't understand the code well enough to merge it.</li>
+      <li style="margin-bottom:10px"><strong style="color:#fff">Write the test before reviewing the implementation.</strong> If you can write a test for a function without looking at how it's implemented, your mental model is correct. If you can't, you have comprehension debt on that function.</li>
+      <li style="margin-bottom:10px"><strong style="color:#fff">Add "why" to code review, not just "what."</strong> Change your PR review checklist: "does this reviewer understand why this design was chosen?" is a different question than "does this look correct?" Both matter; most teams only ask the second.</li>
+      <li style="margin-bottom:10px"><strong style="color:#fff">Treat every AI-generated function as personally owned.</strong> The merge author is responsible for being able to explain the design choices to any teammate, any time. If you can't do that, don't merge it until you can.</li>
+      <li style="margin-bottom:10px"><strong style="color:#fff">Maintain a living design doc per service.</strong> One paragraph per major architectural decision, updated when that decision changes. AI can help write and maintain it — but a human must certify it's accurate.</li>
+      <li><strong style="color:#fff">Use AI to reduce cognitive maintenance cost, not just production cost.</strong> AI is excellent at explaining code, generating tests for existing functions, producing design doc drafts, and surfacing inconsistencies. These uses build understanding rather than eroding it.</li>
+    </ol>
+  </div>
+
+  <!-- AUDIT / CHECKLIST -->
+  <div class="sk-box" style="padding:22px 24px;margin-top:14px;background:var(--card)">
+    <div class="row gap-2" style="margin-bottom:12px;align-items:baseline">
+      <span class="sk-mono" style="font-size:11px;letter-spacing:2px">COGNITIVE DEBT AUDIT CHECKLIST</span>
+    </div>
+    <hr class="sk-rule-thin" style="margin-bottom:16px" />
+    <p style="margin:0 0 14px;font-size:16px">Answer each question for the most recently shipped feature on your team:</p>
+    <div style="font-size:17px;line-height:1.9">
+      <p style="margin:0 0 8px">&#9744; Can any team member explain <em>why</em> the feature is structured the way it is — not just what it does?</p>
+      <p style="margin:0 0 8px">&#9744; Could a new engineer understand the design decisions from reading the tests alone?</p>
+      <p style="margin:0 0 8px">&#9744; Does the PR description explain the tradeoffs considered, not just the change made?</p>
+      <p style="margin:0 0 8px">&#9744; If the author left tomorrow, would the next person know which parts are stable vs. provisional?</p>
+      <p style="margin:0 0 8px">&#9744; Are there any functions in this feature that no one on the team can confidently explain?</p>
+      <p style="margin:0">&#9744; Was any AI-generated code merged with "it looks right" as the only review criterion?</p>
+    </div>
+    <p style="margin:14px 0 0;font-size:16px;line-height:1.6">Three or more "no" answers indicates active cognitive debt accumulation on this feature. The fix is not a refactor — it's a reading session: sit with the code, write the explanation, and update the design doc.</p>
+  </div>
+
+  <!-- QUICK START -->
+  <div class="sk-box" style="padding:22px 24px;margin-top:14px;background:var(--hi)">
+    <div class="row gap-2" style="margin-bottom:12px;align-items:baseline">
+      <span class="sk-mono" style="font-size:11px;letter-spacing:2px">QUICK START &mdash; DO THIS IN UNDER 30 MINUTES TODAY</span>
+    </div>
+    <hr class="sk-rule-thin" style="margin-bottom:16px" />
+    <p style="margin:0;font-size:18px;line-height:1.6;font-weight:600">Pick the last AI-generated function you merged. Without looking at it, explain out loud (or in writing) what it does, why it's structured that way, and what would break if you changed the main abstraction. Then open the code and check whether your explanation matches. Any gap is cognitive debt you now owe. Write one sentence in the codebase (inline comment or design doc) that closes the gap.</p>
+  </div>
+
+  <!-- MODULE 06 — CAREER -->
+  <div class="sk-box" style="padding:22px 24px;margin-top:14px;background:var(--ink);color:var(--card)">
+    <div class="row gap-2" style="margin-bottom:12px;align-items:baseline">
+      <span class="sk-mono" style="font-size:11px;letter-spacing:2px;color:var(--hi)">MODULE 06 — WHY THIS MATTERS FOR YOUR CAREER</span>
+    </div>
+    <hr class="sk-rule-thin" style="border-color:#3a3a5a;margin-bottom:16px" />
+
+    <div class="sk-grid-modules" style="margin-top:0">
+      <div style="grid-column:span 2">
+        <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--hi);margin:0 0 10px">MENTAL MODEL</p>
+        <p style="margin:0;font-size:16px;line-height:1.6;color:#ddd">Senior engineers are distinguished not by how fast they can produce code but by how deeply they understand systems. As AI eliminates the production gap between junior and senior output, the comprehension gap becomes the only remaining differentiator. Engineers who can explain <em>why</em> a system is the way it is — who can reason about invariants, tradeoffs, and failure modes — become more valuable as AI coding improves, not less. Engineers who can only produce code that works become interchangeable with the AI itself.</p>
+      </div>
+      <div style="grid-column:span 2">
+        <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--hi);margin:0 0 10px">BRING IT TO YOUR TEAM</p>
+        <p style="margin:0 0 10px;font-size:16px;line-height:1.6;color:#ddd">In your next sprint retro, ask: "Can we each explain the design decisions in the features we shipped this sprint?" Don't make it a test — make it a conversation. The gaps that emerge are your team's cognitive debt map. Pick the most critical gap and schedule a one-hour reading session to close it.</p>
+      </div>
+      <div style="grid-column:span 4">
+        <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--hi);margin:0 0 10px">30-DAY MEASURABLE EXPERIMENT</p>
+        <p style="margin:0 0 10px;font-size:16px;line-height:1.6;color:#ddd">For every AI-generated function you merge over the next 30 days, write one sentence in the PR description explaining the design choice — not what it does, but why it's done this way. At the end of 30 days, re-read those sentences and ask: could a new engineer understand the system's design from them? Count how many sentences you genuinely had to think about versus how many felt obvious. The "think about" fraction is your comprehension engagement rate — track it and see if it improves as the habit embeds.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- VOICES -->
+  <div class="sk-box" style="padding:22px 24px;margin-top:14px;background:var(--card)">
+    <div class="row gap-2" style="margin-bottom:12px;align-items:baseline">
+      <span class="sk-mono" style="font-size:11px;letter-spacing:2px">VOICES ON THIS</span>
+    </div>
+    <hr class="sk-rule-thin" style="margin-bottom:16px" />
+    <div class="row gap-4" style="flex-wrap:wrap">
+      <div style="flex:1;min-width:240px">
+        <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--accent);margin:0 0 6px">MARGARET-ANNE STOREY — UVic</p>
+        <!-- [EDITORIAL QUOTE] -->
+        <p style="margin:0;font-size:16px;line-height:1.6;font-style:italic">"Even if AI agents produce code that could be easy to understand, the humans involved may have simply lost the plot."</p>
+      </div>
+      <div style="flex:1;min-width:240px">
+        <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--accent);margin:0 0 6px">SIMON WILLISON — DATASETTE</p>
+        <p style="margin:0;font-size:16px;line-height:1.6;font-style:italic">Cognitive debt, like technical debt, must eventually be repaid — and the longer it compounds, the more expensive the repayment becomes.</p>
+      </div>
+      <div style="flex:1;min-width:240px">
+        <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--accent);margin:0 0 6px">MICHAEL WÜRSCH — PRACTITIONER</p>
+        <p style="margin:0;font-size:16px;line-height:1.6;font-style:italic">The accumulation of cognitive debt reflects inadequate engineering discipline — not AI's fault, but teams that were already skipping the hard work using AI as the latest excuse.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SOURCES -->
+  <div class="sk-box-soft" style="padding:14px 18px;margin-top:14px">
+    <div class="row gap-4" style="flex-wrap:wrap;align-items:center">
+      <div>
+        <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px;display:block;margin-bottom:4px">PRIMARY SOURCE</span>
+        <a href="https://margaretstorey.com/blog/2026/02/18/cognitive-debt-revisited/" class="sk-mono" style="font-size:12px;color:var(--teal);text-decoration:underline;text-underline-offset:3px">STOREY · COGNITIVE DEBT REVISITED &#8599;</a>
+      </div>
+      <div>
+        <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px;display:block;margin-bottom:4px">SIMON WILLISON</span>
+        <a href="https://simonwillison.net/2026/Feb/15/cognitive-debt/" class="sk-mono" style="font-size:12px;color:var(--teal);text-decoration:underline;text-underline-offset:3px">SIMONWILLISON.NET &#8599;</a>
+      </div>
+      <div>
+        <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px;display:block;margin-bottom:4px">DX NEWSLETTER</span>
+        <a href="https://newsletter.getdx.com/p/cognitive-debt-the-hidden-risk-in" class="sk-mono" style="font-size:12px;color:var(--teal);text-decoration:underline;text-underline-offset:3px">GETDX.COM &#8599;</a>
+      </div>
+    </div>
+  </div>
+
+  <nav class="row" style="margin-top:20px;justify-content:space-between">
+    <a href="../index.html" class="sk-mono" style="font-size:11px;letter-spacing:1.5px">&larr; BACK TO ISSUE 007</a>
+    <a href="../../../archive.html" class="sk-mono" style="font-size:11px;letter-spacing:1.5px;color:var(--teal)">ARCHIVE &#8599;</a>
+  </nav>
+
+</div>
+</body>
+</html>

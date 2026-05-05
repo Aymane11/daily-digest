@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="alternate" type="application/rss+xml" title="Daily Digest RSS" href="/daily-digest/feed.xml" />
+<title>Daily Digest — Agent Skills: enforcing senior engineering discipline in AI workflows — Issue 007</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{background:#f5f0e8;color:#111;font-family:'Lora',serif;font-size:18px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:root{
+  --paper:#f5f0e8;--card:#fffdf7;--ink:#111111;--ink-2:#5a5a5a;
+  --accent:#d62828;--hi:#f5c842;--teal:#0d7377;--navy:#14213d;
+  --ochre:#e07b39;--slate:#3d5a80;--sage:#2d6a4f;--purple:#7b2d8b;--rule:#111111;
+}
+.sk-mono{font-family:'IBM Plex Serif','Georgia',serif;font-weight:500}
+.sk-box{border:1.5px solid var(--ink);background:transparent;position:relative}
+.sk-box-soft{border:1.25px solid #2a2a2a;background:transparent}
+.sk-rule-thin{height:0;border:0;border-top:1px solid var(--ink);margin:0}
+.sk-stamp{display:inline-block;font-family:'IBM Plex Serif',serif;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:3px 9px;border:1.5px solid currentColor;line-height:1.4;transform:rotate(-1deg);white-space:nowrap}
+.sk-stamp--red{color:var(--accent);border-color:var(--accent)}
+.sk-stamp--navy{color:var(--navy);border-color:var(--navy)}
+.sk-stamp--teal{color:var(--teal);border-color:var(--teal)}
+.sk-stamp--sage{color:var(--sage);border-color:var(--sage)}
+.row{display:flex}.col{display:flex;flex-direction:column}.grow{flex:1}
+.gap-2{gap:8px}.gap-3{gap:12px}.gap-4{gap:16px}
+.dd-page{max-width:1200px;margin:0 auto;padding:32px}
+@media(max-width:640px){.dd-page{padding:16px 14px}}
+</style>
+</head>
+<body>
+<div class="dd-page">
+
+  <nav class="row" style="justify-content:space-between;align-items:baseline;margin-bottom:10px">
+    <a href="../index.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px">&larr; DIGEST &middot; &numero; 007</a>
+    <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">HEADLINE &middot; 02.4 &middot; AI ENGINEERING</span>
+    <a href="../../../archive.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--teal)">ARCHIVE &#8599;</a>
+  </nav>
+
+  <header class="sk-box" style="background:var(--ink);color:var(--card);padding:22px 24px">
+    <div class="row" style="justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px">
+      <span class="sk-mono" style="font-size:11px;letter-spacing:3px;color:var(--hi)">HEADLINE / 02.4</span>
+      <span class="sk-mono" style="font-size:10px;letter-spacing:2px">4 MIN READ</span>
+      <a href="https://addyosmani.com/blog/agent-skills/" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--sage)">SOURCE &middot; ADDYOSMANI.COM &#8599;</a>
+    </div>
+    <h1 style="font-size:40px;font-weight:700;line-height:1.08;margin:16px 0 10px;text-wrap:balance">
+      Agent Skills: a framework for making AI coding agents follow senior engineering discipline
+    </h1>
+    <p style="font-size:18px;line-height:1.6;margin:0;color:#e8e0d0">
+      Addy Osmani releases a 20-skill, six-phase workflow system for AI coding agents. The core insight: agents execute workflows, not essays. Skills encode checkpoints and exit criteria that make steps like spec, test, and review impossible to skip.
+    </p>
+    <div class="row gap-3" style="margin-top:14px;flex-wrap:wrap">
+      <span class="sk-stamp sk-stamp--teal">AI ENGINEERING</span>
+      <span class="sk-stamp sk-stamp--navy">DEVELOPER TOOLS</span>
+      <span class="sk-stamp sk-stamp--sage">OPEN SOURCE</span>
+    </div>
+  </header>
+
+  <div class="sk-box" style="background:var(--hi);padding:18px 20px;margin-top:14px">
+    <span class="sk-mono" style="font-size:11px;letter-spacing:2px;font-weight:600">TL;DR</span>
+    <p style="margin:8px 0 0;font-size:18px;line-height:1.55;font-weight:600">
+      Addy Osmani (Chrome team, Google) published a post and MIT-licensed GitHub repository with 20 "skills" — markdown workflow files injected into agent context — covering six software lifecycle phases: Define, Plan, Build, Verify, Review, Ship. The project has 26K GitHub stars. The key design principle: skills encode checkpoint-based workflows with anti-rationalization tables (pre-written rebuttals to the excuses agents give for skipping steps). No step is advisory; all terminate with concrete evidence (test runs, logs, approvals).
+    </p>
+  </div>
+
+  <div class="row gap-3" style="margin-top:14px;flex-wrap:wrap">
+    <div class="sk-box" style="padding:14px 18px;flex:1;min-width:140px;background:var(--card)">
+      <span style="font-size:40px;font-weight:700;line-height:1;display:block;color:var(--accent)">20</span>
+      <span class="sk-mono" style="font-size:11px">skills across 6 lifecycle phases</span>
+    </div>
+    <div class="sk-box" style="padding:14px 18px;flex:1;min-width:140px;background:var(--card)">
+      <span style="font-size:40px;font-weight:700;line-height:1;display:block">26K</span>
+      <span class="sk-mono" style="font-size:11px">GitHub stars</span>
+    </div>
+    <div class="sk-box" style="padding:14px 18px;flex:1;min-width:140px;background:var(--card)">
+      <span style="font-size:40px;font-weight:700;line-height:1;display:block">~100</span>
+      <span class="sk-mono" style="font-size:11px">lines max recommended PR size</span>
+    </div>
+    <div class="sk-box" style="padding:14px 18px;flex:1;min-width:140px;background:var(--accent);color:var(--card)">
+      <span style="font-size:40px;font-weight:700;line-height:1;display:block">80/15/5</span>
+      <span class="sk-mono" style="font-size:11px">test pyramid ratio (unit/integration/e2e)</span>
+    </div>
+  </div>
+
+  <div class="sk-box" style="padding:20px 22px;margin-top:14px;background:var(--card)">
+    <div class="row gap-2" style="margin-bottom:12px;align-items:baseline">
+      <span class="sk-mono" style="font-size:28px;font-weight:700;color:var(--accent);line-height:1">¶01</span>
+      <span class="sk-mono" style="font-size:11px;letter-spacing:2px">WHAT HAPPENED</span>
+    </div>
+    <hr class="sk-rule-thin" style="margin-bottom:14px" />
+    <p style="margin:0 0 12px">Addy Osmani published "Agent Skills" — a system for encoding senior engineering practice into AI coding agents through reusable workflow markdown files. The post describes five load-bearing design principles: process over prose, anti-rationalization tables, verification as non-negotiable, progressive disclosure (activate only relevant skills per phase to preserve context tokens), and scope discipline ("touch only what you're asked to touch").</p>
+    <p style="margin:0 0 12px">The six phases are: <strong>Define</strong> (write a spec before touching code), <strong>Plan</strong> (decompose the spec into tasks), <strong>Build</strong> (implement within scope), <strong>Verify</strong> (tests pass, evidence collected), <strong>Review</strong> (code review approval), <strong>Ship</strong> (deploy with confirmed rollback path). Each phase has exit criteria — conditions that must be true before the agent proceeds. Agents cannot exit a phase by claiming "it looks fine."</p>
+    <p style="margin:0">The anti-rationalization tables are the most novel element: they pre-enumerate the excuses agents give for skipping steps ("we'll add tests later," "this is too small to need a spec") alongside the documented reasons those excuses produce worse outcomes. This is the agent equivalent of pre-mortem planning applied to engineering discipline.</p>
+  </div>
+
+  <div class="sk-box" style="padding:20px 22px;margin-top:14px;background:var(--card)">
+    <div class="row gap-2" style="margin-bottom:12px;align-items:baseline">
+      <span class="sk-mono" style="font-size:28px;font-weight:700;color:var(--accent);line-height:1">¶02</span>
+      <span class="sk-mono" style="font-size:11px;letter-spacing:2px">WHY IT MATTERS</span>
+    </div>
+    <hr class="sk-rule-thin" style="margin-bottom:14px" />
+    <p style="margin:0 0 12px">AI agents default to the shortest path to a passing output — which means skipping specs, writing minimal tests, and treating review as optional. These are exactly the shortcuts that accumulate as technical and cognitive debt. Skills make discipline structural rather than advisory: the agent cannot call a phase complete without satisfying its checklist.</p>
+    <p style="margin:0">The framework is also applicable to human team processes: the same checkpoint-based workflow files can be imported into onboarding docs, PR templates, or team runbooks. The MIT license means teams can adapt them freely.</p>
+  </div>
+
+  <div class="sk-box" style="padding:20px 22px;margin-top:14px;background:var(--hi)">
+    <div class="row gap-2" style="margin-bottom:12px;align-items:baseline">
+      <span class="sk-mono" style="font-size:28px;font-weight:700;color:var(--ink);line-height:1">¶03</span>
+      <span class="sk-mono" style="font-size:11px;letter-spacing:2px">WHAT TO WATCH</span>
+    </div>
+    <hr class="sk-rule-thin" style="margin-bottom:14px" />
+    <ul style="margin:0;padding-left:20px;font-size:17px;line-height:1.7">
+      <li><strong>Clone the repository and run /spec on your next feature</strong> before writing any code. The Define phase forces you to write the acceptance criteria first — try it on one story this sprint and measure whether the implementation scope stays tighter than usual.</li>
+      <li>Evaluate the anti-rationalization tables for your team's specific failure patterns — the most useful ones will be the excuses your team actually uses, not the generic ones. Customize them.</li>
+      <li>Watch whether Cursor, Claude Code, or Gemini Code Assist builds native skill injection into their agent interfaces — the 26K stars signal demand for this pattern at the IDE layer.</li>
+    </ul>
+  </div>
+
+  <div class="sk-box-soft" style="padding:14px 18px;margin-top:14px">
+    <div class="row gap-4" style="flex-wrap:wrap;align-items:center">
+      <div>
+        <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px;display:block;margin-bottom:4px">SOURCE</span>
+        <a href="https://addyosmani.com/blog/agent-skills/" class="sk-mono" style="font-size:12px;color:var(--teal);text-decoration:underline;text-underline-offset:3px">SOURCE &middot; ADDYOSMANI.COM &#8599;</a>
+      </div>
+      <div>
+        <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px;display:block;margin-bottom:4px">HN DISCUSSION</span>
+        <a href="https://news.ycombinator.com/item?id=48015397" class="sk-mono" style="font-size:12px;color:var(--teal);text-decoration:underline;text-underline-offset:3px">HN DISCUSSION &middot; 205 PTS &#8599;</a>
+      </div>
+    </div>
+  </div>
+
+  <nav class="row" style="margin-top:20px;justify-content:space-between">
+    <a href="../index.html" class="sk-mono" style="font-size:11px;letter-spacing:1.5px">&larr; BACK TO ISSUE 007</a>
+    <a href="../../../archive.html" class="sk-mono" style="font-size:11px;letter-spacing:1.5px;color:var(--teal)">ARCHIVE &#8599;</a>
+  </nav>
+
+</div>
+</body>
+</html>

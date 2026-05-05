@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="alternate" type="application/rss+xml" title="Daily Digest RSS" href="/daily-digest/feed.xml" />
+<title>Daily Digest — Tool: OpenAI Realtime API (gpt-realtime-mini) — Issue 007</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{background:#f5f0e8;color:#111;font-family:'Lora',serif;font-size:18px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:root{
+  --paper:#f5f0e8;--card:#fffdf7;--ink:#111111;--ink-2:#5a5a5a;
+  --accent:#d62828;--hi:#f5c842;--teal:#0d7377;--navy:#14213d;
+  --ochre:#e07b39;--slate:#3d5a80;--sage:#2d6a4f;--purple:#7b2d8b;--rule:#111111;
+}
+.sk-mono{font-family:'IBM Plex Serif','Georgia',serif;font-weight:500}
+.sk-box{border:1.5px solid var(--ink);background:transparent;position:relative}
+.sk-box-soft{border:1.25px solid #2a2a2a;background:transparent}
+.sk-rule-thin{height:0;border:0;border-top:1px solid var(--ink);margin:0}
+.sk-stamp{display:inline-block;font-family:'IBM Plex Serif',serif;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:3px 9px;border:1.5px solid currentColor;line-height:1.4;transform:rotate(-1deg);white-space:nowrap}
+.sk-stamp--red{color:var(--accent);border-color:var(--accent)}
+.sk-stamp--teal{color:var(--teal);border-color:var(--teal)}
+.sk-stamp--navy{color:var(--navy);border-color:var(--navy)}
+.sk-stamp--sage{color:var(--sage);border-color:var(--sage)}
+.sk-stamp--ochre{color:var(--ochre);border-color:var(--ochre)}
+.row{display:flex}.col{display:flex;flex-direction:column}.grow{flex:1}
+.gap-2{gap:8px}.gap-3{gap:12px}.gap-4{gap:16px}
+.dd-page{max-width:1200px;margin:0 auto;padding:32px}
+.sk-grid-tool{display:grid;grid-template-columns:1fr 300px;gap:14px}
+@media(max-width:900px){.sk-grid-tool{grid-template-columns:1fr 260px!important}}
+@media(max-width:640px){.dd-page{padding:16px 14px}.sk-grid-tool{grid-template-columns:1fr!important}}
+pre{background:var(--ink);color:#e8e0d0;padding:14px 16px;font-size:13px;line-height:1.6;overflow-x:auto;margin:0}
+code{font-family:'IBM Plex Serif',monospace;font-size:13px}
+</style>
+</head>
+<body>
+<div class="dd-page">
+
+  <nav class="row" style="justify-content:space-between;align-items:baseline;margin-bottom:10px">
+    <a href="../index.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px">&larr; DIGEST &middot; &numero; 007</a>
+    <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">TOOL &middot; 04.1 &middot; VOICE AI</span>
+    <a href="../../../archive.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--teal)">ARCHIVE &#8599;</a>
+  </nav>
+
+  <header class="sk-box" style="background:var(--sage);color:var(--card);padding:20px 24px">
+    <div class="row" style="justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px">
+      <span class="sk-mono" style="font-size:11px;letter-spacing:3px;color:var(--hi)">TOOL / 04.1</span>
+      <span class="sk-stamp" style="color:var(--hi);border-color:var(--hi)">PAID · FREE TIER AVAILABLE</span>
+    </div>
+    <h1 style="font-size:36px;font-weight:700;line-height:1.1;margin:14px 0 8px">OpenAI Realtime API</h1>
+    <p style="font-size:17px;line-height:1.6;margin:0;color:#d0e8d8">Real-time speech-to-speech AI with 250–500 ms end-to-end latency. The new <code>gpt-realtime-mini</code> snapshot adds +18.6 pp instruction-following and +12.9 pp tool-calling accuracy. Handles streaming audio in/out, interruptions, and function calling mid-speech.</p>
+    <div class="row gap-3" style="margin-top:12px;flex-wrap:wrap">
+      <span class="sk-stamp sk-stamp--teal">VOICE AI</span>
+      <span class="sk-stamp sk-stamp--navy">WEBRTC</span>
+      <span class="sk-stamp sk-stamp--ochre">OPENAI</span>
+    </div>
+  </header>
+
+  <div class="sk-grid-tool" style="margin-top:14px">
+
+    <div class="col gap-3">
+
+      <!-- WHY TRY -->
+      <div class="sk-box" style="padding:18px 20px;background:var(--card)">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0 0 10px">WHY TRY THIS</p>
+        <hr class="sk-rule-thin" style="margin-bottom:12px" />
+        <p style="margin:0 0 10px;font-size:16px;line-height:1.6">The Realtime API is the only production-grade speech-to-speech API that handles interruptions naturally — when a user talks over the model, it stops gracefully instead of finishing its sentence. The new mini snapshot makes it practical for cost-sensitive deployments: tool-calling accuracy is now reliable enough to build phone bots and voice agents that actually complete tasks.</p>
+        <p style="margin:0;font-size:16px;line-height:1.6"><strong>Problem it solves:</strong> building voice interfaces that feel like real conversation, not a voice-over-IVR. The latency target (250–500 ms) keeps the back-and-forth from feeling robotic.</p>
+      </div>
+
+      <!-- ACCESS + PRICING -->
+      <div class="sk-box" style="padding:18px 20px;background:var(--hi)">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0 0 10px">ACCESS &amp; PRICING</p>
+        <hr class="sk-rule-thin" style="margin-bottom:12px" />
+        <ul style="margin:0;padding-left:18px;font-size:16px;line-height:1.7">
+          <li><strong>Paid API</strong> — requires an OpenAI API key with billing enabled</li>
+          <li><strong>gpt-realtime-mini</strong> — lower cost than the full Realtime model; exact pricing at platform.openai.com/pricing</li>
+          <li><strong>Free alternative:</strong> Whisper (speech-to-text) + any LLM + TTS gives a similar pipeline but with higher latency and no interruption handling</li>
+          <li>WebRTC and WebSocket transports both supported</li>
+        </ul>
+      </div>
+
+      <!-- HANDS ON -->
+      <div class="sk-box" style="padding:18px 20px;background:var(--card)">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0 0 10px">HANDS-ON · TRY IT</p>
+        <hr class="sk-rule-thin" style="margin-bottom:12px" />
+        <p style="margin:0 0 10px;font-size:15px;font-weight:600">Prerequisites: OpenAI API key, Node.js 18+</p>
+
+        <p class="sk-mono" style="font-size:11px;letter-spacing:1.5px;margin:10px 0 6px">STEP 1 — Install the SDK</p>
+        <pre><code>npm install openai</code></pre>
+
+        <p class="sk-mono" style="font-size:11px;letter-spacing:1.5px;margin:14px 0 6px">STEP 2 — Create a WebSocket session</p>
+        <pre><code>import OpenAI from "openai";
+
+const client = new OpenAI();
+
+const session = await client.beta.realtime.sessions.create({
+  model: "gpt-4o-realtime-preview-2026-04-30",
+  voice: "alloy",
+});
+
+console.log("Session token:", session.client_secret.value);</code></pre>
+
+        <p class="sk-mono" style="font-size:11px;letter-spacing:1.5px;margin:14px 0 6px">STEP 3 — Connect and stream audio</p>
+        <pre><code># Full WebRTC/WebSocket example:
+# platform.openai.com/docs/guides/realtime</code></pre>
+
+        <p class="sk-mono" style="font-size:11px;letter-spacing:1.5px;margin:14px 0 6px">STEP 4 — Add a tool call</p>
+        <pre><code>// In session config:
+tools: [{
+  type: "function",
+  name: "get_weather",
+  description: "Get current weather for a city",
+  parameters: {
+    type: "object",
+    properties: {
+      city: { type: "string" }
+    },
+    required: ["city"]
+  }
+}]</code></pre>
+      </div>
+
+      <!-- WHAT TO OBSERVE -->
+      <div class="sk-box" style="padding:18px 20px;background:var(--navy);color:var(--card)">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;color:var(--hi);margin:0 0 10px">WHAT TO OBSERVE</p>
+        <hr class="sk-rule-thin" style="border-color:#3a3a5a;margin-bottom:12px" />
+        <ul style="margin:0;padding-left:18px;font-size:16px;line-height:1.7;color:#ddd">
+          <li>Speak a question and measure the time until the first audio byte arrives — should be under 500 ms on a good connection</li>
+          <li>Try interrupting mid-response: the model should stop within ~200 ms of you starting to speak</li>
+          <li>Invoke a tool call mid-conversation ("what's the weather in Paris?") and verify the function fires correctly before the model continues speaking</li>
+          <li>Compare latency between WebSocket and WebRTC transports for your region</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="col gap-3">
+      <div class="sk-box" style="padding:16px;background:var(--ink);color:var(--card)">
+        <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--hi);margin:0 0 10px">QUICK FACTS</p>
+        <hr class="sk-rule-thin" style="border-color:#333;margin-bottom:12px" />
+        <div style="font-size:14px;line-height:1.8">
+          <p style="margin:0 0 6px"><strong>Latency:</strong> 250–500 ms</p>
+          <p style="margin:0 0 6px"><strong>Model:</strong> gpt-realtime-mini (new snapshot)</p>
+          <p style="margin:0 0 6px"><strong>Transport:</strong> WebRTC or WebSocket</p>
+          <p style="margin:0 0 6px"><strong>Features:</strong> interruption handling, tool calling, streaming audio</p>
+          <p style="margin:0 0 6px"><strong>+18.6 pp</strong> instruction-following</p>
+          <p style="margin:0"><strong>+12.9 pp</strong> tool-calling accuracy</p>
+        </div>
+      </div>
+
+      <div class="sk-box" style="padding:16px;background:var(--hi)">
+        <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;margin:0 0 10px">BEST FOR</p>
+        <hr class="sk-rule-thin" style="margin-bottom:12px" />
+        <ul style="margin:0;padding-left:16px;font-size:14px;line-height:1.8">
+          <li>Customer service voice bots</li>
+          <li>Voice-controlled agents</li>
+          <li>Phone call automation</li>
+          <li>Live translation</li>
+          <li>Accessibility tools</li>
+        </ul>
+      </div>
+
+      <div class="sk-box-soft" style="padding:16px">
+        <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;margin:0 0 8px">DOCS</p>
+        <a href="https://platform.openai.com/docs/guides/realtime" class="sk-mono" style="font-size:12px;color:var(--teal);text-decoration:underline;text-underline-offset:3px;display:block;margin-bottom:10px">REALTIME API DOCS &#8599;</a>
+        <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;margin:0 0 8px">ENGINEERING POST</p>
+        <a href="https://openai.com/index/delivering-low-latency-voice-ai-at-scale/" class="sk-mono" style="font-size:12px;color:var(--teal);text-decoration:underline;text-underline-offset:3px;display:block">OPENAI INFRA POST &#8599;</a>
+      </div>
+    </div>
+
+  </div>
+
+  <nav class="row" style="margin-top:20px;justify-content:space-between">
+    <a href="../index.html" class="sk-mono" style="font-size:11px;letter-spacing:1.5px">&larr; BACK TO ISSUE 007</a>
+    <a href="../../../archive.html" class="sk-mono" style="font-size:11px;letter-spacing:1.5px;color:var(--teal)">ARCHIVE &#8599;</a>
+  </nav>
+
+</div>
+</body>
+</html>
