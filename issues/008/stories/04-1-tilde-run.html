@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tool: Tilde — browser-native AI terminal for instant shell access — Daily Digest</title>
+<link rel="alternate" type="application/rss+xml" title="Daily Digest RSS" href="/daily-digest/feed.xml" />
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body { background: #f5f0e8; color: #111; font-family: 'Lora', serif; font-size: 18px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+a { color: inherit; text-decoration: none; }
+:root {
+  --paper:#f5f0e8; --card:#fffdf7; --ink:#111111; --ink-2:#5a5a5a;
+  --accent:#d62828; --hi:#f5c842; --teal:#0d7377; --navy:#14213d;
+  --ochre:#e07b39; --slate:#3d5a80; --sage:#2d6a4f; --purple:#7b2d8b; --rule:#111111;
+}
+.sk-box { border: 1.5px solid var(--ink); background: transparent; }
+.sk-rule { height:0; border:0; border-top:1.5px solid var(--ink); margin:0; }
+.sk-stamp { display:inline-block; font-family:'IBM Plex Serif',serif; font-size:10px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; padding:3px 8px; border:1.5px solid currentColor; line-height:1.4; transform:rotate(-1deg); white-space:nowrap; }
+.sk-stamp--navy { color:var(--navy); border-color:var(--navy); }
+.sk-stamp--teal { color:var(--teal); border-color:var(--teal); }
+.sk-stamp--ochre { color:var(--ochre); border-color:var(--ochre); }
+.sk-stamp--slate { color:var(--slate); border-color:var(--slate); }
+.sk-stamp--sage { color:var(--sage); border-color:var(--sage); }
+.sk-stamp--red { color:var(--accent); border-color:var(--accent); }
+.sk-src-link { font-family:'IBM Plex Serif',serif; font-size:11px; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:var(--teal); text-decoration:underline; text-underline-offset:3px; }
+.row { display:flex; }
+.gap-2 { gap:8px; } .gap-3 { gap:12px; }
+.dd-page { max-width:1200px; margin:0 auto; padding:32px; }
+.sk-grid-tool { display:grid; grid-template-columns:1fr 300px; gap:0; align-items:start; }
+.sk-tool-body { padding:28px 32px 28px 28px; }
+.sk-tool-sidebar { border-left:1.5px solid var(--ink); padding:24px 20px; }
+.sk-kicker { font-family:'IBM Plex Serif',serif; font-size:11px; font-weight:600; letter-spacing:2px; text-transform:uppercase; color:var(--sage); }
+.sk-tool-hl { font-size:38px; font-weight:700; line-height:1.1; margin:8px 0; }
+.sk-standfirst { font-size:18px; line-height:1.5; margin:12px 0 0; }
+.sk-section-label { font-family:'IBM Plex Serif',serif; font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--ink-2); margin-bottom:6px; }
+.sk-section-label.accent { color:var(--accent); }
+.sk-section-label.sage { color:var(--sage); }
+.sk-hi-box { background:var(--hi); border-left:4px solid var(--ink); padding:14px 18px; margin:20px 0; }
+.sk-hi-box h3 { font-family:'IBM Plex Serif',serif; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--ink); margin:0 0 8px; }
+.sk-watch-box { background:var(--card); border:1.5px solid var(--ink); padding:16px 18px; margin-top:20px; }
+.sk-watch-box h3 { font-family:'IBM Plex Serif',serif; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--sage); margin:0 0 8px; }
+.sk-watch-box ul { margin:0; padding-left:18px; }
+.sk-watch-box ul li { margin-bottom:6px; font-size:16px; }
+.sk-steps { list-style:none; padding:0; margin:0; counter-reset:steps; }
+.sk-steps li { counter-increment:steps; padding:10px 0 10px 36px; border-bottom:1px solid var(--ink); position:relative; font-size:16px; }
+.sk-steps li:last-child { border-bottom:none; }
+.sk-steps li::before { content:counter(steps); position:absolute; left:0; top:10px; font-family:'IBM Plex Serif',serif; font-size:13px; font-weight:700; color:var(--sage); border:1.5px solid var(--sage); width:22px; height:22px; display:flex; align-items:center; justify-content:center; line-height:1; }
+code { font-family:'IBM Plex Serif',monospace; font-size:14px; background:var(--card); border:1px solid var(--ink); padding:2px 6px; }
+pre { font-family:'IBM Plex Serif',monospace; font-size:14px; background:var(--card); border:1.5px solid var(--ink); padding:14px 16px; overflow-x:auto; margin:12px 0; line-height:1.5; }
+.sk-numbers-list { list-style:none; padding:0; margin:0; }
+.sk-numbers-list li { padding:7px 0; border-bottom:1px solid var(--ink); font-size:14px; }
+.sk-numbers-list li:last-child { border-bottom:none; }
+.sk-numbers-list .stat-val { font-size:18px; font-weight:700; display:block; line-height:1.1; }
+@media (max-width:900px) { .dd-page { padding:20px 18px; } .sk-grid-tool { grid-template-columns:1fr 260px !important; } }
+@media (max-width:640px) { body { font-size:17px; } .dd-page { padding:14px 12px; } .sk-grid-tool { grid-template-columns:1fr !important; } .sk-tool-hl { font-size:28px !important; } }
+@media (max-width:380px) { body { font-size:16px; } .dd-page { padding:10px 8px; } }
+</style>
+</head>
+<body>
+<div class="dd-page">
+
+  <div class="row" style="justify-content:space-between;align-items:center;padding-bottom:16px;border-bottom:1.5px solid var(--ink);margin-bottom:20px;">
+    <div class="row gap-3" style="align-items:center;flex-wrap:wrap;">
+      <a href="../../../index.html" style="font-family:'IBM Plex Serif',serif;font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:700;">Daily Digest</a>
+      <span style="color:var(--ink-2);">›</span>
+      <a href="../index.html" style="font-family:'IBM Plex Serif',serif;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-2);">Issue 008</a>
+      <span style="color:var(--ink-2);">›</span>
+      <span style="font-family:'IBM Plex Serif',serif;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-2);">04.1 Tool</span>
+    </div>
+    <a href="../../../archive.html" style="font-family:'IBM Plex Serif',serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-2);">Archive</a>
+  </div>
+
+  <div class="sk-grid-tool sk-box" style="margin-bottom:40px;">
+
+    <div class="sk-tool-body">
+      <div class="sk-kicker">04.1 &nbsp;·&nbsp; Tool &nbsp;·&nbsp; THU 07 MAY 2026</div>
+      <h1 class="sk-tool-hl">Tilde: a browser-native AI terminal that gives you a real shell in seconds</h1>
+      <p class="sk-standfirst">Tilde (tilde.run) launches a sandboxed Linux shell in your browser with an AI layer that translates natural-language instructions into shell commands, explains output, and catches common errors before you run them. No install, no SSH config — open the URL and you have a working terminal.</p>
+
+      <hr class="sk-rule" style="margin:20px 0;">
+
+      <p><strong>Why it's worth trying:</strong> The problem Tilde solves is the friction between "I want to run a one-off command" and actually having a safe environment to do it. It targets developers who need a scratch shell for quick experiments, students learning the command line, and teams onboarding new engineers who don't yet have local environments set up. The AI layer is additive — you can type raw shell commands or describe what you want in plain English, and Tilde generates the command, shows a diff of what it will change, and waits for confirmation before executing anything destructive.</p>
+
+      <p><strong>Access and pricing:</strong> Tilde offers a free tier with limited session length (30 minutes per session, one concurrent session). The paid tier ($12/month) removes session limits and adds persistent file storage across sessions. There is no self-hosted option at launch.</p>
+
+      <div class="sk-hi-box">
+        <h3>Quick start — under 5 minutes, zero setup</h3>
+        <p style="margin:0;font-size:16px;">Open <strong>tilde.run</strong> in any browser. You land in a live shell immediately — no account required for the first session. Type a natural-language instruction to confirm the AI layer is working, then try a raw shell command to verify you have real execution.</p>
+      </div>
+
+      <div style="margin-top:24px;">
+        <div class="sk-section-label sage" style="margin-bottom:12px;">Step-by-step</div>
+        <ol class="sk-steps">
+          <li>Navigate to <strong>tilde.run</strong> — no sign-in required for a 30-minute guest session.</li>
+          <li>In the prompt bar, type: <code>list all files in the current directory sorted by size</code> — Tilde generates <code>ls -lhS</code> and shows it before running.</li>
+          <li>Press Enter to confirm. Observe actual shell output in the terminal panel below.</li>
+          <li>Now try a raw command: <code>curl -s https://httpbin.org/get | head -20</code> — this confirms you have real outbound network access.</li>
+          <li>Test the safety layer: type <code>delete everything in this folder</code> — Tilde should surface a warning and require explicit confirmation before running any <code>rm</code> command.</li>
+          <li>Sign up for a free account to persist your session and return to it within 24 hours.</li>
+        </ol>
+      </div>
+
+      <div class="sk-watch-box" style="margin-top:24px;">
+        <h3>What to observe</h3>
+        <ul>
+          <li>Does the AI-generated command match what you described, or does it make assumptions you didn't intend? Note any divergence — this is the key quality signal.</li>
+          <li>Does the destructive-action warning fire correctly on the delete prompt, and does it clearly show what would be deleted before asking for confirmation?</li>
+          <li>Measure time from URL open to first command executed — if it exceeds 10 seconds, the session provisioning overhead is a practical limitation for quick-scratch use cases.</li>
+        </ul>
+      </div>
+
+      <div style="margin-top:24px;padding-top:14px;border-top:1px solid var(--ink);">
+        <span style="font-family:'IBM Plex Serif',serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-2);">Source &nbsp;·&nbsp;</span>
+        <a href="https://tilde.run" class="sk-src-link">tilde.run ↗</a>
+        <span style="font-family:'IBM Plex Serif',serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-2);margin-left:12px;">Launched May 2026</span>
+      </div>
+    </div>
+
+    <div class="sk-tool-sidebar">
+      <div class="sk-section-label accent" style="margin-bottom:10px;">At a glance</div>
+      <ul class="sk-numbers-list">
+        <li><span class="stat-val">Free</span> 30 min / session, 1 concurrent</li>
+        <li><span class="stat-val">$12/mo</span> unlimited sessions + persistent storage</li>
+        <li><span class="stat-val">0</span> install steps required</li>
+        <li><span class="stat-val">Real</span> Linux shell, real network</li>
+      </ul>
+
+      <div style="margin-top:20px;">
+        <div class="sk-section-label" style="margin-bottom:6px;">Free alternative</div>
+        <p style="font-size:14px;margin:0;">Google Cloud Shell offers a persistent free shell at <strong>shell.cloud.google.com</strong> — requires a Google account but gives 5 GB persistent storage and no session-length limits.</p>
+      </div>
+
+      <div style="margin-top:20px;">
+        <div class="sk-section-label" style="margin-bottom:8px;">Filed under</div>
+        <div class="row gap-2" style="flex-wrap:wrap;">
+          <span class="sk-stamp sk-stamp--sage">Dev Tools</span>
+          <span class="sk-stamp sk-stamp--teal">AI Terminal</span>
+          <span class="sk-stamp sk-stamp--slate">Browser</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row" style="justify-content:space-between;align-items:center;padding-top:16px;border-top:1.5px solid var(--ink);">
+    <a href="../index.html" style="font-family:'IBM Plex Serif',serif;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-2);">← Issue 008</a>
+    <a href="04-2-zaya1-tool.html" style="font-family:'IBM Plex Serif',serif;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-2);">Next tool →</a>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tool: Cloudflare Workers AI with Infire — low-latency LLM inference at the edge — Daily Digest</title>
+<link rel="alternate" type="application/rss+xml" title="Daily Digest RSS" href="/daily-digest/feed.xml" />
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body { background: #f5f0e8; color: #111; font-family: 'Lora', serif; font-size: 18px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+a { color: inherit; text-decoration: none; }
+:root {
+  --paper:#f5f0e8; --card:#fffdf7; --ink:#111111; --ink-2:#5a5a5a;
+  --accent:#d62828; --hi:#f5c842; --teal:#0d7377; --navy:#14213d;
+  --ochre:#e07b39; --slate:#3d5a80; --sage:#2d6a4f; --purple:#7b2d8b; --rule:#111111;
+}
+.sk-box { border: 1.5px solid var(--ink); background: transparent; }
+.sk-rule { height:0; border:0; border-top:1.5px solid var(--ink); margin:0; }
+.sk-stamp { display:inline-block; font-family:'IBM Plex Serif',serif; font-size:10px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; padding:3px 8px; border:1.5px solid currentColor; line-height:1.4; transform:rotate(-1deg); white-space:nowrap; }
+.sk-stamp--navy { color:var(--navy); border-color:var(--navy); }
+.sk-stamp--teal { color:var(--teal); border-color:var(--teal); }
+.sk-stamp--ochre { color:var(--ochre); border-color:var(--ochre); }
+.sk-stamp--slate { color:var(--slate); border-color:var(--slate); }
+.sk-stamp--sage { color:var(--sage); border-color:var(--sage); }
+.sk-src-link { font-family:'IBM Plex Serif',serif; font-size:11px; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:var(--teal); text-decoration:underline; text-underline-offset:3px; }
+.row { display:flex; }
+.gap-2 { gap:8px; } .gap-3 { gap:12px; }
+.dd-page { max-width:1200px; margin:0 auto; padding:32px; }
+.sk-grid-tool { display:grid; grid-template-columns:1fr 300px; gap:0; align-items:start; }
+.sk-tool-body { padding:28px 32px 28px 28px; }
+.sk-tool-sidebar { border-left:1.5px solid var(--ink); padding:24px 20px; }
+.sk-kicker { font-family:'IBM Plex Serif',serif; font-size:11px; font-weight:600; letter-spacing:2px; text-transform:uppercase; color:var(--sage); }
+.sk-tool-hl { font-size:38px; font-weight:700; line-height:1.1; margin:8px 0; }
+.sk-standfirst { font-size:18px; line-height:1.5; margin:12px 0 0; }
+.sk-section-label { font-family:'IBM Plex Serif',serif; font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--ink-2); margin-bottom:6px; }
+.sk-section-label.accent { color:var(--accent); }
+.sk-section-label.sage { color:var(--sage); }
+.sk-hi-box { background:var(--hi); border-left:4px solid var(--ink); padding:14px 18px; margin:20px 0; }
+.sk-hi-box h3 { font-family:'IBM Plex Serif',serif; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--ink); margin:0 0 8px; }
+.sk-watch-box { background:var(--card); border:1.5px solid var(--ink); padding:16px 18px; margin-top:20px; }
+.sk-watch-box h3 { font-family:'IBM Plex Serif',serif; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--sage); margin:0 0 8px; }
+.sk-watch-box ul { margin:0; padding-left:18px; }
+.sk-watch-box ul li { margin-bottom:6px; font-size:16px; }
+.sk-steps { list-style:none; padding:0; margin:0; counter-reset:steps; }
+.sk-steps li { counter-increment:steps; padding:10px 0 10px 36px; border-bottom:1px solid var(--ink); position:relative; font-size:16px; }
+.sk-steps li:last-child { border-bottom:none; }
+.sk-steps li::before { content:counter(steps); position:absolute; left:0; top:10px; font-family:'IBM Plex Serif',serif; font-size:13px; font-weight:700; color:var(--sage); border:1.5px solid var(--sage); width:22px; height:22px; display:flex; align-items:center; justify-content:center; line-height:1; }
+code { font-family:'IBM Plex Serif',monospace; font-size:14px; background:var(--card); border:1px solid var(--ink); padding:2px 6px; }
+pre { font-family:'IBM Plex Serif',monospace; font-size:14px; background:var(--card); border:1.5px solid var(--ink); padding:14px 16px; overflow-x:auto; margin:12px 0; line-height:1.5; }
+.sk-numbers-list { list-style:none; padding:0; margin:0; }
+.sk-numbers-list li { padding:7px 0; border-bottom:1px solid var(--ink); font-size:14px; }
+.sk-numbers-list li:last-child { border-bottom:none; }
+.sk-numbers-list .stat-val { font-size:18px; font-weight:700; display:block; line-height:1.1; }
+@media (max-width:900px) { .dd-page { padding:20px 18px; } .sk-grid-tool { grid-template-columns:1fr 260px !important; } }
+@media (max-width:640px) { body { font-size:17px; } .dd-page { padding:14px 12px; } .sk-grid-tool { grid-template-columns:1fr !important; } .sk-tool-hl { font-size:28px !important; } }
+@media (max-width:380px) { body { font-size:16px; } .dd-page { padding:10px 8px; } }
+</style>
+</head>
+<body>
+<div class="dd-page">
+
+  <div class="row" style="justify-content:space-between;align-items:center;padding-bottom:16px;border-bottom:1.5px solid var(--ink);margin-bottom:20px;">
+    <div class="row gap-3" style="align-items:center;flex-wrap:wrap;">
+      <a href="../../../index.html" style="font-family:'IBM Plex Serif',serif;font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:700;">Daily Digest</a>
+      <span style="color:var(--ink-2);">›</span>
+      <a href="../index.html" style="font-family:'IBM Plex Serif',serif;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-2);">Issue 008</a>
+      <span style="color:var(--ink-2);">›</span>
+      <span style="font-family:'IBM Plex Serif',serif;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-2);">04.4 Tool</span>
+    </div>
+    <a href="../../../archive.html" style="font-family:'IBM Plex Serif',serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-2);">Archive</a>
+  </div>
+
+  <div class="sk-grid-tool sk-box" style="margin-bottom:40px;">
+
+    <div class="sk-tool-body">
+      <div class="sk-kicker">04.4 &nbsp;·&nbsp; Tool &nbsp;·&nbsp; THU 07 MAY 2026</div>
+      <h1 class="sk-tool-hl">Cloudflare Workers AI + session affinity: get 20–30 ms tokens and 80% cache hits today</h1>
+      <p class="sk-standfirst">Cloudflare Workers AI now runs on Infire, its custom Rust inference engine, serving Kimi K2.5 at 20–30 ms intertoken latency. One header change — <code>x-session-affinity</code> — routes follow-up requests to the same node and raises prompt cache hit rate from 60% to 80%, cutting effective cost on long-context sessions immediately.</p>
+
+      <hr class="sk-rule" style="margin:20px 0;">
+
+      <p><strong>Why it's worth trying:</strong> If you're already calling any model on Cloudflare Workers AI, the session affinity header is a zero-cost, one-line change that improves both latency and cost on multi-turn conversations. You're leaving cache hits on the table on every session that doesn't use it. Beyond the header, Workers AI is now the only inference endpoint where Kimi K2.5 is available at sub-30 ms intertoken latency — worth benchmarking if you're currently routing Kimi traffic through other providers.</p>
+
+      <p><strong>Access and pricing:</strong> Workers AI offers a free tier (10,000 neurons/day). Paid usage is billed per neuron (Cloudflare's compute unit). Kimi K2.5 specifically may carry a different per-token rate — check the Workers AI pricing page for current model-specific costs. No GPU reservation required; cold starts are under 20 seconds.</p>
+
+      <div class="sk-hi-box">
+        <h3>Quick start — under 5 minutes if you have a Cloudflare account</h3>
+        <p style="margin:0;font-size:16px;">Add <code>x-session-affinity: YOUR_SESSION_ID</code> to your next Workers AI request. That single header change enables prompt cache reuse across turns. Measure cache hit rate in the Workers AI analytics dashboard before and after.</p>
+      </div>
+
+      <div style="margin-top:24px;">
+        <div class="sk-section-label sage" style="margin-bottom:12px;">Step-by-step</div>
+        <ol class="sk-steps">
+          <li>Log in to Cloudflare Dashboard → <strong>Workers AI</strong>. Confirm you have API access and note your account ID and API token.</li>
+          <li>Make a baseline request to Kimi K2.5 <em>without</em> session affinity and record time-to-first-token and intertoken latency:<br>
+<pre>curl https://api.cloudflare.com/client/v4/accounts/{ACCOUNT_ID}/ai/run/@cf/moonshot/kimi-k2.5 \
+  -H "Authorization: Bearer {API_TOKEN}" \
+  -H "Content-Type: application/json" \
+  -d '{"messages":[{"role":"user","content":"Explain KV cache in one paragraph."}]}'</pre>
+          </li>
+          <li>Now send a follow-up turn <em>with</em> the session affinity header. Use a consistent session ID (any stable string per user session):<br>
+<pre>curl https://api.cloudflare.com/client/v4/accounts/{ACCOUNT_ID}/ai/run/@cf/moonshot/kimi-k2.5 \
+  -H "Authorization: Bearer {API_TOKEN}" \
+  -H "Content-Type: application/json" \
+  -H "x-session-affinity: user-session-abc123" \
+  -d '{"messages":[
+    {"role":"user","content":"Explain KV cache in one paragraph."},
+    {"role":"assistant","content":"[PRIOR RESPONSE]"},
+    {"role":"user","content":"Now give a concrete code example."}
+  ]}'</pre>
+          </li>
+          <li>Compare latency between the two requests. The second should be faster due to prompt cache reuse. Check the <code>cf-cache-status</code> response header — a <code>HIT</code> value confirms the cache fired.</li>
+          <li>Open Workers AI analytics → <strong>Cache hit rate</strong> and verify the rate climbs as you send more same-session requests with the affinity header.</li>
+        </ol>
+      </div>
+
+      <div class="sk-watch-box" style="margin-top:24px;">
+        <h3>What to observe</h3>
+        <ul>
+          <li>Measure intertoken latency on the cached vs. uncached turn — you should see a meaningful gap. If you don't, your prompt context may be too short to benefit from the KV cache (cache benefits grow with longer shared prefixes).</li>
+          <li>Check whether <code>cf-cache-status: HIT</code> appears in response headers on the second and subsequent turns — this is the direct confirmation that session affinity is working.</li>
+          <li>Watch your neuron consumption in the dashboard: with 80% cache hit rate, prompt-processing neurons per turn should drop substantially on long-context sessions, reducing effective cost.</li>
+        </ul>
+      </div>
+
+      <div style="margin-top:24px;padding-top:14px;border-top:1px solid var(--ink);">
+        <span style="font-family:'IBM Plex Serif',serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-2);">Source &nbsp;·&nbsp;</span>
+        <a href="https://blog.cloudflare.com/infire-cloudflares-custom-built-llm-inference-engine/" class="sk-src-link">Cloudflare Blog ↗</a>
+        <span style="font-family:'IBM Plex Serif',serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-2);margin-left:12px;">Published April 16 2026</span>
+      </div>
+    </div>
+
+    <div class="sk-tool-sidebar">
+      <div class="sk-section-label accent" style="margin-bottom:10px;">At a glance</div>
+      <ul class="sk-numbers-list">
+        <li><span class="stat-val">20–30 ms</span> intertoken latency</li>
+        <li><span class="stat-val">80%</span> cache hit rate (with affinity header)</li>
+        <li><span class="stat-val">&lt;20 s</span> cold start</li>
+        <li><span class="stat-val">Free</span> 10,000 neurons/day</li>
+        <li><span class="stat-val">1 header</span> to enable cache reuse</li>
+      </ul>
+
+      <div style="margin-top:20px;">
+        <div class="sk-section-label" style="margin-bottom:6px;">Free alternative</div>
+        <p style="font-size:14px;margin:0;">Kimi K2.5 is also available via Moonshot AI's own API (moonshot.cn). No session affinity feature is documented there, so prompt cache hit rate will be lower on multi-turn sessions. Useful for a baseline latency comparison.</p>
+      </div>
+
+      <div style="margin-top:20px;">
+        <div class="sk-section-label" style="margin-bottom:8px;">Filed under</div>
+        <div class="row gap-2" style="flex-wrap:wrap;">
+          <span class="sk-stamp sk-stamp--slate">Inference</span>
+          <span class="sk-stamp sk-stamp--teal">Cloudflare</span>
+          <span class="sk-stamp sk-stamp--ochre">Edge AI</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row" style="justify-content:space-between;align-items:center;padding-top:16px;border-top:1.5px solid var(--ink);">
+    <a href="04-3-google-fraud-defense-tool.html" style="font-family:'IBM Plex Serif',serif;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-2);">← Previous tool</a>
+    <a href="../index.html" style="font-family:'IBM Plex Serif',serif;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-2);">Back to Issue 008 →</a>
+  </div>
+
+</div>
+</body>
+</html>

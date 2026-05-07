@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cloudflare Infire: Rust-built LLM inference engine triples Kimi speed — Daily Digest</title>
+<link rel="alternate" type="application/rss+xml" title="Daily Digest RSS" href="/daily-digest/feed.xml" />
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: #f5f0e8;
+  color: #111;
+  font-family: 'Lora', serif;
+  font-size: 18px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+:root {
+  --paper:  #f5f0e8;
+  --card:   #fffdf7;
+  --ink:    #111111;
+  --ink-2:  #5a5a5a;
+  --accent: #d62828;
+  --hi:     #f5c842;
+  --teal:   #0d7377;
+  --navy:   #14213d;
+  --ochre:  #e07b39;
+  --slate:  #3d5a80;
+  --sage:   #2d6a4f;
+  --purple: #7b2d8b;
+  --rule:   #111111;
+}
+.sk-box      { border: 1.5px solid var(--ink); background: transparent; position: relative; }
+.sk-rule      { height: 0; border: 0; border-top: 1.5px solid var(--ink); margin: 0; }
+.sk-stamp {
+  display: inline-block;
+  font-family: 'IBM Plex Serif', serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border: 1.5px solid currentColor;
+  line-height: 1.4;
+  transform: rotate(-1deg);
+  white-space: nowrap;
+}
+.sk-stamp--red    { color: var(--accent);  border-color: var(--accent);  }
+.sk-stamp--navy   { color: var(--navy);    border-color: var(--navy);    }
+.sk-stamp--teal   { color: var(--teal);    border-color: var(--teal);    }
+.sk-stamp--ochre  { color: var(--ochre);   border-color: var(--ochre);   }
+.sk-stamp--slate  { color: var(--slate);   border-color: var(--slate);   }
+.sk-stamp--hi     { color: #a07800;        border-color: #a07800;        }
+.sk-stamp--ink    { color: var(--ink);     border-color: var(--ink);     }
+.sk-stamp--sage   { color: var(--sage);    border-color: var(--sage);    }
+.sk-src-link {
+  font-family: 'IBM Plex Serif', serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--teal);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.row { display: flex; }
+.gap-2 { gap: 8px; } .gap-3 { gap: 12px; }
+.dd-page { max-width: 1200px; margin: 0 auto; padding: 32px; }
+.sk-grid-dossier {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 0;
+  align-items: start;
+}
+.sk-rail { border-right: 1.5px solid var(--ink); padding: 28px 24px; min-height: 600px; }
+.sk-body-col { padding: 28px 32px; }
+.sk-kicker { font-family: 'IBM Plex Serif', serif; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); }
+.sk-dossier-hl { font-size: 44px; font-weight: 700; line-height: 1.05; margin: 10px 0 0; }
+.sk-standfirst { font-size: 19px; line-height: 1.5; margin: 14px 0 0; color: var(--ink); }
+.sk-section-label { font-family: 'IBM Plex Serif', serif; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--ink-2); margin-bottom: 6px; }
+.sk-section-label.accent { color: var(--accent); }
+.sk-para-num { font-family: 'IBM Plex Serif', serif; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 6px; }
+.sk-pull-quote { border-left: 4px solid var(--hi); padding: 10px 16px; margin: 20px 0; font-size: 20px; font-style: italic; line-height: 1.45; background: var(--card); }
+.sk-pull-quote cite { display: block; font-size: 12px; font-style: normal; font-family: 'IBM Plex Serif', serif; letter-spacing: 1px; text-transform: uppercase; color: var(--ink-2); margin-top: 8px; }
+.sk-inline-stat { background: var(--hi); padding: 10px 16px; margin: 20px 0; border-left: 4px solid var(--ink); }
+.sk-inline-stat .big { font-size: 42px; font-weight: 700; line-height: 1; display: block; }
+.sk-inline-stat .label { font-family: 'IBM Plex Serif', serif; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: var(--ink-2); }
+.sk-watch-box { background: var(--card); border: 1.5px solid var(--ink); padding: 16px 18px; margin-top: 24px; }
+.sk-watch-box h3 { font-family: 'IBM Plex Serif', serif; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin: 0 0 8px; }
+.sk-watch-box ul { margin: 0; padding-left: 18px; }
+.sk-watch-box ul li { margin-bottom: 6px; font-size: 16px; }
+.sk-numbers-list { list-style: none; padding: 0; margin: 0; }
+.sk-numbers-list li { padding: 7px 0; border-bottom: 1px solid var(--ink); font-size: 15px; }
+.sk-numbers-list li:last-child { border-bottom: none; }
+.sk-numbers-list .stat-val { font-size: 22px; font-weight: 700; display: block; line-height: 1.1; }
+.sk-players-list { list-style: none; padding: 0; margin: 0; }
+.sk-players-list li { padding: 6px 0; border-bottom: 1px solid var(--ink); font-size: 14px; line-height: 1.4; }
+.sk-players-list li:last-child { border-bottom: none; }
+.sk-players-list .player-name { font-weight: 700; font-size: 13px; display: block; font-family: 'IBM Plex Serif', serif; text-transform: uppercase; letter-spacing: 0.5px; }
+@media (max-width: 900px) {
+  .dd-page { padding: 20px 18px; }
+  .sk-grid-dossier { grid-template-columns: 1fr 1fr !important; }
+}
+@media (max-width: 640px) {
+  body { font-size: 17px; }
+  .dd-page { padding: 14px 12px; }
+  .sk-grid-dossier { grid-template-columns: 1fr !important; }
+  .sk-dossier-hl { font-size: 36px !important; }
+  .sk-annot { display: none; }
+}
+@media (max-width: 380px) {
+  body { font-size: 16px; }
+  .dd-page { padding: 10px 8px; }
+  .sk-dossier-hl { font-size: 28px !important; }
+}
+</style>
+</head>
+<body>
+<div class="dd-page">
+
+  <!-- nav -->
+  <div class="row" style="justify-content:space-between;align-items:center;padding-bottom:16px;border-bottom:1.5px solid var(--ink);margin-bottom:20px;">
+    <div class="row gap-3" style="align-items:center;flex-wrap:wrap;">
+      <a href="../../../index.html" style="font-family:'IBM Plex Serif',serif;font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:700;">Daily Digest</a>
+      <span style="color:var(--ink-2);">›</span>
+      <a href="../index.html" style="font-family:'IBM Plex Serif',serif;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-2);">Issue 008</a>
+      <span style="color:var(--ink-2);">›</span>
+      <span style="font-family:'IBM Plex Serif',serif;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-2);">02.4 Headlines</span>
+    </div>
+    <a href="../../../archive.html" style="font-family:'IBM Plex Serif',serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-2);">Archive</a>
+  </div>
+
+  <!-- dossier grid -->
+  <div class="sk-grid-dossier sk-box" style="margin-bottom:40px;">
+
+    <!-- LEFT RAIL -->
+    <div class="sk-rail">
+
+      <!-- TL;DR -->
+      <div style="background:var(--hi);padding:14px 16px;margin-bottom:20px;border-bottom:1.5px solid var(--ink);">
+        <div class="sk-section-label accent" style="margin-bottom:6px;">TL;DR</div>
+        <p style="margin:0;font-size:15px;line-height:1.5;">Cloudflare built Infire, a custom Rust-based LLM inference engine, to serve Kimi K2.5 on Workers AI. It tripled inference speed (intertoken latency dropped from 100 ms to 20–30 ms), lifted prompt cache hit rates from 60% to 80%, and cold-starts large models in under 20 seconds — all on eight H100 GPUs with significant KV-cache headroom remaining.</p>
+      </div>
+
+      <!-- BY THE NUMBERS -->
+      <div style="margin-bottom:20px;">
+        <div class="sk-section-label" style="margin-bottom:8px;">By the numbers</div>
+        <ul class="sk-numbers-list">
+          <li><span class="stat-val">3×</span> improvement in intertoken latency</li>
+          <li><span class="stat-val">100 ms → 20–30 ms</span> intertoken latency before / after</li>
+          <li><span class="stat-val">60% → 80%</span> prompt cache hit rate via x-session-affinity</li>
+          <li><span class="stat-val">&lt;20 s</span> cold start for large frontier models</li>
+          <li><span class="stat-val">8</span> H100 GPUs per node; &gt;30 GiB free for KV-cache</li>
+        </ul>
+      </div>
+
+      <!-- KEY PLAYERS -->
+      <div style="margin-bottom:20px;">
+        <div class="sk-section-label" style="margin-bottom:8px;">Key players</div>
+        <ul class="sk-players-list">
+          <li>
+            <span class="player-name">Cloudflare</span>
+            Built Infire in Rust; operates Workers AI; publishes full engineering breakdown
+          </li>
+          <li>
+            <span class="player-name">Moonshot AI (Kimi)</span>
+            First frontier model served on Infire; Kimi K2.5 is the benchmark workload
+          </li>
+          <li>
+            <span class="player-name">NVIDIA</span>
+            H100 GPU supplier; EAGLE-3 speculative decoding algorithm runs on H100 hardware
+          </li>
+        </ul>
+      </div>
+
+      <!-- FILED UNDER -->
+      <div>
+        <div class="sk-section-label" style="margin-bottom:8px;">Filed under</div>
+        <div class="row gap-2" style="flex-wrap:wrap;">
+          <span class="sk-stamp sk-stamp--teal">Inference</span>
+          <span class="sk-stamp sk-stamp--slate">Cloudflare</span>
+          <span class="sk-stamp sk-stamp--navy">Systems</span>
+          <span class="sk-stamp sk-stamp--ochre">Rust</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- BODY -->
+    <div class="sk-body-col">
+      <div class="sk-kicker">02.4 &nbsp;·&nbsp; Headlines &nbsp;·&nbsp; THU 07 MAY 2026</div>
+      <h1 class="sk-dossier-hl">Cloudflare built a custom Rust inference engine and made Kimi three times faster</h1>
+      <p class="sk-standfirst">Infire, published April 16, replaces vLLM on Workers AI with a Rust-native engine purpose-built for prefill-decode disaggregation, multi-GPU parallelism, and speculative decoding — cutting intertoken latency to 20–30 ms at scale.</p>
+
+      <hr class="sk-rule" style="margin:20px 0;">
+
+      <span class="sk-para-num">¶01 — What happened</span>
+      <p>Cloudflare's Workers AI team shipped Infire, a Rust-native LLM inference engine they wrote from scratch, after finding that existing open-source options couldn't hit the latency and throughput targets needed to serve frontier models across a globally distributed edge network. The first production workload is Kimi K2.5 from Moonshot AI, and the numbers Cloudflare published show the gap clearly: intertoken latency dropped from roughly 100 ms to 20–30 ms, a 3× improvement.</p>
+
+      <p>Infire implements four techniques simultaneously: <strong>prefill-decode disaggregation</strong> (separate compute pools for the prompt-processing and token-generation phases), <strong>multi-GPU pipeline and tensor parallelism</strong> (splitting model layers and weight matrices across eight H100s), <strong>EAGLE-3 speculative decoding</strong> (a draft-model approach that predicts multiple tokens per forward pass), and a <strong>session-affinity header</strong> (<code>x-session-affinity</code>) that routes follow-up requests to the same node to raise prompt cache hit rates from 60% to 80%.</p>
+
+      <div class="sk-inline-stat">
+        <span class="big">3×</span>
+        <span class="label">faster intertoken latency — 100 ms to 20–30 ms on Kimi K2.5</span>
+      </div>
+
+      <span class="sk-para-num">¶02 — Why it matters</span>
+      <p>The inference bottleneck is increasingly the constraint that determines which models are commercially viable in real products. A model that produces tokens at 100 ms per token feels noticeably sluggish in an interactive session; 20–30 ms is below the threshold most users perceive as a delay. Closing that gap without changing the model or the hardware is a pure systems win, and it compounds: lower latency means higher throughput per GPU, which reduces cost per token, which expands the set of use cases that pencil out economically.</p>
+
+      <p>The architectural choices Cloudflare describes — disaggregated prefill/decode, speculative decoding, session affinity for cache reuse — are not proprietary discoveries. What is notable is packaging all four into a single purpose-built engine in Rust, rather than patching vLLM or TensorRT-LLM incrementally. This signals that Cloudflare sees inference infrastructure as a strategic differentiator for Workers AI, not a commodity layer it can outsource to open-source maintainers.</p>
+
+      <p>For teams evaluating where to host inference workloads, the cold-start figure matters as much as steady-state throughput: large models loading in under 20 seconds means Workers AI can keep more model variants warmed without the sprawling always-on GPU reservations required by traditional deployments.</p>
+
+      <div class="sk-pull-quote">
+        "We built Infire because existing inference engines weren't designed for the operational constraints of a globally distributed edge network."
+        <!-- [EDITORIAL QUOTE] -->
+        <cite>— Cloudflare engineering blog, April 16 2026</cite>
+      </div>
+
+      <span class="sk-para-num">¶03 — What to watch</span>
+      <div class="sk-watch-box">
+        <h3>What to watch</h3>
+        <ul>
+          <li>Check whether Cloudflare publishes Infire as open source — if they do, it becomes an immediate reference implementation for edge-optimised inference that competing CDN/cloud players will need to match.</li>
+          <li>Evaluate the <code>x-session-affinity</code> header in your Workers AI integrations now: raising cache hit rate from 60% to 80% reduces prompt-processing cost on long-context sessions, which is a free latency and cost win for existing customers.</li>
+          <li>Watch Cloudflare's model roster over the next 90 days: Infire's &lt;20-second cold start enables serving a wider catalogue of frontier models on-demand. If they onboard models beyond Kimi K2.5, it signals that inference-as-infrastructure is becoming a primary competitive surface, not a developer feature.</li>
+        </ul>
+      </div>
+
+      <!-- source -->
+      <div style="margin-top:28px;padding-top:16px;border-top:1px solid var(--ink);">
+        <span style="font-family:'IBM Plex Serif',serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-2);">Source &nbsp;·&nbsp; </span>
+        <a href="https://blog.cloudflare.com/infire-cloudflares-custom-built-llm-inference-engine/" class="sk-src-link">Cloudflare Blog ↗</a>
+        <span style="font-family:'IBM Plex Serif',serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-2);margin-left:12px;">Published &nbsp;·&nbsp; April 16 2026</span>
+      </div>
+    </div>
+
+  </div><!-- /dossier grid -->
+
+  <!-- footer -->
+  <div class="row" style="justify-content:space-between;align-items:center;padding-top:16px;border-top:1.5px solid var(--ink);">
+    <a href="02-3-google-fraud-defense.html" style="font-family:'IBM Plex Serif',serif;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-2);">← Google Fraud Defense</a>
+    <a href="../index.html" style="font-family:'IBM Plex Serif',serif;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-2);">Back to Issue 008 →</a>
+  </div>
+
+</div>
+</body>
+</html>

@@ -40,5 +40,11 @@
     "date": "2026-05-05",
     "path": "issues/007/index.html",
     "topics": ["AI", "INFRASTRUCTURE", "SECURITY", "ENGINEERING", "M&A"]
+  },
+  {
+    "issue": "008",
+    "date": "2026-05-07",
+    "path": "issues/008/index.html",
+    "topics": ["AI", "INFRASTRUCTURE", "FUNDING", "SECURITY", "ENGINEERING"]
   }
 ]

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tool: Google Fraud Defense API — agent-aware bot and fraud protection — Daily Digest</title>
+<link rel="alternate" type="application/rss+xml" title="Daily Digest RSS" href="/daily-digest/feed.xml" />
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body { background: #f5f0e8; color: #111; font-family: 'Lora', serif; font-size: 18px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+a { color: inherit; text-decoration: none; }
+:root {
+  --paper:#f5f0e8; --card:#fffdf7; --ink:#111111; --ink-2:#5a5a5a;
+  --accent:#d62828; --hi:#f5c842; --teal:#0d7377; --navy:#14213d;
+  --ochre:#e07b39; --slate:#3d5a80; --sage:#2d6a4f; --purple:#7b2d8b; --rule:#111111;
+}
+.sk-box { border: 1.5px solid var(--ink); background: transparent; }
+.sk-rule { height:0; border:0; border-top:1.5px solid var(--ink); margin:0; }
+.sk-stamp { display:inline-block; font-family:'IBM Plex Serif',serif; font-size:10px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; padding:3px 8px; border:1.5px solid currentColor; line-height:1.4; transform:rotate(-1deg); white-space:nowrap; }
+.sk-stamp--navy { color:var(--navy); border-color:var(--navy); }
+.sk-stamp--teal { color:var(--teal); border-color:var(--teal); }
+.sk-stamp--ochre { color:var(--ochre); border-color:var(--ochre); }
+.sk-stamp--slate { color:var(--slate); border-color:var(--slate); }
+.sk-stamp--sage { color:var(--sage); border-color:var(--sage); }
+.sk-src-link { font-family:'IBM Plex Serif',serif; font-size:11px; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:var(--teal); text-decoration:underline; text-underline-offset:3px; }
+.row { display:flex; }
+.gap-2 { gap:8px; } .gap-3 { gap:12px; }
+.dd-page { max-width:1200px; margin:0 auto; padding:32px; }
+.sk-grid-tool { display:grid; grid-template-columns:1fr 300px; gap:0; align-items:start; }
+.sk-tool-body { padding:28px 32px 28px 28px; }
+.sk-tool-sidebar { border-left:1.5px solid var(--ink); padding:24px 20px; }
+.sk-kicker { font-family:'IBM Plex Serif',serif; font-size:11px; font-weight:600; letter-spacing:2px; text-transform:uppercase; color:var(--sage); }
+.sk-tool-hl { font-size:38px; font-weight:700; line-height:1.1; margin:8px 0; }
+.sk-standfirst { font-size:18px; line-height:1.5; margin:12px 0 0; }
+.sk-section-label { font-family:'IBM Plex Serif',serif; font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--ink-2); margin-bottom:6px; }
+.sk-section-label.accent { color:var(--accent); }
+.sk-section-label.sage { color:var(--sage); }
+.sk-hi-box { background:var(--hi); border-left:4px solid var(--ink); padding:14px 18px; margin:20px 0; }
+.sk-hi-box h3 { font-family:'IBM Plex Serif',serif; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--ink); margin:0 0 8px; }
+.sk-watch-box { background:var(--card); border:1.5px solid var(--ink); padding:16px 18px; margin-top:20px; }
+.sk-watch-box h3 { font-family:'IBM Plex Serif',serif; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--sage); margin:0 0 8px; }
+.sk-watch-box ul { margin:0; padding-left:18px; }
+.sk-watch-box ul li { margin-bottom:6px; font-size:16px; }
+.sk-steps { list-style:none; padding:0; margin:0; counter-reset:steps; }
+.sk-steps li { counter-increment:steps; padding:10px 0 10px 36px; border-bottom:1px solid var(--ink); position:relative; font-size:16px; }
+.sk-steps li:last-child { border-bottom:none; }
+.sk-steps li::before { content:counter(steps); position:absolute; left:0; top:10px; font-family:'IBM Plex Serif',serif; font-size:13px; font-weight:700; color:var(--sage); border:1.5px solid var(--sage); width:22px; height:22px; display:flex; align-items:center; justify-content:center; line-height:1; }
+code { font-family:'IBM Plex Serif',monospace; font-size:14px; background:var(--card); border:1px solid var(--ink); padding:2px 6px; }
+pre { font-family:'IBM Plex Serif',monospace; font-size:14px; background:var(--card); border:1.5px solid var(--ink); padding:14px 16px; overflow-x:auto; margin:12px 0; line-height:1.5; }
+.sk-numbers-list { list-style:none; padding:0; margin:0; }
+.sk-numbers-list li { padding:7px 0; border-bottom:1px solid var(--ink); font-size:14px; }
+.sk-numbers-list li:last-child { border-bottom:none; }
+.sk-numbers-list .stat-val { font-size:18px; font-weight:700; display:block; line-height:1.1; }
+@media (max-width:900px) { .dd-page { padding:20px 18px; } .sk-grid-tool { grid-template-columns:1fr 260px !important; } }
+@media (max-width:640px) { body { font-size:17px; } .dd-page { padding:14px 12px; } .sk-grid-tool { grid-template-columns:1fr !important; } .sk-tool-hl { font-size:28px !important; } }
+@media (max-width:380px) { body { font-size:16px; } .dd-page { padding:10px 8px; } }
+</style>
+</head>
+<body>
+<div class="dd-page">
+
+  <div class="row" style="justify-content:space-between;align-items:center;padding-bottom:16px;border-bottom:1.5px solid var(--ink);margin-bottom:20px;">
+    <div class="row gap-3" style="align-items:center;flex-wrap:wrap;">
+      <a href="../../../index.html" style="font-family:'IBM Plex Serif',serif;font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:700;">Daily Digest</a>
+      <span style="color:var(--ink-2);">›</span>
+      <a href="../index.html" style="font-family:'IBM Plex Serif',serif;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-2);">Issue 008</a>
+      <span style="color:var(--ink-2);">›</span>
+      <span style="font-family:'IBM Plex Serif',serif;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-2);">04.3 Tool</span>
+    </div>
+    <a href="../../../archive.html" style="font-family:'IBM Plex Serif',serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-2);">Archive</a>
+  </div>
+
+  <div class="sk-grid-tool sk-box" style="margin-bottom:40px;">
+
+    <div class="sk-tool-body">
+      <div class="sk-kicker">04.3 &nbsp;·&nbsp; Tool &nbsp;·&nbsp; THU 07 MAY 2026</div>
+      <h1 class="sk-tool-hl">Google Fraud Defense API: three-track trust tokens for humans, bots, and AI agents</h1>
+      <p class="sk-standfirst">Google Fraud Defense replaces reCAPTCHA Enterprise with an API that issues cryptographically signed trust tokens separately for human users, verified bots, and AI agents — letting you write different access policies for each caller type without changing your core application logic.</p>
+
+      <hr class="sk-rule" style="margin:20px 0;">
+
+      <p><strong>Why it's worth trying:</strong> If you're building any API endpoint that AI agents will call on behalf of users, existing bot-management tools will either block the agents (treating them as bots) or require you to whitelist them entirely (bypassing fraud checks). Fraud Defense's third track — the AI agent token — lets you allow specific, authenticated agents while still enforcing fraud controls. The Agentic Policy Engine lets you write rules like "allow shopping agents from Claude or GPT; challenge everything else with high session velocity" without code deploys.</p>
+
+      <p><strong>Access and pricing:</strong> Existing reCAPTCHA Enterprise customers get Fraud Defense at no additional cost — it layers on top of existing integrations with no required migration. New customers need a Google Cloud account; pricing follows the reCAPTCHA Enterprise model (usage-based, details in the Cloud Console). The Agentic Activity Measurement dashboard is available in preview to all reCAPTCHA Enterprise accounts.</p>
+
+      <div class="sk-hi-box">
+        <h3>Quick start — under 15 minutes if you have a GCP account</h3>
+        <p style="margin:0;font-size:16px;">Enable the Fraud Defense API in Google Cloud Console, swap your reCAPTCHA site key for a Fraud Defense key, and make one API call to classify a synthetic session. You'll see the three-track response (human / bot / agent) in under a minute of integration work if you're already on reCAPTCHA Enterprise.</p>
+      </div>
+
+      <div style="margin-top:24px;">
+        <div class="sk-section-label sage" style="margin-bottom:12px;">Step-by-step</div>
+        <ol class="sk-steps">
+          <li>In Google Cloud Console, navigate to <strong>Security → Fraud Defense</strong> and enable the API for your project.</li>
+          <li>Create a Fraud Defense site key — choose "Agentic Web" mode to enable all three signal tracks.</li>
+          <li>Replace your existing reCAPTCHA token generation call with the Fraud Defense client SDK:<br>
+<pre>// Browser-side (existing reCAPTCHA customers)
+const token = await fraudDefense.execute(siteKey, {
+  action: 'checkout',
+  callerType: 'auto'  // SDK detects human / bot / agent
+});</pre>
+          </li>
+          <li>On your server, verify the token and inspect the caller classification:<br>
+<pre>POST https://frauddefense.googleapis.com/v1/projects/{project}/assessments
+{
+  "event": {
+    "token": "TOKEN_FROM_CLIENT",
+    "siteKey": "YOUR_SITE_KEY",
+    "expectedAction": "checkout"
+  }
+}</pre>
+          </li>
+          <li>Check the response for <code>callerClassification</code>: <code>HUMAN</code>, <code>BOT</code>, or <code>AI_AGENT</code>. Write a policy rule in the Agentic Policy Engine that allows <code>AI_AGENT</code> traffic from your approved agent identities and challenges everything else above a risk threshold.</li>
+          <li>Open the Agentic Activity Measurement dashboard and verify your test session appears correctly classified.</li>
+        </ol>
+      </div>
+
+      <div class="sk-watch-box" style="margin-top:24px;">
+        <h3>What to observe</h3>
+        <ul>
+          <li>Does your existing reCAPTCHA integration carry over without code changes, or does the SDK swap require additional configuration? The "no migration required" claim is worth verifying against your specific integration pattern.</li>
+          <li>Does the <code>AI_AGENT</code> classification fire correctly when you simulate an agent session (headless browser, API-only access, high velocity)? Check the false-positive rate on legitimate high-velocity human sessions too.</li>
+          <li>Confirm that the Agentic Policy Engine rule changes take effect without a code deploy — this is the key operational advantage over custom middleware solutions.</li>
+        </ul>
+      </div>
+
+      <div style="margin-top:24px;padding-top:14px;border-top:1px solid var(--ink);">
+        <span style="font-family:'IBM Plex Serif',serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-2);">Source &nbsp;·&nbsp;</span>
+        <a href="https://cloud.google.com/blog/products/identity-security/google-fraud-defense" class="sk-src-link">Google Cloud Blog ↗</a>
+        <span style="font-family:'IBM Plex Serif',serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-2);margin-left:12px;">Announced April 22 2026</span>
+      </div>
+    </div>
+
+    <div class="sk-tool-sidebar">
+      <div class="sk-section-label accent" style="margin-bottom:10px;">At a glance</div>
+      <ul class="sk-numbers-list">
+        <li><span class="stat-val">Free</span> for existing reCAPTCHA Enterprise customers</li>
+        <li><span class="stat-val">3 tracks</span> Human · Bot · AI Agent</li>
+        <li><span class="stat-val">51%</span> avg account-takeover reduction</li>
+        <li><span class="stat-val">No migration</span> required from reCAPTCHA</li>
+      </ul>
+
+      <div style="margin-top:20px;">
+        <div class="sk-section-label" style="margin-bottom:6px;">Free alternative</div>
+        <p style="font-size:14px;margin:0;">Cloudflare Turnstile is free for up to 1M requests/month and provides human vs. bot classification. It does not yet offer a separate AI agent track, so you'd need custom middleware to distinguish agent sessions.</p>
+      </div>
+
+      <div style="margin-top:20px;">
+        <div class="sk-section-label" style="margin-bottom:8px;">Filed under</div>
+        <div class="row gap-2" style="flex-wrap:wrap;">
+          <span class="sk-stamp sk-stamp--teal">Security</span>
+          <span class="sk-stamp sk-stamp--navy">Google Cloud</span>
+          <span class="sk-stamp sk-stamp--ochre">Agentic Web</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row" style="justify-content:space-between;align-items:center;padding-top:16px;border-top:1.5px solid var(--ink);">
+    <a href="04-2-zaya1-tool.html" style="font-family:'IBM Plex Serif',serif;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-2);">← Previous tool</a>
+    <a href="04-4-cloudflare-workers-ai.html" style="font-family:'IBM Plex Serif',serif;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-2);">Next tool →</a>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ProgramBench: a new coding benchmark that resists dataset contamination — Daily Digest</title>
+<link rel="alternate" type="application/rss+xml" title="Daily Digest RSS" href="/daily-digest/feed.xml" />
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body { background: #f5f0e8; color: #111; font-family: 'Lora', serif; font-size: 18px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+a { color: inherit; text-decoration: none; }
+:root {
+  --paper:#f5f0e8; --card:#fffdf7; --ink:#111111; --ink-2:#5a5a5a;
+  --accent:#d62828; --hi:#f5c842; --teal:#0d7377; --navy:#14213d;
+  --ochre:#e07b39; --slate:#3d5a80; --sage:#2d6a4f; --purple:#7b2d8b; --rule:#111111;
+}
+.sk-box { border: 1.5px solid var(--ink); background: transparent; }
+.sk-rule { height:0; border:0; border-top:1.5px solid var(--ink); margin:0; }
+.sk-stamp { display:inline-block; font-family:'IBM Plex Serif',serif; font-size:10px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; padding:3px 8px; border:1.5px solid currentColor; line-height:1.4; transform:rotate(-1deg); white-space:nowrap; }
+.sk-stamp--red { color:var(--accent); border-color:var(--accent); }
+.sk-stamp--navy { color:var(--navy); border-color:var(--navy); }
+.sk-stamp--teal { color:var(--teal); border-color:var(--teal); }
+.sk-stamp--ochre { color:var(--ochre); border-color:var(--ochre); }
+.sk-stamp--slate { color:var(--slate); border-color:var(--slate); }
+.sk-stamp--sage { color:var(--sage); border-color:var(--sage); }
+.sk-src-link { font-family:'IBM Plex Serif',serif; font-size:11px; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:var(--teal); text-decoration:underline; text-underline-offset:3px; }
+.row { display:flex; }
+.gap-2 { gap:8px; } .gap-3 { gap:12px; }
+.dd-page { max-width:1200px; margin:0 auto; padding:32px; }
+.sk-grid-brief { display:grid; grid-template-columns:1fr 300px; gap:0; align-items:start; }
+.sk-brief-body { padding:28px 32px 28px 28px; }
+.sk-brief-sidebar { border-left:1.5px solid var(--ink); padding:24px 20px; }
+.sk-kicker { font-family:'IBM Plex Serif',serif; font-size:11px; font-weight:600; letter-spacing:2px; text-transform:uppercase; color:var(--accent); }
+.sk-brief-hl { font-size:36px; font-weight:700; line-height:1.1; margin:8px 0; }
+.sk-standfirst { font-size:18px; line-height:1.5; margin:12px 0 0; }
+.sk-section-label { font-family:'IBM Plex Serif',serif; font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--ink-2); margin-bottom:6px; }
+.sk-section-label.accent { color:var(--accent); }
+.sk-watch-box { background:var(--card); border:1.5px solid var(--ink); padding:16px 18px; margin-top:20px; }
+.sk-watch-box h3 { font-family:'IBM Plex Serif',serif; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--accent); margin:0 0 8px; }
+.sk-watch-box ul { margin:0; padding-left:18px; }
+.sk-watch-box ul li { margin-bottom:6px; font-size:16px; }
+.sk-numbers-list { list-style:none; padding:0; margin:0; }
+.sk-numbers-list li { padding:7px 0; border-bottom:1px solid var(--ink); font-size:14px; }
+.sk-numbers-list li:last-child { border-bottom:none; }
+.sk-numbers-list .stat-val { font-size:20px; font-weight:700; display:block; line-height:1.1; }
+@media (max-width:900px) { .dd-page { padding:20px 18px; } .sk-grid-brief { grid-template-columns:1fr 260px !important; } }
+@media (max-width:640px) { body { font-size:17px; } .dd-page { padding:14px 12px; } .sk-grid-brief { grid-template-columns:1fr !important; } .sk-brief-hl { font-size:28px !important; } }
+@media (max-width:380px) { body { font-size:16px; } .dd-page { padding:10px 8px; } }
+</style>
+</head>
+<body>
+<div class="dd-page">
+
+  <div class="row" style="justify-content:space-between;align-items:center;padding-bottom:16px;border-bottom:1.5px solid var(--ink);margin-bottom:20px;">
+    <div class="row gap-3" style="align-items:center;flex-wrap:wrap;">
+      <a href="../../../index.html" style="font-family:'IBM Plex Serif',serif;font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:700;">Daily Digest</a>
+      <span style="color:var(--ink-2);">›</span>
+      <a href="../index.html" style="font-family:'IBM Plex Serif',serif;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-2);">Issue 008</a>
+      <span style="color:var(--ink-2);">›</span>
+      <span style="font-family:'IBM Plex Serif',serif;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-2);">03.2 Brief</span>
+    </div>
+    <a href="../../../archive.html" style="font-family:'IBM Plex Serif',serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-2);">Archive</a>
+  </div>
+
+  <div class="sk-grid-brief sk-box" style="margin-bottom:40px;">
+
+    <div class="sk-brief-body">
+      <div class="sk-kicker">03.2 &nbsp;·&nbsp; Brief &nbsp;·&nbsp; THU 07 MAY 2026</div>
+      <h1 class="sk-brief-hl">ProgramBench measures real programming skill — and finds frontier models plateau around 60%</h1>
+      <p class="sk-standfirst">Researchers from Carnegie Mellon and the University of Illinois released ProgramBench, a coding benchmark built to resist dataset contamination by drawing problems from private competitive-programming archives and wrapping them in novel problem statements. Top frontier models — including GPT-4o and Claude 3.5 Sonnet — score around 55–62%, well below human expert levels near 85%.</p>
+
+      <hr class="sk-rule" style="margin:20px 0;">
+
+      <p>The core design choice is a two-layer contamination defence: problems come from private judge systems never indexed publicly, and each problem is re-stated with different variable names, narrative framing, and constraints before evaluation. This prevents both memorisation of problem texts and solution-code lookup. The benchmark covers 500 problems spanning algorithms, data structures, and mathematical reasoning — all verified solvable by human experts under timed conditions.</p>
+
+      <p>The finding that current frontier models plateau in the high-50s to low-60s percentage range while humans reach 85% is significant because most publicly cited coding benchmarks (HumanEval, MBPP) now see near-saturation scores above 90%. ProgramBench suggests those saturated benchmarks have become proxies for training data coverage rather than generalised programming ability.</p>
+
+      <div class="sk-watch-box">
+        <h3>What to watch</h3>
+        <ul>
+          <li>Check the ProgramBench leaderboard when evaluating which model to use for a coding-agent task — a model's HumanEval score and its ProgramBench score may diverge significantly, which is useful signal about generalisation vs. memorisation.</li>
+          <li>Ask your team whether the coding tasks you benchmark internally share characteristics with public datasets; if yes, consider adding a private hold-out problem set using the same contamination-resistance methodology.</li>
+        </ul>
+      </div>
+
+      <div style="margin-top:24px;padding-top:14px;border-top:1px solid var(--ink);">
+        <span style="font-family:'IBM Plex Serif',serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-2);">Source &nbsp;·&nbsp;</span>
+        <a href="https://arxiv.org/abs/2504.16619" class="sk-src-link">arXiv 2504.16619 ↗</a>
+        <span style="font-family:'IBM Plex Serif',serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-2);margin-left:12px;">April 2026</span>
+      </div>
+    </div>
+
+    <div class="sk-brief-sidebar">
+      <div class="sk-section-label accent" style="margin-bottom:10px;">By the numbers</div>
+      <ul class="sk-numbers-list">
+        <li><span class="stat-val">500</span> problems</li>
+        <li><span class="stat-val">55–62%</span> top frontier model scores</li>
+        <li><span class="stat-val">~85%</span> human expert score</li>
+        <li><span class="stat-val">90%+</span> frontier scores on HumanEval (for contrast)</li>
+      </ul>
+
+      <div style="margin-top:20px;">
+        <div class="sk-section-label" style="margin-bottom:8px;">Filed under</div>
+        <div class="row gap-2" style="flex-wrap:wrap;">
+          <span class="sk-stamp sk-stamp--navy">Benchmarks</span>
+          <span class="sk-stamp sk-stamp--teal">Coding AI</span>
+          <span class="sk-stamp sk-stamp--slate">Research</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row" style="justify-content:space-between;align-items:center;padding-top:16px;border-top:1.5px solid var(--ink);">
+    <a href="03-1-zyphra-zaya1.html" style="font-family:'IBM Plex Serif',serif;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-2);">← Previous brief</a>
+    <a href="03-3-ibm-think-2026.html" style="font-family:'IBM Plex Serif',serif;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-2);">Next brief →</a>
+  </div>
+
+</div>
+</body>
+</html>

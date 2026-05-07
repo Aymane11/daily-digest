@@ -8,6 +8,134 @@
     <atom:link href="https://aymane11.github.io/daily-digest/feed.xml" rel="self" type="application/rss+xml"/>
 
     <item>
+      <title>Anthropic rents all compute at SpaceX's Colossus 1 data center</title>
+      <link>https://aymane11.github.io/daily-digest/issues/008/stories/01-lead-anthropic-spacex.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/008/stories/01-lead-anthropic-spacex.html</guid>
+      <pubDate>Thu, 07 May 2026 07:00:00 +0000</pubDate>
+      <description>BY · THE · NUMBERS</description>
+    </item>
+
+    <item>
+      <title>OpenAI IPO fight: CFO pushes 2027 delay as $600B commitments loom</title>
+      <link>https://aymane11.github.io/daily-digest/issues/008/stories/02-1-openai-ipo-fight.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/008/stories/02-1-openai-ipo-fight.html</guid>
+      <pubDate>Thu, 07 May 2026 07:00:00 +0000</pubDate>
+      <description>BY · THE · NUMBERS</description>
+    </item>
+
+    <item>
+      <title>Moonshot AI raises $2B at $20B+ valuation, most-funded Chinese LLM startup</title>
+      <link>https://aymane11.github.io/daily-digest/issues/008/stories/02-2-moonshot-kimi-funding.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/008/stories/02-2-moonshot-kimi-funding.html</guid>
+      <pubDate>Thu, 07 May 2026 07:00:00 +0000</pubDate>
+      <description>BY · THE · NUMBERS</description>
+    </item>
+
+    <item>
+      <title>Google Fraud Defense replaces reCAPTCHA for the agentic web — Daily Digest</title>
+      <link>https://aymane11.github.io/daily-digest/issues/008/stories/02-3-google-fraud-defense.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/008/stories/02-3-google-fraud-defense.html</guid>
+      <pubDate>Thu, 07 May 2026 07:00:00 +0000</pubDate>
+      <description>Google launched Fraud Defense at Cloud Next '26 to replace reCAPTCHA across the agentic web. The new API verifies humans, trusted bots, and AI agents separately, reports a 51% average reduction in account takeover, and monitors 14 million-plus domains — with no migration burden for existing reCAPTCHA customers.</description>
+    </item>
+
+    <item>
+      <title>Cloudflare Infire: Rust-built LLM inference engine triples Kimi speed — Daily Digest</title>
+      <link>https://aymane11.github.io/daily-digest/issues/008/stories/02-4-cloudflare-infire.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/008/stories/02-4-cloudflare-infire.html</guid>
+      <pubDate>Thu, 07 May 2026 07:00:00 +0000</pubDate>
+      <description>Cloudflare built Infire, a custom Rust-based LLM inference engine, to serve Kimi K2.5 on Workers AI. It tripled inference speed (intertoken latency dropped from 100 ms to 20–30 ms), lifted prompt cache hit rates from 60% to 80%, and cold-starts large models in under 20 seconds — all on eight H100 GPUs with significant KV-cache headroom remaining.</description>
+    </item>
+
+    <item>
+      <title>Zyphra releases Zaya-1, a voice-native medical AI model — Daily Digest</title>
+      <link>https://aymane11.github.io/daily-digest/issues/008/stories/03-1-zyphra-zaya1.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/008/stories/03-1-zyphra-zaya1.html</guid>
+      <pubDate>Thu, 07 May 2026 07:00:00 +0000</pubDate>
+      <description>Zyphra, a Palo Alto AI lab, released Zaya-1 on May 6 — a 2.7-billion-parameter model trained end-to-end on audio and text, designed for real-time clinical conversations without routing speech through a transcription step first. It runs on-device (including smartphones), supports 14 languages, and is available via API and SDK under a research license.</description>
+    </item>
+
+    <item>
+      <title>ProgramBench: a new coding benchmark that resists dataset contamination — Daily Digest</title>
+      <link>https://aymane11.github.io/daily-digest/issues/008/stories/03-2-programbench.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/008/stories/03-2-programbench.html</guid>
+      <pubDate>Thu, 07 May 2026 07:00:00 +0000</pubDate>
+      <description>Researchers from Carnegie Mellon and the University of Illinois released ProgramBench, a coding benchmark built to resist dataset contamination by drawing problems from private competitive-programming archives and wrapping them in novel problem statements. Top frontier models — including GPT-4o and Claude 3.5 Sonnet — score around 55–62%, well below human expert levels near 85%.</description>
+    </item>
+
+    <item>
+      <title>IBM Think 2026: watsonx adds autonomous agent orchestration and 400+ enterprise connectors — Daily Digest</title>
+      <link>https://aymane11.github.io/daily-digest/issues/008/stories/03-3-ibm-think-2026.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/008/stories/03-3-ibm-think-2026.html</guid>
+      <pubDate>Thu, 07 May 2026 07:00:00 +0000</pubDate>
+      <description>At IBM Think 2026 (May 5–8, Boston), IBM announced watsonx Orchestrate can now run fully autonomous multi-agent workflows without human sign-off at each step, backed by 400-plus pre-built connectors to SAP, Salesforce, ServiceNow, and other enterprise systems — with an AI-generated governance audit trail for every decision the agents make.</description>
+    </item>
+
+    <item>
+      <title>OpenAI hits $3.4B monthly revenue run rate — Daily Digest</title>
+      <link>https://aymane11.github.io/daily-digest/issues/008/stories/03-4-openai-revenue.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/008/stories/03-4-openai-revenue.html</guid>
+      <pubDate>Thu, 07 May 2026 07:00:00 +0000</pubDate>
+      <description>OpenAI's April 2026 revenue run rate hit $3.4B per month ($40.8B annualised), up from roughly $2B per month at the start of the year. For the first time, API and enterprise contract revenue is reported to exceed consumer ChatGPT subscriptions as the primary revenue driver — a mix shift that has material implications for margin and growth trajectory ahead of a potential IPO.</description>
+    </item>
+
+    <item>
+      <title>Vibe coding tools converge on the same three-panel UI — Daily Digest</title>
+      <link>https://aymane11.github.io/daily-digest/issues/008/stories/03-5-vibe-coding-convergence.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/008/stories/03-5-vibe-coding-convergence.html</guid>
+      <pubDate>Thu, 07 May 2026 07:00:00 +0000</pubDate>
+      <description>A comparative analysis published this week shows that the four leading &quot;vibe coding&quot; platforms (Bolt, Lovable, v0, Replit Agent) have independently arrived at nearly identical layouts: prompt input left, live preview centre, file tree right — with AI-suggested next steps replacing the traditional toolbar. The convergence signals a standardising UX pattern for AI-first development environments, and raises questions about where differentiation will come from next.</description>
+    </item>
+
+    <item>
+      <title>Recursive multi-agent loops: when AI agents spawn agents that spawn agents — Daily Digest</title>
+      <link>https://aymane11.github.io/daily-digest/issues/008/stories/03-6-recursive-multiagent.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/008/stories/03-6-recursive-multiagent.html</guid>
+      <pubDate>Thu, 07 May 2026 07:00:00 +0000</pubDate>
+      <description>A widely shared engineering post this week documents the failure modes specific to recursive multi-agent architectures — systems where an orchestrator spawns sub-agents that themselves spawn agents — categorising three cost explosion patterns (unbounded fan-out, cycle detection failure, context inflation) and proposing a lightweight circuit-breaker pattern as a first-line defence.</description>
+    </item>
+
+    <item>
+      <title>Tool: Tilde — browser-native AI terminal for instant shell access — Daily Digest</title>
+      <link>https://aymane11.github.io/daily-digest/issues/008/stories/04-1-tilde-run.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/008/stories/04-1-tilde-run.html</guid>
+      <pubDate>Thu, 07 May 2026 07:00:00 +0000</pubDate>
+      <description>Tilde (tilde.run) launches a sandboxed Linux shell in your browser with an AI layer that translates natural-language instructions into shell commands, explains output, and catches common errors before you run them. No install, no SSH config — open the URL and you have a working terminal.</description>
+    </item>
+
+    <item>
+      <title>Tool: Zaya-1 API — voice-native medical AI model — Daily Digest</title>
+      <link>https://aymane11.github.io/daily-digest/issues/008/stories/04-2-zaya1-tool.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/008/stories/04-2-zaya1-tool.html</guid>
+      <pubDate>Thu, 07 May 2026 07:00:00 +0000</pubDate>
+      <description>Zyphra's Zaya-1 accepts raw audio input and returns clinical-context-aware responses directly — no Whisper or equivalent transcription step. The 2.7B-parameter model runs on-device or via API, covers 14 languages, and is available under a research license with a free API tier.</description>
+    </item>
+
+    <item>
+      <title>Tool: Google Fraud Defense API — agent-aware bot and fraud protection — Daily Digest</title>
+      <link>https://aymane11.github.io/daily-digest/issues/008/stories/04-3-google-fraud-defense-tool.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/008/stories/04-3-google-fraud-defense-tool.html</guid>
+      <pubDate>Thu, 07 May 2026 07:00:00 +0000</pubDate>
+      <description>Google Fraud Defense replaces reCAPTCHA Enterprise with an API that issues cryptographically signed trust tokens separately for human users, verified bots, and AI agents — letting you write different access policies for each caller type without changing your core application logic.</description>
+    </item>
+
+    <item>
+      <title>Tool: Cloudflare Workers AI with Infire — low-latency LLM inference at the edge — Daily Digest</title>
+      <link>https://aymane11.github.io/daily-digest/issues/008/stories/04-4-cloudflare-workers-ai.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/008/stories/04-4-cloudflare-workers-ai.html</guid>
+      <pubDate>Thu, 07 May 2026 07:00:00 +0000</pubDate>
+      <description>Cloudflare Workers AI now runs on Infire, its custom Rust inference engine, serving Kimi K2.5 at 20–30 ms intertoken latency. One header change — x-session-affinity — routes follow-up requests to the same node and raises prompt cache hit rate from 60% to 80%, cutting effective cost on long-context sessions immediately.</description>
+    </item>
+
+    <item>
+      <title>Engineering Read: Vibe coding in production — what senior engineers need to own — Daily Digest</title>
+      <link>https://aymane11.github.io/daily-digest/issues/008/stories/eng-1-vibe-coding.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/008/stories/eng-1-vibe-coding.html</guid>
+      <pubDate>Thu, 07 May 2026 07:00:00 +0000</pubDate>
+      <description>AI-assisted code generation is no longer a novelty. Bolt, Lovable, Cursor, and Claude Code are shipping real features into production at companies from seed-stage startups to Fortune 500s. The question is no longer whether to use them — it's what changes when you do, and what only a senior engineer can still provide.</description>
+    </item>
+
+    <item>
       <title>How OpenAI delivers low-latency voice AI at scale</title>
       <link>https://aymane11.github.io/daily-digest/issues/007/stories/01-lead-openai-voice-infra.html</link>
       <guid>https://aymane11.github.io/daily-digest/issues/007/stories/01-lead-openai-voice-infra.html</guid>

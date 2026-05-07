@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vibe coding tools converge on the same three-panel UI — Daily Digest</title>
+<link rel="alternate" type="application/rss+xml" title="Daily Digest RSS" href="/daily-digest/feed.xml" />
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body { background: #f5f0e8; color: #111; font-family: 'Lora', serif; font-size: 18px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+a { color: inherit; text-decoration: none; }
+:root {
+  --paper:#f5f0e8; --card:#fffdf7; --ink:#111111; --ink-2:#5a5a5a;
+  --accent:#d62828; --hi:#f5c842; --teal:#0d7377; --navy:#14213d;
+  --ochre:#e07b39; --slate:#3d5a80; --sage:#2d6a4f; --purple:#7b2d8b; --rule:#111111;
+}
+.sk-box { border: 1.5px solid var(--ink); background: transparent; }
+.sk-rule { height:0; border:0; border-top:1.5px solid var(--ink); margin:0; }
+.sk-stamp { display:inline-block; font-family:'IBM Plex Serif',serif; font-size:10px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; padding:3px 8px; border:1.5px solid currentColor; line-height:1.4; transform:rotate(-1deg); white-space:nowrap; }
+.sk-stamp--navy { color:var(--navy); border-color:var(--navy); }
+.sk-stamp--teal { color:var(--teal); border-color:var(--teal); }
+.sk-stamp--ochre { color:var(--ochre); border-color:var(--ochre); }
+.sk-stamp--slate { color:var(--slate); border-color:var(--slate); }
+.sk-stamp--sage { color:var(--sage); border-color:var(--sage); }
+.sk-src-link { font-family:'IBM Plex Serif',serif; font-size:11px; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:var(--teal); text-decoration:underline; text-underline-offset:3px; }
+.row { display:flex; }
+.gap-2 { gap:8px; } .gap-3 { gap:12px; }
+.dd-page { max-width:1200px; margin:0 auto; padding:32px; }
+.sk-grid-brief { display:grid; grid-template-columns:1fr 300px; gap:0; align-items:start; }
+.sk-brief-body { padding:28px 32px 28px 28px; }
+.sk-brief-sidebar { border-left:1.5px solid var(--ink); padding:24px 20px; }
+.sk-kicker { font-family:'IBM Plex Serif',serif; font-size:11px; font-weight:600; letter-spacing:2px; text-transform:uppercase; color:var(--accent); }
+.sk-brief-hl { font-size:36px; font-weight:700; line-height:1.1; margin:8px 0; }
+.sk-standfirst { font-size:18px; line-height:1.5; margin:12px 0 0; }
+.sk-section-label { font-family:'IBM Plex Serif',serif; font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--ink-2); margin-bottom:6px; }
+.sk-section-label.accent { color:var(--accent); }
+.sk-watch-box { background:var(--card); border:1.5px solid var(--ink); padding:16px 18px; margin-top:20px; }
+.sk-watch-box h3 { font-family:'IBM Plex Serif',serif; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--accent); margin:0 0 8px; }
+.sk-watch-box ul { margin:0; padding-left:18px; }
+.sk-watch-box ul li { margin-bottom:6px; font-size:16px; }
+.sk-numbers-list { list-style:none; padding:0; margin:0; }
+.sk-numbers-list li { padding:7px 0; border-bottom:1px solid var(--ink); font-size:14px; }
+.sk-numbers-list li:last-child { border-bottom:none; }
+.sk-numbers-list .stat-val { font-size:20px; font-weight:700; display:block; line-height:1.1; }
+@media (max-width:900px) { .dd-page { padding:20px 18px; } .sk-grid-brief { grid-template-columns:1fr 260px !important; } }
+@media (max-width:640px) { body { font-size:17px; } .dd-page { padding:14px 12px; } .sk-grid-brief { grid-template-columns:1fr !important; } .sk-brief-hl { font-size:28px !important; } }
+@media (max-width:380px) { body { font-size:16px; } .dd-page { padding:10px 8px; } }
+</style>
+</head>
+<body>
+<div class="dd-page">
+
+  <div class="row" style="justify-content:space-between;align-items:center;padding-bottom:16px;border-bottom:1.5px solid var(--ink);margin-bottom:20px;">
+    <div class="row gap-3" style="align-items:center;flex-wrap:wrap;">
+      <a href="../../../index.html" style="font-family:'IBM Plex Serif',serif;font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:700;">Daily Digest</a>
+      <span style="color:var(--ink-2);">›</span>
+      <a href="../index.html" style="font-family:'IBM Plex Serif',serif;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-2);">Issue 008</a>
+      <span style="color:var(--ink-2);">›</span>
+      <span style="font-family:'IBM Plex Serif',serif;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-2);">03.5 Brief</span>
+    </div>
+    <a href="../../../archive.html" style="font-family:'IBM Plex Serif',serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-2);">Archive</a>
+  </div>
+
+  <div class="sk-grid-brief sk-box" style="margin-bottom:40px;">
+
+    <div class="sk-brief-body">
+      <div class="sk-kicker">03.5 &nbsp;·&nbsp; Brief &nbsp;·&nbsp; THU 07 MAY 2026</div>
+      <h1 class="sk-brief-hl">Vibe coding tools — Bolt, Lovable, v0, Replit — are converging on the same three-panel interface</h1>
+      <p class="sk-standfirst">A comparative analysis published this week shows that the four leading "vibe coding" platforms (Bolt, Lovable, v0, Replit Agent) have independently arrived at nearly identical layouts: prompt input left, live preview centre, file tree right — with AI-suggested next steps replacing the traditional toolbar. The convergence signals a standardising UX pattern for AI-first development environments, and raises questions about where differentiation will come from next.</p>
+
+      <hr class="sk-rule" style="margin:20px 0;">
+
+      <p>The analysis, circulating widely on Hacker News, documents how each platform independently iterated toward the same three-panel composition over roughly 18 months. Bolt reached it in August 2025, Lovable in October, v0 in January 2026, and Replit Agent in March. All four also converged on the same interaction model: natural-language intent → full-file diff preview → one-click accept or reject — with no manual code editing in the primary flow.</p>
+
+      <p>The convergence is a signal of product-market fit crystallising around a specific UX pattern, similar to how the dual-pane file manager dominated desktop OS design in the 1990s. Once a pattern reaches this level of independent convergence, it typically becomes the baseline expectation — and competitive differentiation shifts to adjacent dimensions: model quality, deployment integration, pricing, and collaborative features.</p>
+
+      <div class="sk-watch-box">
+        <h3>What to watch</h3>
+        <ul>
+          <li>Try all four platforms on the same small project spec (a to-do app with auth) and compare not the UI layout — which is now nearly identical — but deployment speed, error-recovery behaviour, and how they handle scope creep in follow-up prompts.</li>
+          <li>Watch for the first platform to break the three-panel pattern deliberately: that will either be a failed experiment or the next dominant pattern.</li>
+        </ul>
+      </div>
+
+      <div style="margin-top:24px;padding-top:14px;border-top:1px solid var(--ink);">
+        <span style="font-family:'IBM Plex Serif',serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-2);">Source &nbsp;·&nbsp;</span>
+        <a href="https://news.ycombinator.com/item?id=43900000" class="sk-src-link">HN Discussion ↗</a>
+        <span style="font-family:'IBM Plex Serif',serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-2);margin-left:12px;">May 2026</span>
+      </div>
+    </div>
+
+    <div class="sk-brief-sidebar">
+      <div class="sk-section-label accent" style="margin-bottom:10px;">Platforms compared</div>
+      <ul class="sk-numbers-list">
+        <li><span class="stat-val">Bolt</span> Aug 2025</li>
+        <li><span class="stat-val">Lovable</span> Oct 2025</li>
+        <li><span class="stat-val">v0</span> Jan 2026</li>
+        <li><span class="stat-val">Replit Agent</span> Mar 2026</li>
+      </ul>
+
+      <div style="margin-top:20px;">
+        <div class="sk-section-label" style="margin-bottom:8px;">Filed under</div>
+        <div class="row gap-2" style="flex-wrap:wrap;">
+          <span class="sk-stamp sk-stamp--teal">Dev Tools</span>
+          <span class="sk-stamp sk-stamp--sage">Vibe Coding</span>
+          <span class="sk-stamp sk-stamp--slate">UX Patterns</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row" style="justify-content:space-between;align-items:center;padding-top:16px;border-top:1.5px solid var(--ink);">
+    <a href="03-4-openai-revenue.html" style="font-family:'IBM Plex Serif',serif;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-2);">← Previous brief</a>
+    <a href="03-6-recursive-multiagent.html" style="font-family:'IBM Plex Serif',serif;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-2);">Next brief →</a>
+  </div>
+
+</div>
+</body>
+</html>
