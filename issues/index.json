@@ -46,5 +46,11 @@
     "date": "2026-05-07",
     "path": "issues/008/index.html",
     "topics": ["AI", "INFRASTRUCTURE", "FUNDING", "SECURITY", "ENGINEERING"]
+  },
+  {
+    "issue": "009",
+    "date": "2026-05-11",
+    "path": "issues/009/index.html",
+    "topics": ["AI", "SECURITY", "INFRASTRUCTURE", "DEV TOOLS", "ENTERPRISE"]
   }
 ]

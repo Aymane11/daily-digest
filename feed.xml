@@ -8,6 +8,134 @@
     <atom:link href="https://aymane11.github.io/daily-digest/feed.xml" rel="self" type="application/rss+xml"/>
 
     <item>
+      <title>Criminal AI Zero-Day · 01.LEAD</title>
+      <link>https://aymane11.github.io/daily-digest/issues/009/stories/01-lead-criminal-ai-zero-day.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/009/stories/01-lead-criminal-ai-zero-day.html</guid>
+      <pubDate>Mon, 11 May 2026 07:00:00 +0000</pubDate>
+      <description>Google Threat Intelligence confirms criminal group weaponized an AI-discovered 2FA bypass — hallucinated CVSS scores tipped off researchers</description>
+    </item>
+
+    <item>
+      <title>OpenAI DeployCo · 02.1</title>
+      <link>https://aymane11.github.io/daily-digest/issues/009/stories/02-1-openai-deployco.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/009/stories/02-1-openai-deployco.html</guid>
+      <pubDate>Mon, 11 May 2026 07:00:00 +0000</pubDate>
+      <description>Majority-owned subsidiary acquires Tomoro, partners with 19 investment firms led by TPG to embed AI engineers in enterprises</description>
+    </item>
+
+    <item>
+      <title>Anthropic $1T · 02.2</title>
+      <link>https://aymane11.github.io/daily-digest/issues/009/stories/02-2-anthropic-growth-akamai.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/009/stories/02-2-anthropic-growth-akamai.html</guid>
+      <pubDate>Mon, 11 May 2026 07:00:00 +0000</pubDate>
+      <description>80x annualized growth and $15B ARR jump in one month — Anthropic now growing 10x/year while competitors lay off staff</description>
+    </item>
+
+    <item>
+      <title>DeepSeek $7B · 02.3</title>
+      <link>https://aymane11.github.io/daily-digest/issues/009/stories/02-3-deepseek-funding.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/009/stories/02-3-deepseek-funding.html</guid>
+      <pubDate>Mon, 11 May 2026 07:00:00 +0000</pubDate>
+      <description>Could become the largest AI funding round in China — DeepSeek's open-weight models have disrupted global AI pricing</description>
+    </item>
+
+    <item>
+      <title>Next.js ships critical security release fixing 13 CVEs</title>
+      <link>https://aymane11.github.io/daily-digest/issues/009/stories/02-4-nextjs-security.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/009/stories/02-4-nextjs-security.html</guid>
+      <pubDate>Mon, 11 May 2026 07:00:00 +0000</pubDate>
+      <description>Patches for auth bypass, DoS (CVE-2026-23870), SSRF via WebSocket, cache poisoning, and XSS — update to 15.5.18 or 16.2.6 immediately</description>
+    </item>
+
+    <item>
+      <title>Apple brings encrypted RCS chats to iPhone</title>
+      <link>https://aymane11.github.io/daily-digest/issues/009/stories/03-1-encrypted-rcs.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/009/stories/03-1-encrypted-rcs.html</guid>
+      <pubDate>Mon, 11 May 2026 07:00:00 +0000</pubDate>
+      <description>iOS 26.5 adds end-to-end encrypted RCS messaging in beta — green bubble chats with Android users are now encrypted</description>
+    </item>
+
+    <item>
+      <title>Mozilla fixed 423 Firefox security bugs with Claude Mythos</title>
+      <link>https://aymane11.github.io/daily-digest/issues/009/stories/03-2-firefox-claude-mythos.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/009/stories/03-2-firefox-claude-mythos.html</guid>
+      <pubDate>Mon, 11 May 2026 07:00:00 +0000</pubDate>
+      <description>10x increase in vulnerability detection — AI-assisted bug hunting uncovered a 20-year-old XSLT bug and a 15-year-old &amp;lt;legend&amp;gt; bug</description>
+    </item>
+
+    <item>
+      <title>Cloudflare lays off 1,100+ employees citing AI transformation</title>
+      <link>https://aymane11.github.io/daily-digest/issues/009/stories/03-3-cloudflare-layoffs.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/009/stories/03-3-cloudflare-layoffs.html</guid>
+      <pubDate>Mon, 11 May 2026 07:00:00 +0000</pubDate>
+      <description>20% workforce reduction as company restructures for the &quot;agentic AI era&quot; — founders personally sent termination emails</description>
+    </item>
+
+    <item>
+      <title>Anthropic links Claude's blackmail behavior to evil AI fiction</title>
+      <link>https://aymane11.github.io/daily-digest/issues/009/stories/03-4-claude-blackmail.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/009/stories/03-4-claude-blackmail.html</guid>
+      <pubDate>Mon, 11 May 2026 07:00:00 +0000</pubDate>
+      <description>Teaching Claude why ethical behavior matters eliminated the attempted blackmail — model had internalized fictional portrayals of AI</description>
+    </item>
+
+    <item>
+      <title>Bun's experimental Rust rewrite hits 99.8% test compatibility</title>
+      <link>https://aymane11.github.io/daily-digest/issues/009/stories/03-5-bun-rust.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/009/stories/03-5-bun-rust.html</guid>
+      <pubDate>Mon, 11 May 2026 07:00:00 +0000</pubDate>
+      <description>Bun project reaches major milestone in porting from Zig to Rust — approximately 1,800 test suites now pass</description>
+    </item>
+
+    <item>
+      <title>Cerebras plans IPO at $150-160/share, targeting ~$4.8B raise</title>
+      <link>https://aymane11.github.io/daily-digest/issues/009/stories/03-6-cerebras-ipo.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/009/stories/03-6-cerebras-ipo.html</guid>
+      <pubDate>Mon, 11 May 2026 07:00:00 +0000</pubDate>
+      <description>AI chip maker boosts IPO price range as investor demand surfs the AI infrastructure wave</description>
+    </item>
+
+    <item>
+      <title>TOOL · 04.1 · HiDream-O1-Image</title>
+      <link>https://aymane11.github.io/daily-digest/issues/009/stories/04-1-hidream-o1.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/009/stories/04-1-hidream-o1.html</guid>
+      <pubDate>Mon, 11 May 2026 07:00:00 +0000</pubDate>
+      <description>HiDream-O1-Image is an 8B-parameter open-source image generation model built on a Pixel-level Unified Transformer (UiT). Unlike standard diffusion models, it has no external VAE or disjoint text encoder — it works directly in pixel space. Supports text-to-image, instruction-based editing, and subject-driven personalization at up to 2048x2048.</description>
+    </item>
+
+    <item>
+      <title>TOOL · 04.2 · AgentMemory</title>
+      <link>https://aymane11.github.io/daily-digest/issues/009/stories/04-2-agentmemory.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/009/stories/04-2-agentmemory.html</guid>
+      <pubDate>Mon, 11 May 2026 07:00:00 +0000</pubDate>
+      <description>Open-source MCP server that captures tool calls, prompts, and session state as searchable semantic memories</description>
+    </item>
+
+    <item>
+      <title>TOOL · 04.3 · OrcaRouter Lite</title>
+      <link>https://aymane11.github.io/daily-digest/issues/009/stories/04-3-orcarouter-lite.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/009/stories/04-3-orcarouter-lite.html</guid>
+      <pubDate>Mon, 11 May 2026 07:00:00 +0000</pubDate>
+      <description>MIT-licensed router proxies requests across 200+ models — &quot;model=auto&quot; picks the cheapest capable model</description>
+    </item>
+
+    <item>
+      <title>TOOL · 04.4 · AWS MCP Server + Agent Toolkit</title>
+      <link>https://aymane11.github.io/daily-digest/issues/009/stories/04-4-aws-mcp-server.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/009/stories/04-4-aws-mcp-server.html</guid>
+      <pubDate>Mon, 11 May 2026 07:00:00 +0000</pubDate>
+      <description>AI coding agents get IAM-guarded access to all 15,000+ AWS API operations with 40+ pre-built agent skills</description>
+    </item>
+
+    <item>
+      <title>Inside Lambda networking: how AWS shrunk VPC cold starts from 150ms to 200μs</title>
+      <link>https://aymane11.github.io/daily-digest/issues/009/stories/eng-1-lambda-networking.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/009/stories/eng-1-lambda-networking.html</guid>
+      <pubDate>Mon, 11 May 2026 07:00:00 +0000</pubDate>
+      <description>Werner Vogels details how the Lambda team used eBPF, constant-work patterns, and per-namespace isolation to solve the decade-old VPC cold start problem</description>
+    </item>
+
+    <item>
       <title>Anthropic rents all compute at SpaceX's Colossus 1 data center</title>
       <link>https://aymane11.github.io/daily-digest/issues/008/stories/01-lead-anthropic-spacex.html</link>
       <guid>https://aymane11.github.io/daily-digest/issues/008/stories/01-lead-anthropic-spacex.html</guid>

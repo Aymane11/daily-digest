@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Daily Digest — DeepSeek $7B · 02.3</title>
+<link rel="alternate" type="application/rss+xml" title="Daily Digest RSS" href="/daily-digest/feed.xml" />
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: #f5f0e8;
+  color: #111;
+  font-family: 'Lora', serif;
+  font-size: 18px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+:root {
+  --paper:  #f5f0e8;
+  --card:   #fffdf7;
+  --ink:    #111111;
+  --ink-2:  #5a5a5a;
+  --accent: #d62828;
+  --hi:     #f5c842;
+  --teal:   #0d7377;
+  --navy:   #14213d;
+  --ochre:  #e07b39;
+  --slate:  #3d5a80;
+  --sage:   #2d6a4f;
+  --purple: #7b2d8b;
+  --rule:   #111111;
+}
+.sk        { font-family: 'Lora', serif; }
+.sk-mono   { font-family: 'IBM Plex Serif', 'Georgia', serif; }
+.sk-script { font-family: 'Lora', serif; font-style: italic; }
+.sk-box      { border: 1.5px solid var(--ink); background: transparent; position: relative; }
+.sk-box-soft { border: 1.25px solid #2a2a2a; background: transparent; }
+.sk-rule      { height: 0; border: 0; border-top: 1.5px solid var(--ink); margin: 0; }
+.sk-rule-thin { height: 0; border: 0; border-top: 1px solid var(--ink); margin: 0; }
+.sk-stamp {
+  display: inline-block;
+  font-family: 'IBM Plex Serif', serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border: 1.5px solid currentColor;
+  line-height: 1.4;
+  transform: rotate(-1deg);
+  white-space: nowrap;
+}
+.sk-stamp--red    { color: var(--accent);  border-color: var(--accent);  }
+.sk-stamp--navy   { color: var(--navy);    border-color: var(--navy);    }
+.sk-stamp--teal   { color: var(--teal);    border-color: var(--teal);    }
+.sk-stamp--ochre  { color: var(--ochre);   border-color: var(--ochre);   }
+.sk-stamp--slate  { color: var(--slate);   border-color: var(--slate);   }
+.sk-stamp--hi     { color: #a07800;        border-color: #a07800;        }
+.sk-stamp--ink    { color: var(--ink);     border-color: var(--ink);     }
+.sk-stamp--purple { color: var(--purple);  border-color: var(--purple);  }
+.sk-stamp--sage   { color: var(--sage);    border-color: var(--sage);    }
+.sk-lines { display: flex; flex-direction: column; gap: 5px; }
+.sk-line  { height: 2px; background: #2a2a2a; }
+.sk-line.w90 { width: 90%; } .sk-line.w75 { width: 75%; }
+.sk-line.w60 { width: 60%; } .sk-line.w45 { width: 45%; }
+.sk-line.w30 { width: 30%; } .sk-line.thick { height: 3px; }
+.sk-line.faint { background: #6a6a6a; height: 1.5px; }
+.sk-annot {
+  font-family: 'Lora', serif;
+  font-style: italic;
+  font-size: 20px;
+  color: var(--accent);
+  line-height: 1.05;
+  transform: rotate(-2deg);
+}
+.sk-annot.blue { color: #1f5eaa; }
+.sk-src-link {
+  font-family: 'IBM Plex Serif', serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--teal);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.sk-src-link:hover { color: var(--accent); }
+.row { display: flex; }
+.col { display: flex; flex-direction: column; }
+.grow { flex: 1; }
+.gap-2 { gap: 8px; } .gap-3 { gap: 12px; } .gap-4 { gap: 16px; } .gap-5 { gap: 20px; }
+.p-3 { padding: 12px; } .p-4 { padding: 16px; } .p-5 { padding: 20px; }
+.dd-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px;
+}
+.dd-module-h {
+  display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px;
+}
+.dd-module-h .num  { font-size: 64px; font-weight: 700; line-height: 0.9; color: var(--accent); }
+.dd-module-h .title { font-family: 'IBM Plex Serif', serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; }
+.dd-module-h .right { font-family: 'IBM Plex Serif', serif; font-size: 11px; letter-spacing: 1.5px; }
+@media (max-width: 900px) {
+  .dd-page { padding: 20px 18px; }
+  .sk-grid-dossier { grid-template-columns: 1fr 1fr !important; }
+  .sk-grid-data { grid-template-columns: 1fr 1fr !important; }
+  .sk-grid-brief, .sk-grid-tool { grid-template-columns: 1fr 260px !important; }
+  .sk-grid-headlines { grid-template-columns: repeat(2, 1fr) !important; }
+  .sk-grid-modules { grid-template-columns: repeat(2, 1fr) !important; }
+}
+@media (max-width: 640px) {
+  body { font-size: 17px; }
+  .dd-page { padding: 14px 12px; }
+  .sk-grid-dossier, .sk-grid-data, .sk-grid-brief, .sk-grid-tool, .sk-grid-modules, .sk-grid-headlines { grid-template-columns: 1fr !important; }
+  .sk-homepage-grid { grid-template-columns: 1fr !important; }
+  .sk-homepage-grid > * { grid-column: span 1 !important; }
+  .sk-mega-stat { font-size: 56px !important; }
+  .dd-module-h .num { font-size: 48px; }
+  .sk-nav-row { flex-wrap: wrap !important; gap: 8px !important; }
+  .sk-stamp-row { flex-wrap: wrap !important; }
+  .sk-lead-hl { font-size: 32px !important; }
+  .sk-dossier-hl { font-size: 36px !important; }
+  .sk-annot { display: none; }
+}
+@media (max-width: 380px) {
+  body { font-size: 16px; }
+  .dd-page { padding: 10px 8px; }
+  .sk-lead-hl { font-size: 26px !important; }
+  .sk-dossier-hl { font-size: 28px !important; }
+  .sk-mega-stat { font-size: 44px !important; }
+}
+</style>
+</head>
+<body>
+<div class="dd-page">
+
+  <!-- breadcrumb -->
+  <nav class="row" style="justify-content:space-between;align-items:baseline;margin-bottom:10px">
+    <a href="../index.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px">← DAILY · DIGEST · № 009</a>
+    <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">02.3 · AI · FUNDING · CHINA</span>
+    <a href="../../../archive.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--teal)">ARCHIVE ↗</a>
+  </nav>
+
+  <!-- KICKER + headline -->
+  <header class="col" style="align-items:center;text-align:center;padding:18px 60px 8px">
+    <div class="row gap-2" style="justify-content:center;margin-bottom:10px;flex-wrap:wrap">
+      <span class="sk-stamp sk-stamp--red">FEATURE / 02.3</span>
+      <span class="sk-stamp sk-stamp--navy">AI · FUNDING · CHINA</span>
+    </div>
+    <h1 class="sk-dossier-hl" style="font-size:60px;line-height:1.02;font-weight:700;margin:16px 0 12px;letter-spacing:-0.5px;text-wrap:balance;max-width:880px">
+      DeepSeek seeks $7B at $51.5B valuation in first external funding round
+    </h1>
+    <p class="sk-script" style="font-size:24px;color:var(--ink-2);max-width:660px;margin:0">Could become the largest AI funding round in China — DeepSeek's open-weight models have disrupted global AI pricing</p>
+    <div class="row" style="gap:14px;margin-top:12px;justify-content:center;flex-wrap:wrap">
+      <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">BY · EDITORIAL TEAM</span>
+      <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--ink-2)">· MAY 11 2026 · 3 MIN</span>
+      <a href="https://www.digitimes.com/news/a20260511VL206/deepseek-funding-startup-fundraising-commercial.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--teal)">SOURCE · DIGITIMES.COM ↗</a>
+    </div>
+  </header>
+
+  <!-- ★ STATS SLAB -->
+  <section class="sk-box" style="background:var(--ink);padding:24px 26px;margin-top:14px">
+    <div class="row" style="justify-content:space-between;align-items:baseline;margin-bottom:18px">
+      <span class="sk-mono" style="font-size:11px;letter-spacing:3px;color:var(--hi)">★ THE NUMBERS</span>
+      <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--card)">SOURCE · DIGITIMES.COM</span>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0">
+      <div class="col" style="padding:0 18px">
+        <div style="font-size:96px;font-weight:700;line-height:0.92;color:var(--hi);letter-spacing:-2px">$7B</div>
+        <p class="sk-mono" style="font-size:11px;letter-spacing:1.5px;color:var(--card);margin:8px 0 6px">FUNDING TARGET</p>
+        <p style="font-size:14px;line-height:1.5;color:var(--card);opacity:0.85;margin:0">First external funding round — largest AI funding in China if completed</p>
+      </div>
+      <div class="col" style="padding:0 18px;border-left:1.5px solid var(--card)">
+        <div style="font-size:96px;font-weight:700;line-height:0.92;color:var(--card);letter-spacing:-2px">$51.5B</div>
+        <p class="sk-mono" style="font-size:11px;letter-spacing:1.5px;color:var(--card);margin:8px 0 6px">POST-MONEY VALUATION</p>
+        <p style="font-size:14px;line-height:1.5;color:var(--card);opacity:0.85;margin:0">Valuation reflecting DeepSeek's position as China's leading open-weight AI lab</p>
+      </div>
+      <div class="col" style="padding:0 18px;border-left:1.5px solid var(--card)">
+        <div style="font-size:96px;font-weight:700;line-height:0.92;color:var(--hi);letter-spacing:-2px">V4</div>
+        <p class="sk-mono" style="font-size:11px;letter-spacing:1.5px;color:var(--card);margin:8px 0 6px">LATEST MODEL</p>
+        <p style="font-size:14px;line-height:1.5;color:var(--card);opacity:0.85;margin:0">DeepSeek V4 demonstrated competitive performance with frontier Western models at fraction of training cost</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BODY 2-col + sidebar -->
+  <main class="sk-grid-data" style="display:grid;grid-template-columns:1fr 1fr 280px;gap:18px;margin-top:16px">
+    <section class="col gap-3">
+      <div class="row gap-2" style="align-items:baseline">
+        <span style="font-size:22px;font-weight:700;color:var(--accent)">01</span>
+        <span class="sk-mono" style="font-size:11px;letter-spacing:2px">CONTEXT</span>
+      </div>
+      <hr class="sk-rule-thin" />
+      <p style="font-size:19px;font-weight:700;line-height:1.3;margin:0">DeepSeek, the Chinese AI lab behind the open-weight DeepSeek V4 model that rivaled GPT-5 class performance, is opening its first external funding round. The $7B raise at a $51.5B valuation would be the largest AI funding round in China's history and signals that Chinese AI labs are moving toward commercialization.</p>
+      <p style="font-size:18px;line-height:1.65;margin:0">DeepSeek disrupted global AI pricing in late 2025 with models that delivered frontier performance at training costs 90% below comparable US models. Their open-weight strategy forced price cuts across the industry. The funding round marks a strategic shift — DeepSeek needs capital to scale inference infrastructure and compete for enterprise customers beyond China.</p>
+    </section>
+
+    <section class="col gap-3">
+      <div class="row gap-2" style="align-items:baseline">
+        <span style="font-size:22px;font-weight:700;color:var(--accent)">02</span>
+        <span class="sk-mono" style="font-size:11px;letter-spacing:2px">WHAT'S NEW</span>
+      </div>
+      <hr class="sk-rule-thin" />
+      <p style="font-size:18px;line-height:1.65;margin:0">The round is happening alongside a broader realignment in Chinese AI. Alibaba integrated Qwen with Taobao for "chat to buy" commerce. ERNIE 5.1 from Baidu hit #1 Chinese model on LMArena. But DeepSeek remains the most credible threat to US AI leadership, having demonstrated that open-weight models can match closed-source performance.</p>
+    </section>
+
+    <aside class="col gap-3">
+      <!-- KEY PLAYERS -->
+      <div class="sk-box" style="background:var(--hi);padding:14px">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0">KEY · PLAYERS</p>
+        <hr class="sk-rule-thin" style="margin:8px 0 10px" />
+        <div>
+          <p class="sk-mono" style="font-size:11px;font-weight:700;letter-spacing:1px;margin:0">DeepSeek</p>
+          <p style="font-size:13px;line-height:1.4;margin:4px 0 0">Chinese open-weight AI lab raising first external funding</p>
+        </div>
+        <hr class="sk-rule-thin" style="border-top-style:dashed;margin:10px 0" />
+        <div>
+          <p class="sk-mono" style="font-size:11px;font-weight:700;letter-spacing:1px;margin:0">US AI Labs</p>
+          <p style="font-size:13px;line-height:1.4;margin:4px 0 0">Competitors facing pricing pressure from DeepSeek's cost-efficient models</p>
+        </div>
+      </div>
+
+      <!-- TIMELINE compact -->
+      <div class="sk-box-soft" style="padding:14px;background:var(--card)">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0">TIMELINE</p>
+        <hr class="sk-rule-thin" style="margin:8px 0 10px" />
+        <div class="row gap-3" style="align-items:baseline;padding:6px 0;border-bottom:1px dashed var(--ink)">
+          <span class="sk-mono" style="font-size:12px;font-weight:700">2024</span>
+          <span class="sk-mono" style="font-size:11px">DeepSeek V2 released — shocks market with training efficiency</span>
+        </div>
+        <div class="row gap-3" style="align-items:baseline;padding:6px 0;border-bottom:1px dashed var(--ink)">
+          <span class="sk-mono" style="font-size:12px;font-weight:700">2025</span>
+          <span class="sk-mono" style="font-size:11px">DeepSeek V3 — matches GPT-4 class at 10% training cost</span>
+        </div>
+        <div class="row gap-3" style="align-items:baseline;padding:6px 0;border-bottom:1px dashed var(--ink)">
+          <span class="sk-mono" style="font-size:12px;font-weight:700">EARLY 2026</span>
+          <span class="sk-mono" style="font-size:11px">DeepSeek V4 — rivals GPT-5 class, open weights</span>
+        </div>
+        <div class="row gap-3" style="align-items:baseline;padding:6px 0">
+          <span class="sk-mono" style="font-size:12px;font-weight:700;color:var(--accent)">MAY 2026</span>
+          <span class="sk-mono" style="font-size:11px">← TODAY</span>
+        </div>
+      </div>
+
+      <!-- tags -->
+      <div class="sk-box-soft" style="padding:12px">
+        <p class="sk-mono" style="font-size:10px;letter-spacing:2px;margin:0 0 8px">FILED · UNDER</p>
+        <div class="row gap-2" style="flex-wrap:wrap">
+          <span class="sk-stamp sk-stamp--red">AI</span>
+          <span class="sk-stamp sk-stamp--navy">FUNDING</span>
+          <span class="sk-stamp sk-stamp--teal">CHINA</span>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <!-- BIG QUOTE band -->
+  <blockquote class="sk-box" style="background:var(--hi);padding:28px 36px;margin:14px 0 0">
+    <div class="row gap-4" style="align-items:flex-start">
+      <span style="font-size:100px;font-weight:700;line-height:0.7;font-family:'Lora',serif;color:var(--accent)">"</span>
+      <div class="col grow">
+        <p style="font-size:32px;font-weight:700;line-height:1.15;text-wrap:balance;margin:0">DeepSeek proved you don't need $100B to build frontier AI. Their valuation says investors finally believe it.</p>
+        <p class="sk-mono" style="font-size:11px;margin:14px 0 0;letter-spacing:1.5px">— INDUSTRY ANALYST · MAY 2026</p>
+      </div>
+    </div>
+  </blockquote>
+
+  <!-- ¶ 03 -->
+  <div class="row gap-2" style="align-items:baseline;margin-top:14px">
+    <span style="font-size:22px;font-weight:700;color:var(--accent)">03</span>
+    <span class="sk-mono" style="font-size:11px;letter-spacing:2px">WHAT TO WATCH</span>
+    <span class="grow" style="border-top:1px dashed var(--ink);height:1px;margin-left:8px"></span>
+  </div>
+  <p style="font-size:18px;line-height:1.65;margin:8px 0 0">If DeepSeek closes this round, watch for: (1) aggressive enterprise push in Southeast Asia and Africa, (2) inference API price wars with US providers, and (3) potential US export control responses. Evaluate DeepSeek V4 on your own workloads — its price-performance ratio may justify adoption in cost-sensitive applications.</p>
+
+  <!-- source attribution bar -->
+  <div class="sk-box-soft" style="padding:12px 16px;background:var(--card);margin-top:16px">
+    <div class="row gap-4" style="align-items:baseline;flex-wrap:wrap">
+      <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">SOURCE</span>
+      <a href="https://www.digitimes.com/news/a20260511VL206/deepseek-funding-startup-fundraising-commercial.html" class="sk-mono" style="font-size:11px;letter-spacing:1px;color:var(--teal);text-decoration:underline;text-underline-offset:2px">DIGITIMES.COM ↗</a>
+    </div>
+  </div>
+
+  <hr class="sk-rule" style="margin-top:14px" />
+  <footer class="row" style="justify-content:space-between;padding:10px 4px">
+    <a href="02-2-anthropic-growth-akamai.html" class="col">
+      <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--ink-2)">← PREV</span>
+      <span style="font-size:14px;font-weight:700">02.2 · Anthropic at $1T valuation</span>
+    </a>
+    <span class="sk-mono" style="font-size:10px;letter-spacing:2px">· END · 02.3 ·</span>
+    <a href="02-4-nextjs-security.html" class="col" style="align-items:flex-end">
+      <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--accent)">NEXT →</span>
+      <span style="font-size:14px;font-weight:700">02.4 · Next.js critical security release with 13 CVEs</span>
+    </a>
+  </footer>
+</div>
+</body>
+</html>

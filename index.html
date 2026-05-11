@@ -3,17 +3,74 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Daily Digest — THU 07 MAY 2026</title>
-<meta http-equiv="refresh" content="0;url=issues/008/index.html" />
+<link rel="alternate" type="application/rss+xml" title="Daily Digest RSS" href="/daily-digest/feed.xml" />
+<title>Daily Digest — MON 11 MAY 2026</title>
+<meta http-equiv="refresh" content="0;url=issues/009/index.html" />
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
 *{box-sizing:border-box}html,body{margin:0;padding:0}body{background:#f5f0e8;color:#111;font-family:'Lora',serif;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}
-:root{--paper:#f5f0e8;--card:#fffdf7;--ink:#111111;--ink-2:#5a5a5a;--accent:#d62828;--hi:#f5c842;--teal:#0d7377;--navy:#14213d;--ochre:#e07b39;--slate:#3d5a80;--sage:#2d6a4f}
-.sk-mono{font-family:'IBM Plex Serif','Georgia',serif;font-weight:500}
+:root{--paper:#f5f0e8;--card:#fffdf7;--ink:#111111;--ink-2:#5a5a5a;--accent:#d62828;--hi:#f5c842;--teal:#0d7377;--navy:#14213d;--ochre:#e07b39;--slate:#3d5a80;--sage:#2d6a4f;--purple:#7b2d8b;--rule:#111111}
+.sk{font-family:'Lora',serif}
+.sk-mono{font-family:'IBM Plex Serif','Georgia',serif}
+.sk-script{font-family:'Lora',serif;font-style:italic}
 .sk-box{border:1.5px solid var(--ink);background:transparent;position:relative}
+.sk-box-soft{border:1.25px solid #2a2a2a;background:transparent}
+.sk-rule{height:0;border:0;border-top:1.5px solid var(--ink);margin:0}
 .sk-rule-thin{height:0;border:0;border-top:1px solid var(--ink);margin:0}
-.row{display:flex}.col{display:flex;flex-direction:column}.grow{flex:1}.gap-3{gap:12px}
+.sk-stamp{display:inline-block;font-family:'IBM Plex Serif',serif;font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:3px 8px;border:1.5px solid currentColor;line-height:1.4;transform:rotate(-1deg);white-space:nowrap}
+.sk-stamp--red{color:var(--accent);border-color:var(--accent)}
+.sk-stamp--navy{color:var(--navy);border-color:var(--navy)}
+.sk-stamp--teal{color:var(--teal);border-color:var(--teal)}
+.sk-stamp--ochre{color:var(--ochre);border-color:var(--ochre)}
+.sk-stamp--slate{color:var(--slate);border-color:var(--slate)}
+.sk-stamp--hi{color:#a07800;border-color:#a07800}
+.sk-stamp--ink{color:var(--ink);border-color:var(--ink)}
+.sk-stamp--purple{color:var(--purple);border-color:var(--purple)}
+.sk-stamp--sage{color:var(--sage);border-color:var(--sage)}
+.sk-lines{display:flex;flex-direction:column;gap:5px}
+.sk-line{height:2px;background:#2a2a2a}
+.sk-line.w90{width:90%}.sk-line.w75{width:75%}.sk-line.w60{width:60%}.sk-line.w45{width:45%}.sk-line.w30{width:30%}.sk-line.thick{height:3px}.sk-line.faint{background:#6a6a6a;height:1.5px}
+.sk-annot{font-family:'Lora',serif;font-style:italic;font-size:20px;color:var(--accent);line-height:1.05;transform:rotate(-2deg)}
+.sk-annot.blue{color:#1f5eaa}
+.sk-src-link{font-family:'IBM Plex Serif',serif;font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--teal);text-decoration:underline;text-underline-offset:3px}
+.sk-src-link:hover{color:var(--accent)}
+.row{display:flex}.col{display:flex;flex-direction:column}.grow{flex:1}
+.gap-2{gap:8px}.gap-3{gap:12px}.gap-4{gap:16px}.gap-5{gap:20px}
+.p-3{padding:12px}.p-4{padding:16px}.p-5{padding:20px}
 .dd-page{max-width:1200px;margin:0 auto;padding:28px}
+.dd-module-h{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px}
+.dd-module-h .num{font-size:64px;font-weight:700;line-height:0.9;color:var(--accent)}
+.dd-module-h .title{font-family:'IBM Plex Serif',serif;font-size:13px;letter-spacing:2px;text-transform:uppercase}
+.dd-module-h .right{font-family:'IBM Plex Serif',serif;font-size:11px;letter-spacing:1.5px}
+@media(max-width:900px){
+  .dd-page{padding:20px 18px}
+  .sk-grid-dossier{grid-template-columns:1fr 1fr !important}
+  .sk-grid-data{grid-template-columns:1fr 1fr !important}
+  .sk-grid-brief,.sk-grid-tool{grid-template-columns:1fr 260px !important}
+  .sk-grid-headlines{grid-template-columns:repeat(2,1fr) !important}
+  .sk-grid-modules{grid-template-columns:repeat(2,1fr) !important}
+}
+@media(max-width:640px){
+  body{font-size:17px}
+  .dd-page{padding:14px 12px}
+  .sk-grid-dossier,.sk-grid-data,.sk-grid-brief,.sk-grid-tool,.sk-grid-modules,.sk-grid-headlines{grid-template-columns:1fr !important}
+  .sk-homepage-grid{grid-template-columns:1fr !important}
+  .sk-homepage-grid>*{grid-column:span 1 !important}
+  .sk-mega-stat{font-size:56px !important}
+  .dd-module-h .num{font-size:48px}
+  .sk-nav-row{flex-wrap:wrap !important;gap:8px !important}
+  .sk-stamp-row{flex-wrap:wrap !important}
+  .sk-lead-hl{font-size:32px !important}
+  .sk-dossier-hl{font-size:36px !important}
+  .sk-annot{display:none}
+}
+@media(max-width:380px){
+  body{font-size:16px}
+  .dd-page{padding:10px 8px}
+  .sk-lead-hl{font-size:26px !important}
+  .sk-dossier-hl{font-size:28px !important}
+  .sk-mega-stat{font-size:44px !important}
+}
 </style>
 </head>
 <body>
@@ -33,15 +90,15 @@
 
   <div style="display:flex;align-items:center;justify-content:center;min-height:50vh">
     <div class="sk-box" style="background:var(--card);padding:48px 56px;text-align:center;max-width:520px;width:100%">
-      <p class="sk-mono" style="font-size:10px;letter-spacing:3px;color:var(--accent);margin:0 0 18px">ISSUE &middot; 008 &middot; THU 07 MAY 2026</p>
+      <p class="sk-mono" style="font-size:10px;letter-spacing:3px;color:var(--accent);margin:0 0 18px">ISSUE &middot; 009 &middot; MON 11 MAY 2026</p>
       <hr class="sk-rule-thin" style="margin-bottom:24px" />
       <p style="font-size:22px;font-weight:700;line-height:1.2;margin:0 0 16px">Redirecting to today's issue&hellip;</p>
       <p class="sk-mono" style="font-size:11px;line-height:1.6;color:var(--ink-2);margin:0 0 24px">
-        AI &middot; INFRASTRUCTURE &middot; FUNDING &middot; SECURITY &middot; ENGINEERING<br />
-        ANTHROPIC SPACEX &middot; OPENAI IPO FIGHT &middot; MOONSHOT $2B &middot; CLOUDFLARE INFIRE
+        AI &middot; SECURITY &middot; INFRASTRUCTURE &middot; DEV TOOLS &middot; ENTERPRISE<br />
+        AI ZERO-DAY &middot; OPENAI DEPLOYCO &middot; ANTHROPIC $1T &middot; DEEPSEEK $7B &middot; NEXT.JS SECURITY
       </p>
       <hr class="sk-rule-thin" style="margin-bottom:16px" />
-      <a href="issues/008/index.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px">OPEN ISSUE 008 &#8594;</a>
+      <a href="issues/009/index.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px">OPEN ISSUE 009 &#8594;</a>
     </div>
   </div>
 

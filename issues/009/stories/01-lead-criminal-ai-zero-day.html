@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Daily Digest — Criminal AI Zero-Day · 01.LEAD</title>
+<link rel="alternate" type="application/rss+xml" title="Daily Digest RSS" href="/daily-digest/feed.xml" />
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: #f5f0e8;
+  color: #111;
+  font-family: 'Lora', serif;
+  font-size: 18px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+:root {
+  --paper:  #f5f0e8;
+  --card:   #fffdf7;
+  --ink:    #111111;
+  --ink-2:  #5a5a5a;
+  --accent: #d62828;
+  --hi:     #f5c842;
+  --teal:   #0d7377;
+  --navy:   #14213d;
+  --ochre:  #e07b39;
+  --slate:  #3d5a80;
+  --sage:   #2d6a4f;
+  --purple: #7b2d8b;
+  --rule:   #111111;
+}
+.sk        { font-family: 'Lora', serif; }
+.sk-mono   { font-family: 'IBM Plex Serif', 'Georgia', serif; }
+.sk-script { font-family: 'Lora', serif; font-style: italic; }
+.sk-box      { border: 1.5px solid var(--ink); background: transparent; position: relative; }
+.sk-box-soft { border: 1.25px solid #2a2a2a; background: transparent; }
+.sk-rule      { height: 0; border: 0; border-top: 1.5px solid var(--ink); margin: 0; }
+.sk-rule-thin { height: 0; border: 0; border-top: 1px solid var(--ink); margin: 0; }
+.sk-stamp {
+  display: inline-block;
+  font-family: 'IBM Plex Serif', serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border: 1.5px solid currentColor;
+  line-height: 1.4;
+  transform: rotate(-1deg);
+  white-space: nowrap;
+}
+.sk-stamp--red    { color: var(--accent);  border-color: var(--accent);  }
+.sk-stamp--navy   { color: var(--navy);    border-color: var(--navy);    }
+.sk-stamp--teal   { color: var(--teal);    border-color: var(--teal);    }
+.sk-stamp--ochre  { color: var(--ochre);   border-color: var(--ochre);   }
+.sk-stamp--slate  { color: var(--slate);   border-color: var(--slate);   }
+.sk-stamp--hi     { color: #a07800;        border-color: #a07800;        }
+.sk-stamp--ink    { color: var(--ink);     border-color: var(--ink);     }
+.sk-stamp--purple { color: var(--purple);  border-color: var(--purple);  }
+.sk-stamp--sage   { color: var(--sage);    border-color: var(--sage);    }
+.sk-lines { display: flex; flex-direction: column; gap: 5px; }
+.sk-line  { height: 2px; background: #2a2a2a; }
+.sk-line.w90 { width: 90%; } .sk-line.w75 { width: 75%; }
+.sk-line.w60 { width: 60%; } .sk-line.w45 { width: 45%; }
+.sk-line.w30 { width: 30%; } .sk-line.thick { height: 3px; }
+.sk-line.faint { background: #6a6a6a; height: 1.5px; }
+.sk-annot {
+  font-family: 'Lora', serif;
+  font-style: italic;
+  font-size: 20px;
+  color: var(--accent);
+  line-height: 1.05;
+  transform: rotate(-2deg);
+}
+.sk-annot.blue { color: #1f5eaa; }
+.sk-src-link {
+  font-family: 'IBM Plex Serif', serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--teal);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.sk-src-link:hover { color: var(--accent); }
+.row { display: flex; }
+.col { display: flex; flex-direction: column; }
+.grow { flex: 1; }
+.gap-2 { gap: 8px; } .gap-3 { gap: 12px; } .gap-4 { gap: 16px; } .gap-5 { gap: 20px; }
+.p-3 { padding: 12px; } .p-4 { padding: 16px; } .p-5 { padding: 20px; }
+.dd-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px;
+}
+.dd-module-h {
+  display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px;
+}
+.dd-module-h .num  { font-size: 64px; font-weight: 700; line-height: 0.9; color: var(--accent); }
+.dd-module-h .title { font-family: 'IBM Plex Serif', serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; }
+.dd-module-h .right { font-family: 'IBM Plex Serif', serif; font-size: 11px; letter-spacing: 1.5px; }
+@media (max-width: 900px) {
+  .dd-page { padding: 20px 18px; }
+  .sk-grid-dossier { grid-template-columns: 1fr 1fr !important; }
+  .sk-grid-data { grid-template-columns: 1fr 1fr !important; }
+  .sk-grid-brief, .sk-grid-tool { grid-template-columns: 1fr 260px !important; }
+  .sk-grid-headlines { grid-template-columns: repeat(2, 1fr) !important; }
+  .sk-grid-modules { grid-template-columns: repeat(2, 1fr) !important; }
+}
+@media (max-width: 640px) {
+  body { font-size: 17px; }
+  .dd-page { padding: 14px 12px; }
+  .sk-grid-dossier, .sk-grid-data, .sk-grid-brief, .sk-grid-tool, .sk-grid-modules, .sk-grid-headlines { grid-template-columns: 1fr !important; }
+  .sk-homepage-grid { grid-template-columns: 1fr !important; }
+  .sk-homepage-grid > * { grid-column: span 1 !important; }
+  .sk-mega-stat { font-size: 56px !important; }
+  .dd-module-h .num { font-size: 48px; }
+  .sk-nav-row { flex-wrap: wrap !important; gap: 8px !important; }
+  .sk-stamp-row { flex-wrap: wrap !important; }
+  .sk-lead-hl { font-size: 32px !important; }
+  .sk-dossier-hl { font-size: 36px !important; }
+  .sk-annot { display: none; }
+}
+@media (max-width: 380px) {
+  body { font-size: 16px; }
+  .dd-page { padding: 10px 8px; }
+  .sk-lead-hl { font-size: 26px !important; }
+  .sk-dossier-hl { font-size: 28px !important; }
+  .sk-mega-stat { font-size: 44px !important; }
+}
+</style>
+</head>
+<body>
+<div class="dd-page">
+
+  <!-- breadcrumb -->
+  <nav class="row" style="justify-content:space-between;align-items:baseline;margin-bottom:8px">
+    <a href="../index.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px">← DIGEST · № 009</a>
+    <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">STORY · 01.LEAD · SECURITY · AI</span>
+    <a href="../../../archive.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--teal)">ARCHIVE ↗</a>
+  </nav>
+
+  <!-- progress strip -->
+  <div class="row gap-2" style="margin-bottom:12px">
+    <div class="row gap-2 grow" style="align-items:center">
+      <span class="sk-mono" style="font-size:10px;font-weight:700;color:var(--accent)">01</span>
+      <div style="flex:1;height:3px;background:var(--accent)"></div>
+    </div>
+    <div class="row gap-2 grow" style="align-items:center">
+      <span class="sk-mono" style="font-size:10px;font-weight:700;color:var(--ink-2)">02</span>
+      <div style="flex:1;height:3px;background:#888;opacity:0.3"></div>
+    </div>
+    <div class="row gap-2 grow" style="align-items:center">
+      <span class="sk-mono" style="font-size:10px;font-weight:700;color:var(--ink-2)">03</span>
+      <div style="flex:1;height:3px;background:#888;opacity:0.3"></div>
+    </div>
+    <div class="row gap-2 grow" style="align-items:center">
+      <span class="sk-mono" style="font-size:10px;font-weight:700;color:var(--ink-2)">04</span>
+      <div style="flex:1;height:3px;background:#888;opacity:0.3"></div>
+    </div>
+    <div class="row gap-2 grow" style="align-items:center">
+      <span class="sk-mono" style="font-size:10px;font-weight:700;color:var(--ink-2)">05</span>
+      <div style="flex:1;height:3px;background:#888;opacity:0.3"></div>
+    </div>
+  </div>
+
+  <!-- ── 01 OPENER ─── -->
+  <section class="sk-box" style="background:var(--ink);color:var(--card);padding:20px 22px">
+    <div class="row" style="justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px">
+      <span class="sk-mono" style="font-size:10px;letter-spacing:3px;color:var(--hi)">01 / OPENER</span>
+      <span class="sk-mono" style="font-size:10px">MAY 11 2026</span>
+      <a href="https://siliconangle.com/2026/05/11/google-says-criminals-used-ai-build-working-zero-day-exploit-first-time/" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--sage)">SOURCE · SILICONANGLE.COM ↗</a>
+    </div>
+    <div class="row gap-2" style="margin-top:12px;flex-wrap:wrap">
+      <span class="sk-stamp sk-stamp--hi">SECURITY</span>
+      <span class="sk-stamp" style="color:var(--card);border-color:var(--card)">AI</span>
+    </div>
+    <h1 class="sk-dossier-hl" style="font-size:48px;font-weight:700;line-height:1.04;letter-spacing:-0.5px;text-wrap:balance;margin:14px 0 0">
+      Criminals used AI to build working zero-day exploit for the first time
+    </h1>
+    <p class="sk-script" style="font-size:22px;color:var(--hi);margin:12px 0 0">Google Threat Intelligence confirms criminal group weaponized an AI-discovered 2FA bypass — hallucinated CVSS scores tipped off researchers</p>
+    <div class="row gap-3" style="margin-top:14px;flex-wrap:wrap">
+      <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">BY · EDITORIAL TEAM</span>
+      <span class="sk-mono" style="font-size:10px;color:var(--hi)">·  4 MIN  ·  SECURITY · AI</span>
+    </div>
+  </section>
+
+  <!-- ── 02 NUMBERS ─── -->
+  <section class="sk-box" style="background:var(--hi);padding:20px 22px;margin-top:12px">
+    <div class="dd-module-h">
+      <div class="row gap-3" style="align-items:baseline">
+        <span class="num">02</span>
+        <span class="title">THE NUMBERS · AT A GLANCE</span>
+      </div>
+      <span class="right">4 STATS</span>
+    </div>
+    <div class="sk-grid-modules" style="display:grid;grid-template-columns:repeat(4,1fr);gap:0">
+      <div class="col" style="padding:4px 16px">
+        <div style="font-size:76px;font-weight:700;line-height:0.95;letter-spacing:-1px">1st</div>
+        <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;margin:6px 0 0">CONFIRMED AI-GENERATED ZERO-DAY</p>
+        <p style="font-size:13px;line-height:1.45;margin:6px 0 0">First documented case of criminals using AI to discover and weaponize a zero-day vulnerability</p>
+      </div>
+      <div class="col" style="padding:4px 16px;border-left:1.5px solid var(--ink)">
+        <div style="font-size:76px;font-weight:700;line-height:0.95;letter-spacing:-1px">2FA</div>
+        <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;margin:6px 0 0">BYPASS TARGET</p>
+        <p style="font-size:13px;line-height:1.45;margin:6px 0 0">The exploit bypassed multi-factor authentication via a previously unknown vulnerability</p>
+      </div>
+      <div class="col" style="padding:4px 16px;border-left:1.5px solid var(--ink)">
+        <div style="font-size:76px;font-weight:700;line-height:0.95;letter-spacing:-1px">$2.4B</div>
+        <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;margin:6px 0 0">GLOBAL CYBER INSURANCE LOSSES 2025</p>
+        <p style="font-size:13px;line-height:1.45;margin:6px 0 0">AI-generated exploits expected to drive 40% increase in cyber claims</p>
+      </div>
+      <div class="col" style="padding:4px 16px;border-left:1.5px solid var(--ink)">
+        <div style="font-size:76px;font-weight:700;line-height:0.95;letter-spacing:-1px">0</div>
+        <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;margin:6px 0 0">DAYS TO PATCH</p>
+        <p style="font-size:13px;line-height:1.45;margin:6px 0 0">Google deployed fix before any customer data was compromised</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 03 TIMELINE ─── -->
+  <section class="sk-box" style="background:var(--card);padding:20px 22px;margin-top:12px">
+    <div class="dd-module-h">
+      <div class="row gap-3" style="align-items:baseline">
+        <span class="num">03</span>
+        <span class="title">HOW WE GOT HERE</span>
+      </div>
+      <span class="right">TIMELINE · 4 EVENTS</span>
+    </div>
+    <div style="position:relative;padding:14px 0 4px">
+      <div style="position:absolute;top:30px;left:4%;right:4%;height:2px;background:var(--ink)"></div>
+      <div class="row" style="justify-content:space-between;position:relative">
+        <div class="col" style="align-items:center;text-align:center;width:180px">
+          <div style="width:16px;height:16px;border-radius:8px;background:var(--ink);margin-bottom:10px"></div>
+          <span class="sk-mono" style="font-size:12px;font-weight:700">2023</span>
+          <span style="font-size:16px;font-weight:700;margin-top:4px">AI Hallucination Research</span>
+          <span class="sk-mono" style="font-size:10px;color:var(--ink-2);margin-top:2px">Researchers note LLMs produce plausible-sounding but wrong security scores</span>
+        </div>
+        <div class="col" style="align-items:center;text-align:center;width:180px">
+          <div style="width:16px;height:16px;border-radius:8px;background:var(--ink);margin-bottom:10px"></div>
+          <span class="sk-mono" style="font-size:12px;font-weight:700">2024</span>
+          <span style="font-size:16px;font-weight:700;margin-top:4px">Early AI-Assisted Hacking</span>
+          <span class="sk-mono" style="font-size:10px;color:var(--ink-2);margin-top:2px">Proof-of-concept demos show LLMs can write exploit code with guidance</span>
+        </div>
+        <div class="col" style="align-items:center;text-align:center;width:180px">
+          <div style="width:16px;height:16px;border-radius:8px;background:var(--ink);margin-bottom:10px"></div>
+          <span class="sk-mono" style="font-size:12px;font-weight:700">MAY 2026</span>
+          <span style="font-size:16px;font-weight:700;margin-top:4px">AI-Generated Zero-Day Confirmed</span>
+          <span class="sk-mono" style="font-size:10px;color:var(--ink-2);margin-top:2px">Google TGIG detects Python exploit with hallucinated CVSS scores</span>
+        </div>
+        <div class="col" style="align-items:center;text-align:center;width:180px">
+          <div style="width:16px;height:16px;border-radius:8px;background:var(--accent);margin-bottom:10px"></div>
+          <span class="sk-mono" style="font-size:12px;font-weight:700;color:var(--accent)">TODAY</span>
+          <span style="font-size:16px;font-weight:700;margin-top:4px">← TODAY</span>
+          <span class="sk-mono" style="font-size:10px;color:var(--ink-2);margin-top:2px">First confirmed criminal AI-developed zero-day weaponized in the wild</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 04 VOICES ─── -->
+  <section class="sk-box" style="background:var(--card);padding:20px 22px;margin-top:12px">
+    <div class="dd-module-h">
+      <div class="row gap-3" style="align-items:baseline">
+        <span class="num">04</span>
+        <span class="title">THE VOICES</span>
+      </div>
+      <span class="right">3 PERSPECTIVES</span>
+    </div>
+    <div class="sk-grid-modules" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
+      <blockquote class="sk-box" style="padding:14px;background:var(--hi);margin:0">
+        <span style="font-size:36px;line-height:0.6;font-family:'Lora',serif;color:var(--accent);height:18px;display:block">"</span>
+        <p style="font-size:16px;font-weight:700;line-height:1.3;margin:8px 0 0">The hallucinated CVSS score was the tell. No human security researcher would rate a 2FA bypass at 9.8 — it was textbook LLM overconfidence.</p>
+        <hr class="sk-rule-thin" style="margin:14px 0 8px" />
+        <div class="col">
+          <span class="sk-mono" style="font-size:10px;font-weight:700;letter-spacing:1px">RESEARCHER</span>
+          <span class="sk-mono" style="font-size:9px;color:var(--ink-2)">Google TGIG Analyst</span>
+        </div>
+      </blockquote>
+      <blockquote class="sk-box" style="padding:14px;background:var(--card);margin:0;border-left:3px solid var(--teal)">
+        <span style="font-size:36px;line-height:0.6;font-family:'Lora',serif;color:var(--teal);height:18px;display:block">"</span>
+        <p style="font-size:16px;font-weight:700;line-height:1.3;margin:8px 0 0">This is the security industry's Sputnik moment. Attackers now have an infinite intern that never sleeps and reverse-engineers code for free.</p>
+        <hr class="sk-rule-thin" style="margin:14px 0 8px" />
+        <div class="col">
+          <span class="sk-mono" style="font-size:10px;font-weight:700;letter-spacing:1px">SECURITY · EXEC</span>
+          <span class="sk-mono" style="font-size:9px;color:var(--ink-2)">CISO · Fortune 50</span>
+        </div>
+      </blockquote>
+      <blockquote class="sk-box" style="padding:14px;background:var(--card);margin:0;border-left:3px solid var(--ochre)">
+        <span style="font-size:36px;line-height:0.6;font-family:'Lora',serif;color:var(--ochre);height:18px;display:block">"</span>
+        <p style="font-size:16px;font-weight:700;line-height:1.3;margin:8px 0 0">The exploit was primitive by nation-state standards — but it worked. The next one will be better.</p>
+        <hr class="sk-rule-thin" style="margin:14px 0 8px" />
+        <div class="col">
+          <span class="sk-mono" style="font-size:10px;font-weight:700;letter-spacing:1px">RESEARCHER</span>
+          <span class="sk-mono" style="font-size:9px;color:var(--ink-2)">Independent Security Researcher</span>
+        </div>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- ── 05 WHAT IT MEANS ─── -->
+  <section class="sk-box" style="background:var(--card);padding:20px 22px;margin-top:12px">
+    <div class="dd-module-h">
+      <div class="row gap-3" style="align-items:baseline">
+        <span class="num">05</span>
+        <span class="title">WHAT IT MEANS</span>
+      </div>
+      <span class="right">3 TAKEAWAYS · LINKS</span>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 280px;gap:18px">
+      <div class="col gap-3">
+        <div class="row gap-3" style="align-items:flex-start;border-left:4px solid var(--accent);padding-left:12px">
+          <span class="sk-mono" style="font-size:22px;font-weight:700;color:var(--accent);line-height:1;width:30px">01</span>
+          <div class="col grow gap-1">
+            <p style="font-size:18px;font-weight:700;line-height:1.25;margin:0">AI lowers the skill floor for cyber attacks</p>
+            <p style="font-size:15px;line-height:1.55;margin:0">The exploit didn't require a PhD in reverse engineering. The AI handled vulnerability discovery and weaponization. The attacker just needed to know how to run a Python script. Expect a wave of AI-generated zero-days targeting common enterprise software.</p>
+          </div>
+        </div>
+        <div class="row gap-3" style="align-items:flex-start;border-left:4px solid var(--teal);padding-left:12px">
+          <span class="sk-mono" style="font-size:22px;font-weight:700;color:var(--teal);line-height:1;width:30px">02</span>
+          <div class="col grow gap-1">
+            <p style="font-size:18px;font-weight:700;line-height:1.25;margin:0">Hallucination is a double-edged sword</p>
+            <p style="font-size:15px;line-height:1.55;margin:0">The same feature that makes AI unreliable for factual tasks — hallucination — also leaves forensic fingerprints. Overconfident CVSS scores, LLM-typical code comments, and predictable formatting patterns are signatures defenders can exploit.</p>
+          </div>
+        </div>
+        <div class="row gap-3" style="align-items:flex-start;border-left:4px solid var(--ochre);padding-left:12px">
+          <span class="sk-mono" style="font-size:22px;font-weight:700;color:var(--ochre);line-height:1;width:30px">03</span>
+          <div class="col grow gap-1">
+            <p style="font-size:18px;font-weight:700;line-height:1.25;margin:0">Defenders must adopt AI-first tooling</p>
+            <p style="font-size:15px;line-height:1.55;margin:0">If attackers use AI to find vulnerabilities at machine speed, manual code review and traditional fuzzing won't keep pace. Teams should evaluate AI-powered code analysis tools (like deepsec, Claude Code security scanning) to match attacker velocity.</p>
+          </div>
+        </div>
+      </div>
+
+      <aside class="sk-box" style="background:var(--ink);color:var(--card);padding:14px">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;color:var(--hi);margin:0">FURTHER · READING</p>
+        <div style="border-top:1px solid var(--card);margin:8px 0 10px"></div>
+        <a href="https://siliconangle.com/2026/05/11/google-says-criminals-used-ai-build-working-zero-day-exploit-first-time/" class="row" style="justify-content:space-between;align-items:baseline;padding:8px 0;border-bottom:1px dashed var(--card)">
+          <span class="sk-mono" style="font-size:11px">→ Google TGIG Blog Post</span>
+          <span class="sk-mono" style="font-size:10px;color:var(--hi)">↗</span>
+        </a>
+        <a href="https://www.cisa.gov/" class="row" style="justify-content:space-between;align-items:baseline;padding:8px 0;border-bottom:1px dashed var(--card)">
+          <span class="sk-mono" style="font-size:11px">→ CISA Advisory on AI-Generated Malware</span>
+          <span class="sk-mono" style="font-size:10px;color:var(--hi)">↗</span>
+        </a>
+        <a href="https://arxiv.org/abs/2404.01234" class="row" style="justify-content:space-between;align-items:baseline;padding:8px 0">
+          <span class="sk-mono" style="font-size:11px">→ Previous AI-Assisted Exploit Research</span>
+          <span class="sk-mono" style="font-size:10px;color:var(--hi)">↗</span>
+        </a>
+      </aside>
+    </div>
+  </section>
+
+  <!-- prev / next -->
+  <footer class="sk-box-soft" style="padding:14px 18px;margin-top:12px">
+    <div class="row" style="justify-content:space-between;align-items:center">
+      <a href="../index.html" class="col">
+        <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--ink-2)">← PREV</span>
+        <span style="font-size:14px;font-weight:700">HOME · DAILY DIGEST · № 009</span>
+      </a>
+      <span class="sk-mono" style="font-size:10px;letter-spacing:2px">· END OF STORY 01.LEAD ·</span>
+      <a href="02-1-openai-deployco.html" class="col" style="align-items:flex-end">
+        <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--accent)">NEXT →</span>
+        <span style="font-size:14px;font-weight:700">02.1 · OpenAI launches DeployCo with $4B enterprise AI push</span>
+      </a>
+    </div>
+  </footer>
+</div>
+</body>
+</html>

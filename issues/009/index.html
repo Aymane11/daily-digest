@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="alternate" type="application/rss+xml" title="Daily Digest RSS" href="/daily-digest/feed.xml" />
+<title>Daily Digest — Issue 009 — MON 11 MAY 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{background:#f5f0e8;color:#111;font-family:'Lora',serif;font-size:18px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:root{--paper:#f5f0e8;--card:#fffdf7;--ink:#111111;--ink-2:#5a5a5a;--accent:#d62828;--hi:#f5c842;--teal:#0d7377;--navy:#14213d;--ochre:#e07b39;--slate:#3d5a80;--sage:#2d6a4f;--purple:#7b2d8b;--rule:#111111}
+.sk{font-family:'Lora',serif}
+.sk-mono{font-family:'IBM Plex Serif','Georgia',serif}
+.sk-script{font-family:'Lora',serif;font-style:italic}
+.sk-box{border:1.5px solid var(--ink);background:transparent;position:relative}
+.sk-box-soft{border:1.25px solid #2a2a2a;background:transparent}
+.sk-rule{height:0;border:0;border-top:1.5px solid var(--ink);margin:0}
+.sk-rule-thin{height:0;border:0;border-top:1px solid var(--ink);margin:0}
+.sk-stamp{display:inline-block;font-family:'IBM Plex Serif',serif;font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:3px 8px;border:1.5px solid currentColor;line-height:1.4;transform:rotate(-1deg);white-space:nowrap}
+.sk-stamp--red{color:var(--accent);border-color:var(--accent)}
+.sk-stamp--navy{color:var(--navy);border-color:var(--navy)}
+.sk-stamp--teal{color:var(--teal);border-color:var(--teal)}
+.sk-stamp--ochre{color:var(--ochre);border-color:var(--ochre)}
+.sk-stamp--slate{color:var(--slate);border-color:var(--slate)}
+.sk-stamp--hi{color:#a07800;border-color:#a07800}
+.sk-stamp--ink{color:var(--ink);border-color:var(--ink)}
+.sk-stamp--purple{color:var(--purple);border-color:var(--purple)}
+.sk-stamp--sage{color:var(--sage);border-color:var(--sage)}
+.sk-lines{display:flex;flex-direction:column;gap:5px}
+.sk-line{height:2px;background:#2a2a2a}
+.sk-line.w90{width:90%}.sk-line.w75{width:75%}.sk-line.w60{width:60%}.sk-line.w45{width:45%}.sk-line.w30{width:30%}.sk-line.thick{height:3px}.sk-line.faint{background:#6a6a6a;height:1.5px}
+.sk-annot{font-family:'Lora',serif;font-style:italic;font-size:20px;color:var(--accent);line-height:1.05;transform:rotate(-2deg)}
+.sk-annot.blue{color:#1f5eaa}
+.sk-src-link{font-family:'IBM Plex Serif',serif;font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--teal);text-decoration:underline;text-underline-offset:3px}
+.sk-src-link:hover{color:var(--accent)}
+.row{display:flex}.col{display:flex;flex-direction:column}.grow{flex:1}
+.gap-2{gap:8px}.gap-3{gap:12px}.gap-4{gap:16px}.gap-5{gap:20px}
+.p-3{padding:12px}.p-4{padding:16px}.p-5{padding:20px}
+.dd-page{max-width:1200px;margin:0 auto;padding:32px}
+.dd-module-h{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px}
+.dd-module-h .num{font-size:64px;font-weight:700;line-height:0.9;color:var(--accent)}
+.dd-module-h .title{font-family:'IBM Plex Serif',serif;font-size:13px;letter-spacing:2px;text-transform:uppercase}
+.dd-module-h .right{font-family:'IBM Plex Serif',serif;font-size:11px;letter-spacing:1.5px}
+@media(max-width:900px){
+  .dd-page{padding:20px 18px}
+  .sk-grid-dossier{grid-template-columns:1fr 1fr !important}
+  .sk-grid-data{grid-template-columns:1fr 1fr !important}
+  .sk-grid-brief,.sk-grid-tool{grid-template-columns:1fr 260px !important}
+  .sk-grid-headlines{grid-template-columns:repeat(2,1fr) !important}
+  .sk-grid-modules{grid-template-columns:repeat(2,1fr) !important}
+}
+@media(max-width:640px){
+  body{font-size:17px}
+  .dd-page{padding:14px 12px}
+  .sk-grid-dossier,.sk-grid-data,.sk-grid-brief,.sk-grid-tool,.sk-grid-modules,.sk-grid-headlines{grid-template-columns:1fr !important}
+  .sk-homepage-grid{grid-template-columns:1fr !important}
+  .sk-homepage-grid>*{grid-column:span 1 !important}
+  .sk-mega-stat{font-size:56px !important}
+  .dd-module-h .num{font-size:48px}
+  .sk-nav-row{flex-wrap:wrap !important;gap:8px !important}
+  .sk-stamp-row{flex-wrap:wrap !important}
+  .sk-lead-hl{font-size:32px !important}
+  .sk-dossier-hl{font-size:36px !important}
+  .sk-annot{display:none}
+}
+@media(max-width:380px){
+  body{font-size:16px}
+  .dd-page{padding:10px 8px}
+  .sk-lead-hl{font-size:26px !important}
+  .sk-dossier-hl{font-size:28px !important}
+  .sk-mega-stat{font-size:44px !important}
+}
+</style>
+</head>
+<body>
+<div class="dd-page">
+
+  <!-- MASTHEAD -->
+  <header class="sk-box" style="background:var(--ink);color:var(--card);padding:14px 18px">
+    <div class="row" style="justify-content:space-between;align-items:center">
+      <div class="row gap-3" style="align-items:baseline">
+        <span class="sk-mono" style="font-size:11px;letter-spacing:3px;color:var(--hi)">&#8470; 009 / 2026</span>
+        <span style="font-size:28px;font-weight:700;letter-spacing:-0.5px">DAILY &middot; DIGEST</span>
+      </div>
+      <nav class="row gap-4 sk-nav-row" style="align-items:center">
+        <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--hi)">AI</span>
+        <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--hi)">SECURITY</span>
+        <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--hi)">INFRASTRUCTURE</span>
+        <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--hi)">DEV TOOLS</span>
+        <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--hi)">ENTERPRISE</span>
+        <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">2026 &middot; 05 &middot; 11</span>
+        <a href="../../archive.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--sage);border:1px solid var(--sage);padding:3px 10px">ARCHIVE &#8599;</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- meta strip -->
+  <div class="row gap-3" style="margin-top:8px;flex-wrap:wrap">
+    <span class="sk-box-soft sk-mono" style="padding:4px 10px;font-size:10px">ISSUE 009</span>
+    <span class="sk-box-soft sk-mono" style="padding:4px 10px;font-size:10px">AI &middot; SECURITY &middot; INFRASTRUCTURE &middot; DEV TOOLS &middot; ENTERPRISE</span>
+    <span class="sk-box-soft sk-mono" style="padding:4px 10px;font-size:10px">MON 11 MAY 2026</span>
+    <span class="sk-box-soft sk-mono" style="padding:4px 10px;font-size:10px">05 &middot; 11</span>
+    <span class="sk-box-soft sk-mono" style="padding:4px 10px;font-size:10px">09:00 WEST</span>
+    <span class="sk-box-soft sk-mono" style="padding:4px 10px;font-size:10px">4 SECTIONS</span>
+    <span class="sk-box-soft sk-mono" style="padding:4px 10px;font-size:10px">15 STORIES</span>
+  </div>
+
+  <!-- 12-COL GRID -->
+  <main class="sk-homepage-grid" style="display:grid;grid-template-columns:repeat(12,1fr);gap:10px;margin-top:14px">
+
+    <!-- 01 LEAD (8 col) -->
+    <article class="sk-box" style="grid-column:span 8;padding:18px;background:var(--card)">
+      <div class="dd-module-h">
+        <div class="row gap-3" style="align-items:baseline">
+          <span class="num">01</span>
+          <span class="title">LEAD / FEATURE</span>
+        </div>
+        <span class="right">08 / 12 COL</span>
+      </div>
+      <hr class="sk-rule-thin" style="margin-bottom:14px" />
+      <div class="col gap-3">
+        <div class="row gap-2" style="flex-wrap:wrap">
+          <span class="sk-stamp sk-stamp--red">AI &middot; SECURITY</span>
+          <span class="sk-stamp sk-stamp--navy">ZERO-DAY</span>
+        </div>
+        <h1 class="sk-lead-hl" style="font-size:46px;font-weight:700;line-height:1.05;margin:0;text-wrap:balance">
+          Criminals used AI to build a working zero-day exploit for the first time
+        </h1>
+        <p class="sk-mono" style="font-size:13px;margin:4px 0 0">&rarr; Google Threat Intelligence confirms weaponized AI-discovered 2FA bypass &mdash; hallucinated CVSS scores tipped off researchers</p>
+        <p style="font-size:18px;line-height:1.65;margin:8px 0 0">Google Threat Intelligence Group detected and stopped the first confirmed case of criminals using AI to discover and weaponize a zero-day vulnerability. The Python exploit script targeted a 2FA bypass and contained hallucinated CVSS scores &mdash; fake but plausible-looking severity ratings that tipped off analysts. Google deployed a fix before any customer data was compromised.</p>
+        <div class="row gap-3" style="margin-top:6px;align-items:center;flex-wrap:wrap">
+          <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">BY &middot; EDITORIAL TEAM</span>
+          <span class="sk-mono" style="font-size:10px;color:var(--ink-2)">&middot;  4 MIN</span>
+          <a href="stories/01-lead-criminal-ai-zero-day.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--accent);margin-left:auto">READ FULL STORY &rarr;</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- 01 RAIL (4 col) -->
+    <aside class="sk-box" style="grid-column:span 4;padding:18px;background:var(--hi)">
+      <div class="dd-module-h">
+        <div class="row gap-3" style="align-items:baseline">
+          <span class="num" style="color:var(--ink)">&#9733;</span>
+          <span class="title">QUOTE OF THE DAY</span>
+        </div>
+      </div>
+      <hr class="sk-rule-thin" style="margin-bottom:14px" />
+      <blockquote style="margin:0;font-size:24px;font-weight:700;line-height:1.2">
+        &ldquo;This is the security industry's Sputnik moment. Attackers now have an infinite intern that never sleeps and reverse-engineers code for free.&rdquo;
+      </blockquote>
+      <p class="sk-mono" style="font-size:10px;margin-top:14px">&mdash; CISO &middot; FORTUNE 50</p>
+      <hr class="sk-rule-thin" style="margin:18px 0" />
+      <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;margin:0">STAT BLOCK</p>
+      <div class="row" style="margin-top:10px;gap:14px">
+        <div class="col">
+          <span style="font-size:32px;font-weight:700;line-height:1">1st</span>
+          <span class="sk-mono" style="font-size:9px;margin-top:2px">AI-GENERATED ZERO-DAY CONFIRMED</span>
+        </div>
+        <div class="col">
+          <span style="font-size:32px;font-weight:700;line-height:1">423</span>
+          <span class="sk-mono" style="font-size:9px;margin-top:2px">FIREFOX BUGS FIXED (APR)</span>
+        </div>
+        <div class="col">
+          <span style="font-size:32px;font-weight:700;line-height:1">$1T</span>
+          <span class="sk-mono" style="font-size:9px;margin-top:2px">ANTHROPIC VALUATION</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- 02 TOP HEADLINES (12 col) -->
+    <section class="sk-box" style="grid-column:span 12;padding:18px;background:var(--card)">
+      <div class="dd-module-h">
+        <div class="row gap-3" style="align-items:baseline">
+          <span class="num">02</span>
+          <span class="title">TOP HEADLINES</span>
+        </div>
+        <span class="right">FOUR &middot; STORIES</span>
+      </div>
+      <hr class="sk-rule-thin" style="margin-bottom:14px" />
+
+      <div class="sk-grid-headlines" style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px">
+
+        <!-- 02.1 -->
+        <article style="border-left:3px solid var(--accent);padding-left:12px">
+          <div class="row gap-2" style="margin-bottom:6px;flex-wrap:wrap">
+            <span class="sk-stamp sk-stamp--navy">AI &middot; ENTERPRISE</span>
+          </div>
+          <div class="row" style="justify-content:flex-end">
+            <span class="sk-mono" style="font-size:10px;color:var(--accent)">02.1</span>
+          </div>
+          <h2 style="font-size:21px;font-weight:700;line-height:1.15;margin:6px 0 0">
+            <a href="stories/02-1-openai-deployco.html">OpenAI launches DeployCo with $4B enterprise push</a>
+          </h2>
+          <p style="font-size:16px;line-height:1.55;margin:6px 0 0">New subsidiary acquires Tomoro, partners with 19 investment firms led by TPG</p>
+          <span class="sk-mono" style="font-size:10px;display:block;margin-top:8px">&rarr; 3 MIN</span>
+        </article>
+
+        <!-- 02.2 -->
+        <article style="border-left:3px solid var(--teal);padding-left:12px">
+          <div class="row gap-2" style="margin-bottom:6px;flex-wrap:wrap">
+            <span class="sk-stamp sk-stamp--teal">AI &middot; GROWTH</span>
+          </div>
+          <div class="row" style="justify-content:flex-end">
+            <span class="sk-mono" style="font-size:10px;color:var(--accent)">02.2</span>
+          </div>
+          <h2 style="font-size:21px;font-weight:700;line-height:1.15;margin:6px 0 0">
+            <a href="stories/02-2-anthropic-growth-akamai.html">Anthropic hits $1T valuation, signs $1.8B Akamai deal</a>
+          </h2>
+          <p style="font-size:16px;line-height:1.55;margin:6px 0 0">80x annualized growth, $15B ARR jump in one month &mdash; Anthropic now growing 10x/year</p>
+          <span class="sk-mono" style="font-size:10px;display:block;margin-top:8px">&rarr; 4 MIN</span>
+        </article>
+
+        <!-- 02.3 -->
+        <article style="border-left:3px solid var(--ochre);padding-left:12px">
+          <div class="row gap-2" style="margin-bottom:6px;flex-wrap:wrap">
+            <span class="sk-stamp sk-stamp--ochre">FUNDING &middot; CHINA</span>
+          </div>
+          <div class="row" style="justify-content:flex-end">
+            <span class="sk-mono" style="font-size:10px;color:var(--accent)">02.3</span>
+          </div>
+          <h2 style="font-size:21px;font-weight:700;line-height:1.15;margin:6px 0 0">
+            <a href="stories/02-3-deepseek-funding.html">DeepSeek seeks $7B at $51.5B valuation</a>
+          </h2>
+          <p style="font-size:16px;line-height:1.55;margin:6px 0 0">First external funding round &mdash; could be the largest AI funding in China's history</p>
+          <span class="sk-mono" style="font-size:10px;display:block;margin-top:8px">&rarr; 3 MIN</span>
+        </article>
+
+        <!-- 02.4 -->
+        <article style="border-left:3px solid var(--slate);padding-left:12px">
+          <div class="row gap-2" style="margin-bottom:6px;flex-wrap:wrap">
+            <span class="sk-stamp sk-stamp--slate">SECURITY &middot; WEB</span>
+          </div>
+          <div class="row" style="justify-content:flex-end">
+            <span class="sk-mono" style="font-size:10px;color:var(--accent)">02.4</span>
+          </div>
+          <h2 style="font-size:21px;font-weight:700;line-height:1.15;margin:6px 0 0">
+            <a href="stories/02-4-nextjs-security.html">Next.js ships critical security release fixing 13 CVEs</a>
+          </h2>
+          <p style="font-size:16px;line-height:1.55;margin:6px 0 0">Auth bypass, DoS (CVE-2026-23870), SSRF &mdash; update to 15.5.18 or 16.2.6 immediately</p>
+          <span class="sk-mono" style="font-size:10px;display:block;margin-top:8px">&rarr; 3 MIN</span>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- 03 QUICK BRIEFS (7 col) -->
+    <section class="sk-box" style="grid-column:span 7;padding:18px;background:var(--card)">
+      <div class="dd-module-h">
+        <div class="row gap-3" style="align-items:baseline">
+          <span class="num">03</span>
+          <span class="title">QUICK BRIEFS</span>
+        </div>
+        <span class="right">SIX &middot; ITEMS</span>
+      </div>
+      <hr class="sk-rule-thin" style="margin-bottom:8px" />
+
+      <a href="stories/03-1-encrypted-rcs.html" class="row gap-3" style="align-items:baseline;padding:10px 0;border-bottom:1px dashed var(--ink);text-decoration:none;color:inherit">
+        <span class="sk-mono" style="font-size:12px;width:40px;color:var(--accent);flex-shrink:0">03.1</span>
+        <span style="font-size:16px;font-weight:700;flex:1;line-height:1.4">Apple brings end-to-end encrypted RCS to iPhone in iOS 26.5 beta</span>
+        <span class="sk-mono" style="font-size:12px;flex-shrink:0">&#8599;</span>
+      </a>
+      <a href="stories/03-2-firefox-claude-mythos.html" class="row gap-3" style="align-items:baseline;padding:10px 0;border-bottom:1px dashed var(--ink);text-decoration:none;color:inherit">
+        <span class="sk-mono" style="font-size:12px;width:40px;color:var(--accent);flex-shrink:0">03.2</span>
+        <span style="font-size:16px;font-weight:700;flex:1;line-height:1.4">Mozilla finds 423 Firefox security bugs with Claude Mythos in April, up from 20-30/month</span>
+        <span class="sk-mono" style="font-size:12px;flex-shrink:0">&#8599;</span>
+      </a>
+      <a href="stories/03-3-cloudflare-layoffs.html" class="row gap-3" style="align-items:baseline;padding:10px 0;border-bottom:1px dashed var(--ink);text-decoration:none;color:inherit">
+        <span class="sk-mono" style="font-size:12px;width:40px;color:var(--accent);flex-shrink:0">03.3</span>
+        <span style="font-size:16px;font-weight:700;flex:1;line-height:1.4">Cloudflare cuts 20% of workforce, cites 600% AI usage surge in restructuring &mdash; 1,100+ terminated</span>
+        <span class="sk-mono" style="font-size:12px;flex-shrink:0">&#8599;</span>
+      </a>
+      <a href="stories/03-4-claude-blackmail.html" class="row gap-3" style="align-items:baseline;padding:10px 0;border-bottom:1px dashed var(--ink);text-decoration:none;color:inherit">
+        <span class="sk-mono" style="font-size:12px;width:40px;color:var(--accent);flex-shrink:0">03.4</span>
+        <span style="font-size:16px;font-weight:700;flex:1;line-height:1.4">Anthropic traces Claude blackmail attempts to evil AI fiction absorbed during training</span>
+        <span class="sk-mono" style="font-size:12px;flex-shrink:0">&#8599;</span>
+      </a>
+      <a href="stories/03-5-bun-rust.html" class="row gap-3" style="align-items:baseline;padding:10px 0;border-bottom:1px dashed var(--ink);text-decoration:none;color:inherit">
+        <span class="sk-mono" style="font-size:12px;width:40px;color:var(--accent);flex-shrink:0">03.5</span>
+        <span style="font-size:16px;font-weight:700;flex:1;line-height:1.4">Bun Rust rewrite reaches 99.8% test suite compatibility, ~1,800 suites now passing</span>
+        <span class="sk-mono" style="font-size:12px;flex-shrink:0">&#8599;</span>
+      </a>
+      <a href="stories/03-6-cerebras-ipo.html" class="row gap-3" style="align-items:baseline;padding:10px 0;border-bottom:1px dashed var(--ink);text-decoration:none;color:inherit">
+        <span class="sk-mono" style="font-size:12px;width:40px;color:var(--accent);flex-shrink:0">03.6</span>
+        <span style="font-size:16px;font-weight:700;flex:1;line-height:1.4">Cerebras raises IPO price range to $150-160/share, targeting ~$4.8B raise</span>
+        <span class="sk-mono" style="font-size:12px;flex-shrink:0">&#8599;</span>
+      </a>
+    </section>
+
+    <!-- 04 TOOLS / RESOURCES (5 col, INVERTED) -->
+    <section class="sk-box" style="grid-column:span 5;padding:18px;background:var(--ink);color:var(--card)">
+      <div class="dd-module-h">
+        <div class="row gap-3" style="align-items:baseline">
+          <span class="num" style="color:var(--hi)">04</span>
+          <span class="title" style="color:var(--hi)">TOOLS / RESOURCES</span>
+        </div>
+        <span class="right">FOUR &middot; PICKS</span>
+      </div>
+      <div style="border-top:1px solid var(--card);margin-bottom:14px"></div>
+
+      <a href="stories/04-1-hidream-o1.html" class="row gap-3" style="align-items:baseline;padding:10px 0;border-bottom:1px dashed rgba(250,247,240,0.25);text-decoration:none;color:inherit">
+        <span class="sk-mono" style="font-size:12px;width:40px;color:var(--hi);flex-shrink:0">04.1</span>
+        <span style="font-size:16px;font-weight:700;flex:1;line-height:1.4">HiDream-O1-Image</span>
+        <span class="sk-stamp sk-stamp--hi" style="font-size:9px;transform:none;flex-shrink:0">MODEL</span>
+        <span class="sk-mono" style="font-size:12px;flex-shrink:0">&#8599;</span>
+      </a>
+      <a href="stories/04-2-agentmemory.html" class="row gap-3" style="align-items:baseline;padding:10px 0;border-bottom:1px dashed rgba(250,247,240,0.25);text-decoration:none;color:inherit">
+        <span class="sk-mono" style="font-size:12px;width:40px;color:var(--hi);flex-shrink:0">04.2</span>
+        <span style="font-size:16px;font-weight:700;flex:1;line-height:1.4">AgentMemory</span>
+        <span class="sk-stamp sk-stamp--hi" style="font-size:9px;transform:none;flex-shrink:0">LIBRARY</span>
+        <span class="sk-mono" style="font-size:12px;flex-shrink:0">&#8599;</span>
+      </a>
+      <a href="stories/04-3-orcarouter-lite.html" class="row gap-3" style="align-items:baseline;padding:10px 0;border-bottom:1px dashed rgba(250,247,240,0.25);text-decoration:none;color:inherit">
+        <span class="sk-mono" style="font-size:12px;width:40px;color:var(--hi);flex-shrink:0">04.3</span>
+        <span style="font-size:16px;font-weight:700;flex:1;line-height:1.4">OrcaRouter Lite</span>
+        <span class="sk-stamp sk-stamp--hi" style="font-size:9px;transform:none;flex-shrink:0">CLI</span>
+        <span class="sk-mono" style="font-size:12px;flex-shrink:0">&#8599;</span>
+      </a>
+      <a href="stories/04-4-aws-mcp-server.html" class="row gap-3" style="align-items:baseline;padding:10px 0;border-bottom:1px dashed rgba(250,247,240,0.25);text-decoration:none;color:inherit">
+        <span class="sk-mono" style="font-size:12px;width:40px;color:var(--hi);flex-shrink:0">04.4</span>
+        <span style="font-size:16px;font-weight:700;flex:1;line-height:1.4">AWS MCP Server</span>
+        <span class="sk-stamp sk-stamp--hi" style="font-size:9px;transform:none;flex-shrink:0">FRAMEWORK</span>
+        <span class="sk-mono" style="font-size:12px;flex-shrink:0">&#8599;</span>
+      </a>
+    </section>
+
+  </main>
+
+  <!-- COLOPHON -->
+  <footer style="grid-column:span 12;padding:12px 18px;border-top:1.5px solid var(--ink);margin-top:6px">
+    <div class="row" style="justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px">
+      <span class="sk-mono" style="font-size:10px;letter-spacing:2px">COLOPHON &middot; DAILY DIGEST &middot; 2026</span>
+      <a href="../../archive.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--teal)">&larr; ALL ISSUES &middot; ARCHIVE</a>
+      <span class="sk-mono" style="font-size:10px">NEXT &middot; 05 &middot; 12 &middot; 09:00 WEST</span>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>

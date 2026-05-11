@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Daily Digest — TOOL · 04.4 · AWS MCP Server + Agent Toolkit</title>
+<link rel="alternate" type="application/rss+xml" title="Daily Digest RSS" href="/daily-digest/feed.xml" />
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: #f5f0e8;
+  color: #111;
+  font-family: 'Lora', serif;
+  font-size: 18px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+:root {
+  --paper:  #f5f0e8;
+  --card:   #fffdf7;
+  --ink:    #111111;
+  --ink-2:  #5a5a5a;
+  --accent: #d62828;
+  --hi:     #f5c842;
+  --teal:   #0d7377;
+  --navy:   #14213d;
+  --ochre:  #e07b39;
+  --slate:  #3d5a80;
+  --sage:   #2d6a4f;
+  --purple: #7b2d8b;
+  --rule:   #111111;
+}
+.sk        { font-family: 'Lora', serif; }
+.sk-mono   { font-family: 'IBM Plex Serif', 'Georgia', serif; }
+.sk-script { font-family: 'Lora', serif; font-style: italic; }
+.sk-box      { border: 1.5px solid var(--ink); background: transparent; position: relative; }
+.sk-box-soft { border: 1.25px solid #2a2a2a; background: transparent; }
+.sk-rule      { height: 0; border: 0; border-top: 1.5px solid var(--ink); margin: 0; }
+.sk-rule-thin { height: 0; border: 0; border-top: 1px solid var(--ink); margin: 0; }
+.sk-stamp {
+  display: inline-block;
+  font-family: 'IBM Plex Serif', serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border: 1.5px solid currentColor;
+  line-height: 1.4;
+  transform: rotate(-1deg);
+  white-space: nowrap;
+}
+.sk-stamp--red    { color: var(--accent);  border-color: var(--accent);  }
+.sk-stamp--navy   { color: var(--navy);    border-color: var(--navy);    }
+.sk-stamp--teal   { color: var(--teal);    border-color: var(--teal);    }
+.sk-stamp--ochre  { color: var(--ochre);   border-color: var(--ochre);   }
+.sk-stamp--slate  { color: var(--slate);   border-color: var(--slate);   }
+.sk-stamp--hi     { color: #a07800;        border-color: #a07800;        }
+.sk-stamp--ink    { color: var(--ink);     border-color: var(--ink);     }
+.sk-stamp--purple { color: var(--purple);  border-color: var(--purple);  }
+.sk-stamp--sage   { color: var(--sage);    border-color: var(--sage);    }
+.sk-lines { display: flex; flex-direction: column; gap: 5px; }
+.sk-line  { height: 2px; background: #2a2a2a; }
+.sk-line.w90 { width: 90%; } .sk-line.w75 { width: 75%; }
+.sk-line.w60 { width: 60%; } .sk-line.w45 { width: 45%; }
+.sk-line.w30 { width: 30%; } .sk-line.thick { height: 3px; }
+.sk-line.faint { background: #6a6a6a; height: 1.5px; }
+.sk-annot {
+  font-family: 'Lora', serif;
+  font-style: italic;
+  font-size: 20px;
+  color: var(--accent);
+  line-height: 1.05;
+  transform: rotate(-2deg);
+}
+.sk-annot.blue { color: #1f5eaa; }
+.sk-src-link {
+  font-family: 'IBM Plex Serif', serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--teal);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.sk-src-link:hover { color: var(--accent); }
+.row { display: flex; }
+.col { display: flex; flex-direction: column; }
+.grow { flex: 1; }
+.gap-2 { gap: 8px; } .gap-3 { gap: 12px; } .gap-4 { gap: 16px; } .gap-5 { gap: 20px; }
+.p-3 { padding: 12px; } .p-4 { padding: 16px; } .p-5 { padding: 20px; }
+.dd-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px;
+}
+.dd-module-h {
+  display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px;
+}
+.dd-module-h .num  { font-size: 64px; font-weight: 700; line-height: 0.9; color: var(--accent); }
+.dd-module-h .title { font-family: 'IBM Plex Serif', serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; }
+.dd-module-h .right { font-family: 'IBM Plex Serif', serif; font-size: 11px; letter-spacing: 1.5px; }
+@media (max-width: 900px) {
+  .dd-page { padding: 20px 18px; }
+  .sk-grid-dossier { grid-template-columns: 1fr 1fr !important; }
+  .sk-grid-data { grid-template-columns: 1fr 1fr !important; }
+  .sk-grid-brief,
+  .sk-grid-tool { grid-template-columns: 1fr 260px !important; }
+  .sk-grid-headlines { grid-template-columns: repeat(2, 1fr) !important; }
+  .sk-grid-modules { grid-template-columns: repeat(2, 1fr) !important; }
+}
+@media (max-width: 640px) {
+  body { font-size: 17px; }
+  .dd-page { padding: 14px 12px; }
+  .sk-grid-dossier,
+  .sk-grid-data,
+  .sk-grid-brief,
+  .sk-grid-tool,
+  .sk-grid-modules,
+  .sk-grid-headlines { grid-template-columns: 1fr !important; }
+  .sk-homepage-grid { grid-template-columns: 1fr !important; }
+  .sk-homepage-grid > * { grid-column: span 1 !important; }
+  .sk-mega-stat { font-size: 56px !important; }
+  .dd-module-h .num { font-size: 48px; }
+  .sk-nav-row { flex-wrap: wrap !important; gap: 8px !important; }
+  .sk-stamp-row { flex-wrap: wrap !important; }
+  .sk-lead-hl { font-size: 32px !important; }
+  .sk-dossier-hl { font-size: 36px !important; }
+  .sk-annot { display: none; }
+}
+@media (max-width: 380px) {
+  body { font-size: 16px; }
+  .dd-page { padding: 10px 8px; }
+  .sk-lead-hl { font-size: 26px !important; }
+  .sk-dossier-hl { font-size: 28px !important; }
+  .sk-mega-stat { font-size: 44px !important; }
+}
+</style>
+</head>
+<body>
+<div class="dd-page">
+  <div class="sk-annot" style="position:absolute;top:4px;right:14px">STORY · TOOL · hands-on summary</div>
+
+  <!-- breadcrumb -->
+  <nav class="row" style="justify-content:space-between;align-items:baseline;margin-bottom:8px">
+    <a href="../index.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px">← DIGEST · № 009</a>
+    <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">TOOL · 04.4 · TOOLS · CLOUD</span>
+    <a href="../../../archive.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--teal)">ARCHIVE ↗</a>
+  </nav>
+
+  <!-- ── OPENER (inverted black) ─── -->
+  <section class="sk-box" style="background:var(--ink);color:var(--card);padding:20px 22px">
+    <div class="row" style="justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px">
+      <span class="sk-mono" style="font-size:10px;letter-spacing:3px;color:var(--hi)">TOOL / 04.4</span>
+      <div class="row gap-2">
+        <span class="sk-stamp sk-stamp--hi">FRAMEWORK</span>
+      </div>
+      <a href="https://aws.amazon.com/about-aws/whats-new/2026/05/agent-toolkit/" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--sage)">VISIT TOOL ↗</a>
+    </div>
+    <h1 class="sk-dossier-hl" style="font-size:48px;font-weight:700;line-height:1.04;letter-spacing:-0.5px;text-wrap:balance;margin:14px 0 0">
+      AWS MCP Server + Agent Toolkit
+    </h1>
+    <p style="font-size:20px;font-weight:700;line-height:1.3;color:var(--card);margin:10px 0 0">First managed MCP server from a major cloud provider — now GA</p>
+    <p class="sk-script" style="font-size:20px;color:var(--hi);margin:8px 0 0">AI coding agents get IAM-guarded access to all 15,000+ AWS API operations with 40+ pre-built agent skills</p>
+    <div class="row gap-3" style="margin-top:14px">
+      <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">MAY 11 2026</span>
+    </div>
+  </section>
+
+  <!-- ── MAIN 2-col layout ─── -->
+  <main class="sk-grid-tool" style="display:grid;grid-template-columns:1fr 320px;gap:14px;margin-top:12px">
+
+    <div class="col gap-3">
+
+      <!-- WHAT IT IS -->
+      <div class="sk-box" style="background:var(--hi);padding:18px">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0">★ WHAT IT IS</p>
+        <hr class="sk-rule-thin" style="margin:8px 0 10px" />
+        <p style="font-size:19px;line-height:1.65;margin:0">The AWS MCP Server (now GA) gives AI coding agents secure, auditable access to any AWS service via IAM-based guardrails, CloudWatch monitoring, and CloudTrail logging. Ships with 40+ "agent skills" — validated procedures for CloudFormation, data pipelines, serverless, containers, and more. Three plugins: AWS Core, AWS Data Analytics, AWS Agents. Part of the Agent Toolkit for AWS which also includes WorkSpaces for AI agents (preview) and Bedrock AgentCore payment capabilities.</p>
+      </div>
+
+      <!-- WHY IT MATTERS -->
+      <div class="sk-box" style="background:var(--card);padding:16px">
+        <div class="row gap-3" style="align-items:baseline;margin-bottom:10px">
+          <span style="font-size:28px;font-weight:700;color:var(--accent);line-height:1">¶ 01</span>
+          <span class="sk-mono" style="font-size:11px;letter-spacing:2px">WHY · IT · MATTERS</span>
+        </div>
+        <p style="font-size:18px;line-height:1.65;margin:0">This is the first managed MCP server from a major cloud provider. Agents can call any AWS API through a single tool, including file uploads and long-running operations. Sandboxed Python execution means agents can run multi-step operations without filesystem access. Skills are pre-evaluated for accuracy. Free to use — pay only for AWS resources consumed.</p>
+      </div>
+
+      <!-- HOW TO TRY IT — steps -->
+      <div class="sk-box" style="background:var(--card);padding:16px">
+        <div class="row gap-3" style="align-items:baseline;margin-bottom:12px">
+          <span style="font-size:28px;font-weight:700;color:var(--teal);line-height:1">¶ 02</span>
+          <span class="sk-mono" style="font-size:11px;letter-spacing:2px;color:var(--teal)">HOW · TO · TRY · IT</span>
+          <span class="sk-mono" style="font-size:9px;color:var(--ink-2);margin-left:auto">~30 MIN</span>
+        </div>
+        <div class="col gap-3">
+          <div class="row gap-3" style="align-items:flex-start">
+            <span class="sk-mono" style="font-size:14px;font-weight:700;color:var(--teal);line-height:1;width:28px;flex-shrink:0">01</span>
+            <p style="font-size:17px;line-height:1.6;margin:0">In Claude Code, run: mcp add aws --npx @aws/agent-toolkit-mcp</p>
+          </div>
+          <div class="row gap-3" style="align-items:flex-start">
+            <span class="sk-mono" style="font-size:14px;font-weight:700;color:var(--teal);line-height:1;width:28px;flex-shrink:0">02</span>
+            <p style="font-size:17px;line-height:1.6;margin:0">Ensure your AWS credentials are configured (AWS_PROFILE or environment variables with sufficient IAM permissions)</p>
+          </div>
+          <div class="row gap-3" style="align-items:flex-start">
+            <span class="sk-mono" style="font-size:14px;font-weight:700;color:var(--teal);line-height:1;width:28px;flex-shrink:0">03</span>
+            <p style="font-size:17px;line-height:1.6;margin:0">Ask: "describe my EC2 instances in us-east-1" — the agent should call the AWS API directly</p>
+          </div>
+          <div class="row gap-3" style="align-items:flex-start">
+            <span class="sk-mono" style="font-size:14px;font-weight:700;color:var(--teal);line-height:1;width:28px;flex-shrink:0">04</span>
+            <p style="font-size:17px;line-height:1.6;margin:0">Ask: "create an S3 bucket named my-agent-test-bucket-{random} with versioning enabled"</p>
+          </div>
+          <div class="row gap-3" style="align-items:flex-start">
+            <span class="sk-mono" style="font-size:14px;font-weight:700;color:var(--teal);line-height:1;width:28px;flex-shrink:0">05</span>
+            <p style="font-size:17px;line-height:1.6;margin:0">Review the CloudTrail logs for API calls made by the agent</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- WHAT TO OBSERVE -->
+      <div class="sk-box" style="background:var(--card);padding:16px">
+        <div class="row gap-3" style="align-items:baseline;margin-bottom:10px">
+          <span style="font-size:28px;font-weight:700;color:var(--accent);line-height:1">¶ 03</span>
+          <span class="sk-mono" style="font-size:11px;letter-spacing:2px">WHAT · TO · OBSERVE</span>
+        </div>
+        <p style="font-size:18px;line-height:1.65;margin:0">The agent should execute AWS API calls directly rather than generating boto3 code for you to run. Each call is IAM-authorized and logged to CloudTrail. With sandboxed execution, the agent can run multi-step scripts safely. Try the data analytics plugin: ask the agent to query an Athena table or describe a Glue job.</p>
+      </div>
+    </div>
+
+    <!-- sidebar -->
+    <aside class="col gap-3">
+
+      <!-- quick facts -->
+      <div class="sk-box" style="background:var(--card);padding:14px">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0">QUICK · FACTS</p>
+        <hr class="sk-rule-thin" style="margin:8px 0 12px" />
+        <div class="col gap-2">
+          <div class="row gap-2" style="align-items:baseline">
+            <span class="sk-mono" style="font-size:9px;color:var(--ink-2);min-width:60px">MADE BY</span>
+            <span style="font-size:14px;font-weight:700">Amazon Web Services</span>
+          </div>
+          <div class="row gap-2" style="align-items:baseline">
+            <span class="sk-mono" style="font-size:9px;color:var(--ink-2);min-width:60px">LICENSE</span>
+            <span style="font-size:14px;font-weight:700">Proprietary (free to use)</span>
+          </div>
+          <div class="row gap-2" style="align-items:baseline">
+            <span class="sk-mono" style="font-size:9px;color:var(--ink-2);min-width:60px">NEEDS</span>
+            <span style="font-size:13px;line-height:1.4">AWS account, MCP-compatible agent (Claude Code, Copilot CLI, Cursor)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- tags -->
+      <div class="sk-box-soft" style="padding:12px">
+        <p class="sk-mono" style="font-size:10px;letter-spacing:2px;margin:0 0 10px">FILED · UNDER</p>
+        <div class="row gap-2" style="flex-wrap:wrap">
+          <span class="sk-stamp sk-stamp--teal">AWS</span>
+          <span class="sk-stamp sk-stamp--navy">MCP</span>
+          <span class="sk-stamp sk-stamp--ochre">AGENTS</span>
+        </div>
+      </div>
+
+      <!-- source / link -->
+      <div class="sk-box" style="background:var(--ink);color:var(--card);padding:14px">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;color:var(--hi);margin:0">GET · THE · TOOL</p>
+        <div style="border-top:1px solid var(--card);margin:8px 0 10px"></div>
+        <a href="https://aws.amazon.com/about-aws/whats-new/2026/05/agent-toolkit/" class="sk-mono" style="font-size:12px;color:var(--sage);text-decoration:underline;text-underline-offset:2px;display:block">AWS.AGENT-TOOLKIT ↗</a>
+        <p class="sk-mono" style="font-size:9px;color:var(--card);opacity:0.7;margin:6px 0 0">RELEASED MAY 6 2026</p>
+        <a href="https://docs.aws.amazon.com/agent-toolkit/" class="sk-mono" style="font-size:11px;color:var(--hi);display:block;margin-top:10px">DOCS ↗</a>
+      </div>
+
+      <!-- the one question to answer -->
+      <div class="sk-box" style="background:var(--hi);padding:14px">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0">THE · QUESTION</p>
+        <hr class="sk-rule-thin" style="margin:8px 0 10px" />
+        <p style="font-size:15px;font-weight:700;line-height:1.45;margin:0">Does the AWS MCP Server handle complex multi-step operations (e.g., "deploy a CloudFormation stack, run a test, and clean up if it fails") reliably, or does it hit agent context limits on long-running tasks? Test with a 5-step infrastructure workflow.</p>
+      </div>
+    </aside>
+  </main>
+
+  <!-- prev / next -->
+  <footer class="sk-box-soft" style="padding:14px 18px;margin-top:12px">
+    <div class="row" style="justify-content:space-between;align-items:center">
+      <a href="04-3-orcarouter-lite.html" class="col">
+        <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--ink-2)">← PREV</span>
+        <span style="font-size:14px;font-weight:700">04.3 · OrcaRouter Lite</span>
+      </a>
+      <span class="sk-mono" style="font-size:10px;letter-spacing:2px">· TOOL · 04.4 ·</span>
+      <a href="../stories/eng-1-lambda-networking.html" class="col" style="align-items:flex-end">
+        <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--accent)">NEXT →</span>
+        <span style="font-size:14px;font-weight:700">ENG.1 · Lambda networking deep dive</span>
+      </a>
+    </div>
+  </footer>
+</div>
+</body>
+</html>

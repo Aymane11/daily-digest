@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Daily Digest — Inside Lambda networking: how AWS shrunk VPC cold starts from 150ms to 200μs</title>
+<link rel="alternate" type="application/rss+xml" title="Daily Digest RSS" href="/daily-digest/feed.xml" />
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: #f5f0e8;
+  color: #111;
+  font-family: 'Lora', serif;
+  font-size: 18px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+:root {
+  --paper:  #f5f0e8;
+  --card:   #fffdf7;
+  --ink:    #111111;
+  --ink-2:  #5a5a5a;
+  --accent: #d62828;
+  --hi:     #f5c842;
+  --teal:   #0d7377;
+  --navy:   #14213d;
+  --ochre:  #e07b39;
+  --slate:  #3d5a80;
+  --sage:   #2d6a4f;
+  --purple: #7b2d8b;
+  --rule:   #111111;
+}
+.sk        { font-family: 'Lora', serif; }
+.sk-mono   { font-family: 'IBM Plex Serif', 'Georgia', serif; }
+.sk-script { font-family: 'Lora', serif; font-style: italic; }
+.sk-box      { border: 1.5px solid var(--ink); background: transparent; position: relative; }
+.sk-box-soft { border: 1.25px solid #2a2a2a; background: transparent; }
+.sk-rule      { height: 0; border: 0; border-top: 1.5px solid var(--ink); margin: 0; }
+.sk-rule-thin { height: 0; border: 0; border-top: 1px solid var(--ink); margin: 0; }
+.sk-stamp {
+  display: inline-block;
+  font-family: 'IBM Plex Serif', serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border: 1.5px solid currentColor;
+  line-height: 1.4;
+  transform: rotate(-1deg);
+  white-space: nowrap;
+}
+.sk-stamp--red    { color: var(--accent);  border-color: var(--accent);  }
+.sk-stamp--navy   { color: var(--navy);    border-color: var(--navy);    }
+.sk-stamp--teal   { color: var(--teal);    border-color: var(--teal);    }
+.sk-stamp--ochre  { color: var(--ochre);   border-color: var(--ochre);   }
+.sk-stamp--slate  { color: var(--slate);   border-color: var(--slate);   }
+.sk-stamp--hi     { color: #a07800;        border-color: #a07800;        }
+.sk-stamp--ink    { color: var(--ink);     border-color: var(--ink);     }
+.sk-stamp--purple { color: var(--purple);  border-color: var(--purple);  }
+.sk-stamp--sage   { color: var(--sage);    border-color: var(--sage);    }
+.sk-lines { display: flex; flex-direction: column; gap: 5px; }
+.sk-line  { height: 2px; background: #2a2a2a; }
+.sk-line.w90 { width: 90%; } .sk-line.w75 { width: 75%; }
+.sk-line.w60 { width: 60%; } .sk-line.w45 { width: 45%; }
+.sk-line.w30 { width: 30%; } .sk-line.thick { height: 3px; }
+.sk-line.faint { background: #6a6a6a; height: 1.5px; }
+.sk-annot {
+  font-family: 'Lora', serif;
+  font-style: italic;
+  font-size: 20px;
+  color: var(--accent);
+  line-height: 1.05;
+  transform: rotate(-2deg);
+}
+.sk-annot.blue { color: #1f5eaa; }
+.sk-src-link {
+  font-family: 'IBM Plex Serif', serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--teal);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.sk-src-link:hover { color: var(--accent); }
+.row { display: flex; }
+.col { display: flex; flex-direction: column; }
+.grow { flex: 1; }
+.gap-2 { gap: 8px; } .gap-3 { gap: 12px; } .gap-4 { gap: 16px; } .gap-5 { gap: 20px; }
+.p-3 { padding: 12px; } .p-4 { padding: 16px; } .p-5 { padding: 20px; }
+.dd-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px;
+}
+.dd-module-h {
+  display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px;
+}
+.dd-module-h .num  { font-size: 64px; font-weight: 700; line-height: 0.9; color: var(--accent); }
+.dd-module-h .title { font-family: 'IBM Plex Serif', serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; }
+.dd-module-h .right { font-family: 'IBM Plex Serif', serif; font-size: 11px; letter-spacing: 1.5px; }
+@media (max-width: 900px) {
+  .dd-page { padding: 20px 18px; }
+  .sk-grid-dossier { grid-template-columns: 1fr 1fr !important; }
+  .sk-grid-data { grid-template-columns: 1fr 1fr !important; }
+  .sk-grid-brief, .sk-grid-tool { grid-template-columns: 1fr 260px !important; }
+  .sk-grid-headlines { grid-template-columns: repeat(2, 1fr) !important; }
+  .sk-grid-modules { grid-template-columns: repeat(2, 1fr) !important; }
+}
+@media (max-width: 640px) {
+  body { font-size: 17px; }
+  .dd-page { padding: 14px 12px; }
+  .sk-grid-dossier, .sk-grid-data, .sk-grid-brief, .sk-grid-tool, .sk-grid-modules, .sk-grid-headlines { grid-template-columns: 1fr !important; }
+  .sk-homepage-grid { grid-template-columns: 1fr !important; }
+  .sk-homepage-grid > * { grid-column: span 1 !important; }
+  .sk-mega-stat { font-size: 56px !important; }
+  .dd-module-h .num { font-size: 48px; }
+  .sk-nav-row { flex-wrap: wrap !important; gap: 8px !important; }
+  .sk-stamp-row { flex-wrap: wrap !important; }
+  .sk-lead-hl { font-size: 32px !important; }
+  .sk-dossier-hl { font-size: 36px !important; }
+  .sk-annot { display: none; }
+}
+@media (max-width: 380px) {
+  body { font-size: 16px; }
+  .dd-page { padding: 10px 8px; }
+  .sk-lead-hl { font-size: 26px !important; }
+  .sk-dossier-hl { font-size: 28px !important; }
+  .sk-mega-stat { font-size: 44px !important; }
+}
+</style>
+</head>
+<body>
+<div class="dd-page">
+
+  <nav class="row" style="justify-content:space-between;align-items:baseline;margin-bottom:8px">
+    <a href="../index.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px">← DIGEST · № 009</a>
+    <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">STORY · ENG.1 · ENGINEERING · DEPTH</span>
+    <a href="../../../archive.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--teal)">ARCHIVE ↗</a>
+  </nav>
+
+  <div class="row gap-2" style="margin-bottom:12px">
+    <div class="row gap-2 grow" style="align-items:center">
+      <span class="sk-mono" style="font-size:10px;font-weight:700;color:var(--accent)">01</span>
+      <div style="flex:1;height:3px;background:var(--accent)"></div>
+    </div>
+    <div class="row gap-2 grow" style="align-items:center">
+      <span class="sk-mono" style="font-size:10px;font-weight:700;color:var(--ink-2)">02</span>
+      <div style="flex:1;height:3px;background:var(--ink-2);opacity:0.3"></div>
+    </div>
+    <div class="row gap-2 grow" style="align-items:center">
+      <span class="sk-mono" style="font-size:10px;font-weight:700;color:var(--ink-2)">03</span>
+      <div style="flex:1;height:3px;background:var(--ink-2);opacity:0.3"></div>
+    </div>
+    <div class="row gap-2 grow" style="align-items:center">
+      <span class="sk-mono" style="font-size:10px;font-weight:700;color:var(--ink-2)">04</span>
+      <div style="flex:1;height:3px;background:var(--ink-2);opacity:0.3"></div>
+    </div>
+    <div class="row gap-2 grow" style="align-items:center">
+      <span class="sk-mono" style="font-size:10px;font-weight:700;color:var(--ink-2)">05</span>
+      <div style="flex:1;height:3px;background:var(--ink-2);opacity:0.3"></div>
+    </div>
+    <div class="row gap-2 grow" style="align-items:center">
+      <span class="sk-mono" style="font-size:10px;font-weight:700;color:var(--ink-2)">06</span>
+      <div style="flex:1;height:3px;background:var(--ink-2);opacity:0.3"></div>
+    </div>
+  </div>
+
+  <section class="sk-box" style="background:var(--ink);color:var(--card);padding:20px 22px">
+    <div class="row" style="justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px">
+      <span class="sk-mono" style="font-size:10px;letter-spacing:3px;color:var(--hi)">01 / OPENER</span>
+      <span class="sk-mono" style="font-size:10px">MAY 11 2026</span>
+      <a href="https://www.allthingsdistributed.com/2026/04/the-invisible-engineering-behind-lambdas-network.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--sage)">SOURCE · ALL THINGS DISTRIBUTED ↗</a>
+    </div>
+    <div class="row gap-2" style="margin-top:12px;flex-wrap:wrap">
+      <span class="sk-stamp sk-stamp--hi">ENGINEERING</span>
+      <span class="sk-stamp" style="color:var(--card);border-color:var(--card)">DISTRIBUTED SYSTEMS</span>
+      <span class="sk-stamp" style="color:var(--card);border-color:var(--card)">AWS</span>
+    </div>
+    <h1 class="sk-dossier-hl" style="font-size:48px;font-weight:700;line-height:1.04;letter-spacing:-0.5px;text-wrap:balance;margin:14px 0 0">
+      Inside Lambda networking: how AWS shrunk VPC cold starts from 150ms to 200μs
+    </h1>
+    <p class="sk-script" style="font-size:22px;color:var(--hi);margin:12px 0 0">Werner Vogels details how the Lambda team used eBPF, constant-work patterns, and per-namespace isolation to solve the decade-old VPC cold start problem</p>
+    <div class="row gap-3" style="margin-top:14px;flex-wrap:wrap">
+      <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">BY · EDITORIAL TEAM</span>
+      <span class="sk-mono" style="font-size:10px;color:var(--hi)">·  7 MIN  ·  ENGINEERING · DEPTH</span>
+    </div>
+  </section>
+
+  <section class="sk-box" style="background:var(--card);padding:20px 22px;margin-top:12px">
+    <p style="font-size:17px;line-height:1.7;margin:0">AWS CTO Werner Vogels published a deep-dive into the invisible engineering behind Lambda's VPC networking. The team solved the VPC cold start problem — where setting up a Geneve tunnel could take 150ms — by moving expensive tunnel creation off the hot path using eBPF. The result: tunnel setup dropped from 150ms to 200μs, a 750x improvement.</p>
+  </section>
+
+  <section class="sk-box" style="background:var(--hi);padding:20px 22px;margin-top:12px">
+    <div class="dd-module-h">
+      <div class="row gap-3" style="align-items:baseline">
+        <span class="num">02</span>
+        <span class="title">THE NUMBERS · AT A GLANCE</span>
+      </div>
+      <span class="right">4 STATS</span>
+    </div>
+    <div class="sk-grid-modules" style="display:grid;grid-template-columns:repeat(4,1fr);gap:0">
+      <div class="col" style="padding:4px 16px">
+        <div style="font-size:76px;font-weight:700;line-height:0.95;letter-spacing:-1px">750x</div>
+        <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;margin:6px 0 0">LATENCY IMPROVEMENT</p>
+        <p style="font-size:13px;line-height:1.45;margin:6px 0 0">Geneve tunnel setup dropped from 150ms to 200μs using eBPF offloading</p>
+      </div>
+      <div class="col" style="padding:4px 16px;border-left:1.5px solid var(--ink)">
+        <div style="font-size:76px;font-weight:700;line-height:0.95;letter-spacing:-1px">125K</div>
+        <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;margin:6px 0 0">IPTABLES RULES ELIMINATED</p>
+        <p style="font-size:13px;line-height:1.45;margin:6px 0 0">Reduced from 125,000+ rules across all slots to just 144 static rules</p>
+      </div>
+      <div class="col" style="padding:4px 16px;border-left:1.5px solid var(--ink)">
+        <div style="font-size:76px;font-weight:700;line-height:0.95;letter-spacing:-1px">20x</div>
+        <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;margin:6px 0 0">SNAPSHOT NETWORK SCALE</p>
+        <p style="font-size:13px;line-height:1.45;margin:6px 0 0">SnapStart went from 200 to 4,000 snapshot networks per worker</p>
+      </div>
+      <div class="col" style="padding:4px 16px;border-left:1.5px solid var(--ink)">
+        <div style="font-size:76px;font-weight:700;line-height:0.95;letter-spacing:-1px">100x</div>
+        <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;margin:6px 0 0">NAT IMPROVEMENT</p>
+        <p style="font-size:13px;line-height:1.45;margin:6px 0 0">Stateless NAT via eBPF achieved 100x improvement over iptables conntrack</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sk-box" style="background:var(--card);padding:20px 22px;margin-top:12px">
+    <div class="dd-module-h">
+      <div class="row gap-3" style="align-items:baseline">
+        <span class="num">03</span>
+        <span class="title">HOW WE GOT HERE</span>
+      </div>
+      <span class="right">TIMELINE · 4 EVENTS</span>
+    </div>
+    <div style="position:relative;padding:14px 0 4px">
+      <div style="position:absolute;top:30px;left:4%;right:4%;height:2px;background:var(--ink)"></div>
+      <div class="row" style="justify-content:space-between;position:relative">
+        <div class="col" style="align-items:center;text-align:center;width:180px">
+          <div style="width:16px;height:16px;border-radius:8px;background:var(--ink);margin-bottom:10px"></div>
+          <span class="sk-mono" style="font-size:12px;font-weight:700">2019</span>
+          <span style="font-size:16px;font-weight:700;margin-top:4px">VPC Networking Launched</span>
+          <span class="sk-mono" style="font-size:10px;color:var(--ink-2);margin-top:2px">Lambda VPC support launches but cold starts become a well-known pain point</span>
+        </div>
+        <div class="col" style="align-items:center;text-align:center;width:180px">
+          <div style="width:16px;height:16px;border-radius:8px;background:var(--ink);margin-bottom:10px"></div>
+          <span class="sk-mono" style="font-size:12px;font-weight:700">2022</span>
+          <span style="font-size:16px;font-weight:700;margin-top:4px">Hyperplane ENI Optimization</span>
+          <span class="sk-mono" style="font-size:10px;color:var(--ink-2);margin-top:2px">AWS improves VPC networking but tunnel setup overhead remains significant</span>
+        </div>
+        <div class="col" style="align-items:center;text-align:center;width:180px">
+          <div style="width:16px;height:16px;border-radius:8px;background:var(--ink);margin-bottom:10px"></div>
+          <span class="sk-mono" style="font-size:12px;font-weight:700">2024-25</span>
+          <span style="font-size:16px;font-weight:700;margin-top:4px">eBPF Migration</span>
+          <span class="sk-mono" style="font-size:10px;color:var(--ink-2);margin-top:2px">Lambda team rewrites networking stack using eBPF, eliminating iptables and conntrack</span>
+        </div>
+        <div class="col" style="align-items:center;text-align:center;width:180px">
+          <div style="width:16px;height:16px;border-radius:8px;background:var(--accent);margin-bottom:10px"></div>
+          <span class="sk-mono" style="font-size:12px;font-weight:700;color:var(--accent)">2026</span>
+          <span style="font-size:16px;font-weight:700;margin-top:4px">← TODAY</span>
+          <span class="sk-mono" style="font-size:10px;color:var(--ink-2);margin-top:2px">All networks created at worker boot — zero incremental cost per invocation</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sk-box" style="background:var(--card);padding:20px 22px;margin-top:12px">
+    <div class="dd-module-h">
+      <div class="row gap-3" style="align-items:baseline">
+        <span class="num">04</span>
+        <span class="title">THE VOICES</span>
+      </div>
+      <span class="right">3 PERSPECTIVES</span>
+    </div>
+    <div class="sk-grid-modules" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
+      <blockquote class="sk-box" style="padding:14px;background:var(--hi);margin:0">
+        <span style="font-size:36px;line-height:0.6;font-family:'Lora',serif;color:var(--accent);height:18px;display:block">"</span>
+        <p style="font-size:16px;font-weight:700;line-height:1.3;margin:8px 0 0">The constant-work insight is the most transferable lesson. They asked: what if we pay the setup cost exactly once per worker, then never pay it again? That's the mindset of a staff engineer.</p>
+        <hr class="sk-rule-thin" style="margin:14px 0 8px" />
+        <div class="col">
+          <span class="sk-mono" style="font-size:10px;font-weight:700;letter-spacing:1px">BUILDER</span>
+          <span class="sk-mono" style="font-size:9px;color:var(--ink-2)">Senior Infrastructure Engineer</span>
+        </div>
+      </blockquote>
+      <blockquote class="sk-box" style="padding:14px;background:var(--card);margin:0;border-left:3px solid var(--teal)">
+        <span style="font-size:36px;line-height:0.6;font-family:'Lora',serif;color:var(--teal);height:18px;display:block">"</span>
+        <p style="font-size:16px;font-weight:700;line-height:1.3;margin:8px 0 0">Moving from 125,000 iptables rules to 144 by isolating per-slot rules into network namespaces is a masterclass in containment. Complexity hides in shared state.</p>
+        <hr class="sk-rule-thin" style="margin:14px 0 8px" />
+        <div class="col">
+          <span class="sk-mono" style="font-size:10px;font-weight:700;letter-spacing:1px">PRACTITIONER</span>
+          <span class="sk-mono" style="font-size:9px;color:var(--ink-2)">Platform Engineering Lead</span>
+        </div>
+      </blockquote>
+      <blockquote class="sk-box" style="padding:14px;background:var(--card);margin:0;border-left:3px solid var(--ochre)">
+        <span style="font-size:36px;line-height:0.6;font-family:'Lora',serif;color:var(--ochre);height:18px;display:block">"</span>
+        <p style="font-size:16px;font-weight:700;line-height:1.3;margin:8px 0 0">eBPF is the most important kernel technology of the last decade. This article shows why — it enables replacing complex, stateful middleboxes with simple, stateless programs.</p>
+        <hr class="sk-rule-thin" style="margin:14px 0 8px" />
+        <div class="col">
+          <span class="sk-mono" style="font-size:10px;font-weight:700;letter-spacing:1px">OBSERVER</span>
+          <span class="sk-mono" style="font-size:9px;color:var(--ink-2)">Distributed Systems Researcher</span>
+        </div>
+      </blockquote>
+    </div>
+  </section>
+
+  <section class="sk-box" style="background:var(--card);padding:20px 22px;margin-top:12px">
+    <div class="dd-module-h">
+      <div class="row gap-3" style="align-items:baseline">
+        <span class="num">05</span>
+        <span class="title">WHAT IT MEANS</span>
+      </div>
+      <span class="right">3 TAKEAWAYS · LINKS</span>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 280px;gap:18px">
+      <div class="col gap-3">
+        <div class="row gap-3" style="align-items:flex-start;border-left:4px solid var(--accent);padding-left:12px">
+          <span class="sk-mono" style="font-size:22px;font-weight:700;color:var(--accent);line-height:1;width:30px">01</span>
+          <div class="col grow gap-1">
+            <p style="font-size:18px;font-weight:700;line-height:1.25;margin:0">N+1 scaling costs are everywhere — and fixable</p>
+            <p style="font-size:15px;line-height:1.55;margin:0">The Lambda team found that tunnel creation, rule evaluation, and lock contention all scaled with slot density. The fix was to decouple setup from invocation. Audit your system for work that grows per-request but could be pre-computed at boot.</p>
+          </div>
+        </div>
+        <div class="row gap-3" style="align-items:flex-start;border-left:4px solid var(--teal);padding-left:12px">
+          <span class="sk-mono" style="font-size:22px;font-weight:700;color:var(--teal);line-height:1;width:30px">02</span>
+          <div class="col grow gap-1">
+            <p style="font-size:18px;font-weight:700;line-height:1.25;margin:0">Namespace isolation beats monolithic rule management</p>
+            <p style="font-size:15px;line-height:1.55;margin:0">By moving per-slot iptables rules into individual network namespaces, Lambda eliminated rule explosion (125K→144) and performance skew between hot and cold slots. Apply this pattern to configuration, routing, and permissions.</p>
+          </div>
+        </div>
+        <div class="row gap-3" style="align-items:flex-start;border-left:4px solid var(--ochre);padding-left:12px">
+          <span class="sk-mono" style="font-size:22px;font-weight:700;color:var(--ochre);line-height:1;width:30px">03</span>
+          <div class="col grow gap-1">
+            <p style="font-size:18px;font-weight:700;line-height:1.25;margin:0">eBPF is the right tool for middlebox replacement</p>
+            <p style="font-size:15px;line-height:1.55;margin:0">Lambda replaced stateful NAT (conntrack) with stateless eBPF programs, achieving 100x improvement. Evaluate whether your network functions (NAT, filtering, load balancing) can become stateless eBPF/XDP programs.</p>
+          </div>
+        </div>
+      </div>
+
+      <aside class="sk-box" style="background:var(--ink);color:var(--card);padding:14px">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;color:var(--hi);margin:0">FURTHER · READING</p>
+        <div style="border-top:1px solid var(--card);margin:8px 0 10px"></div>
+        <a href="https://www.allthingsdistributed.com/2026/04/the-invisible-engineering-behind-lambdas-network.html" class="row" style="justify-content:space-between;align-items:baseline;padding:8px 0;border-bottom:1px dashed var(--card)">
+          <span class="sk-mono" style="font-size:11px">→ Full Article — All Things Distributed</span>
+          <span class="sk-mono" style="font-size:10px;color:var(--hi)">↗</span>
+        </a>
+        <a href="https://ebpf.io/what-is-ebpf/" class="row" style="justify-content:space-between;align-items:baseline;padding:8px 0;border-bottom:1px dashed var(--card)">
+          <span class="sk-mono" style="font-size:11px">→ eBPF: The Kernel's Superpower</span>
+          <span class="sk-mono" style="font-size:10px;color:var(--hi)">↗</span>
+        </a>
+        <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html" class="row" style="justify-content:space-between;align-items:baseline;padding:8px 0">
+          <span class="sk-mono" style="font-size:11px">→ AWS Lambda SnapStart Docs</span>
+          <span class="sk-mono" style="font-size:10px;color:var(--hi)">↗</span>
+        </a>
+      </aside>
+    </div>
+  </section>
+
+  <section class="sk-box" style="background:var(--card);padding:20px 22px;margin-top:12px">
+    <div class="dd-module-h">
+      <div class="row gap-3" style="align-items:baseline">
+        <span class="num">06</span>
+        <span class="title">WHY THIS MATTERS FOR YOUR CAREER</span>
+      </div>
+      <span class="right">MENTAL MODEL · TEAM · EXPERIMENT</span>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 260px;gap:18px">
+      <div class="col gap-4">
+
+        <div>
+          <p class="sk-mono" style="font-size:12px;letter-spacing:2px;color:var(--accent);margin:0">THE MENTAL MODEL</p>
+          <p style="font-size:20px;font-weight:700;line-height:1.2;margin:4px 0 0">Shift from incremental to constant work</p>
+          <p style="font-size:15px;line-height:1.55;margin:10px 0 0">The most important idea in this article is not eBPF or iptables — it's asking "what work can we do exactly once per worker, rather than once per invocation?" This is a universal systems design pattern. Most performance problems come from paying N times for something that could be paid once. Internalize the question: "If I pre-compute this at boot or deploy time, can I eliminate it from the hot path entirely?"</p>
+        </div>
+
+        <div>
+          <p class="sk-mono" style="font-size:12px;letter-spacing:2px;color:var(--accent);margin:0">BRING IT TO YOUR TEAM</p>
+          <p style="font-size:15px;line-height:1.55;margin:8px 0 0">In your next architecture review, pick one service and ask: "Map every operation this service performs per-request. Which ones could we do once per deploy instead? What would it take to front-load that cost?" Don't ask for estimates — ask for a list. The Lambda team started with a list and found tunnel creation, iptables evaluation, and lock contention. Your list might reveal database connection setup, configuration parsing, or cache warming — all solvable with the constant-work pattern.</p>
+        </div>
+
+        <div>
+          <p class="sk-mono" style="font-size:12px;letter-spacing:2px;color:var(--accent);margin:0">THE 30-DAY EXPERIMENT</p>
+          <p style="font-size:15px;line-height:1.55;margin:8px 0 0"><strong>Week 1:</strong> Pick one service in your production stack. Run `iptables-save | wc -l`, `conntrack -C`, and measure p99 cold-start or first-request latency. Write down the current numbers.</p>
+          <p style="font-size:15px;line-height:1.55;margin:6px 0 0"><strong>Week 2:</strong> Identify the top three per-request setup operations.</p>
+          <p style="font-size:15px;line-height:1.55;margin:6px 0 0"><strong>Week 3:</strong> Prototype moving one of them to boot time (pre-warm connections, pre-compute routing tables, shift rules into namespaces).</p>
+          <p style="font-size:15px;line-height:1.55;margin:6px 0 0"><strong>Week 4:</strong> Measure p99 again and compare. Share the delta with your team — the number is the argument.</p>
+        </div>
+
+      </div>
+
+      <aside class="col gap-3">
+        <div class="sk-box" style="padding:14px;background:var(--ink);color:var(--card)">
+          <p class="sk-mono" style="font-size:11px;letter-spacing:2px;color:var(--hi);margin:0">CONCRETE · RECOMMENDATIONS</p>
+          <div style="border-top:1px solid var(--card);margin:8px 0 10px"></div>
+          <div class="col gap-2">
+            <p style="font-size:13px;line-height:1.45;margin:0"><strong style="color:var(--hi)">1.</strong> Audit your system's N+1 scaling costs — map every per-request operation and identify which ones scale linearly with density</p>
+            <p style="font-size:13px;line-height:1.45;margin:0"><strong style="color:var(--hi)">2.</strong> Evaluate eBPF for any stateful network function in your stack — start with `bpftrace` one-liners to measure kernel overhead</p>
+            <p style="font-size:13px;line-height:1.45;margin:0"><strong style="color:var(--hi)">3.</strong> Isolate per-tenant configuration into separate namespaces (network, cgroup, mount) — eliminate shared rule bloat</p>
+            <p style="font-size:13px;line-height:1.45;margin:0"><strong style="color:var(--hi)">4.</strong> Adopt the constant-work pattern: move setup operations to boot/deploy time, not request time</p>
+          </div>
+        </div>
+
+        <div class="sk-box" style="padding:14px;background:var(--paper)">
+          <p class="sk-mono" style="font-size:11px;letter-spacing:2px;color:var(--navy);margin:0">RADAR · CHECKLIST</p>
+          <div style="border-top:1px solid var(--ink);margin:8px 0 10px"></div>
+          <div class="col gap-2" style="font-size:12px;line-height:1.4">
+            <p style="margin:0"><input type="checkbox" disabled /> Do you know how many iptables/nftables rules apply to each request?</p>
+            <p style="margin:0"><input type="checkbox" disabled /> Does your system have per-request overhead that grows with tenant count?</p>
+            <p style="margin:0"><input type="checkbox" disabled /> Have you measured p99 cold-start latency in the last 30 days?</p>
+            <p style="margin:0"><input type="checkbox" disabled /> Do you use eBPF anywhere in your production stack?</p>
+            <p style="margin:0"><input type="checkbox" disabled /> Is connection tracking (conntrack) pressure monitored for your busiest instances?</p>
+            <p style="margin:0"><input type="checkbox" disabled /> Have you mapped what setup work happens at boot vs. request time?</p>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <div class="sk-box" style="background:var(--hi);padding:14px;margin-top:14px">
+      <div class="row gap-3" style="align-items:flex-start">
+        <span class="sk-mono" style="font-size:11px;letter-spacing:2px;font-weight:700;color:var(--accent);white-space:nowrap">QUICK START</span>
+        <div style="flex:1;border-top:1px solid var(--ink);margin-top:6px"></div>
+      </div>
+      <p style="font-size:15px;line-height:1.55;margin:8px 0 0">Try this now: run <code style="background:rgba(0,0,0,0.08);padding:1px 4px;border-radius:2px">iptables-save | wc -l</code> on one production instance and <code style="background:rgba(0,0,0,0.08);padding:1px 4px;border-radius:2px">conntrack -C</code> on the same machine. Then pick a microservice and trace its full request path — what happens between socket accept and response write. Identify three things that would scale poorly at 10x the current request rate. Write a one-paragraph plan for each. Total time: 25 minutes.</p>
+    </div>
+  </section>
+
+  <footer class="sk-box-soft" style="padding:14px 18px;margin-top:12px">
+    <div class="row" style="justify-content:space-between;align-items:center">
+      <a href="../stories/04-4-aws-mcp-server.html" class="col">
+        <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--ink-2)">← PREV</span>
+        <span style="font-size:14px;font-weight:700">04.4 · AWS MCP Server GA</span>
+      </a>
+      <span class="sk-mono" style="font-size:10px;letter-spacing:2px">· END OF STORY ENG.1 ·</span>
+      <a href="../index.html" class="col" style="align-items:flex-end">
+        <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--accent)">NEXT →</span>
+        <span style="font-size:14px;font-weight:700">HOME · Back to DAILY DIGEST · № 009</span>
+      </a>
+    </div>
+  </footer>
+</div>
+</body>
+</html>

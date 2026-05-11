@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Daily Digest — Mozilla fixed 423 Firefox security bugs with Claude Mythos</title>
+<link rel="alternate" type="application/rss+xml" title="Daily Digest RSS" href="/daily-digest/feed.xml" />
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: #f5f0e8;
+  color: #111;
+  font-family: 'Lora', serif;
+  font-size: 18px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+:root {
+  --paper:  #f5f0e8;
+  --card:   #fffdf7;
+  --ink:    #111111;
+  --ink-2:  #5a5a5a;
+  --accent: #d62828;
+  --hi:     #f5c842;
+  --teal:   #0d7377;
+  --navy:   #14213d;
+  --ochre:  #e07b39;
+  --slate:  #3d5a80;
+  --sage:   #2d6a4f;
+  --purple: #7b2d8b;
+  --rule:   #111111;
+}
+.sk        { font-family: 'Lora', serif; }
+.sk-mono   { font-family: 'IBM Plex Serif', 'Georgia', serif; }
+.sk-script { font-family: 'Lora', serif; font-style: italic; }
+.sk-box      { border: 1.5px solid var(--ink); background: transparent; position: relative; }
+.sk-box-soft { border: 1.25px solid #2a2a2a; background: transparent; }
+.sk-rule      { height: 0; border: 0; border-top: 1.5px solid var(--ink); margin: 0; }
+.sk-rule-thin { height: 0; border: 0; border-top: 1px solid var(--ink); margin: 0; }
+.sk-stamp {
+  display: inline-block;
+  font-family: 'IBM Plex Serif', serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border: 1.5px solid currentColor;
+  line-height: 1.4;
+  transform: rotate(-1deg);
+  white-space: nowrap;
+}
+.sk-stamp--red    { color: var(--accent);  border-color: var(--accent);  }
+.sk-stamp--navy   { color: var(--navy);    border-color: var(--navy);    }
+.sk-stamp--teal   { color: var(--teal);    border-color: var(--teal);    }
+.sk-stamp--ochre  { color: var(--ochre);   border-color: var(--ochre);   }
+.sk-stamp--slate  { color: var(--slate);   border-color: var(--slate);   }
+.sk-stamp--hi     { color: #a07800;        border-color: #a07800;        }
+.sk-stamp--ink    { color: var(--ink);     border-color: var(--ink);     }
+.sk-stamp--purple { color: var(--purple);  border-color: var(--purple);  }
+.sk-stamp--sage   { color: var(--sage);    border-color: var(--sage);    }
+.sk-lines { display: flex; flex-direction: column; gap: 5px; }
+.sk-line  { height: 2px; background: #2a2a2a; }
+.sk-line.w90 { width: 90%; } .sk-line.w75 { width: 75%; }
+.sk-line.w60 { width: 60%; } .sk-line.w45 { width: 45%; }
+.sk-line.w30 { width: 30%; } .sk-line.thick { height: 3px; }
+.sk-line.faint { background: #6a6a6a; height: 1.5px; }
+.sk-annot {
+  font-family: 'Lora', serif;
+  font-style: italic;
+  font-size: 20px;
+  color: var(--accent);
+  line-height: 1.05;
+  transform: rotate(-2deg);
+}
+.sk-annot.blue { color: #1f5eaa; }
+.sk-src-link {
+  font-family: 'IBM Plex Serif', serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--teal);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.sk-src-link:hover { color: var(--accent); }
+.row { display: flex; }
+.col { display: flex; flex-direction: column; }
+.grow { flex: 1; }
+.gap-2 { gap: 8px; } .gap-3 { gap: 12px; } .gap-4 { gap: 16px; } .gap-5 { gap: 20px; }
+.p-3 { padding: 12px; } .p-4 { padding: 16px; } .p-5 { padding: 20px; }
+.dd-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px;
+}
+.dd-module-h {
+  display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px;
+}
+.dd-module-h .num  { font-size: 64px; font-weight: 700; line-height: 0.9; color: var(--accent); }
+.dd-module-h .title { font-family: 'IBM Plex Serif', serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; }
+.dd-module-h .right { font-family: 'IBM Plex Serif', serif; font-size: 11px; letter-spacing: 1.5px; }
+@media (max-width: 900px) {
+  .dd-page { padding: 20px 18px; }
+  .sk-grid-dossier { grid-template-columns: 1fr 1fr !important; }
+  .sk-grid-data { grid-template-columns: 1fr 1fr !important; }
+  .sk-grid-brief, .sk-grid-tool { grid-template-columns: 1fr 260px !important; }
+  .sk-grid-headlines { grid-template-columns: repeat(2, 1fr) !important; }
+  .sk-grid-modules { grid-template-columns: repeat(2, 1fr) !important; }
+}
+@media (max-width: 640px) {
+  body { font-size: 17px; }
+  .dd-page { padding: 14px 12px; }
+  .sk-grid-dossier, .sk-grid-data, .sk-grid-brief, .sk-grid-tool, .sk-grid-modules, .sk-grid-headlines { grid-template-columns: 1fr !important; }
+  .sk-homepage-grid { grid-template-columns: 1fr !important; }
+  .sk-homepage-grid > * { grid-column: span 1 !important; }
+  .sk-mega-stat { font-size: 56px !important; }
+  .dd-module-h .num { font-size: 48px; }
+  .sk-nav-row { flex-wrap: wrap !important; gap: 8px !important; }
+  .sk-stamp-row { flex-wrap: wrap !important; }
+  .sk-lead-hl { font-size: 32px !important; }
+  .sk-dossier-hl { font-size: 36px !important; }
+  .sk-annot { display: none; }
+}
+@media (max-width: 380px) {
+  body { font-size: 16px; }
+  .dd-page { padding: 10px 8px; }
+  .sk-lead-hl { font-size: 26px !important; }
+  .sk-dossier-hl { font-size: 28px !important; }
+  .sk-mega-stat { font-size: 44px !important; }
+}
+</style>
+</head>
+<body>
+<div class="dd-page">
+  <div class="sk-annot" style="position:absolute;top:4px;right:14px">STORY · BRIEF · compact summary</div>
+
+  <nav class="row" style="justify-content:space-between;align-items:baseline;margin-bottom:8px">
+    <a href="../index.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px">← DIGEST · № 009</a>
+    <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">BRIEF · 03.2 · SECURITY · AI</span>
+    <a href="../../../archive.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--teal)">ARCHIVE ↗</a>
+  </nav>
+
+  <section class="sk-box" style="background:var(--ink);color:var(--card);padding:20px 22px">
+    <div class="row" style="justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px">
+      <span class="sk-mono" style="font-size:10px;letter-spacing:3px;color:var(--hi)">BRIEF / 03.2</span>
+      <span class="sk-mono" style="font-size:10px">MAY 11 2026</span>
+      <a href="https://simonwillison.net/2026/May/7/firefox-claude-mythos/" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--sage)">SOURCE · SIMONWILLISON.NET ↗</a>
+    </div>
+    <div class="row gap-2" style="margin-top:12px;flex-wrap:wrap">
+      <span class="sk-stamp sk-stamp--hi">SECURITY</span>
+      <span class="sk-stamp" style="color:var(--card);border-color:var(--card)">FIREFOX</span>
+    </div>
+    <h1 class="sk-dossier-hl" style="font-size:46px;font-weight:700;line-height:1.08;letter-spacing:-0.5px;text-wrap:balance;margin:14px 0 0">
+      Mozilla finds 423 Firefox security bugs with Claude Mythos in April
+    </h1>
+    <p class="sk-script" style="font-size:22px;color:var(--hi);margin:12px 0 0">10x increase in vulnerability detection — AI-assisted bug hunting uncovered a 20-year-old XSLT bug and a 15-year-old &lt;legend&gt; bug</p>
+    <div class="row gap-3" style="margin-top:14px">
+      <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">BY · EDITORIAL TEAM</span>
+      <span class="sk-mono" style="font-size:10px;color:var(--hi)">· 2 MIN</span>
+    </div>
+  </section>
+
+  <section class="sk-grid-brief" style="display:grid;grid-template-columns:1fr 300px;gap:14px;margin-top:12px">
+    <div class="col gap-3">
+      <div class="sk-box" style="background:var(--hi);padding:16px">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0">★ WHAT HAPPENED</p>
+        <hr class="sk-rule-thin" style="margin:8px 0 10px" />
+        <p style="font-size:19px;line-height:1.65;margin:0">Mozilla used Anthropic's Claude Mythos to find and fix 423 security bugs in Firefox during April — up from the usual 20-30 per month. The AI-assisted audit uncovered a 20-year-old XSLT vulnerability and a 15-year-old bug in the HTML &lt;legend&gt; element that had survived decades of manual review.</p>
+      </div>
+
+      <div class="sk-box" style="background:var(--card);padding:16px">
+        <div class="row gap-3" style="align-items:baseline;margin-bottom:10px">
+          <span style="font-size:28px;font-weight:700;color:var(--accent);line-height:1">¶ 01</span>
+          <span class="sk-mono" style="font-size:11px;letter-spacing:2px">WHY · IT · MATTERS</span>
+        </div>
+        <p style="font-size:18px;line-height:1.65;margin:0">This is a 10-20x improvement in vulnerability detection rate. If this becomes standard practice, the era of "we didn't find it because we didn't look" is over. For engineering teams, it raises the bar: codebases that haven't undergone AI-assisted security review now carry latent risk that competitors (or attackers) will find first.</p>
+      </div>
+
+      <div class="sk-box" style="background:var(--card);padding:16px">
+        <div class="row gap-3" style="align-items:baseline;margin-bottom:10px">
+          <span style="font-size:28px;font-weight:700;color:var(--accent);line-height:1">¶ 02</span>
+          <span class="sk-mono" style="font-size:11px;letter-spacing:2px">WHAT · TO · WATCH</span>
+        </div>
+        <p style="font-size:18px;line-height:1.65;margin:0">Run Claude Mythos or similar AI-powered security analysis on your own codebase this month. Start with the oldest, least-reviewed code — the Lambda team's XSLT bug was 20 years old. The cost of an AI security scan is negligible compared to the potential cost of a breach. Ask your security team: what is our AI-assisted audit cadence?</p>
+      </div>
+    </div>
+
+    <aside class="col gap-3">
+      <div class="sk-box" style="background:var(--card);padding:14px">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0">BY · THE · NUMBERS</p>
+        <hr class="sk-rule-thin" style="margin:8px 0 12px" />
+        <div class="col gap-3">
+          <div>
+            <div style="font-size:48px;font-weight:700;line-height:0.95;color:var(--accent)">423</div>
+            <p class="sk-mono" style="font-size:10px;margin:4px 0 0;letter-spacing:1px">BUGS FIXED IN APRIL</p>
+          </div>
+          <hr class="sk-rule-thin" />
+          <div>
+            <div style="font-size:48px;font-weight:700;line-height:0.95">10-20x</div>
+            <p class="sk-mono" style="font-size:10px;margin:4px 0 0;letter-spacing:1px">IMPROVEMENT VS BASELINE</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="sk-box-soft" style="padding:12px">
+        <p class="sk-mono" style="font-size:10px;letter-spacing:2px;margin:0 0 10px">FILED · UNDER</p>
+        <div class="row gap-2" style="flex-wrap:wrap">
+          <span class="sk-stamp sk-stamp--red">SECURITY</span>
+          <span class="sk-stamp sk-stamp--navy">FIREFOX</span>
+        </div>
+      </div>
+
+      <div class="sk-box-soft" style="padding:12px;background:var(--card)">
+        <p class="sk-mono" style="font-size:10px;letter-spacing:2px;margin:0 0 8px">SOURCE</p>
+        <a href="https://simonwillison.net/2026/May/7/firefox-claude-mythos/" class="sk-mono" style="font-size:11px;letter-spacing:1px;color:var(--teal);text-decoration:underline;text-underline-offset:2px">SIMONWILLISON.NET ↗</a>
+      </div>
+    </aside>
+  </section>
+
+  <footer class="sk-box-soft" style="padding:14px 18px;margin-top:12px">
+    <div class="row" style="justify-content:space-between;align-items:center">
+      <a href="03-1-encrypted-rcs.html" class="col">
+        <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--ink-2)">← PREV</span>
+        <span style="font-size:14px;font-weight:700">03.1</span>
+      </a>
+      <span class="sk-mono" style="font-size:10px;letter-spacing:2px">· BRIEF · 03.2 ·</span>
+      <a href="03-3-cloudflare-layoffs.html" class="col" style="align-items:flex-end">
+        <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--accent)">NEXT →</span>
+        <span style="font-size:14px;font-weight:700">03.3</span>
+      </a>
+    </div>
+  </footer>
+</div>
+</body>
+</html>
