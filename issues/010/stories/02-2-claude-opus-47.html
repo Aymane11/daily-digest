@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="alternate" type="application/rss+xml" title="Daily Digest RSS" href="/daily-digest/feed.xml" />
+<title>Daily Digest — Claude Opus 4.7 is generally available</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{background:#f5f0e8;color:#111;font-family:'Lora',serif;font-size:18px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:root{--paper:#f5f0e8;--card:#fffdf7;--ink:#111111;--ink-2:#5a5a5a;--accent:#d62828;--hi:#f5c842;--teal:#0d7377;--navy:#14213d;--ochre:#e07b39;--slate:#3d5a80;--sage:#2d6a4f;--purple:#7b2d8b;--rule:#111111}
+.sk-mono{font-family:'IBM Plex Serif','Georgia',serif}.sk-script{font-family:'Lora',serif;font-style:italic}
+.sk-box{border:1.5px solid var(--ink);background:transparent;position:relative}.sk-box-soft{border:1.25px solid #2a2a2a;background:transparent}
+.sk-rule{height:0;border:0;border-top:1.5px solid var(--ink);margin:0}.sk-rule-thin{height:0;border:0;border-top:1px solid var(--ink);margin:0}
+.sk-stamp{display:inline-block;font-family:'IBM Plex Serif',serif;font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:3px 8px;border:1.5px solid currentColor;line-height:1.4;transform:rotate(-1deg);white-space:nowrap}
+.sk-stamp--red{color:var(--accent);border-color:var(--accent)}.sk-stamp--navy{color:var(--navy);border-color:var(--navy)}.sk-stamp--teal{color:var(--teal);border-color:var(--teal)}.sk-stamp--ochre{color:var(--ochre);border-color:var(--ochre)}.sk-stamp--slate{color:var(--slate);border-color:var(--slate)}.sk-stamp--hi{color:#a07800;border-color:#a07800}
+.sk-annot{font-family:'Lora',serif;font-style:italic;font-size:20px;color:var(--accent);line-height:1.05;transform:rotate(-2deg)}
+.row{display:flex}.col{display:flex;flex-direction:column}.grow{flex:1}.gap-2{gap:8px}.gap-3{gap:12px}.gap-4{gap:16px}
+.sk-grid-dossier{display:grid;grid-template-columns:380px 1fr;gap:14px}
+.dd-page{max-width:1200px;margin:0 auto;padding:32px}
+@media(max-width:900px){.dd-page{padding:20px 18px}.sk-grid-dossier{grid-template-columns:1fr 1fr !important}}
+@media(max-width:640px){body{font-size:17px}.dd-page{padding:14px 12px}.sk-grid-dossier{grid-template-columns:1fr !important}.sk-dossier-hl{font-size:36px !important}.sk-annot{display:none}}
+@media(max-width:380px){body{font-size:16px}.dd-page{padding:10px 8px}.sk-dossier-hl{font-size:28px !important}}
+</style>
+</head>
+<body>
+<div class="dd-page">
+  <div class="sk-annot" style="position:absolute;top:6px;right:14px">&#8599; STORY &middot; DOSSIER &middot; 02.2</div>
+
+  <nav class="row" style="justify-content:space-between;align-items:baseline;margin-bottom:10px">
+    <a href="../index.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px">&larr; BACK / DAILY &middot; DIGEST &middot; &numero; 010</a>
+    <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">FILE &middot; 02.2 &middot; AI &middot; MODELS</span>
+    <a href="../../../archive.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--teal)">ARCHIVE &nearr;</a>
+  </nav>
+
+  <header class="sk-box" style="background:var(--ink);color:var(--card);padding:20px 22px">
+    <div class="row" style="justify-content:space-between;align-items:baseline">
+      <span class="sk-mono" style="font-size:11px;letter-spacing:3px;color:var(--hi)">FEATURE / 02.2</span>
+      <span class="sk-mono" style="font-size:10px;letter-spacing:2px">READ &middot; 4 MIN</span>
+    </div>
+    <h1 class="sk-dossier-hl" style="font-size:50px;line-height:1.02;font-weight:700;margin:12px 0;text-wrap:balance;letter-spacing:-0.5px">
+      Claude Opus 4.7 is generally available: 13% coding gain, 3&times; vision resolution, new effort controls
+    </h1>
+    <p class="sk-script" style="font-size:22px;color:var(--hi);margin:0">Anthropic&rsquo;s latest flagship improves on every axis: SWE-bench coding, image resolution, instruction-following, and a new <code>xhigh</code> effort setting for fine-grained token allocation.</p>
+    <div class="row" style="gap:18px;align-items:baseline;margin-top:14px;flex-wrap:wrap">
+      <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">BY &middot; EDITORIAL TEAM</span>
+      <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--hi)">&middot; FRI 22 MAY 2026</span>
+      <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">&middot; FILED FROM API RELEASE NOTES</span>
+      <a href="https://www.anthropic.com/news/claude-opus-4-7" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--sage);margin-left:auto">SOURCE &middot; ANTHROPIC &nearr;</a>
+    </div>
+  </header>
+
+  <main class="sk-grid-dossier" style="margin-top:14px">
+    <aside class="col gap-3">
+      <div class="sk-box" style="background:var(--hi);padding:16px">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0">&#9733; TL;DR</p>
+        <hr class="sk-rule-thin" style="margin:8px 0 10px" />
+        <ul style="font-size:15px;line-height:1.55;margin:0;padding-left:18px">
+          <li>13% SWE-bench improvement over Opus 4.6; state-of-the-art Finance Agent evaluation</li>
+          <li>Vision accepts images up to 2,576px on the long edge &mdash; more than three times prior capacity</li>
+          <li>New <code>xhigh</code> effort level between <code>high</code> and <code>max</code>; Task Budgets enter public beta</li>
+        </ul>
+      </div>
+
+      <div class="sk-box" style="padding:16px;background:var(--card)">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0">BY &middot; THE &middot; NUMBERS</p>
+        <hr class="sk-rule-thin" style="margin:8px 0 14px" />
+        <div class="col gap-4">
+          <div>
+            <div style="font-size:64px;font-weight:700;line-height:0.95;color:var(--accent)">13%</div>
+            <p class="sk-mono" style="font-size:10px;margin:4px 0 0;letter-spacing:1px">SWE-BENCH IMPROVEMENT OVER OPUS 4.6</p>
+          </div>
+          <hr class="sk-rule-thin" />
+          <div>
+            <div style="font-size:64px;font-weight:700;line-height:0.95">3&times;</div>
+            <p class="sk-mono" style="font-size:10px;margin:4px 0 0;letter-spacing:1px">VISION RESOLUTION INCREASE</p>
+          </div>
+          <hr class="sk-rule-thin" />
+          <div>
+            <div style="font-size:64px;font-weight:700;line-height:0.95">$25</div>
+            <p class="sk-mono" style="font-size:10px;margin:4px 0 0;letter-spacing:1px">PER 1M OUTPUT TOKENS (UNCHANGED)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="sk-box" style="padding:16px;background:var(--card)">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0">KEY &middot; PLAYERS</p>
+        <hr class="sk-rule-thin" style="margin:8px 0 10px" />
+        <div class="col gap-3">
+          <div>
+            <p class="sk-mono" style="font-size:11px;font-weight:700;letter-spacing:1px;margin:0">ANTHROPIC</p>
+            <p style="font-size:13px;line-height:1.4;margin:4px 0 0">Model creator; pricing unchanged at $5/$25 per 1M in/out tokens; available on Claude.ai, API, Bedrock, Vertex, Foundry</p>
+          </div>
+          <hr class="sk-rule-thin" style="border-top-style:dashed" />
+          <div>
+            <p class="sk-mono" style="font-size:11px;font-weight:700;letter-spacing:1px;margin:0">CLAUDE CODE</p>
+            <p style="font-size:13px;line-height:1.4;margin:4px 0 0">New <code>/ultrareview</code> command for dedicated code-review sessions ships with Opus 4.7</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="sk-box-soft" style="padding:14px">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0 0 10px">FILED &middot; UNDER</p>
+        <div class="row" style="flex-wrap:wrap;gap:8px">
+          <span class="sk-stamp sk-stamp--red">AI</span>
+          <span class="sk-stamp sk-stamp--navy">MODELS</span>
+          <span class="sk-stamp sk-stamp--teal">ENGINEERING</span>
+        </div>
+      </div>
+    </aside>
+
+    <article class="col gap-3">
+      <p class="sk-box-soft" style="padding:18px;background:var(--card);border-left:4px solid var(--accent);font-size:22px;font-weight:700;line-height:1.25;margin:0">
+        Opus 4.7 follows the instruction-following discipline of 4.6 but removes the performance ceiling: its biggest coding gains are on the hardest tasks, not the easy ones.
+      </p>
+
+      <div class="row gap-3" style="align-items:baseline;margin-top:6px">
+        <span style="font-size:28px;font-weight:700;color:var(--accent);line-height:1">&#182; 01</span>
+        <span class="sk-mono" style="font-size:11px;letter-spacing:2px">WHAT &middot; HAPPENED</span>
+        <span class="grow" style="border-top:1px dashed var(--ink);height:1px"></span>
+      </div>
+      <p style="font-size:18px;line-height:1.65;margin:0">Anthropic released Claude Opus 4.7 as the latest flagship in the claude-opus family. The model is a direct successor to Opus 4.6 with notable improvements across software engineering, vision, and instruction compliance. At launch, Opus 4.7 is state-of-the-art on the Finance Agent evaluation and posts a 13% resolution rate gain on SWE-bench variants compared to its predecessor. Vision now handles images up to 2,576 pixels on the long edge &mdash; more than three times the prior limit &mdash; enabling detailed analysis of high-resolution screenshots, technical diagrams, and financial charts.</p>
+
+      <div class="sk-box" style="background:var(--ink);color:var(--card);padding:20px 22px;display:flex;align-items:baseline;gap:22px">
+        <span style="font-size:78px;font-weight:700;line-height:0.9;color:var(--hi)">xhigh</span>
+        <span style="font-size:18px;font-weight:700;line-height:1.2">New effort level between <code>high</code> and <code>max</code> gives API callers finer control over token allocation without jumping to uncapped reasoning depth</span>
+      </div>
+
+      <div class="row gap-3" style="align-items:baseline;margin-top:8px">
+        <span style="font-size:28px;font-weight:700;color:var(--accent);line-height:1">&#182; 02</span>
+        <span class="sk-mono" style="font-size:11px;letter-spacing:2px">WHY &middot; IT &middot; MATTERS</span>
+        <span class="grow" style="border-top:1px dashed var(--ink);height:1px"></span>
+      </div>
+      <p style="font-size:18px;line-height:1.65;margin:0">Instruction-following in Opus 4.7 is more literal than prior versions: the model follows directives precisely, which means existing system prompts may need review to avoid unintended strictness. The Task Budgets public beta &mdash; which lets callers guide token allocation at a task level &mdash; directly addresses a common complaint with long-running agent loops: runaway costs. The Claude Code <code>/ultrareview</code> command opens dedicated code-review sessions that leverage the model&rsquo;s improved vision and coding performance together.</p>
+
+      <blockquote class="sk-box-soft" style="padding:20px 24px;background:var(--hi);margin:6px 0 0">
+        <p style="font-size:26px;font-weight:700;line-height:1.2;margin:0">&ldquo;Opus 4.7 follows directives much more literally than predecessors &mdash; existing implementations may require prompt adjustments.&rdquo;</p>
+        <p class="sk-mono" style="font-size:10px;margin:12px 0 0;letter-spacing:1px">&mdash; ANTHROPIC &middot; RELEASE NOTES</p>
+      </blockquote>
+
+      <div class="row gap-3" style="align-items:baseline;margin-top:8px">
+        <span style="font-size:28px;font-weight:700;color:var(--accent);line-height:1">&#182; 03</span>
+        <span class="sk-mono" style="font-size:11px;letter-spacing:2px">WHAT &middot; TO &middot; WATCH</span>
+        <span class="grow" style="border-top:1px dashed var(--ink);height:1px"></span>
+      </div>
+      <p style="font-size:18px;line-height:1.65;margin:0">Migrate existing <code>claude-opus-4-6</code> calls to <code>claude-opus-4-7</code> and run your system prompt test suite before deploying to production &mdash; the stricter instruction-following will surface edge cases where your prompts relied on the model&rsquo;s prior interpretive latitude. Evaluate Task Budgets in beta to cap agent costs on your longest-running workflows. Check whether the vision upgrade changes how your pipeline reads screenshots or diagrams.</p>
+
+      <div class="sk-box-soft" style="padding:12px 16px;background:var(--card);margin-top:4px">
+        <div class="row gap-3" style="align-items:baseline;flex-wrap:wrap">
+          <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">SOURCE</span>
+          <a href="https://www.anthropic.com/news/claude-opus-4-7" class="sk-mono" style="font-size:11px;letter-spacing:1px;color:var(--teal);text-decoration:underline;text-underline-offset:2px">ANTHROPIC.COM &nearr;</a>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <hr class="sk-rule" style="margin-top:16px" />
+  <footer class="row" style="justify-content:space-between;padding:10px 4px;align-items:baseline">
+    <a href="02-1-gemini-35-flash.html" class="sk-mono" style="font-size:10px">&larr; PREV &middot; 02.1</a>
+    <span class="sk-mono" style="font-size:10px;letter-spacing:2px">&middot; END OF FILE 02.2 &middot;</span>
+    <a href="02-3-memory-shortage.html" class="sk-mono" style="font-size:10px">NEXT &middot; 02.3 &rarr;</a>
+  </footer>
+</div>
+</body>
+</html>

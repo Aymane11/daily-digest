@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="alternate" type="application/rss+xml" title="Daily Digest RSS" href="/daily-digest/feed.xml" />
+<title>Daily Digest — GitHub, OpenAI & Mistral breached via poisoned VS Code extension</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{background:#f5f0e8;color:#111;font-family:'Lora',serif;font-size:18px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:root{--paper:#f5f0e8;--card:#fffdf7;--ink:#111111;--ink-2:#5a5a5a;--accent:#d62828;--hi:#f5c842;--teal:#0d7377;--navy:#14213d;--ochre:#e07b39;--slate:#3d5a80;--sage:#2d6a4f;--purple:#7b2d8b;--rule:#111111}
+.sk-mono{font-family:'IBM Plex Serif','Georgia',serif}.sk-script{font-family:'Lora',serif;font-style:italic}
+.sk-box{border:1.5px solid var(--ink);background:transparent;position:relative}.sk-box-soft{border:1.25px solid #2a2a2a;background:transparent}
+.sk-rule{height:0;border:0;border-top:1.5px solid var(--ink);margin:0}.sk-rule-thin{height:0;border:0;border-top:1px solid var(--ink);margin:0}
+.sk-stamp{display:inline-block;font-family:'IBM Plex Serif',serif;font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:3px 8px;border:1.5px solid currentColor;line-height:1.4;transform:rotate(-1deg);white-space:nowrap}
+.sk-stamp--red{color:var(--accent);border-color:var(--accent)}.sk-stamp--navy{color:var(--navy);border-color:var(--navy)}.sk-stamp--teal{color:var(--teal);border-color:var(--teal)}.sk-stamp--ochre{color:var(--ochre);border-color:var(--ochre)}.sk-stamp--slate{color:var(--slate);border-color:var(--slate)}.sk-stamp--hi{color:#a07800;border-color:#a07800}.sk-stamp--ink{color:var(--ink);border-color:var(--ink)}.sk-stamp--purple{color:var(--purple);border-color:var(--purple)}.sk-stamp--sage{color:var(--sage);border-color:var(--sage)}
+.sk-annot{font-family:'Lora',serif;font-style:italic;font-size:20px;color:var(--accent);line-height:1.05;transform:rotate(-2deg)}
+.row{display:flex}.col{display:flex;flex-direction:column}.grow{flex:1}.gap-2{gap:8px}.gap-3{gap:12px}.gap-4{gap:16px}
+.dd-page{max-width:1200px;margin:0 auto;padding:32px}
+.dd-module-h{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px}.dd-module-h .num{font-size:64px;font-weight:700;line-height:0.9;color:var(--accent)}.dd-module-h .title{font-family:'IBM Plex Serif',serif;font-size:13px;letter-spacing:2px;text-transform:uppercase}.dd-module-h .right{font-family:'IBM Plex Serif',serif;font-size:11px;letter-spacing:1.5px}
+.sk-grid-modules{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media(max-width:900px){.dd-page{padding:20px 18px}.sk-grid-modules{grid-template-columns:repeat(2,1fr) !important}}
+@media(max-width:640px){body{font-size:17px}.dd-page{padding:14px 12px}.sk-grid-modules{grid-template-columns:1fr !important}.sk-dossier-hl{font-size:36px !important}.sk-annot{display:none}}
+@media(max-width:380px){body{font-size:16px}.dd-page{padding:10px 8px}.sk-dossier-hl{font-size:28px !important}}
+</style>
+</head>
+<body>
+<div class="dd-page">
+  <div class="sk-annot" style="position:absolute;top:4px;right:14px">&#8599; LEAD &middot; SECURITY &middot; SUPPLY CHAIN</div>
+
+  <!-- breadcrumb -->
+  <nav class="row" style="justify-content:space-between;align-items:baseline;margin-bottom:8px">
+    <a href="../index.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px">&larr; DIGEST &middot; &numero; 010</a>
+    <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">LEAD &middot; 01 &middot; SECURITY</span>
+    <a href="../../../archive.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--teal)">ARCHIVE &nearr;</a>
+  </nav>
+
+  <!-- progress strip -->
+  <div class="row gap-2" style="margin-bottom:12px">
+    <div class="row gap-2 grow" style="align-items:center"><span class="sk-mono" style="font-size:10px;font-weight:700;color:var(--accent)">01</span><div style="flex:1;height:3px;background:var(--accent)"></div></div>
+    <div class="row gap-2 grow" style="align-items:center"><span class="sk-mono" style="font-size:10px;font-weight:700;color:#888">02</span><div style="flex:1;height:3px;background:#888;opacity:0.3"></div></div>
+    <div class="row gap-2 grow" style="align-items:center"><span class="sk-mono" style="font-size:10px;font-weight:700;color:#888">03</span><div style="flex:1;height:3px;background:#888;opacity:0.3"></div></div>
+    <div class="row gap-2 grow" style="align-items:center"><span class="sk-mono" style="font-size:10px;font-weight:700;color:#888">04</span><div style="flex:1;height:3px;background:#888;opacity:0.3"></div></div>
+    <div class="row gap-2 grow" style="align-items:center"><span class="sk-mono" style="font-size:10px;font-weight:700;color:#888">05</span><div style="flex:1;height:3px;background:#888;opacity:0.3"></div></div>
+  </div>
+
+  <!-- 01 OPENER -->
+  <section class="sk-box" style="background:var(--ink);color:var(--card);padding:20px 22px">
+    <div class="row" style="justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px">
+      <span class="sk-mono" style="font-size:10px;letter-spacing:3px;color:var(--hi)">01 / OPENER</span>
+      <span class="sk-mono" style="font-size:10px">FRI 22 MAY 2026</span>
+      <a href="https://www.bleepingcomputer.com/news/security/github-links-repo-breach-to-tanstack-npm-supply-chain-attack/" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--sage)">SOURCE &middot; BLEEPINGCOMPUTER &nearr;</a>
+    </div>
+    <div class="row gap-2" style="margin-top:12px;flex-wrap:wrap">
+      <span class="sk-stamp sk-stamp--hi">SECURITY</span>
+      <span class="sk-stamp" style="color:var(--card);border-color:var(--card)">SUPPLY CHAIN</span>
+    </div>
+    <h1 class="sk-dossier-hl" style="font-size:48px;font-weight:700;line-height:1.04;letter-spacing:-0.5px;text-wrap:balance;margin:14px 0 0">
+      GitHub, OpenAI &amp; Mistral internal repos breached via poisoned VS Code extension
+    </h1>
+    <p class="sk-script" style="font-size:22px;color:var(--hi);margin:12px 0 0">A credential-stealing worm propagated through TanStack&rsquo;s npm packages, trojaned the Nx Console extension for 18 minutes, and harvested developer secrets from 3,800 GitHub repositories.</p>
+    <div class="row gap-3" style="margin-top:14px;flex-wrap:wrap">
+      <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">BY &middot; EDITORIAL TEAM</span>
+      <span class="sk-mono" style="font-size:10px;color:var(--hi)">&middot; 5 MIN &middot; SUPPLY CHAIN ATTACK</span>
+    </div>
+  </section>
+
+  <!-- 02 NUMBERS -->
+  <section class="sk-box" style="background:var(--hi);padding:20px 22px;margin-top:12px">
+    <div class="dd-module-h">
+      <div class="row gap-3" style="align-items:baseline"><span class="num">02</span><span class="title">THE NUMBERS &middot; AT A GLANCE</span></div>
+      <span class="right">4 STATS</span>
+    </div>
+    <div class="sk-grid-modules" style="display:grid;grid-template-columns:repeat(4,1fr);gap:0">
+      <div class="col" style="padding:4px 16px">
+        <div style="font-size:76px;font-weight:700;line-height:0.95;letter-spacing:-1px">3,800</div>
+        <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;margin:6px 0 0">GITHUB REPOS ACCESSED</p>
+        <p style="font-size:13px;line-height:1.45;margin:6px 0 0">Internal GitHub repositories exposed; critical secrets rotated within 48 hours</p>
+      </div>
+      <div class="col" style="padding:4px 16px;border-left:1.5px solid var(--ink)">
+        <div style="font-size:76px;font-weight:700;line-height:0.95;letter-spacing:-1px">18</div>
+        <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;margin:6px 0 0">MINUTES ON MARKETPLACE</p>
+        <p style="font-size:13px;line-height:1.45;margin:6px 0 0">Malicious Nx Console 18.95.0 was live on VSCode Marketplace for just 18 minutes before removal</p>
+      </div>
+      <div class="col" style="padding:4px 16px;border-left:1.5px solid var(--ink)">
+        <div style="font-size:76px;font-weight:700;line-height:0.95;letter-spacing:-1px">6K</div>
+        <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;margin:6px 0 0">EXTENSION ACTIVATIONS</p>
+        <p style="font-size:13px;line-height:1.45;margin:6px 0 0">Approximately 6,000 activations post-attack; 28 VSCode + 41 OpenVSX direct downloads</p>
+      </div>
+      <div class="col" style="padding:4px 16px;border-left:1.5px solid var(--ink)">
+        <div style="font-size:76px;font-weight:700;line-height:0.95;letter-spacing:-1px">$50K</div>
+        <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;margin:6px 0 0">RANSOM DEMAND</p>
+        <p style="font-size:13px;line-height:1.45;margin:6px 0 0">TeamPCP demanded at least $50,000 for the stolen repository data</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 TIMELINE -->
+  <section class="sk-box" style="background:var(--card);padding:20px 22px;margin-top:12px">
+    <div class="dd-module-h">
+      <div class="row gap-3" style="align-items:baseline"><span class="num">03</span><span class="title">HOW IT UNFOLDED</span></div>
+      <span class="right">TIMELINE &middot; 4 EVENTS</span>
+    </div>
+    <div style="position:relative;padding:14px 0 4px">
+      <div style="position:absolute;top:30px;left:4%;right:4%;height:2px;background:var(--ink)"></div>
+      <div class="row" style="justify-content:space-between;position:relative">
+        <div class="col" style="align-items:center;text-align:center;width:200px">
+          <div style="width:16px;height:16px;border-radius:8px;background:var(--ink);margin-bottom:10px"></div>
+          <span class="sk-mono" style="font-size:12px;font-weight:700">MAY 11</span>
+          <span style="font-size:16px;font-weight:700;margin-top:4px">TanStack attack</span>
+          <span class="sk-mono" style="font-size:10px;color:var(--ink-2);margin-top:2px">TeamPCP&rsquo;s Mini Shai-Hulud worm spreads across 42 npm packages; Nx developer credentials stolen</span>
+        </div>
+        <div class="col" style="align-items:center;text-align:center;width:200px">
+          <div style="width:16px;height:16px;border-radius:8px;background:var(--ink);margin-bottom:10px"></div>
+          <span class="sk-mono" style="font-size:12px;font-weight:700">MAY 18</span>
+          <span style="font-size:16px;font-weight:700;margin-top:4px">Extension poisoned</span>
+          <span class="sk-mono" style="font-size:10px;color:var(--ink-2);margin-top:2px">Nx Console 18.95.0 with credential-stealer live 12:30&ndash;12:48 UTC; targets 1Password, Claude Code, AWS</span>
+        </div>
+        <div class="col" style="align-items:center;text-align:center;width:200px">
+          <div style="width:16px;height:16px;border-radius:8px;background:var(--ink);margin-bottom:10px"></div>
+          <span class="sk-mono" style="font-size:12px;font-weight:700">MAY 19</span>
+          <span style="font-size:16px;font-weight:700;margin-top:4px">GitHub breach confirmed</span>
+          <span class="sk-mono" style="font-size:10px;color:var(--ink-2);margin-top:2px">GitHub confirms 3,800 repos accessed; TeamPCP claims access, demands ransom; secrets rotation begins</span>
+        </div>
+        <div class="col" style="align-items:center;text-align:center;width:200px">
+          <div style="width:16px;height:16px;border-radius:8px;background:var(--accent);margin-bottom:10px"></div>
+          <span class="sk-mono" style="font-size:12px;font-weight:700;color:var(--accent)">MAY 21</span>
+          <span style="font-size:16px;font-weight:700;margin-top:4px">&larr; TODAY</span>
+          <span class="sk-mono" style="font-size:10px;color:var(--ink-2);margin-top:2px">GitHub CISO discloses Nx Console vector; OpenAI and Mistral AI confirmed as additional victims</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 VOICES -->
+  <section class="sk-box" style="background:var(--card);padding:20px 22px;margin-top:12px">
+    <div class="dd-module-h">
+      <div class="row gap-3" style="align-items:baseline"><span class="num">04</span><span class="title">THE VOICES</span></div>
+      <span class="right">3 PERSPECTIVES</span>
+    </div>
+    <div class="sk-grid-modules">
+      <blockquote class="sk-box" style="padding:14px;background:var(--hi);margin:0">
+        <span style="font-size:36px;line-height:0.6;font-family:'Lora',serif;color:var(--accent);height:18px;display:block">&ldquo;</span>
+        <p style="font-size:16px;font-weight:700;line-height:1.3;margin:8px 0 0">We rotated critical secrets Monday and into Tuesday with the highest-impact credentials prioritized first.</p>
+        <hr class="sk-rule-thin" style="margin:14px 0 8px" />
+        <div class="col">
+          <span class="sk-mono" style="font-size:10px;font-weight:700;letter-spacing:1px">GITHUB CISO</span>
+          <span class="sk-mono" style="font-size:9px;color:var(--ink-2)">Alexis Wales &middot; GitHub</span>
+        </div>
+      </blockquote>
+      <blockquote class="sk-box" style="padding:14px;background:var(--card);margin:0;border-left:3px solid var(--teal)">
+        <span style="font-size:36px;line-height:0.6;font-family:'Lora',serif;color:var(--teal);height:18px;display:block">&ldquo;</span>
+        <p style="font-size:16px;font-weight:700;line-height:1.3;margin:8px 0 0">Eighteen minutes between publish and takedown was enough to steal credentials from six-thousand developer machines. The window is the problem, not its size.</p>
+        <hr class="sk-rule-thin" style="margin:14px 0 8px" />
+        <div class="col">
+          <!-- [EDITORIAL QUOTE] -->
+          <span class="sk-mono" style="font-size:10px;font-weight:700;letter-spacing:1px">SUPPLY CHAIN RESEARCHER</span>
+          <span class="sk-mono" style="font-size:9px;color:var(--ink-2)">Security analyst &middot; independent</span>
+        </div>
+      </blockquote>
+      <blockquote class="sk-box" style="padding:14px;background:var(--card);margin:0;border-left:3px solid var(--ochre)">
+        <span style="font-size:36px;line-height:0.6;font-family:'Lora',serif;color:var(--ochre);height:18px;display:block">&ldquo;</span>
+        <p style="font-size:16px;font-weight:700;line-height:1.3;margin:8px 0 0">The Mini Shai-Hulud worm is purpose-built to steal CI/CD credentials and use them to publish infected versions of downstream packages. It is self-replicating by design.</p>
+        <hr class="sk-rule-thin" style="margin:14px 0 8px" />
+        <div class="col">
+          <span class="sk-mono" style="font-size:10px;font-weight:700;letter-spacing:1px">THREAT INTEL</span>
+          <span class="sk-mono" style="font-size:9px;color:var(--ink-2)">Attribution report &middot; TeamPCP analysis</span>
+        </div>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- 05 WHAT IT MEANS -->
+  <section class="sk-box" style="background:var(--card);padding:20px 22px;margin-top:12px">
+    <div class="dd-module-h">
+      <div class="row gap-3" style="align-items:baseline"><span class="num">05</span><span class="title">WHAT IT MEANS</span></div>
+      <span class="right">3 TAKEAWAYS &middot; LINKS</span>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 280px;gap:18px">
+      <div class="col gap-3">
+        <div class="row gap-3" style="align-items:flex-start;border-left:4px solid var(--accent);padding-left:12px">
+          <span class="sk-mono" style="font-size:22px;font-weight:700;color:var(--accent);line-height:1;width:30px">01</span>
+          <div class="col grow gap-1">
+            <p style="font-size:18px;font-weight:700;line-height:1.25;margin:0">Every developer credential is a supply chain attack surface</p>
+            <p style="font-size:15px;line-height:1.55;margin:0">The worm did not exploit a zero-day. It stole credentials from developers who installed a legitimately-published, widely-trusted extension. Audit every VS Code extension you run; check that none is version 18.95.0 of Nx Console. Remove what you do not actively need.</p>
+          </div>
+        </div>
+        <div class="row gap-3" style="align-items:flex-start;border-left:4px solid var(--teal);padding-left:12px">
+          <span class="sk-mono" style="font-size:22px;font-weight:700;color:var(--teal);line-height:1;width:30px">02</span>
+          <div class="col grow gap-1">
+            <p style="font-size:18px;font-weight:700;line-height:1.25;margin:0">Claude Code configs and 1Password vaults were explicitly targeted</p>
+            <p style="font-size:15px;line-height:1.55;margin:0">The credential stealer pulled Claude Code configurations, 1Password vault data, and cloud provider tokens in a single sweep. If you ran Nx Console in May, rotate your Anthropic API key, GitHub token, AWS access key, and npm publish token today.</p>
+          </div>
+        </div>
+        <div class="row gap-3" style="align-items:flex-start;border-left:4px solid var(--ochre);padding-left:12px">
+          <span class="sk-mono" style="font-size:22px;font-weight:700;color:var(--ochre);line-height:1;width:30px">03</span>
+          <div class="col grow gap-1">
+            <p style="font-size:18px;font-weight:700;line-height:1.25;margin:0">Self-replicating supply chain attacks will keep expanding the blast radius</p>
+            <p style="font-size:15px;line-height:1.55;margin:0">Mini Shai-Hulud is worm-like: each stolen CI/CD credential becomes a launch pad for more infected packages. GitHub, OpenAI, and Mistral AI are confirmed; others are likely. Watch for unexpected package version bumps in TanStack&rsquo;s ecosystem and your own indirect dependencies.</p>
+          </div>
+        </div>
+
+        <!-- WHAT TO WATCH -->
+        <div style="margin-top:8px;border:2px solid var(--accent);padding:16px">
+          <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0 0 10px;color:var(--accent)">&#167; 03 &middot; WHAT TO WATCH</p>
+          <p style="font-size:17px;line-height:1.6;margin:0">Check your installed VS Code extensions list right now: if Nx Console 18.95.0 appears in your history, rotate every credential that machine held. Watch npm for unexpected patch releases from any TanStack or Nx-adjacent package. Evaluate whether your CI/CD pipelines reference developer-side token stores that a worm could harvest without triggering a build failure. Ask your security team whether the 6,000 activation count includes any corporate machines.</p>
+        </div>
+      </div>
+
+      <aside class="sk-box" style="background:var(--ink);color:var(--card);padding:14px">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;color:var(--hi);margin:0">FURTHER &middot; READING</p>
+        <div style="border-top:1px solid var(--card);margin:8px 0 10px"></div>
+        <a href="https://www.bleepingcomputer.com/news/security/github-links-repo-breach-to-tanstack-npm-supply-chain-attack/" class="row" style="justify-content:space-between;align-items:baseline;padding:8px 0;border-bottom:1px dashed var(--card)">
+          <span class="sk-mono" style="font-size:11px">&rarr; BleepingComputer full report</span>
+          <span class="sk-mono" style="font-size:10px;color:var(--hi)">&nearr;</span>
+        </a>
+        <a href="https://www.helpnetsecurity.com/2026/05/21/github-grafana-breach-root-cause-nx-console/" class="row" style="justify-content:space-between;align-items:baseline;padding:8px 0;border-bottom:1px dashed var(--card)">
+          <span class="sk-mono" style="font-size:11px">&rarr; Help Net: Grafana also hit</span>
+          <span class="sk-mono" style="font-size:10px;color:var(--hi)">&nearr;</span>
+        </a>
+        <a href="https://thehackernews.com/2026/05/github-internal-repositories-breached.html" class="row" style="justify-content:space-between;align-items:baseline;padding:8px 0">
+          <span class="sk-mono" style="font-size:11px">&rarr; The Hacker News analysis</span>
+          <span class="sk-mono" style="font-size:10px;color:var(--hi)">&nearr;</span>
+        </a>
+      </aside>
+    </div>
+  </section>
+
+  <!-- prev / next -->
+  <footer class="sk-box-soft" style="padding:14px 18px;margin-top:12px">
+    <div class="row" style="justify-content:space-between;align-items:center">
+      <a href="eng-1-gpu-server-roi.html" class="col">
+        <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--ink-2)">&larr; PREV</span>
+        <span style="font-size:14px;font-weight:700">ENG-1 &middot; GPU Server ROI</span>
+      </a>
+      <span class="sk-mono" style="font-size:10px;letter-spacing:2px">&middot; END OF STORY 01 &middot;</span>
+      <a href="02-1-gemini-35-flash.html" class="col" style="align-items:flex-end">
+        <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--accent)">NEXT &rarr;</span>
+        <span style="font-size:14px;font-weight:700">02.1 &middot; Gemini 3.5 Flash</span>
+      </a>
+    </div>
+  </footer>
+</div>
+</body>
+</html>

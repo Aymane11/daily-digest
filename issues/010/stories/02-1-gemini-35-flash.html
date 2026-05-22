@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="alternate" type="application/rss+xml" title="Daily Digest RSS" href="/daily-digest/feed.xml" />
+<title>Daily Digest — Gemini 3.5 Flash: frontier agents at 4x speed</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{background:#f5f0e8;color:#111;font-family:'Lora',serif;font-size:18px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:root{--paper:#f5f0e8;--card:#fffdf7;--ink:#111111;--ink-2:#5a5a5a;--accent:#d62828;--hi:#f5c842;--teal:#0d7377;--navy:#14213d;--ochre:#e07b39;--slate:#3d5a80;--sage:#2d6a4f;--purple:#7b2d8b;--rule:#111111}
+.sk-mono{font-family:'IBM Plex Serif','Georgia',serif}.sk-script{font-family:'Lora',serif;font-style:italic}
+.sk-box{border:1.5px solid var(--ink);background:transparent;position:relative}.sk-box-soft{border:1.25px solid #2a2a2a;background:transparent}
+.sk-rule{height:0;border:0;border-top:1.5px solid var(--ink);margin:0}.sk-rule-thin{height:0;border:0;border-top:1px solid var(--ink);margin:0}
+.sk-stamp{display:inline-block;font-family:'IBM Plex Serif',serif;font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:3px 8px;border:1.5px solid currentColor;line-height:1.4;transform:rotate(-1deg);white-space:nowrap}
+.sk-stamp--red{color:var(--accent);border-color:var(--accent)}.sk-stamp--navy{color:var(--navy);border-color:var(--navy)}.sk-stamp--teal{color:var(--teal);border-color:var(--teal)}.sk-stamp--ochre{color:var(--ochre);border-color:var(--ochre)}.sk-stamp--hi{color:#a07800;border-color:#a07800}.sk-stamp--slate{color:var(--slate);border-color:var(--slate)}
+.sk-annot{font-family:'Lora',serif;font-style:italic;font-size:20px;color:var(--accent);line-height:1.05;transform:rotate(-2deg)}.sk-annot.blue{color:#1f5eaa}
+.row{display:flex}.col{display:flex;flex-direction:column}.grow{flex:1}.gap-2{gap:8px}.gap-3{gap:12px}.gap-4{gap:16px}
+.sk-grid-data{display:grid;grid-template-columns:1fr 1fr 280px;gap:18px}
+.dd-page{max-width:1200px;margin:0 auto;padding:32px}
+@media(max-width:900px){.dd-page{padding:20px 18px}.sk-grid-data{grid-template-columns:1fr 1fr !important}}
+@media(max-width:640px){body{font-size:17px}.dd-page{padding:14px 12px}.sk-grid-data{grid-template-columns:1fr !important}.sk-dossier-hl{font-size:36px !important}.sk-annot{display:none}}
+@media(max-width:380px){body{font-size:16px}.dd-page{padding:10px 8px}.sk-dossier-hl{font-size:28px !important}}
+</style>
+</head>
+<body>
+<div class="dd-page">
+  <div class="sk-annot blue" style="position:absolute;top:6px;right:14px">&#8599; STORY &middot; DATA-FIRST &middot; 02.1</div>
+
+  <nav class="row" style="justify-content:space-between;align-items:baseline;margin-bottom:10px">
+    <a href="../index.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px">&larr; DAILY &middot; DIGEST &middot; &numero; 010</a>
+    <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">02.1 &middot; AI &middot; MODELS</span>
+    <a href="../../../archive.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--teal)">ARCHIVE &nearr;</a>
+  </nav>
+
+  <header class="col" style="align-items:center;text-align:center;padding:18px 60px 8px">
+    <div class="row gap-2" style="justify-content:center;margin-bottom:10px;flex-wrap:wrap">
+      <span class="sk-stamp sk-stamp--red">FEATURE / 02.1</span>
+      <span class="sk-stamp sk-stamp--navy">AI &middot; MODELS</span>
+    </div>
+    <h1 class="sk-dossier-hl" style="font-size:60px;line-height:1.02;font-weight:700;margin:16px 0 12px;letter-spacing:-0.5px;text-wrap:balance;max-width:880px">
+      Gemini 3.5 Flash lands: frontier intelligence at four times the speed
+    </h1>
+    <p class="sk-script" style="font-size:24px;color:#3a3a3a;max-width:660px;margin:0">Google ships its first model combining frontier-class agent performance with Flash-series output speed, generally available the same week as Google I/O 2026.</p>
+    <div class="row" style="gap:14px;margin-top:12px;justify-content:center;flex-wrap:wrap">
+      <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">BY &middot; EDITORIAL TEAM</span>
+      <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--ink-2)">&middot; FRI 22 MAY 2026 &middot; 4 MIN</span>
+      <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--teal)">SOURCE &middot; GOOGLE BLOG &nearr;</a>
+    </div>
+  </header>
+
+  <!-- STATS SLAB -->
+  <section class="sk-box" style="background:var(--ink);padding:24px 26px;margin-top:14px">
+    <div class="row" style="justify-content:space-between;align-items:baseline;margin-bottom:18px">
+      <span class="sk-mono" style="font-size:11px;letter-spacing:3px;color:var(--hi)">&#9733; THE NUMBERS</span>
+      <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--card)">SOURCE &middot; GOOGLE DEEPMIND MODEL CARD</span>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0">
+      <div class="col" style="padding:0 18px">
+        <div style="font-size:96px;font-weight:700;line-height:0.92;color:var(--hi);letter-spacing:-2px">4&times;</div>
+        <p class="sk-mono" style="font-size:11px;letter-spacing:1.5px;color:var(--card);margin:8px 0 6px">OUTPUT SPEED ADVANTAGE</p>
+        <p style="font-size:14px;line-height:1.5;color:var(--card);opacity:0.85;margin:0">Four times faster output token generation than competing frontier models, per Google benchmarks</p>
+      </div>
+      <div class="col" style="padding:0 18px;border-left:1.5px solid var(--card)">
+        <div style="font-size:96px;font-weight:700;line-height:0.92;color:var(--card);letter-spacing:-2px">76%</div>
+        <p class="sk-mono" style="font-size:11px;letter-spacing:1.5px;color:var(--card);margin:8px 0 6px">TERMINAL-BENCH 2.1</p>
+        <p style="font-size:14px;line-height:1.5;color:var(--card);opacity:0.85;margin:0">76.2% on Terminal-Bench 2.1; 83.6% on MCP Atlas; outperforms Gemini 3.1 Pro on coding and agents</p>
+      </div>
+      <div class="col" style="padding:0 18px;border-left:1.5px solid var(--card)">
+        <div style="font-size:96px;font-weight:700;line-height:0.92;color:var(--hi);letter-spacing:-2px">GA</div>
+        <p class="sk-mono" style="font-size:11px;letter-spacing:1.5px;color:var(--card);margin:8px 0 6px">GENERALLY AVAILABLE NOW</p>
+        <p style="font-size:14px;line-height:1.5;color:var(--card);opacity:0.85;margin:0">Available now across Gemini app, AI Mode in Search, Gemini API, Antigravity, and Android Studio</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BODY -->
+  <main class="sk-grid-data" style="margin-top:16px">
+    <section class="col gap-3">
+      <div class="row gap-2" style="align-items:baseline">
+        <span style="font-size:22px;font-weight:700;color:var(--accent)">01</span>
+        <span class="sk-mono" style="font-size:11px;letter-spacing:2px">CONTEXT</span>
+      </div>
+      <hr class="sk-rule-thin" />
+      <p style="font-size:19px;font-weight:700;line-height:1.3;margin:0">Google I/O 2026 bet: the next wave of AI is agent-first, not chatbot-first.</p>
+      <p style="font-size:18px;line-height:1.65;margin:0">Gemini 3.5 Flash is Google&rsquo;s first model designed around the premise that frontier reasoning and real-world action are inseparable. Previous Flash models traded quality for speed; 3.5 Flash is positioned as faster than any current frontier competitor while matching or exceeding those models on benchmark tasks that matter for agents: multi-step coding, long-horizon task completion, and tool-use reliability.</p>
+    </section>
+
+    <section class="col gap-3">
+      <div class="row gap-2" style="align-items:baseline">
+        <span style="font-size:22px;font-weight:700;color:var(--accent)">02</span>
+        <span class="sk-mono" style="font-size:11px;letter-spacing:2px">WHAT&rsquo;S NEW</span>
+      </div>
+      <hr class="sk-rule-thin" />
+      <p style="font-size:18px;line-height:1.65;margin:0">The model powers Gemini Spark &mdash; a personal agent running 24/7 that takes action on your behalf. It is the default model for Managed Agents in the Gemini API (one API call spins up an agent with tool use and code execution in an isolated Linux environment). CharXiv Reasoning score sits at 84.2%. The 3.5 Pro variant follows in June. Pricing details were not disclosed at launch.</p>
+    </section>
+
+    <aside class="col gap-3">
+      <div class="sk-box" style="background:var(--hi);padding:14px">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0">KEY &middot; PLAYERS</p>
+        <hr class="sk-rule-thin" style="margin:8px 0 10px" />
+        <div>
+          <p class="sk-mono" style="font-size:11px;font-weight:700;letter-spacing:1px;margin:0">GOOGLE DEEPMIND</p>
+          <p style="font-size:13px;line-height:1.4;margin:4px 0 0">Model creator; announced at Google I/O 2026 keynote (May 19&ndash;20)</p>
+        </div>
+        <hr class="sk-rule-thin" style="border-top-style:dashed;margin:10px 0" />
+        <div>
+          <p class="sk-mono" style="font-size:11px;font-weight:700;letter-spacing:1px;margin:0">GOOGLE AI STUDIO</p>
+          <p style="font-size:13px;line-height:1.4;margin:4px 0 0">Primary developer access point; Kotlin support, Firebase integration, Cloud Run deploy</p>
+        </div>
+      </div>
+
+      <div class="sk-box-soft" style="padding:14px;background:var(--card)">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0">TIMELINE</p>
+        <hr class="sk-rule-thin" style="margin:8px 0 10px" />
+        <div class="row gap-3" style="align-items:baseline;padding:6px 0;border-bottom:1px dashed var(--ink)">
+          <span class="sk-mono" style="font-size:12px;font-weight:700">MAY&nbsp;2026</span>
+          <span class="sk-mono" style="font-size:11px">Gemini 3.1 Pro prior flagship</span>
+        </div>
+        <div class="row gap-3" style="align-items:baseline;padding:6px 0;border-bottom:1px dashed var(--ink)">
+          <span class="sk-mono" style="font-size:12px;font-weight:700">MAY 19</span>
+          <span class="sk-mono" style="font-size:11px">3.5 Flash GA at Google I/O</span>
+        </div>
+        <div class="row gap-3" style="align-items:baseline;padding:6px 0;border-bottom:1px dashed var(--ink)">
+          <span class="sk-mono" style="font-size:12px;font-weight:700">JUN 2026</span>
+          <span class="sk-mono" style="font-size:11px">3.5 Pro preview expected</span>
+        </div>
+        <div class="row gap-3" style="align-items:baseline;padding:6px 0">
+          <span class="sk-mono" style="font-size:12px;font-weight:700;color:var(--accent)">NOW</span>
+          <span class="sk-mono" style="font-size:11px">&larr; TODAY</span>
+        </div>
+      </div>
+
+      <div class="sk-box-soft" style="padding:12px">
+        <p class="sk-mono" style="font-size:10px;letter-spacing:2px;margin:0 0 8px">FILED &middot; UNDER</p>
+        <div class="row gap-2" style="flex-wrap:wrap">
+          <span class="sk-stamp sk-stamp--red">AI</span>
+          <span class="sk-stamp sk-stamp--navy">MODELS</span>
+          <span class="sk-stamp sk-stamp--teal">AGENTS</span>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <!-- PULL QUOTE -->
+  <blockquote class="sk-box" style="background:var(--hi);padding:28px 36px;margin:14px 0 0">
+    <div class="row gap-4" style="align-items:flex-start">
+      <span style="font-size:100px;font-weight:700;line-height:0.7;font-family:'Lora',serif;color:var(--accent)">&ldquo;</span>
+      <div class="col grow">
+        <p style="font-size:32px;font-weight:700;line-height:1.15;text-wrap:balance;margin:0">3.5 Flash delivers intelligence that rivals large flagship models at speeds you have come to expect from the Flash series.</p>
+        <p class="sk-mono" style="font-size:11px;margin:14px 0 0;letter-spacing:1.5px">&mdash; GOOGLE DEEPMIND &middot; ANNOUNCEMENT POST</p>
+      </div>
+    </div>
+  </blockquote>
+
+  <!-- WHAT TO WATCH -->
+  <div class="row gap-2" style="align-items:baseline;margin-top:14px">
+    <span style="font-size:22px;font-weight:700;color:var(--accent)">03</span>
+    <span class="sk-mono" style="font-size:11px;letter-spacing:2px">WHAT TO WATCH</span>
+    <span class="grow" style="border-top:1px dashed var(--ink);height:1px;margin-left:8px"></span>
+  </div>
+  <p style="font-size:18px;line-height:1.65;margin:8px 0 0">Try Gemini 3.5 Flash against your current agent workload via <code>gemini-3-5-flash</code> in AI Studio today and measure latency vs. your incumbent model. Watch the June Gemini 3.5 Pro launch for whether the quality gap over existing frontier models justifies cost. Track whether Anthropic and OpenAI respond with speed-optimized variants to defend the agent-use-case market.</p>
+
+  <div class="sk-box-soft" style="padding:12px 16px;background:var(--card);margin-top:16px">
+    <div class="row gap-4" style="align-items:baseline;flex-wrap:wrap">
+      <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">SOURCE</span>
+      <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/" class="sk-mono" style="font-size:11px;letter-spacing:1px;color:var(--teal);text-decoration:underline;text-underline-offset:2px">GOOGLE BLOG &nearr;</a>
+      <a href="https://deepmind.google/models/model-cards/gemini-3-5-flash/" class="sk-mono" style="font-size:11px;letter-spacing:1px;color:var(--teal);text-decoration:underline;text-underline-offset:2px">DEEPMIND MODEL CARD &nearr;</a>
+    </div>
+  </div>
+
+  <hr class="sk-rule" style="margin-top:14px" />
+  <footer class="row" style="justify-content:space-between;padding:10px 4px">
+    <a href="01-lead-github-tanstack-breach.html" class="sk-mono" style="font-size:10px">&larr; PREV &middot; 01 LEAD</a>
+    <span class="sk-mono" style="font-size:10px;letter-spacing:2px">&middot; END &middot; 02.1 &middot;</span>
+    <a href="02-2-claude-opus-47.html" class="sk-mono" style="font-size:10px">NEXT &middot; 02.2 &rarr;</a>
+  </footer>
+</div>
+</body>
+</html>

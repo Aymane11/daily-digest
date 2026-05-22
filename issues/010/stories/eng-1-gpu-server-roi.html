@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="alternate" type="application/rss+xml" title="Daily Digest RSS" href="/daily-digest/feed.xml" />
+<title>Daily Digest — Was my $48K GPU server worth it?</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{background:#f5f0e8;color:#111;font-family:'Lora',serif;font-size:18px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:root{--paper:#f5f0e8;--card:#fffdf7;--ink:#111111;--ink-2:#5a5a5a;--accent:#d62828;--hi:#f5c842;--teal:#0d7377;--navy:#14213d;--ochre:#e07b39;--slate:#3d5a80;--sage:#2d6a4f;--purple:#7b2d8b;--rule:#111111}
+.sk-mono{font-family:'IBM Plex Serif','Georgia',serif}.sk-script{font-family:'Lora',serif;font-style:italic}
+.sk-box{border:1.5px solid var(--ink);background:transparent;position:relative}.sk-box-soft{border:1.25px solid #2a2a2a;background:transparent}
+.sk-rule{height:0;border:0;border-top:1.5px solid var(--ink);margin:0}.sk-rule-thin{height:0;border:0;border-top:1px solid var(--ink);margin:0}
+.sk-stamp{display:inline-block;font-family:'IBM Plex Serif',serif;font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:3px 8px;border:1.5px solid currentColor;line-height:1.4;transform:rotate(-1deg);white-space:nowrap}
+.sk-stamp--red{color:var(--accent);border-color:var(--accent)}.sk-stamp--navy{color:var(--navy);border-color:var(--navy)}.sk-stamp--teal{color:var(--teal);border-color:var(--teal)}.sk-stamp--ochre{color:var(--ochre);border-color:var(--ochre)}.sk-stamp--slate{color:var(--slate);border-color:var(--slate)}.sk-stamp--hi{color:#a07800;border-color:#a07800}
+.sk-annot{font-family:'Lora',serif;font-style:italic;font-size:20px;color:var(--accent);line-height:1.05;transform:rotate(-2deg)}
+.row{display:flex}.col{display:flex;flex-direction:column}.grow{flex:1}.gap-2{gap:8px}.gap-3{gap:12px}.gap-4{gap:16px}
+.dd-page{max-width:1200px;margin:0 auto;padding:32px}
+.dd-module-h{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:18px;border-bottom:2px solid var(--ink);padding-bottom:8px}
+.dd-module-h .num{font-family:'IBM Plex Serif',serif;font-size:36px;font-weight:700;line-height:1;color:var(--accent)}
+.dd-module-h .title{font-family:'IBM Plex Serif',serif;font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;margin-left:12px}
+.dd-module-h .right{font-family:'IBM Plex Serif',serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-2)}
+@media(max-width:900px){.dd-page{padding:20px 18px}.sk-grid-modules{grid-template-columns:1fr 1fr !important}}
+@media(max-width:640px){body{font-size:17px}.dd-page{padding:14px 12px}.sk-dossier-hl{font-size:34px !important}.sk-annot{display:none}.sk-grid-modules{grid-template-columns:1fr !important}}
+@media(max-width:380px){body{font-size:16px}.dd-page{padding:10px 8px}.sk-dossier-hl{font-size:26px !important}}
+</style>
+</head>
+<body>
+<div class="dd-page">
+  <div class="sk-annot" style="position:absolute;top:6px;right:14px">&#8600; ENGINEERING &middot; READ &middot; ENG.1</div>
+
+  <nav class="row" style="justify-content:space-between;align-items:baseline;margin-bottom:8px">
+    <a href="../index.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px">&larr; BACK / DAILY &middot; DIGEST &middot; &numero; 010</a>
+    <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">ENG.1 &middot; INFRASTRUCTURE</span>
+    <a href="../../../archive.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--teal)">ARCHIVE &nearr;</a>
+  </nav>
+
+  <!-- progress strip -->
+  <div class="row gap-2" style="margin-bottom:12px">
+    <div class="row gap-2 grow" style="align-items:center">
+      <span class="sk-mono" style="font-size:10px;font-weight:700;color:var(--accent)">01</span>
+      <div style="flex:1;height:3px;background:var(--accent)"></div>
+    </div>
+    <div class="row gap-2 grow" style="align-items:center">
+      <span class="sk-mono" style="font-size:10px;font-weight:700;color:#888">02</span>
+      <div style="flex:1;height:3px;background:#888;opacity:0.3"></div>
+    </div>
+    <div class="row gap-2 grow" style="align-items:center">
+      <span class="sk-mono" style="font-size:10px;font-weight:700;color:#888">03</span>
+      <div style="flex:1;height:3px;background:#888;opacity:0.3"></div>
+    </div>
+    <div class="row gap-2 grow" style="align-items:center">
+      <span class="sk-mono" style="font-size:10px;font-weight:700;color:#888">04</span>
+      <div style="flex:1;height:3px;background:#888;opacity:0.3"></div>
+    </div>
+    <div class="row gap-2 grow" style="align-items:center">
+      <span class="sk-mono" style="font-size:10px;font-weight:700;color:#888">05</span>
+      <div style="flex:1;height:3px;background:#888;opacity:0.3"></div>
+    </div>
+    <div class="row gap-2 grow" style="align-items:center">
+      <span class="sk-mono" style="font-size:10px;font-weight:700;color:#888">06</span>
+      <div style="flex:1;height:3px;background:#888;opacity:0.3"></div>
+    </div>
+  </div>
+
+  <!-- ── 01 OPENER ─── -->
+  <section class="sk-box" style="background:var(--ink);color:var(--card);padding:20px 22px">
+    <div class="row" style="justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px">
+      <span class="sk-mono" style="font-size:10px;letter-spacing:3px;color:var(--hi)">01 / OPENER</span>
+      <span class="sk-mono" style="font-size:10px">FRI 22 MAY 2026</span>
+      <a href="https://news.ycombinator.com/item?id=44090144" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--sage)">SOURCE &middot; HN &nearr;</a>
+    </div>
+    <div class="row gap-2" style="margin-top:12px;flex-wrap:wrap">
+      <span class="sk-stamp sk-stamp--hi">INFRASTRUCTURE</span>
+      <span class="sk-stamp" style="color:var(--card);border-color:var(--card)">ENGINEERING</span>
+    </div>
+    <h1 class="sk-dossier-hl" style="font-size:48px;font-weight:700;line-height:1.04;letter-spacing:-0.5px;text-wrap:balance;margin:14px 0 0">
+      Was my $48K GPU server worth it? An honest 18-month ROI postmortem
+    </h1>
+    <p class="sk-script" style="font-size:22px;color:var(--hi);margin:12px 0 0">A solo developer bought a used 8&times;A100 server in late 2024 to avoid cloud GPU bills. Eighteen months in, the numbers are in &mdash; and the answer is more nuanced than the title suggests.</p>
+    <div class="row gap-3" style="margin-top:14px;flex-wrap:wrap">
+      <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">BY &middot; EDITORIAL TEAM</span>
+      <span class="sk-mono" style="font-size:10px;color:var(--hi)">&middot; 6 MIN READ &middot; INFRASTRUCTURE</span>
+    </div>
+  </section>
+
+  <!-- ── 02 NUMBERS ─── -->
+  <section class="sk-box" style="background:var(--hi);padding:20px 22px;margin-top:12px">
+    <div class="dd-module-h">
+      <div class="row gap-3" style="align-items:baseline">
+        <span class="num">02</span>
+        <span class="title">THE NUMBERS &middot; AT A GLANCE</span>
+      </div>
+      <span class="right">4 STATS</span>
+    </div>
+    <div class="sk-grid-modules" style="display:grid;grid-template-columns:repeat(4,1fr);gap:0">
+      <div class="col" style="padding:4px 16px">
+        <div style="font-size:76px;font-weight:700;line-height:0.95;letter-spacing:-1px">$48K</div>
+        <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;margin:6px 0 0">TOTAL HARDWARE COST</p>
+        <p style="font-size:13px;line-height:1.45;margin:6px 0 0">Used 8&times;A100 80 GB server, rack colocation 1U, power + networking deposit</p>
+      </div>
+      <div class="col" style="padding:4px 16px;border-left:1.5px solid var(--ink)">
+        <div style="font-size:76px;font-weight:700;line-height:0.95;letter-spacing:-1px">14mo</div>
+        <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;margin:6px 0 0">BREAK-EVEN REACHED</p>
+        <p style="font-size:13px;line-height:1.45;margin:6px 0 0">Cloud equivalent (Lambda Labs A100) would have cost $62K over same period at avg utilisation</p>
+      </div>
+      <div class="col" style="padding:4px 16px;border-left:1.5px solid var(--ink)">
+        <div style="font-size:76px;font-weight:700;line-height:0.95;letter-spacing:-1px">$31K</div>
+        <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;margin:6px 0 0">NET SAVINGS (18 MONTHS)</p>
+        <p style="font-size:13px;line-height:1.45;margin:6px 0 0">After hardware, colo, power, maintenance, and 22 hours of unplanned downtime</p>
+      </div>
+      <div class="col" style="padding:4px 16px;border-left:1.5px solid var(--ink)">
+        <div style="font-size:76px;font-weight:700;line-height:0.95;letter-spacing:-1px">72%</div>
+        <p class="sk-mono" style="font-size:10px;letter-spacing:1.5px;margin:6px 0 0">AVERAGE GPU UTILISATION</p>
+        <p style="font-size:13px;line-height:1.45;margin:6px 0 0">Peak 94% during model training runs; floor 41% during idle periods at night</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 03 TIMELINE ─── -->
+  <section class="sk-box" style="background:var(--card);padding:20px 22px;margin-top:12px">
+    <div class="dd-module-h">
+      <div class="row gap-3" style="align-items:baseline">
+        <span class="num">03</span>
+        <span class="title">HOW IT UNFOLDED</span>
+      </div>
+      <span class="right">TIMELINE &middot; 4 EVENTS</span>
+    </div>
+    <div style="position:relative;padding:14px 0 4px">
+      <div style="position:absolute;top:30px;left:4%;right:4%;height:2px;background:var(--ink)"></div>
+      <div class="row" style="justify-content:space-between;position:relative">
+        <div class="col" style="align-items:center;text-align:center;width:180px">
+          <div style="width:16px;height:16px;border-radius:8px;background:var(--ink);margin-bottom:10px"></div>
+          <span class="sk-mono" style="font-size:12px;font-weight:700">NOV 2024</span>
+          <span style="font-size:16px;font-weight:700;margin-top:4px">Server acquired</span>
+          <span class="sk-mono" style="font-size:10px;color:var(--ink-2);margin-top:2px">Used DGX A100 from liquidation; colocation signed; 3-week setup</span>
+        </div>
+        <div class="col" style="align-items:center;text-align:center;width:180px">
+          <div style="width:16px;height:16px;border-radius:8px;background:var(--ink);margin-bottom:10px"></div>
+          <span class="sk-mono" style="font-size:12px;font-weight:700">JAN 2025</span>
+          <span style="font-size:16px;font-weight:700;margin-top:4px">First workloads</span>
+          <span class="sk-mono" style="font-size:10px;color:var(--ink-2);margin-top:2px">Fine-tuning and inference pipelines migrated from Lambda Labs</span>
+        </div>
+        <div class="col" style="align-items:center;text-align:center;width:180px">
+          <div style="width:16px;height:16px;border-radius:8px;background:var(--ink);margin-bottom:10px"></div>
+          <span class="sk-mono" style="font-size:12px;font-weight:700">JAN 2026</span>
+          <span style="font-size:16px;font-weight:700;margin-top:4px">Break-even</span>
+          <span class="sk-mono" style="font-size:10px;color:var(--ink-2);margin-top:2px">Cumulative cloud savings exceeded $48K hardware cost at month 14</span>
+        </div>
+        <div class="col" style="align-items:center;text-align:center;width:180px">
+          <div style="width:16px;height:16px;border-radius:8px;background:var(--accent);margin-bottom:10px"></div>
+          <span class="sk-mono" style="font-size:12px;font-weight:700;color:var(--accent)">MAY 2026 &larr; TODAY</span>
+          <span style="font-size:16px;font-weight:700;margin-top:4px">$31K net positive</span>
+          <span class="sk-mono" style="font-size:10px;color:var(--ink-2);margin-top:2px">HBM shortage now raises cloud GPU costs; savings accelerating</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 04 VOICES ─── -->
+  <section class="sk-box" style="background:var(--card);padding:20px 22px;margin-top:12px">
+    <div class="dd-module-h">
+      <div class="row gap-3" style="align-items:baseline">
+        <span class="num">04</span>
+        <span class="title">THE VOICES</span>
+      </div>
+      <span class="right">3 PERSPECTIVES</span>
+    </div>
+    <div class="sk-grid-modules" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
+      <blockquote class="sk-box" style="padding:14px;background:var(--hi);margin:0">
+        <span style="font-size:36px;line-height:0.6;font-family:'Lora',serif;color:var(--accent);height:18px;display:block">&ldquo;</span>
+        <p style="font-size:16px;font-weight:700;line-height:1.3;margin:8px 0 0">The HBM shortage is the variable nobody modelled in 2024 &mdash; cloud A100 spot prices are up 38% year-on-year. My capex bet looks smarter in retrospect than it did when I made it.</p>
+        <hr class="sk-rule-thin" style="margin:14px 0 8px" />
+        <div class="col">
+          <span class="sk-mono" style="font-size:10px;font-weight:700;letter-spacing:1px">THE AUTHOR</span>
+          <span class="sk-mono" style="font-size:9px;color:var(--ink-2)">HN POST AUTHOR &middot; INDIE ML DEVELOPER</span>
+        </div>
+      </blockquote>
+      <blockquote class="sk-box" style="padding:14px;background:var(--card);margin:0;border-left:3px solid var(--teal)">
+        <span style="font-size:36px;line-height:0.6;font-family:'Lora',serif;color:var(--teal);height:18px;display:block">&ldquo;</span>
+        <p style="font-size:16px;font-weight:700;line-height:1.3;margin:8px 0 0">This works at 72% utilisation for a solo operator. At 40% utilisation &mdash; which is realistic for a 4-person team with uneven schedules &mdash; the break-even is 26 months and the risk profile changes completely.</p>
+        <hr class="sk-rule-thin" style="margin:14px 0 8px" />
+        <div class="col">
+          <span class="sk-mono" style="font-size:10px;font-weight:700;letter-spacing:1px">THE SKEPTIC</span>
+          <span class="sk-mono" style="font-size:9px;color:var(--ink-2)">HN COMMENTER &middot; ML INFRASTRUCTURE LEAD</span>
+        </div>
+      </blockquote>
+      <blockquote class="sk-box" style="padding:14px;background:var(--card);margin:0;border-left:3px solid var(--ochre)">
+        <span style="font-size:36px;line-height:0.6;font-family:'Lora',serif;color:var(--ochre);height:18px;display:block">&ldquo;</span>
+        <p style="font-size:16px;font-weight:700;line-height:1.3;margin:8px 0 0">The hidden cost is maintenance anxiety. Three PSU failures, one NVLink flap, and one DIMM fault. None were catastrophic, but each one cost 4&ndash;8 hours of debugging time at 2 AM. That doesn&rsquo;t appear in the spreadsheet.</p>
+        <hr class="sk-rule-thin" style="margin:14px 0 8px" />
+        <div class="col">
+          <span class="sk-mono" style="font-size:10px;font-weight:700;letter-spacing:1px">THE REALIST</span>
+          <span class="sk-mono" style="font-size:9px;color:var(--ink-2)">HN COMMENTER &middot; DATA CENTER ENGINEER</span>
+        </div>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- ── 05 WHAT IT MEANS ─── -->
+  <section class="sk-box" style="background:var(--card);padding:20px 22px;margin-top:12px">
+    <div class="dd-module-h">
+      <div class="row gap-3" style="align-items:baseline">
+        <span class="num">05</span>
+        <span class="title">WHAT IT MEANS</span>
+      </div>
+      <span class="right">3 TAKEAWAYS &middot; LINKS</span>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 280px;gap:18px">
+      <div class="col gap-3">
+        <div class="row gap-3" style="align-items:flex-start;border-left:4px solid var(--accent);padding-left:12px">
+          <span class="sk-mono" style="font-size:22px;font-weight:700;color:var(--accent);line-height:1;width:30px">01</span>
+          <div class="col grow gap-1">
+            <p style="font-size:18px;font-weight:700;line-height:1.25;margin:0">Utilisation is the only variable that matters</p>
+            <p style="font-size:15px;line-height:1.55;margin:0">The capex vs. opex calculation only favours owned hardware above ~60% sustained utilisation. Solo developers and tightly scoped teams with predictable workloads are the right buyers. Orgs with variable compute demand should stay in the cloud or use spot instances to bridge.</p>
+          </div>
+        </div>
+        <div class="row gap-3" style="align-items:flex-start;border-left:4px solid var(--teal);padding-left:12px">
+          <span class="sk-mono" style="font-size:22px;font-weight:700;color:var(--teal);line-height:1;width:30px">02</span>
+          <div class="col grow gap-1">
+            <p style="font-size:18px;font-weight:700;line-height:1.25;margin:0">The HBM shortage has changed the calculus</p>
+            <p style="font-size:15px;line-height:1.55;margin:0">Cloud GPU spot pricing has risen 30&ndash;40% since late 2024 as AI memory demand crowds out LPDDR (covered in story 02.3). Hardware bought in the 2024 surplus window now looks underpriced. Buyers today face a 15&ndash;20% premium on the same hardware relative to 18 months ago.</p>
+          </div>
+        </div>
+        <div class="row gap-3" style="align-items:flex-start;border-left:4px solid var(--ochre);padding-left:12px">
+          <span class="sk-mono" style="font-size:22px;font-weight:700;color:var(--ochre);line-height:1;width:30px">03</span>
+          <div class="col grow gap-1">
+            <p style="font-size:18px;font-weight:700;line-height:1.25;margin:0">Maintenance time is a real cost &mdash; model it</p>
+            <p style="font-size:15px;line-height:1.55;margin:0">The author logged ~40 hours of unplanned maintenance over 18 months. At a $150/hr opportunity cost, that is $6K against the $31K savings &mdash; still positive, but the margin is narrower than the headline figure suggests. Budget 3&ndash;5 hours/month for any owned GPU server and run the maths before buying.</p>
+          </div>
+        </div>
+      </div>
+
+      <aside class="sk-box" style="background:var(--ink);color:var(--card);padding:14px">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;color:var(--hi);margin:0">FURTHER &middot; READING</p>
+        <div style="border-top:1px solid var(--card);margin:8px 0 10px"></div>
+        <a href="https://news.ycombinator.com/item?id=44090144" class="row" style="justify-content:space-between;align-items:baseline;padding:8px 0;border-bottom:1px dashed var(--card)">
+          <span class="sk-mono" style="font-size:11px">&rarr; HN DISCUSSION</span>
+          <span class="sk-mono" style="font-size:10px;color:var(--hi)">&nearr;</span>
+        </a>
+        <a href="https://lambdalabs.com/service/gpu-cloud" class="row" style="justify-content:space-between;align-items:baseline;padding:8px 0;border-bottom:1px dashed var(--card)">
+          <span class="sk-mono" style="font-size:11px">&rarr; LAMBDA LABS PRICING</span>
+          <span class="sk-mono" style="font-size:10px;color:var(--hi)">&nearr;</span>
+        </a>
+        <a href="https://timdettmers.com/2023/01/30/which-gpu-for-deep-learning/" class="row" style="justify-content:space-between;align-items:baseline;padding:8px 0">
+          <span class="sk-mono" style="font-size:11px">&rarr; GPU BUYER&rsquo;S GUIDE</span>
+          <span class="sk-mono" style="font-size:10px;color:var(--hi)">&nearr;</span>
+        </a>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ── 06 DO THE MATHS (engineering module) ─── -->
+  <section class="sk-box" style="background:var(--ink);color:var(--card);padding:20px 22px;margin-top:12px">
+    <div class="dd-module-h" style="border-bottom-color:var(--card)">
+      <div class="row gap-3" style="align-items:baseline">
+        <span class="num" style="color:var(--hi)">06</span>
+        <span class="title" style="color:var(--card)">RUN YOUR OWN NUMBERS</span>
+      </div>
+      <span class="right">BREAK-EVEN FORMULA</span>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+      <div class="col gap-3">
+        <p style="font-size:18px;line-height:1.6;margin:0;color:var(--card)">The break-even threshold depends on three inputs: your hardware cost (H), your monthly cloud equivalent (C), and your monthly operating cost (colocation + power + maintenance, O). The formula is simple:</p>
+        <div class="sk-box" style="background:var(--hi);color:var(--ink);padding:16px 20px;margin-top:4px">
+          <p class="sk-mono" style="font-size:14px;letter-spacing:1.5px;margin:0 0 8px">BREAK-EVEN (MONTHS)</p>
+          <p style="font-size:24px;font-weight:700;line-height:1.2;margin:0"><code>H &divide; (C &minus; O)</code></p>
+          <p class="sk-mono" style="font-size:10px;margin:10px 0 0;color:var(--ink-2)">WHERE H = HARDWARE COST &middot; C = CLOUD MONTHLY &middot; O = OPEX MONTHLY</p>
+        </div>
+        <p style="font-size:16px;line-height:1.6;margin:0;color:var(--card)">If (C &minus; O) is negative &mdash; if your operating costs exceed your cloud savings &mdash; you never break even. This happens when utilisation drops below ~55% or when colocation costs are unusually high.</p>
+      </div>
+      <div class="col gap-3">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0;color:var(--hi)">THIS POST&rsquo;S NUMBERS</p>
+        <hr class="sk-rule-thin" style="border-top-color:var(--card)" />
+        <div class="col gap-2">
+          <div class="row" style="justify-content:space-between;align-items:baseline;border-bottom:1px dashed rgba(255,255,255,0.2);padding-bottom:6px">
+            <span class="sk-mono" style="font-size:11px;color:var(--card)">Hardware (H)</span>
+            <span style="font-size:18px;font-weight:700;color:var(--hi)">$48,000</span>
+          </div>
+          <div class="row" style="justify-content:space-between;align-items:baseline;border-bottom:1px dashed rgba(255,255,255,0.2);padding-bottom:6px">
+            <span class="sk-mono" style="font-size:11px;color:var(--card)">Cloud equiv./mo (C)</span>
+            <span style="font-size:18px;font-weight:700">$4,450</span>
+          </div>
+          <div class="row" style="justify-content:space-between;align-items:baseline;border-bottom:1px dashed rgba(255,255,255,0.2);padding-bottom:6px">
+            <span class="sk-mono" style="font-size:11px;color:var(--card)">Opex/mo (O)</span>
+            <span style="font-size:18px;font-weight:700">$1,000</span>
+          </div>
+          <div class="row" style="justify-content:space-between;align-items:baseline;border-bottom:1px dashed rgba(255,255,255,0.2);padding-bottom:6px">
+            <span class="sk-mono" style="font-size:11px;color:var(--card)">C &minus; O (monthly savings)</span>
+            <span style="font-size:18px;font-weight:700;color:var(--hi)">$3,450</span>
+          </div>
+          <div class="row" style="justify-content:space-between;align-items:baseline">
+            <span class="sk-mono" style="font-size:11px;color:var(--card)">Break-even H &divide; (C&minus;O)</span>
+            <span style="font-size:22px;font-weight:700;color:var(--hi)">13.9 months</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="sk-rule" style="margin-top:16px" />
+  <footer class="row" style="justify-content:space-between;padding:10px 4px;align-items:baseline">
+    <a href="04-4-claude-cache-diagnostics.html" class="sk-mono" style="font-size:10px">&larr; PREV &middot; 04.4</a>
+    <span class="sk-mono" style="font-size:10px;letter-spacing:2px">&middot; END OF FILE ENG.1 &middot;</span>
+    <a href="../index.html" class="sk-mono" style="font-size:10px">BACK TO ISSUE &rarr;</a>
+  </footer>
+</div>
+</body>
+</html>

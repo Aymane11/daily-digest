@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="alternate" type="application/rss+xml" title="Daily Digest RSS" href="/daily-digest/feed.xml" />
+<title>Daily Digest — Tool: Claude Cache Diagnostics</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{background:#f5f0e8;color:#111;font-family:'Lora',serif;font-size:18px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:root{--paper:#f5f0e8;--card:#fffdf7;--ink:#111111;--ink-2:#5a5a5a;--accent:#d62828;--hi:#f5c842;--teal:#0d7377;--navy:#14213d;--ochre:#e07b39;--slate:#3d5a80;--sage:#2d6a4f;--purple:#7b2d8b;--rule:#111111}
+.sk-mono{font-family:'IBM Plex Serif','Georgia',serif}.sk-script{font-family:'Lora',serif;font-style:italic}
+.sk-box{border:1.5px solid var(--ink);background:transparent;position:relative}.sk-box-soft{border:1.25px solid #2a2a2a;background:transparent}
+.sk-rule{height:0;border:0;border-top:1.5px solid var(--ink);margin:0}.sk-rule-thin{height:0;border:0;border-top:1px solid var(--ink);margin:0}
+.sk-stamp{display:inline-block;font-family:'IBM Plex Serif',serif;font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:3px 8px;border:1.5px solid currentColor;line-height:1.4;transform:rotate(-1deg);white-space:nowrap}
+.sk-stamp--red{color:var(--accent);border-color:var(--accent)}.sk-stamp--navy{color:var(--navy);border-color:var(--navy)}.sk-stamp--teal{color:var(--teal);border-color:var(--teal)}.sk-stamp--ochre{color:var(--ochre);border-color:var(--ochre)}.sk-stamp--slate{color:var(--slate);border-color:var(--slate)}.sk-stamp--hi{color:#a07800;border-color:#a07800}
+.sk-annot{font-family:'Lora',serif;font-style:italic;font-size:20px;color:var(--accent);line-height:1.05;transform:rotate(-2deg)}
+.row{display:flex}.col{display:flex;flex-direction:column}.grow{flex:1}.gap-2{gap:8px}.gap-3{gap:12px}.gap-4{gap:16px}
+.dd-page{max-width:1200px;margin:0 auto;padding:32px}
+@media(max-width:900px){.dd-page{padding:20px 18px}}
+@media(max-width:640px){body{font-size:17px}.dd-page{padding:14px 12px}.sk-dossier-hl{font-size:36px !important}.sk-annot{display:none}}
+@media(max-width:380px){body{font-size:16px}.dd-page{padding:10px 8px}.sk-dossier-hl{font-size:28px !important}}
+</style>
+</head>
+<body>
+<div class="dd-page">
+  <div class="sk-annot" style="position:absolute;top:6px;right:14px">&#8600; STORY &middot; TOOL &middot; 04.4</div>
+
+  <nav class="row" style="justify-content:space-between;align-items:baseline;margin-bottom:8px">
+    <a href="../index.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px">&larr; BACK / DAILY &middot; DIGEST &middot; &numero; 010</a>
+    <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">TOOL &middot; 04.4 &middot; AI &middot; OBSERVABILITY</span>
+    <a href="../../../archive.html" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--teal)">ARCHIVE &nearr;</a>
+  </nav>
+
+  <section class="sk-box" style="background:var(--ink);color:var(--card);padding:20px 22px">
+    <div class="row" style="justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px">
+      <span class="sk-mono" style="font-size:10px;letter-spacing:3px;color:var(--hi)">TOOL / 04.4</span>
+      <div class="row gap-2">
+        <span class="sk-stamp sk-stamp--hi">OBSERVABILITY</span>
+      </div>
+      <a href="https://github.com/anthropics/claude-cache-diagnostics" class="sk-mono" style="font-size:10px;letter-spacing:1.5px;color:var(--sage)">VISIT TOOL &nearr;</a>
+    </div>
+    <h1 class="sk-dossier-hl" style="font-size:48px;font-weight:700;line-height:1.04;letter-spacing:-0.5px;text-wrap:balance;margin:14px 0 0">
+      Claude Cache Diagnostics
+    </h1>
+    <p style="font-size:20px;font-weight:700;line-height:1.3;color:var(--card);margin:10px 0 0">Visualise prompt cache hit rates, expiry patterns, and token savings across your Claude API calls</p>
+    <p class="sk-script" style="font-size:20px;color:var(--hi);margin:8px 0 0">A lightweight open-source CLI and dashboard for teams that use Anthropic&rsquo;s prompt caching &mdash; shows exactly where cache misses happen and how much they cost.</p>
+    <div class="row gap-3" style="margin-top:14px">
+      <span class="sk-mono" style="font-size:10px;letter-spacing:1.5px">FRI 22 MAY 2026</span>
+    </div>
+  </section>
+
+  <main style="display:grid;grid-template-columns:1fr 320px;gap:14px;margin-top:12px">
+    <div class="col gap-3">
+
+      <div class="sk-box" style="background:var(--hi);padding:18px">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0">&#9733; WHAT IT IS</p>
+        <hr class="sk-rule-thin" style="margin:8px 0 10px" />
+        <p style="font-size:19px;line-height:1.65;margin:0">Claude Cache Diagnostics is an open-source tool from Anthropic that aggregates the <code>cache_creation_input_tokens</code>, <code>cache_read_input_tokens</code>, and <code>input_tokens</code> fields from the Claude API usage response and renders them as a time-series dashboard and a per-prompt breakdown. The CLI mode tails your application logs and computes a live hit-rate percentage; the dashboard mode ingests a CSV export from the Anthropic Console and produces an HTML report showing cache expiry gaps, the most expensive miss patterns, and projected monthly savings if hit rate reaches 80%.</p>
+      </div>
+
+      <div class="sk-box" style="background:var(--card);padding:16px">
+        <div class="row gap-3" style="align-items:baseline;margin-bottom:10px">
+          <span style="font-size:28px;font-weight:700;color:var(--accent);line-height:1">&#182; 01</span>
+          <span class="sk-mono" style="font-size:11px;letter-spacing:2px">WHY &middot; IT &middot; MATTERS</span>
+        </div>
+        <p style="font-size:18px;line-height:1.65;margin:0">Prompt caching is one of the highest-leverage cost controls available for Claude API users &mdash; cache reads are priced at 10% of input token cost, so a well-structured application with an 80% hit rate reduces the effective input token price by 72%. The problem is that cache hit rates are invisible without instrumentation: the API returns the data per call, but no first-party tool aggregates it. Claude Cache Diagnostics fills that gap. The &ldquo;expiry gap&rdquo; analysis is particularly useful: it flags requests where a cache entry expired between calls because the interval exceeded the 5-minute TTL &mdash; a common silent cost driver in low-frequency batch pipelines.</p>
+      </div>
+
+      <div class="sk-box" style="background:var(--card);padding:16px">
+        <div class="row gap-3" style="align-items:baseline;margin-bottom:12px">
+          <span style="font-size:28px;font-weight:700;color:var(--teal);line-height:1">&#182; 02</span>
+          <span class="sk-mono" style="font-size:11px;letter-spacing:2px;color:var(--teal)">HOW &middot; TO &middot; TRY &middot; IT</span>
+          <span class="sk-mono" style="font-size:9px;color:var(--ink-2);margin-left:auto">~10 MIN</span>
+        </div>
+        <div class="col gap-3">
+          <div class="row gap-3" style="align-items:flex-start">
+            <span class="sk-mono" style="font-size:14px;font-weight:700;color:var(--teal);line-height:1;width:28px;flex-shrink:0">01</span>
+            <p style="font-size:17px;line-height:1.6;margin:0">Install: <code>pip install claude-cache-diagnostics</code>. Requires Python 3.10+ and an Anthropic API key set as <code>ANTHROPIC_API_KEY</code>. The dashboard report mode also requires an Anthropic Console CSV export (Settings &rarr; Usage &rarr; Export).</p>
+          </div>
+          <div class="row gap-3" style="align-items:flex-start">
+            <span class="sk-mono" style="font-size:14px;font-weight:700;color:var(--teal);line-height:1;width:28px;flex-shrink:0">02</span>
+            <p style="font-size:17px;line-height:1.6;margin:0">Generate a dashboard: <code>ccd report --input usage_export.csv --output report.html</code>. Open <code>report.html</code> in a browser &mdash; the top section shows your overall hit rate and the cost delta vs. a 0% cache baseline for the export period.</p>
+          </div>
+          <div class="row gap-3" style="align-items:flex-start">
+            <span class="sk-mono" style="font-size:14px;font-weight:700;color:var(--teal);line-height:1;width:28px;flex-shrink:0">03</span>
+            <p style="font-size:17px;line-height:1.6;margin:0">For live monitoring, wrap your API calls with the <code>ccd</code> proxy: set <code>ANTHROPIC_BASE_URL=http://localhost:8899</code> and run <code>ccd proxy --port 8899</code>. The proxy forwards all requests, intercepts usage fields, and displays a live TUI hit-rate counter. No data leaves your machine.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="sk-box" style="background:var(--card);padding:16px">
+        <div class="row gap-3" style="align-items:baseline;margin-bottom:10px">
+          <span style="font-size:28px;font-weight:700;color:var(--accent);line-height:1">&#182; 03</span>
+          <span class="sk-mono" style="font-size:11px;letter-spacing:2px">WHAT &middot; TO &middot; OBSERVE</span>
+        </div>
+        <p style="font-size:18px;line-height:1.65;margin:0">The &ldquo;expiry gap heatmap&rdquo; in the dashboard report shows call intervals bucketed by seconds. Any bucket between 300 and 600 seconds with high volume is a strong signal that you are intermittently busting the 5-minute TTL &mdash; either add cache heartbeat calls or restructure your pipeline to keep intervals below 270 seconds. The &ldquo;prompt fingerprint analysis&rdquo; tab groups calls by the first 1,000 tokens of the system prompt: if you see many fingerprints with only a few calls each, your system prompts are not stable enough across requests to benefit from caching, and you should consolidate them.</p>
+      </div>
+    </div>
+
+    <aside class="col gap-3">
+      <div class="sk-box" style="background:var(--card);padding:14px">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0">QUICK &middot; FACTS</p>
+        <hr class="sk-rule-thin" style="margin:8px 0 12px" />
+        <div class="col gap-2">
+          <div class="row gap-2" style="align-items:baseline">
+            <span class="sk-mono" style="font-size:9px;color:var(--ink-2);min-width:60px">MADE BY</span>
+            <span style="font-size:14px;font-weight:700">Anthropic</span>
+          </div>
+          <div class="row gap-2" style="align-items:baseline">
+            <span class="sk-mono" style="font-size:9px;color:var(--ink-2);min-width:60px">LICENSE</span>
+            <span style="font-size:14px;font-weight:700">MIT</span>
+          </div>
+          <div class="row gap-2" style="align-items:baseline">
+            <span class="sk-mono" style="font-size:9px;color:var(--ink-2);min-width:60px">NEEDS</span>
+            <span style="font-size:13px;line-height:1.4">Python 3.10+; Anthropic API key; Console CSV for report mode</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sk-box-soft" style="padding:12px">
+        <p class="sk-mono" style="font-size:10px;letter-spacing:2px;margin:0 0 10px">FILED &middot; UNDER</p>
+        <div class="row gap-2" style="flex-wrap:wrap">
+          <span class="sk-stamp sk-stamp--teal">OBSERVABILITY</span>
+          <span class="sk-stamp sk-stamp--navy">AI</span>
+          <span class="sk-stamp sk-stamp--ochre">COST OPT</span>
+        </div>
+      </div>
+
+      <div class="sk-box" style="background:var(--ink);color:var(--card);padding:14px">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;color:var(--hi);margin:0">GET &middot; THE &middot; TOOL</p>
+        <div style="border-top:1px solid var(--card);margin:8px 0 10px"></div>
+        <a href="https://github.com/anthropics/claude-cache-diagnostics" class="sk-mono" style="font-size:12px;color:var(--sage);text-decoration:underline;text-underline-offset:2px;display:block">GITHUB &nearr;</a>
+        <p class="sk-mono" style="font-size:9px;color:var(--card);opacity:0.7;margin:6px 0 0">v0.1.0 &middot; MAY 21 2026</p>
+        <a href="https://docs.anthropic.com/en/docs/cache-diagnostics" class="sk-mono" style="font-size:11px;color:var(--hi);display:block;margin-top:10px">DOCS &nearr;</a>
+      </div>
+
+      <div class="sk-box" style="background:var(--hi);padding:14px">
+        <p class="sk-mono" style="font-size:11px;letter-spacing:2px;margin:0">THE &middot; QUESTION</p>
+        <hr class="sk-rule-thin" style="margin:8px 0 10px" />
+        <p style="font-size:15px;font-weight:700;line-height:1.45;margin:0">For teams spending &gt;$500/month on Claude API input tokens, is the cache hit rate already at the theoretical maximum, or is there 20&ndash;40% savings sitting in expiry gaps?</p>
+      </div>
+    </aside>
+  </main>
+
+  <hr class="sk-rule" style="margin-top:16px" />
+  <footer class="row" style="justify-content:space-between;padding:10px 4px;align-items:baseline">
+    <a href="04-3-gemini-api-agents.html" class="sk-mono" style="font-size:10px">&larr; PREV &middot; 04.3</a>
+    <span class="sk-mono" style="font-size:10px;letter-spacing:2px">&middot; END OF FILE 04.4 &middot;</span>
+    <a href="eng-1-gpu-server-roi.html" class="sk-mono" style="font-size:10px">NEXT &middot; ENG.1 &rarr;</a>
+  </footer>
+</div>
+</body>
+</html>

@@ -8,6 +8,134 @@
     <atom:link href="https://aymane11.github.io/daily-digest/feed.xml" rel="self" type="application/rss+xml"/>
 
     <item>
+      <title>GitHub, OpenAI &amp; Mistral breached via poisoned VS Code extension</title>
+      <link>https://aymane11.github.io/daily-digest/issues/010/stories/01-lead-github-tanstack-breach.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/010/stories/01-lead-github-tanstack-breach.html</guid>
+      <pubDate>Fri, 22 May 2026 07:00:00 +0000</pubDate>
+      <description>A credential-stealing worm propagated through TanStack’s npm packages, trojaned the Nx Console extension for 18 minutes, and harvested developer secrets from 3,800 GitHub repositories.</description>
+    </item>
+
+    <item>
+      <title>Gemini 3.5 Flash: frontier agents at 4x speed</title>
+      <link>https://aymane11.github.io/daily-digest/issues/010/stories/02-1-gemini-35-flash.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/010/stories/02-1-gemini-35-flash.html</guid>
+      <pubDate>Fri, 22 May 2026 07:00:00 +0000</pubDate>
+      <description>Google ships its first model combining frontier-class agent performance with Flash-series output speed, generally available the same week as Google I/O 2026.</description>
+    </item>
+
+    <item>
+      <title>Claude Opus 4.7 is generally available</title>
+      <link>https://aymane11.github.io/daily-digest/issues/010/stories/02-2-claude-opus-47.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/010/stories/02-2-claude-opus-47.html</guid>
+      <pubDate>Fri, 22 May 2026 07:00:00 +0000</pubDate>
+      <description>BY · THE · NUMBERS</description>
+    </item>
+
+    <item>
+      <title>AI is killing the cheap smartphone</title>
+      <link>https://aymane11.github.io/daily-digest/issues/010/stories/02-3-memory-shortage.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/010/stories/02-3-memory-shortage.html</guid>
+      <pubDate>Fri, 22 May 2026 07:00:00 +0000</pubDate>
+      <description>Data-centre AI training and inference are monopolising DRAM production, pushing up the cost floor for consumer devices and quietly ending the era of the sub-$200 phone.</description>
+    </item>
+
+    <item>
+      <title>OpenAI opens ChatGPT ads to all advertisers</title>
+      <link>https://aymane11.github.io/daily-digest/issues/010/stories/02-4-openai-chatgpt-ads.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/010/stories/02-4-openai-chatgpt-ads.html</guid>
+      <pubDate>Fri, 22 May 2026 07:00:00 +0000</pubDate>
+      <description>Self-serve Ads Manager, CPC bidding, and a conversion pixel go live as OpenAI targets $2.5B in ad revenue this year and $100B annually by 2030.</description>
+    </item>
+
+    <item>
+      <title>Antigravity 2.0 launches at Google I/O with 1M-token context and managed agents</title>
+      <link>https://aymane11.github.io/daily-digest/issues/010/stories/03-1-antigravity-20.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/010/stories/03-1-antigravity-20.html</guid>
+      <pubDate>Fri, 22 May 2026 07:00:00 +0000</pubDate>
+      <description>Google’s agent-hosting platform doubles down on long-context tasks: 10 built-in integrations, free-tier expansion to 100 RPM, and a companion CLI ship alongside Gemini 3.5 Flash.</description>
+    </item>
+
+    <item>
+      <title>Microsoft Agent 365 goes GA; Shadow AI scanner flags 4,200 unsanctioned tools</title>
+      <link>https://aymane11.github.io/daily-digest/issues/010/stories/03-2-microsoft-agent365.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/010/stories/03-2-microsoft-agent365.html</guid>
+      <pubDate>Fri, 22 May 2026 07:00:00 +0000</pubDate>
+      <description>Microsoft’s enterprise agent platform is generally available with Copilot Studio integration, Azure AI Foundry backend, and a new Shadow AI discovery module that already surfaced thousands of unauthorized tools across early-access tenants.</description>
+    </item>
+
+    <item>
+      <title>Microsoft disrupts Fox Tempest malware-signing-as-a-service network</title>
+      <link>https://aymane11.github.io/daily-digest/issues/010/stories/03-3-fox-tempest.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/010/stories/03-3-fox-tempest.html</guid>
+      <pubDate>Fri, 22 May 2026 07:00:00 +0000</pubDate>
+      <description>Microsoft’s Digital Crimes Unit seized infrastructure used by Fox Tempest, a threat actor selling valid Windows Authenticode signatures for malware, evading Defender and SmartScreen at scale.</description>
+    </item>
+
+    <item>
+      <title>Anthropic ships Claude &quot;Dreaming&quot; — async background reasoning that outlasts sessions</title>
+      <link>https://aymane11.github.io/daily-digest/issues/010/stories/03-4-claude-dreaming.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/010/stories/03-4-claude-dreaming.html</guid>
+      <pubDate>Fri, 22 May 2026 07:00:00 +0000</pubDate>
+      <description>A new API capability lets Claude Managed Agents perform extended background reasoning between sessions — picking up long tasks without forcing the user to stay connected.</description>
+    </item>
+
+    <item>
+      <title>I indexed a year of personal video locally with Gemma4-31B on a 2021 MacBook Pro</title>
+      <link>https://aymane11.github.io/daily-digest/issues/010/stories/03-5-video-indexing-gemma.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/010/stories/03-5-video-indexing-gemma.html</guid>
+      <pubDate>Fri, 22 May 2026 07:00:00 +0000</pubDate>
+      <description>A developer built a fully private semantic video search system using Gemma4-31B on Apple Silicon — no cloud, no API keys, 847 hours of footage indexed in 14 hours overnight.</description>
+    </item>
+
+    <item>
+      <title>WebMCP: an open standard for browser-native AI agent tool exposure</title>
+      <link>https://aymane11.github.io/daily-digest/issues/010/stories/03-6-webmcp.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/010/stories/03-6-webmcp.html</guid>
+      <pubDate>Fri, 22 May 2026 07:00:00 +0000</pubDate>
+      <description>A community draft standard proposes a JavaScript API that lets any web page declare tools for AI agents — without custom integrations, browser extensions, or screen scraping.</description>
+    </item>
+
+    <item>
+      <title>Tool: Antigravity CLI</title>
+      <link>https://aymane11.github.io/daily-digest/issues/010/stories/04-1-antigravity-cli.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/010/stories/04-1-antigravity-cli.html</guid>
+      <pubDate>Fri, 22 May 2026 07:00:00 +0000</pubDate>
+      <description>Local development and pipeline orchestration for Google’s managed agent platform</description>
+    </item>
+
+    <item>
+      <title>Tool: Slumber TUI HTTP Client</title>
+      <link>https://aymane11.github.io/daily-digest/issues/010/stories/04-2-slumber.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/010/stories/04-2-slumber.html</guid>
+      <pubDate>Fri, 22 May 2026 07:00:00 +0000</pubDate>
+      <description>Terminal-native HTTP client with collection management, chained requests, and environment profiles</description>
+    </item>
+
+    <item>
+      <title>Tool: Gemini API Managed Agents</title>
+      <link>https://aymane11.github.io/daily-digest/issues/010/stories/04-3-gemini-api-agents.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/010/stories/04-3-gemini-api-agents.html</guid>
+      <pubDate>Fri, 22 May 2026 07:00:00 +0000</pubDate>
+      <description>Stateful, long-running agents over Gemini models with built-in session persistence and tool execution</description>
+    </item>
+
+    <item>
+      <title>Tool: Claude Cache Diagnostics</title>
+      <link>https://aymane11.github.io/daily-digest/issues/010/stories/04-4-claude-cache-diagnostics.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/010/stories/04-4-claude-cache-diagnostics.html</guid>
+      <pubDate>Fri, 22 May 2026 07:00:00 +0000</pubDate>
+      <description>Visualise prompt cache hit rates, expiry patterns, and token savings across your Claude API calls</description>
+    </item>
+
+    <item>
+      <title>Was my $48K GPU server worth it?</title>
+      <link>https://aymane11.github.io/daily-digest/issues/010/stories/eng-1-gpu-server-roi.html</link>
+      <guid>https://aymane11.github.io/daily-digest/issues/010/stories/eng-1-gpu-server-roi.html</guid>
+      <pubDate>Fri, 22 May 2026 07:00:00 +0000</pubDate>
+      <description>A solo developer bought a used 8&amp;times;A100 server in late 2024 to avoid cloud GPU bills. Eighteen months in, the numbers are in — and the answer is more nuanced than the title suggests.</description>
+    </item>
+
+    <item>
       <title>Criminal AI Zero-Day · 01.LEAD</title>
       <link>https://aymane11.github.io/daily-digest/issues/009/stories/01-lead-criminal-ai-zero-day.html</link>
       <guid>https://aymane11.github.io/daily-digest/issues/009/stories/01-lead-criminal-ai-zero-day.html</guid>
